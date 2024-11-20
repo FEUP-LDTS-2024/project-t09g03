@@ -1,26 +1,27 @@
 package com.chickengame.viewer;
 
 import com.chickengame.controler.ImageHandler;
+import com.chickengame.model.Element;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
 public class ObjectPainter {
     ObjectPainter(){}
 
-    public void draw(TextGraphics graphics, ImageHandler image)
+    public void draw(TextGraphics graphics, ImageHandler image, Element element)
     {
-        for(int i = 0; i< image.getSizeX();i++)
+        for(int i = 0; i< image.getSizeX(element.getImage());i++)
         {
-            for(int c = 0; c<image.getSizeY(); c++)
+            for(int c = 0; c<image.getSizeY(element.getImage()); c++)
             {
-                String paint = image.getColor(i,c);
+                String paint = image.getColor(i,c,element.getImage());
                 if(paint.equals("#000000"))
                 {
                     continue;
                 }else
                 {
-                    graphics.setForegroundColor(TextColor.Factory.fromString(image.getColor(i, c)));
-                    graphics.setCharacter(i + superior.getX(), c + superior.getY(), '█');
+                    graphics.setForegroundColor(TextColor.Factory.fromString(paint));
+                    graphics.setCharacter(i + element.getX(), c + element.getY(), '█');
                 }
             }
         }

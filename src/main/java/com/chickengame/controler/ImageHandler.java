@@ -29,5 +29,13 @@ public class ImageHandler {
         int blue = rgb & 0xff;
         return String.format("#%02x%02x%02x", red, green, blue);
     }
+    public int getSizeX(BufferedImage image)
+    {
+        return image.getWidth();
+    }
+    public int getSizeY(BufferedImage image)
+    {
+        return image.getHeight();
+    }
 
 }
