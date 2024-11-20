@@ -1,37 +1,30 @@
 package com.ChickenGame.model.elements;
 
+import com.ChickenGame.model.Position;
+
 import java.awt.image.BufferedImage;
 
-public class Element {
-    private int x;
-    private int y;
+public class Element
+{
+    private Position position;
     private final BufferedImage image;
 
-    Element(int x, int y, BufferedImage image)
+    public Element(int x, int y, BufferedImage image)
     {
-        this.x = x;
-        this.y = y;
+        this.position = new Position(x,y);
         this.image = image;
     }
-    int getX()
+    public Position getPosition()
     {
-        return this.x;
+        return this.position;
     }
-    int getY()
-    {
-        return this.y;
-    }
-    BufferedImage getImage()
+    public BufferedImage getImage()
     {
         return this.image;
     }
-    void setX(int x)
+    void setPosition(Position position)
     {
-        this.x = x;
-    }
-    void setY(int y)
-    {
-        this.y = y;
+        this.position = position;
     }
 }
 
