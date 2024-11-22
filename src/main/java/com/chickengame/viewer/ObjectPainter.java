@@ -1,7 +1,7 @@
 package com.chickengame.viewer;
 
 import com.chickengame.controler.ImageHandler;
-import com.chickengame.model.Element;
+import com.chickengame.model.elements.Element;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 
@@ -21,7 +21,7 @@ public class ObjectPainter {
                 }else
                 {
                     graphics.setForegroundColor(TextColor.Factory.fromString(paint));
-                    graphics.setCharacter(i + element.getX(), c + element.getY(), '█');
+                    graphics.setCharacter(i + element.getPosition().getX(), c + element.getPosition().getY(), '█');
                 }
             }
         }

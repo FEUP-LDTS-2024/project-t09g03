@@ -1,4 +1,4 @@
 package com.chickengame.state;
 
-public class MarathonState {
+public class MarathonState extends GameState{
 }

@@ -10,8 +10,8 @@ import java.net.URL;
 public class ImageHandler {
 
 
-    public BufferedImage getImage(String imagePath) throws URISyntaxException, IOException {
-        URL resource = getClass().getClassLoader().getResource(imagePath);
+    public static BufferedImage getImage(String imagePath) throws URISyntaxException, IOException {
+        URL resource = ImageHandler.class.getClassLoader().getResource(imagePath);
         File file = new File(resource.toURI());
         return ImageIO.read(file);
     }

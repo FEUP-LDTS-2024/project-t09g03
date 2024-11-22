@@ -1,4 +1,7 @@
 package com.chickengame.state;
 
-public class StoreState {
+public class StoreState extends GameState {
+
+
+
 }

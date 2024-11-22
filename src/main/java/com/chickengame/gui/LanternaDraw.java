@@ -21,7 +21,7 @@ public class LanternaDraw implements GUI{
 //Private Members
 
     public LanternaDraw() {
-        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        URL resource = getClass().getClassLoader().getResource("Font/square.ttf");
         File fontFile = null;
         try {
             fontFile = new File(resource.toURI());
@@ -53,6 +53,9 @@ public class LanternaDraw implements GUI{
 
     private void createScreen(Terminal terminal) throws IOException {
     this.screen = new TerminalScreen(terminal);
+    this.screen.setCursorPosition(null);
+    this.screen.startScreen();
+    this.screen.doResizeIfNecessary();
     }
 
     @Override
