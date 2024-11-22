@@ -1,1 +1,7 @@
 1 1 Images/Lobby/Logo.png
+0 0 Images/Lobby/Untitled_Artwork_3.png
+50 50 Images/Lobby/Untitled_Artwork.png
+100 100 Images/Lobby/Untitled_Artwork_1.png
+200 200 Images/Lobby/Untitled_Artwork_2.png
+300 300 Images/Lobby/chicken_char.png
+400 400 Images/Lobby/chicken_shop.png
