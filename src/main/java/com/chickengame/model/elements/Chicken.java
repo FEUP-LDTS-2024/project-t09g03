@@ -1,4 +1,4 @@
-package com.ChickenGame.model.elements;
+package com.chickengame.model.elements;
 
 import java.awt.image.BufferedImage;
 

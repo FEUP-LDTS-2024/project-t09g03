@@ -1,8 +1,8 @@
-package com.ChickenGame.model.map;
+package com.chickengame.model.map;
 
-import com.ChickenGame.model.elements.Chicken;
-import com.ChickenGame.model.elements.HarmObject;
-import com.ChickenGame.model.elements.Wall;
+import com.chickengame.model.elements.Chicken;
+import com.chickengame.model.elements.HarmObject;
+import com.chickengame.model.elements.Wall;
 
 import java.awt.image.BufferedImage;
 import java.util.List;

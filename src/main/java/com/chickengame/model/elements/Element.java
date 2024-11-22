@@ -1,6 +1,6 @@
-package com.ChickenGame.model.elements;
+package com.chickengame.model.elements;
 
-import com.ChickenGame.model.Position;
+import com.chickengame.model.Position;
 
 import java.awt.image.BufferedImage;
 

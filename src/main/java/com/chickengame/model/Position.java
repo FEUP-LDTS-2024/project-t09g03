@@ -1,4 +1,4 @@
-package com.ChickenGame.model;
+package com.chickengame.model;
 
 public class Position
 {
