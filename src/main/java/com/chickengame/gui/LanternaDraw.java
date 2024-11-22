@@ -20,15 +20,21 @@ public class LanternaDraw implements GUI{
     private Screen screen;
 //Private Members
 
-    LanternaDraw() throws IOException, FontFormatException, URISyntaxException {
+    public LanternaDraw() {
         URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
-        File fontFile = new File(resource.toURI());
-        Font font =  Font.createFont(Font.TRUETYPE_FONT, fontFile);
-        Terminal terminal = createTerminal(1000,500, font);
-        createScreen(terminal);
+        File fontFile = null;
+        try {
+            fontFile = new File(resource.toURI());
+            Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+            Terminal terminal = null;
+            terminal = createTerminal(1000,500, font);
+            createScreen(terminal);
+        } catch (FontFormatException | IOException | URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-    private Terminal createTerminal(int width, int height, Font font) throws IOException {
+        private Terminal createTerminal(int width, int height, Font font) throws IOException {
         // Process font to AWTTerminalFontConfiguration
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
