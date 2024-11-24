@@ -4,7 +4,7 @@ package com.chickengame;
 import com.chickengame.gui.LanternaDraw;
 import com.chickengame.state.GameState;
 import com.chickengame.state.LobbyState;
-import com.chickengame.viewer.MenuViwer;
+import com.chickengame.viewer.MenuViewer;
 
 import java.io.IOException;
 
@@ -30,13 +30,15 @@ public class Game {
     }
     public void run()
     {
-        MenuViwer viwer = new MenuViwer(lanternaDraw.getGraphics(), gameState.getMenu());
+        MenuViewer viewer = new MenuViewer(lanternaDraw, gameState.getMenu());
         while (gameState != null)
         {
-            try {
-                viwer.drawMenu();
+            try
+            {
+                viewer.drawMenu();
                 lanternaDraw.getScreen().refresh();
-            } catch (IOException e) {
+            } catch (IOException e)
+            {
                 throw new RuntimeException(e);
             }
         }

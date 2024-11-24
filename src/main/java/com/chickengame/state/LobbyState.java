@@ -1,6 +1,6 @@
 package com.chickengame.state;
 
-import com.chickengame.model.Menu.Lobby;
+import com.chickengame.model.menu.Lobby;
 
 import java.net.URL;
 

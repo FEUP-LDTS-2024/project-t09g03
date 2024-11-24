@@ -1,6 +1,7 @@
 package com.chickengame.viewer;
 
 import com.chickengame.controler.ImageHandler;
+import com.chickengame.gui.GUI;
 import com.chickengame.model.elements.Element;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -8,7 +9,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 public class ObjectPainter {
     ObjectPainter(){}
 
-    public void draw(TextGraphics graphics, ImageHandler image, Element element)
+    public void draw(GUI gui, ImageHandler image, Element element)
     {
         for(int i = 0; i< image.getSizeX(element.getImage());i++)
         {
@@ -18,10 +19,12 @@ public class ObjectPainter {
                 if(paint.equals("#000000"))
                 {
                     continue;
-                }else
+                }
+                else
                 {
-                    graphics.setForegroundColor(TextColor.Factory.fromString(paint));
-                    graphics.setCharacter(i + element.getPosition().getX(), c + element.getPosition().getY(), '█');
+                    int x = i + element.getPosition().getX();
+                    int y = c + element.getPosition().getY();
+                    gui.draw(x,y,paint);
                 }
             }
         }
