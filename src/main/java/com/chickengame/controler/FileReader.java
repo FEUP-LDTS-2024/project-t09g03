@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.Scanner;
-
+/**le Menu.txt e converte cada linha num Element*/
 public class FileReader {
 
     private final Scanner myReader;

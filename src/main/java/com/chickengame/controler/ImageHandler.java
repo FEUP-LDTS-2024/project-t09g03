@@ -6,7 +6,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
-
+/**extrai informacao da imagem dada*/
 public class ImageHandler {
 
 

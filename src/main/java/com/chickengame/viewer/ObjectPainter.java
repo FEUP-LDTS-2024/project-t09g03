@@ -5,7 +5,7 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.elements.Element;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-
+/**desenhha os objetos na tela*/
 public class ObjectPainter {
     ObjectPainter(){}
 
