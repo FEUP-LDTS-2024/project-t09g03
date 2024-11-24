@@ -28,7 +28,7 @@ public class Game {
     private Game(){
         this.lanternaDraw = new LanternaDraw();
         try {
-            this.state = new MarathonState("/Menus/Game.txt");
+            this.state = new MarathonState("/menus/Game.txt");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

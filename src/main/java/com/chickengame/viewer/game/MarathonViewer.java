@@ -35,8 +35,8 @@ public class MarathonViewer
     }
     public void drawMap()
     {
-        drawChicken();
         drawBackground();
+        drawChicken();
         drawWalls();
         drawHarmObjects();
     }

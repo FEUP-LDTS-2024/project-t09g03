@@ -4,7 +4,6 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -27,7 +26,7 @@ public class LanternaDraw implements GUI{
     }
 
     public LanternaDraw() {
-        URL resource = getClass().getClassLoader().getResource("Font/square.ttf");
+        URL resource = getClass().getClassLoader().getResource("font/square.ttf");
         try {
             File fontFile = new File(resource.toURI());
             Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
