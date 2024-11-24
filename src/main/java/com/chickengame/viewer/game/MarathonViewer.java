@@ -10,14 +10,14 @@ import com.chickengame.model.game.map.Map;
 
 import java.util.List;
 
-public class GameViewer
+public class MarathonViewer
 {
     private final GUI gui;
     private final Map map;
     private final ImageHandler imageHandler;
     private ObjectPainter painter;
 
-    public GameViewer(GUI gui, Map map)
+    public MarathonViewer(GUI gui, Map map)
     {
         this.gui = gui;
         this.map = map;

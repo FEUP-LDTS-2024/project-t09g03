@@ -3,7 +3,7 @@ package com.chickengame.viewer;
 import com.chickengame.controler.ImageHandler;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menu.Menu;
-import com.chickengame.model.elements.Element;
+import com.chickengame.model.game.elements.Element;
 
 import java.util.List;
 
