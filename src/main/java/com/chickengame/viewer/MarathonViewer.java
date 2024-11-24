@@ -2,12 +2,11 @@ package com.chickengame.viewer;
 
 import com.chickengame.controler.ImageHandler;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.elements.Background;
-import com.chickengame.model.elements.Chicken;
-import com.chickengame.model.elements.HarmObject;
-import com.chickengame.model.elements.Wall;
-import com.chickengame.model.map.Map;
-import com.chickengame.state.State;
+import com.chickengame.model.game.elements.Background;
+import com.chickengame.model.game.elements.Chicken;
+import com.chickengame.model.game.elements.HarmObject;
+import com.chickengame.model.game.elements.Wall;
+import com.chickengame.model.game.map.Map;
 
 import java.util.List;
 
