@@ -26,10 +26,17 @@ public class MarathonViewer
         this.painter = new ObjectPainter();
     }
 
+    public MarathonViewer(GUI gui, Map map,ImageHandler img,ObjectPainter painter)
+    {
+        this.gui = gui;
+        this.map = map;
+        this.imageHandler = img;
+        this.painter = painter;
+    }
     public void drawMap()
     {
-        drawBackground();
         drawChicken();
+        drawBackground();
         drawWalls();
         drawHarmObjects();
     }
