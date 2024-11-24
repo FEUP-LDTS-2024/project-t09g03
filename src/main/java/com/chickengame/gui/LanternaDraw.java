@@ -30,7 +30,7 @@ public class LanternaDraw implements GUI{
         try {
             File fontFile = new File(resource.toURI());
             Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-            Terminal terminal = createTerminal(1000,500, font);
+            Terminal terminal = createTerminal(750,375, font);
             createScreen(terminal);
         } catch (FontFormatException | IOException | URISyntaxException e)
         {
@@ -72,8 +72,8 @@ public class LanternaDraw implements GUI{
     public void draw(int x, int y, String paint)
     {
         TextGraphics graphics = this.screen.newTextGraphics();
-        graphics.setForegroundColor(TextColor.Factory.fromString(paint));
-        graphics.setCharacter(x, y, '█');
+        graphics.setBackgroundColor(TextColor.Factory.fromString(paint));
+        graphics.setCharacter(x, y, ' ');
     }
 
     @Override

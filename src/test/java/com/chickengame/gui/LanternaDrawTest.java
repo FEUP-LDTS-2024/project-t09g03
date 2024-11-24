@@ -28,8 +28,8 @@ public class LanternaDrawTest
     void draw()
     {
         this.lanterna.draw(0,0,"#FFFFFF");
-        Mockito.verify(this.textGraphics,Mockito.times(1)).setCharacter(0,0,'█');
-        Mockito.verify(this.textGraphics,Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 255, 255));
+        Mockito.verify(this.textGraphics,Mockito.times(1)).setCharacter(0,0,' ');
+        Mockito.verify(this.textGraphics,Mockito.times(1)).setBackgroundColor(new TextColor.RGB(255, 255, 255));
 
     }
 }

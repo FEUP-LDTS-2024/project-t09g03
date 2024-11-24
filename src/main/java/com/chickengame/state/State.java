@@ -2,9 +2,9 @@ package com.chickengame.state;
 
 import com.chickengame.model.menu.Menu;
 
-public abstract class GameState {
+public abstract class State {
 
-    GameState()
+    State()
     {
 
     }

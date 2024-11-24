@@ -2,7 +2,7 @@ package com.chickengame;
 
 
 import com.chickengame.gui.LanternaDraw;
-import com.chickengame.state.GameState;
+import com.chickengame.state.State;
 import com.chickengame.state.LobbyState;
 import com.chickengame.viewer.MenuViewer;
 
@@ -13,7 +13,7 @@ public class Game {
 
     private static Game instance;
     private final LanternaDraw lanternaDraw;
-    private GameState gameState;
+    private State gameState;
 
     /**cria uma nova instancia se ela ainda não existir, caso contrario retorna a existente*/
     public static Game getInstance()
@@ -51,7 +51,7 @@ public class Game {
         }
     }
     /**altera o estado atual do jogo*/
-    public void setGameState(GameState state)
+    public void setGameState(State state)
     {
         this.gameState = state;
     }

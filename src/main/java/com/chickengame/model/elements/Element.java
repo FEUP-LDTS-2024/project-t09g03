@@ -4,7 +4,7 @@ import com.chickengame.model.Position;
 
 import java.awt.image.BufferedImage;
 
-public abstract class Element
+public class Element
 {
     private Position position;
     private final BufferedImage image;
