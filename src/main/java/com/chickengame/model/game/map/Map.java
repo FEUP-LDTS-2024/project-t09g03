@@ -7,7 +7,7 @@ import com.chickengame.model.game.elements.Wall;
 
 import java.io.IOException;
 import java.util.List;
-
+/**classe Map chama classe MapBuilder para ser instanciado, passando o caminho da localizacao que deve ser mostrada na tela*/
 public class Map
 {
     private Chicken chicken;
