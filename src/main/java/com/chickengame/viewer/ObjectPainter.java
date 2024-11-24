@@ -20,8 +20,8 @@ public class ObjectPainter {
                     continue;
                 }else
                 {
-                    graphics.setForegroundColor(TextColor.Factory.fromString(paint));
-                    graphics.setCharacter(i + element.getPosition().getX(), c + element.getPosition().getY(), '█');
+                    graphics.setBackgroundColor(TextColor.Factory.fromString(paint));
+                    graphics.setCharacter(i + element.getPosition().getX(), c + element.getPosition().getY(), ' ');
                 }
             }
         }

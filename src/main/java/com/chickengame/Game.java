@@ -41,12 +41,12 @@ public class Game {
         while (gameState != null)
         {
             try {
-                double start = System.nanoTime();
+                //double start = System.nanoTime();
 
                 viewer.drawMenu();
                 lanternaDraw.getScreen().refresh();
 
-                System.out.println(1/(((System.nanoTime())-start)/1000000000));
+                //System.out.println(1/(((System.nanoTime())-start)/1000000000));
 
             } catch (IOException e) {
                 throw new RuntimeException(e);

@@ -27,7 +27,7 @@ public class LanternaDraw implements GUI{
             fontFile = new File(resource.toURI());
             Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
             Terminal terminal = null;
-            terminal = createTerminal(250,125, font);
+            terminal = createTerminal(750,375, font);
             createScreen(terminal);
         } catch (FontFormatException | IOException | URISyntaxException e) {
             throw new RuntimeException(e);
@@ -38,7 +38,7 @@ public class LanternaDraw implements GUI{
         // Process font to AWTTerminalFontConfiguration
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
-        Font loadedFont = font.deriveFont(Font.PLAIN, 8);
+        Font loadedFont = font.deriveFont(Font.PLAIN, 3);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
 
         //create Terminal
