@@ -20,6 +20,11 @@ public class LanternaDraw implements GUI{
 
     private Screen screen;
 
+    public LanternaDraw(Screen screen)
+    {
+        this.screen = screen;
+    }
+
     public LanternaDraw() {
         URL resource = getClass().getClassLoader().getResource("Font/square.ttf");
         try {
