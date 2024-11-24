@@ -37,12 +37,17 @@ public class Game {
      * atualiza continuamente o lanterna*/
     public void run()
     {
-        MenuViewer viwer = new MenuViewer(lanternaDraw.getGraphics(), gameState.getMenu());
+        MenuViewer viewer = new MenuViewer(lanternaDraw.getGraphics(), gameState.getMenu());
         while (gameState != null)
         {
             try {
-                viwer.drawMenu();
+                double start = System.nanoTime();
+
+                viewer.drawMenu();
                 lanternaDraw.getScreen().refresh();
+
+                System.out.println(1/(((System.nanoTime())-start)/1000000000));
+
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }

@@ -3,7 +3,7 @@ package com.chickengame.state;
 import com.chickengame.model.menu.Lobby;
 
 import java.net.URL;
-/**Inicializa o Lobby e dalhe as informacoes que precisam de ser guardadas*/
+/**Inicializa o Lobby e da-lhe as informacoes que precisam de ser guardadas*/
 public class LobbyState extends GameState{
 
     private final Lobby lobby;
