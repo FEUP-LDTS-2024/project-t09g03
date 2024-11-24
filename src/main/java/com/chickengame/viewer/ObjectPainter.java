@@ -2,12 +2,11 @@ package com.chickengame.viewer;
 
 import com.chickengame.controler.ImageHandler;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.elements.Element;
-import com.googlecode.lanterna.TextColor;
-import com.googlecode.lanterna.graphics.TextGraphics;
-/**desenhha os objetos na tela*/
+import com.chickengame.model.game.elements.Element;
+
+/**desenha os objetos na tela*/
 public class ObjectPainter {
-    ObjectPainter(){}
+    public ObjectPainter(){}
 
     public void draw(GUI gui, ImageHandler image, Element element)
     {

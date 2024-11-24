@@ -10,4 +10,7 @@ public interface GUI {
     public Screen getScreen();
     public void draw(int x, int y, String paint);
     public KeyStroke getKey() throws IOException;
+    public int processKey() throws IOException;
+    public void clear();
+    public void close() throws IOException;
 }

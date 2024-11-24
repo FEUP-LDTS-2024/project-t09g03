@@ -1,10 +1,11 @@
-package com.chickengame.model.map;
+package com.chickengame.model.game.map;
 
-import com.chickengame.model.elements.*;
+import com.chickengame.model.game.elements.Background;
+import com.chickengame.model.game.elements.Chicken;
+import com.chickengame.model.game.elements.HarmObject;
+import com.chickengame.model.game.elements.Wall;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Map
@@ -15,8 +16,8 @@ public class Map
     private List<Wall> walls;
 
 
-    public Map(String s) throws IOException {
-        MapBuilder mapBuilder = new MapBuilder(s);
+    public Map(String path) throws IOException {
+        MapBuilder mapBuilder = new MapBuilder(path);
         mapBuilder.createElements();
         this.chicken = mapBuilder.getChicken();
         this.background = mapBuilder.getBackground();

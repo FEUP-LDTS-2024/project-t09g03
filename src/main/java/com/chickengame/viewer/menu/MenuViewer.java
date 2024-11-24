@@ -1,9 +1,10 @@
-package com.chickengame.viewer;
+package com.chickengame.viewer.menu;
 
 import com.chickengame.controler.ImageHandler;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menu.Menu;
 import com.chickengame.model.game.elements.Element;
+import com.chickengame.viewer.ObjectPainter;
 
 import java.util.List;
 

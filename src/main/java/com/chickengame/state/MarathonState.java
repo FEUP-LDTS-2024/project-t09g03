@@ -1,16 +1,18 @@
 package com.chickengame.state;
 
-import com.chickengame.model.map.Map;
-import com.chickengame.model.menu.Lobby;
+import com.chickengame.model.game.map.Map;
 
 import java.io.IOException;
-import java.net.URL;
 
-public class MarathonState {
+public class MarathonState extends State {
     private Map map;
-    public MarathonState(String s) throws IOException {
-        this.map = new Map(s);
+    public MarathonState(String path) throws IOException
+    {
+        super(path);
+        this.map = new Map(path);
     }
+
+    @Override
     public Map getMap()
     {
         return this.map;

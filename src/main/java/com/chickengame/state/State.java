@@ -1,13 +1,17 @@
 package com.chickengame.state;
 
+import com.chickengame.model.game.map.Map;
 import com.chickengame.model.menu.Menu;
 
-public abstract class State {
+import java.io.IOException;
 
-    State(String s)
+public abstract class State {
+    protected String path;
+    State(String path) throws IOException
     {
+        this.path = path;
     }
-    public Menu getMenu()
+    public Map getMap()
     {
         return null;
     }

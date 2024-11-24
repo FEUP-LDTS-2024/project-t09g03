@@ -1,7 +1,10 @@
-package com.chickengame.model.map;
+package com.chickengame.model.game.map;
 
 import com.chickengame.controler.ImageHandler;
-import com.chickengame.model.elements.*;
+import com.chickengame.model.game.elements.Background;
+import com.chickengame.model.game.elements.Chicken;
+import com.chickengame.model.game.elements.HarmObject;
+import com.chickengame.model.game.elements.Wall;
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
@@ -20,12 +23,8 @@ public class MapBuilder{
     private List<Wall> walls;
     private List<HarmObject> harmObjects;
 
-    public MapBuilder(String s) throws IOException {
-        URL resource = MapBuilder.class.getResource("/Menus/Game.txt");
-        if(resource == null)
-        {
-            System.out.println("erro de resource!!");
-        }
+    public MapBuilder(String path) throws IOException {
+        URL resource = MapBuilder.class.getResource(path);
         BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
 
         this.elements = readElements(reader);

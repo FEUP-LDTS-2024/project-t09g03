@@ -1,4 +1,4 @@
-package com.chickengame.model.elements;
+package com.chickengame.model.game.elements;
 
 import com.chickengame.model.Position;
 

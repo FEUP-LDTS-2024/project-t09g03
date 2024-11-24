@@ -1,4 +1,4 @@
-package com.chickengame.viewer;
+package com.chickengame.viewer.game;
 
 import com.chickengame.controler.ImageHandler;
 import com.chickengame.gui.GUI;
@@ -7,6 +7,7 @@ import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.HarmObject;
 import com.chickengame.model.game.elements.Wall;
 import com.chickengame.model.game.map.Map;
+import com.chickengame.viewer.ObjectPainter;
 
 import java.util.List;
 
