@@ -1,7 +1,6 @@
 package com.chickengame.state;
 
-import com.chickengame.model.Menu.Lobby;
-import com.chickengame.model.Menu.Menu;
+import com.chickengame.model.menu.Menu;
 
 public abstract class GameState {
 

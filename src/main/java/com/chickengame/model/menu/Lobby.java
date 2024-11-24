@@ -1,12 +1,11 @@
-package com.chickengame.model.Menu;
+package com.chickengame.model.menu;
 
 import com.chickengame.controler.FileReader;
 import com.chickengame.model.elements.Element;
 
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 
+/**extrai informacao dada e guarda a para ser utilizada no LobbbyState*/
 public class Lobby extends Menu{
 
     private final FileReader myReader;

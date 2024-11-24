@@ -1,6 +1,4 @@
-package com.chickengame.model.Menu;
-
-import com.chickengame.model.elements.Element;
+package com.chickengame.model.menu;
 
 public class Store extends Menu{
     public Store(String storeFile)
