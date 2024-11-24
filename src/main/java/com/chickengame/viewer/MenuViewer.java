@@ -7,6 +7,7 @@ import com.chickengame.model.elements.Element;
 
 import java.util.List;
 
+///adaptar
 /**classe para desenhar o menu na tela*/
 public class MenuViewer
 {

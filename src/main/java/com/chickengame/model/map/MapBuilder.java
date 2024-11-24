@@ -21,7 +21,11 @@ public class MapBuilder{
     private List<HarmObject> harmObjects;
 
     public MapBuilder(String s) throws IOException {
-        URL resource = MapBuilder.class.getResource(s);
+        URL resource = MapBuilder.class.getResource("/Menus/Game.txt");
+        if(resource == null)
+        {
+            System.out.println("erro de resource!!");
+        }
         BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
 
         this.elements = readElements(reader);

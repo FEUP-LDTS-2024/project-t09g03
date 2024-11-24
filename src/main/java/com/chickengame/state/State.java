@@ -4,9 +4,8 @@ import com.chickengame.model.menu.Menu;
 
 public abstract class State {
 
-    State()
+    State(String s)
     {
-
     }
     public Menu getMenu()
     {
