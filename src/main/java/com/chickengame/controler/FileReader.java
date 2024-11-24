@@ -17,9 +17,8 @@ public class FileReader {
     public FileReader(String filePath)
     {
         URL resource = getClass().getClassLoader().getResource("Menus/Lobby.txt");
-        File myFile = null;
         try {
-            myFile = new File(resource.toURI());
+            File myFile = new File(resource.toURI());
             this.myReader = new Scanner(myFile);
 
         } catch (URISyntaxException | FileNotFoundException e) {

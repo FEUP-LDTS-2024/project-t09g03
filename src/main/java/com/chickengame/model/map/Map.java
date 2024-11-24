@@ -1,37 +1,27 @@
 package com.chickengame.model.map;
 
-import com.chickengame.model.elements.Chicken;
-import com.chickengame.model.elements.HarmObject;
-import com.chickengame.model.elements.Wall;
+import com.chickengame.model.elements.*;
 
 import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Map
 {
-    private final int width;
-    private final int height;
-    private BufferedImage img;
-
     private Chicken chicken;
-
+    private Background background;
     private List<HarmObject> harmObjects;
     private List<Wall> walls;
 
-    public Map(int width, int height)
-    {
-        this.width = width;
-        this.height = height;
-    }
 
-    public int getWidth()
-    {
-        return this.width;
-    }
-
-    public int getHeight()
-    {
-        return this.height;
+    public Map(String s) throws IOException {
+        MapBuilder mapBuilder = new MapBuilder(s);
+        mapBuilder.createElements();
+        this.chicken = mapBuilder.getChicken();
+        this.background = mapBuilder.getBackground();
+        this.harmObjects = mapBuilder.getHarmObjects();
+        this.walls = mapBuilder.getWalls();
     }
 
     public Chicken getChicken()
@@ -64,7 +54,13 @@ public class Map
         this.walls = walls;
     }
 
+    public Background getBackground()
+    {
+        return this.background;
+    }
 
-
-
+    public void setBackground(Background background)
+    {
+        this.background = background;
+    }
 }

@@ -13,6 +13,4 @@ public abstract class GameState {
         return null;
     }
 
-
-
 }
