@@ -28,10 +28,6 @@ public class MarathonViewerTest {
     @BeforeEach
     void helper() throws IOException {
         this.map = Mockito.mock(Map.class);
-        Mockito.when(map.getWalls()).thenReturn(Arrays.asList(Mockito.mock(Wall.class),Mockito.mock(Wall.class)));
-        Mockito.when(map.getBackground()).thenReturn(Mockito.mock(Background.class));
-        Mockito.when(map.getHarmObjects()).thenReturn(Arrays.asList(Mockito.mock(HarmObject.class),Mockito.mock(HarmObject.class)));
-        Mockito.when(map.getChicken()).thenReturn(Mockito.mock(Chicken.class));
         this.gui = Mockito.mock(GUI.class);
         this.imageHandler = Mockito.mock(ImageHandler.class);
         this.painter = Mockito.mock(ObjectPainter.class);
@@ -41,6 +37,10 @@ public class MarathonViewerTest {
     @Test
     void drawMap()
     {
+        Mockito.when(map.getWalls()).thenReturn(Arrays.asList(Mockito.mock(Wall.class),Mockito.mock(Wall.class)));
+        Mockito.when(map.getBackground()).thenReturn(Mockito.mock(Background.class));
+        Mockito.when(map.getHarmObjects()).thenReturn(Arrays.asList(Mockito.mock(HarmObject.class),Mockito.mock(HarmObject.class)));
+        Mockito.when(map.getChicken()).thenReturn(Mockito.mock(Chicken.class));
         marathonviewer.drawMap();
 
         Mockito.verify(painter, Mockito.times(6)).draw(Mockito.eq(gui),Mockito.eq(imageHandler), Mockito.any());
