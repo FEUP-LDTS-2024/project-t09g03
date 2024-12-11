@@ -10,6 +10,7 @@ import java.util.List;
 /**classe Map chama classe MapBuilder para ser instanciado, passando o caminho da localizacao que deve ser mostrada na tela*/
 public class Map
 {
+    private String path;
     private Chicken chicken;
     private Background background;
     private List<HarmObject> harmObjects;
@@ -19,16 +20,20 @@ public class Map
     public Map(String path) throws IOException {
         MapBuilder mapBuilder = new MapBuilder(path);
         mapBuilder.createElements();
+        this.path = path;
         this.chicken = mapBuilder.getChicken();
         this.background = mapBuilder.getBackground();
         this.harmObjects = mapBuilder.getHarmObjects();
         this.walls = mapBuilder.getWalls();
+
     }
 
     public Chicken getChicken()
     {
         return this.chicken;
     }
+
+    public String getPath() {return path;}
 
     public void setChicken(Chicken chicken)
     {

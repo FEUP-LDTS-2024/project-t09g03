@@ -1,4 +1,4 @@
-package com.chickengame.controler;
+package com.chickengame.controller;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;

@@ -1,6 +1,6 @@
 package com.chickengame.viewer;
 
-import com.chickengame.controler.ImageHandler;
+import com.chickengame.controller.ImageHandler;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Element;
 

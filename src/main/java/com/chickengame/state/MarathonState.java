@@ -1,20 +1,30 @@
 package com.chickengame.state;
 
+import com.chickengame.controller.Controller;
 import com.chickengame.model.game.map.Map;
+import com.chickengame.viewer.Viewer;
 
 import java.io.IOException;
 
-public class MarathonState extends State {
-    private Map map;
-    public MarathonState(String path) throws IOException
+public class MarathonState extends State<Map> {
+    public MarathonState(Map location) throws IOException
     {
-        super(path);
-        this.map = new Map(path);
+        super(location);
     }
 
     @Override
-    public Map getMap()
+    public Viewer<Map> getStateViewer() {
+        return null;
+    }
+
+    @Override
+    public Controller<Map> getStateController() {
+        return null;
+    }
+
+    @Override
+    public Map getLocation()
     {
-        return this.map;
+        return super.getLocation();
     }
 }

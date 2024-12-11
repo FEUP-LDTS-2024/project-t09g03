@@ -1,6 +1,6 @@
 package com.chickengame.model.game.map;
 
-import com.chickengame.controler.ImageHandler;
+import com.chickengame.controller.ImageHandler;
 import com.chickengame.model.game.elements.Background;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.HarmObject;

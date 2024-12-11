@@ -1,18 +1,40 @@
 package com.chickengame.state;
 
+import com.chickengame.Game;
+import com.chickengame.controller.Controller;
+import com.chickengame.gui.GUI;
+import com.chickengame.gui.LanternaDraw;
 import com.chickengame.model.game.map.Map;
+import com.chickengame.viewer.Viewer;
 
 import java.io.IOException;
 
-public abstract class State {
-    protected String path;
-    State(String path) throws IOException
-    {
-        this.path = path;
+public abstract class State<T> {
+    private T location;
+    private final Controller<T> stateController;
+    private final Viewer<T> stateViewer;
+
+
+    public State(T location) {
+        this.location = location;
+        this.stateController = getStateController();
+        this.stateViewer = getStateViewer();
     }
-    public Map getMap()
+
+    public abstract Viewer<T> getStateViewer();
+
+    public abstract Controller<T> getStateController();
+
+    public T getLocation()
     {
-        return null;
+        return this.location;
     }
+    //wip
+    public void step(Game game, LanternaDraw gui, long time) throws IOException {
+        GUI.ACTION action = gui.getNextAction();
+        controller.step(game, action, time);
+        viewer.draw(gui);
+    }
+
 
 }

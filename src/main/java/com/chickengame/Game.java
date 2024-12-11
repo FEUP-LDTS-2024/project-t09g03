@@ -2,6 +2,7 @@ package com.chickengame;
 
 
 import com.chickengame.gui.LanternaDraw;
+import com.chickengame.model.game.map.Map;
 import com.chickengame.state.MarathonState;
 import com.chickengame.state.State;
 import com.chickengame.viewer.game.MarathonViewer;
@@ -12,7 +13,7 @@ import java.io.IOException;
 public class Game {
 
     private static Game instance;
-    private final LanternaDraw lanternaDraw;
+    private final Gui gui;
     private State state;
 
     /**cria uma nova instancia se ela ainda não existir, caso contrario retorna a existente*/
@@ -26,19 +27,22 @@ public class Game {
     }
 
     private Game(){
-        this.lanternaDraw = new LanternaDraw();
+        this.gui = new LanternaDraw();
         try {
-            this.state = new MarathonState("/menus/Game.txt");
+            this.state = new MarathonState(new Map("/menus/Game.txt"));
+            //this.state = new MarathonState("/menus/Game.txt");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public void run()
-    {
-        MarathonViewer viewer = new MarathonViewer(lanternaDraw, this.state.getMap());
+    public void run() throws IOException {
+        MarathonViewer viewer = new MarathonViewer(lanternaDraw, this.state.getLocation());
         while (this.state != null)
         {
+            long startTime = System.currentTimeMillis();
+            state.step(instance, lanternaDraw, startTime);
+
             try
             {
                 viewer.drawMap();
@@ -52,5 +56,10 @@ public class Game {
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    public void setState(State state)
+    {
+        this.state = state;
     }
 }
