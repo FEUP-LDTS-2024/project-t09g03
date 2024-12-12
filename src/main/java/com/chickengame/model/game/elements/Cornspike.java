@@ -1,9 +1,9 @@
 package com.chickengame.model.game.elements;
 
-public class CornSpike extends HarmObject{
+public class Cornspike extends HarmObject{
     private boolean stateDown;
 
-    public CornSpike(int x, int y, boolean stateDown)
+    public Cornspike(int x, int y, boolean stateDown)
     {
         super(x, y);
         this.stateDown = stateDown;
