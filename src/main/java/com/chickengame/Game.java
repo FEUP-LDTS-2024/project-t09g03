@@ -1,10 +1,8 @@
 package com.chickengame;
-
-
 import com.chickengame.gui.LanternaDraw;
 import com.chickengame.state.MarathonState;
 import com.chickengame.state.State;
-import com.chickengame.viewer.game.MarathonViewer;
+import com.chickengame.viewer.MarathonViewer;
 
 import java.io.IOException;
 
@@ -41,12 +39,15 @@ public class Game {
         {
             try
             {
+                double start = System.nanoTime();
                 viewer.drawMap();
                 lanternaDraw.getScreen().refresh();
                 if(lanternaDraw.processKey() == 1)
                 {
                     break;
                 }
+                double t2 = (System.nanoTime() - start)/1000000000;
+                System.out.println(1/t2);
             } catch (IOException e)
             {
                 throw new RuntimeException(e);

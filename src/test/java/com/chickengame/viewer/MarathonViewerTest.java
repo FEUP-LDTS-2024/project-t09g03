@@ -7,16 +7,12 @@ import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.HarmObject;
 import com.chickengame.model.game.elements.Wall;
 import com.chickengame.model.game.map.Map;
-import com.chickengame.viewer.game.MarathonViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.List;
 
 public class MarathonViewerTest {
     private GUI gui;

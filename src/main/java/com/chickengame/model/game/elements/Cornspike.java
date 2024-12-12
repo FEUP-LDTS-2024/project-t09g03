@@ -1,9 +1,9 @@
 package com.chickengame.model.game.elements;
 
 
-public class HarmObject extends Element
+public class CornSpike extends HarmObject
 {
-    public HarmObject(int x, int y)
+    public CornSpike(int x, int y)
     {
         super(x, y);
     }

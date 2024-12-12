@@ -23,6 +23,22 @@ public class MapBuilder{
     private List<Wall> walls;
     private List<HarmObject> harmObjects;
 
+    public Map createMap(String path)
+    {
+        Map map = new Map();
+
+        URL resource = MapBuilder.class.getResource(path);
+        BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
+
+        this.elements = readElements(reader);
+
+        map.setChicken(chicken);
+        map.setBackground(background);
+        map.setWalls(walls);
+        map.setHarmObjects(harmObjects);
+
+        return map;
+    }
     public MapBuilder(String path) throws IOException {
         URL resource = MapBuilder.class.getResource(path);
         BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));

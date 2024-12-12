@@ -16,13 +16,8 @@ public class Map
     private List<Wall> walls;
 
 
-    public Map(String path) throws IOException {
-        MapBuilder mapBuilder = new MapBuilder(path);
-        mapBuilder.createElements();
-        this.chicken = mapBuilder.getChicken();
-        this.background = mapBuilder.getBackground();
-        this.harmObjects = mapBuilder.getHarmObjects();
-        this.walls = mapBuilder.getWalls();
+    public Map()
+    {
     }
 
     public Chicken getChicken()
