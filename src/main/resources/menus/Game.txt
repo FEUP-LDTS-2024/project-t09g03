@@ -1,4 +1,4 @@
-B 0 0 images/game/background.png
+Backgound 0 0 images/game/background.png
 W 0 0 images/game/ceil.png
 W 0 346 images/game/floor.png
 W 220 175 images/game/1platform.png

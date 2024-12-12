@@ -9,7 +9,7 @@ public class ChickenViewer implements ElementViewer<Chicken>
 {
     private ImageLoader imageLoader = new ImageLoader();
     private BasicTextImage imageMoving = imageLoader.getImage("images/game/chickenMoving.png");
-    private BasicTextImage imageStatic = imageLoader.getImage("images/game/ChickenStatic.png");
+    private BasicTextImage imageStatic = imageLoader.getImage("images/game/chickenStatic.png");
     @Override
     public void draw(Chicken chicken, GUI gui)
     {
