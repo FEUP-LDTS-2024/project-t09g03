@@ -1,9 +1,6 @@
 package com.chickengame.model.game.map;
 
-import com.chickengame.model.game.elements.Background;
-import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.elements.HarmObject;
-import com.chickengame.model.game.elements.Wall;
+import com.chickengame.model.game.elements.*;
 
 import java.io.IOException;
 import java.util.List;
@@ -14,11 +11,13 @@ public class Map
     private Background background;
     private List<HarmObject> harmObjects;
     private List<Wall> walls;
+    private List<Cupcake> cupcakes;
+    private List<Lollipop> lollipops;
+    private List<Cornspike> cornspikes;
+    private List<Platform> platforms;
 
 
-    public Map()
-    {
-    }
+    public Map() {}
 
     public Chicken getChicken()
     {
@@ -58,5 +57,37 @@ public class Map
     public void setBackground(Background background)
     {
         this.background = background;
+    }
+
+    public List<Cupcake> getCupcakes() {
+        return cupcakes;
+    }
+
+    public void setCupcakes(List<Cupcake> cupcakes) {
+        this.cupcakes = cupcakes;
+    }
+
+    public List<Lollipop> getLollipops() {
+        return lollipops;
+    }
+
+    public void setLollipops(List<Lollipop> lollipops) {
+        this.lollipops = lollipops;
+    }
+
+    public List<Cornspike> getCornspikes() {
+        return cornspikes;
+    }
+
+    public void setCornspikes(List<Cornspike> cornspikes) {
+        this.cornspikes = cornspikes;
+    }
+
+    public List<Platform> getPlatforms() {
+        return platforms;
+    }
+
+    public void setPlatforms(List<Platform> platforms) {
+        this.platforms = platforms;
     }
 }
