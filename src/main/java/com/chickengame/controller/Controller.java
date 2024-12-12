@@ -1,6 +1,7 @@
 package com.chickengame.controller;
 
 import com.chickengame.Game;
+import com.chickengame.gui.GUI;
 import com.chickengame.model.game.map.Menu;
 
 import java.io.IOException;
@@ -16,5 +17,5 @@ public abstract class Controller<T> {
         return location;
     }
 
-    public abstract void step(Game game) throws IOException;
+    public abstract void step(Game game, GUI.Action action);
 }

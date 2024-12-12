@@ -4,7 +4,7 @@ import com.chickengame.controller.Controller;
 import com.chickengame.controller.menu.MenuController;
 import com.chickengame.model.game.map.Menu;
 import com.chickengame.viewer.Viewer;
-import com.chickengame.viewer.game.MenuViewer;
+import com.chickengame.viewer.menu.MenuViewer;
 
 public class MenuState extends State<Menu>{
     public MenuState(Menu location) {

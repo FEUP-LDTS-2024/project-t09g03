@@ -9,7 +9,7 @@ import org.mockito.Mockito;
 
 public class LanternaDrawTest
 {
-    private Screen screen;
+  /*  private Screen screen;
     private TextGraphics textGraphics;
     private LanternaDraw lanterna;
 
@@ -31,5 +31,5 @@ public class LanternaDrawTest
         Mockito.verify(this.textGraphics,Mockito.times(1)).setCharacter(0,0,' ');
         Mockito.verify(this.textGraphics,Mockito.times(1)).setBackgroundColor(new TextColor.RGB(255, 255, 255));
 
-    }
+    }*/
 }

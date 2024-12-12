@@ -1,7 +1,7 @@
-package com.chickengame.viewer;
+package com.chickengame.viewer.map;
 
 
-import com.chickengame.controler.ImageLoader;
+import com.chickengame.viewer.ImageLoader;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Cupcake;
 import com.googlecode.lanterna.graphics.BasicTextImage;
@@ -14,8 +14,8 @@ public class CupcakeViewer implements ElementViewer<Cupcake>
     @Override
     public void draw(Cupcake cupcake, GUI gui)
     {
-        BasicTextImage image = cupcake;
-        if(cupcake.getboll) /// alterarr!!!!
+        BasicTextImage image = this.cupcake;
+        if(cupcake.getStateDown()) /// alterarr!!!!
         {
             image = cupcakeDown;
         }

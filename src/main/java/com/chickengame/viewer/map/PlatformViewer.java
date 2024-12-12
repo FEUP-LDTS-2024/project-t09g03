@@ -1,6 +1,6 @@
-package com.chickengame.viewer;
+package com.chickengame.viewer.map;
 
-import com.chickengame.controler.ImageLoader;
+import com.chickengame.viewer.ImageLoader;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Platform;
 import com.googlecode.lanterna.graphics.BasicTextImage;

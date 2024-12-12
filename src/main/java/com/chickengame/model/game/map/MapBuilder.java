@@ -17,21 +17,20 @@ public class MapBuilder{
     private List<String> elements;
     private Chicken chicken;
     private Background background;
-    private List<Wall> walls;
-    private List<HarmObject> harmObjects;
-    private List<Cupcake> cupcakes;
-    private List<Lollipop> lollipops;
-    private List<Cornspike> cornspikes;
-    private List<Platform> platforms;
+    private List<Wall> walls = new ArrayList<Wall>();
+    private List<HarmObject> harmObjects = new ArrayList<HarmObject>();
+    private List<Cupcake> cupcakes = new ArrayList<Cupcake>();
+    private List<Lollipop> lollipops = new ArrayList<Lollipop>();
+    private List<Cornspike> cornspikes =  new ArrayList<Cornspike>();
+    private List<Platform> platforms = new ArrayList<Platform>();
 
     public Map createMap(String path) throws IOException {
         Map map = new Map();
 
         URL resource = MapBuilder.class.getResource(path);
         BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
-
         this.elements = readElements(reader);
-
+        createElements();
         map.setChicken(chicken);
         map.setBackground(background);
         map.setWalls(walls);
@@ -43,11 +42,7 @@ public class MapBuilder{
 
         return map;
     }
-    public MapBuilder(String path) throws IOException {
-        URL resource = MapBuilder.class.getResource(path);
-        BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
-
-        this.elements = readElements(reader);
+    public MapBuilder() throws IOException {
     }
 
     private List<String> readElements(BufferedReader reader) throws IOException

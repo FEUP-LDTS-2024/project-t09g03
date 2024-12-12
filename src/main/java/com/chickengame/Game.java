@@ -2,10 +2,9 @@ package com.chickengame;
 
 
 import com.chickengame.gui.LanternaDraw;
-import com.chickengame.model.game.map.Map;
+import com.chickengame.model.game.map.MapBuilder;
 import com.chickengame.state.MarathonState;
 import com.chickengame.state.State;
-import com.chickengame.viewer.game.MarathonViewer;
 
 import java.io.IOException;
 
@@ -29,7 +28,7 @@ public class Game {
     private Game(){
         this.gui = new LanternaDraw();
         try {
-            this.state = new MarathonState(new Map("/menus/Game.txt"));
+            this.state = new MarathonState(new MapBuilder().createMap("/menus/Game.txt"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -39,11 +38,11 @@ public class Game {
         while (this.state != null)
         {
             double t1 = System.nanoTime();
-            state.step(this, gui);
+            state.step(this, gui.getNextAction(),gui);
 
             try
             {
-                this.state.step(this,gui);
+                this.state.step(this,gui.getNextAction(),gui);
                 gui.getScreen().refresh();
                 if(gui.processKey() == 1)
                 {

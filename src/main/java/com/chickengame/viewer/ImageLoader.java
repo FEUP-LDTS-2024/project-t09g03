@@ -1,4 +1,4 @@
-package com.chickengame.controler;
+package com.chickengame.viewer;
 
 import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;

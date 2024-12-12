@@ -24,12 +24,7 @@ public class LanternaDraw implements GUI{
 
     private KeyStroke lastkeystroke;
     private Screen screen;
-    private TextGraphics textGraphics;
-
-    public LanternaDraw(Screen screen)
-    {
-        this.screen = screen;
-    }
+    private final TextGraphics textGraphics;
 
     public LanternaDraw() {
         URL resource = getClass().getClassLoader().getResource("font/square.ttf");

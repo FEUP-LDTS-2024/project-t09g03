@@ -28,8 +28,8 @@ public abstract class State<T> {
         return this.location;
     }
     //wip
-    public void step(Game game, GUI gui) throws IOException {
-        stateController.step(game);
+    public void step(Game game,GUI.Action action, GUI gui) throws IOException {
+        stateController.step(game, action);
         stateViewer.draw(gui);
     }
 

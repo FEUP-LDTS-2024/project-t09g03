@@ -11,7 +11,6 @@ import java.io.IOException;
 public interface GUI {
     enum Action {UP, DOWN, SELECT, INVERT, QUIT, NONE, LEFT, RIGHT, CLICK}
     public Screen getScreen();
-    public void draw(int x, int y, String paint);
     public GUI.Action getNextAction() throws IOException;
     public void drawImage(Position position, BasicTextImage basicTextImage);
     public int processKey() throws IOException;

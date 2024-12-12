@@ -1,4 +1,4 @@
-package com.chickengame.viewer.game;
+package com.chickengame.viewer.menu;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.map.Menu;
