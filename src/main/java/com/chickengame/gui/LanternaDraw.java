@@ -1,9 +1,13 @@
 package com.chickengame.gui;
 
+import com.chickengame.model.Position;
+import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -18,7 +22,9 @@ import java.net.URL;
 
 public class LanternaDraw implements GUI{
 
+    private KeyStroke lastkeystroke;
     private Screen screen;
+    private TextGraphics textGraphics;
 
     public LanternaDraw(Screen screen)
     {
@@ -32,6 +38,7 @@ public class LanternaDraw implements GUI{
             Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
             Terminal terminal = createTerminal(750,375, font);
             createScreen(terminal);
+            this.textGraphics = this.screen.newTextGraphics();
         } catch (FontFormatException | IOException | URISyntaxException e)
         {
             throw new RuntimeException(e);
@@ -69,23 +76,45 @@ public class LanternaDraw implements GUI{
     }
 
     @Override
-    public void draw(int x, int y, String paint)
-    {
-        TextGraphics graphics = this.screen.newTextGraphics();
-        graphics.setBackgroundColor(TextColor.Factory.fromString(paint));
-        graphics.setCharacter(x, y, ' ');
+    public void drawImage(Position position, BasicTextImage basicTextImage) {
+        TerminalPosition pos = new TerminalPosition(position.getX(),position.getY());
+        textGraphics.drawImage(pos,basicTextImage);
+
     }
 
     @Override
-    public KeyStroke getKey() throws IOException
+    public Action getNextAction() throws IOException
     {
-        return screen.pollInput();
+        KeyStroke key = screen.pollInput();
+        if(key == null)
+        {
+            return Action.NONE;
+        }
+        return switch(key.getKeyType())
+        {
+            case Enter -> Action.SELECT;
+            case Escape -> Action.QUIT;
+            case ArrowRight -> Action.RIGHT;
+            case ArrowLeft -> Action.LEFT;
+            case ArrowUp -> Action.UP;
+            case ArrowDown -> Action.DOWN;
+            case KeyType.Character->
+                    switch (key.getCharacter())
+                    {
+                        case ' '->Action.INVERT;
+                        case 'q'->Action.QUIT;
+                        default -> Action.NONE;
+                    };
+            default -> Action.NONE;
+        };
     }
+
     @Override
-    public void clear()
+    public void refresh() throws  IOException
     {
-        this.screen.clear();
+        this.screen.refresh();
     }
+
     @Override
     public void close() throws IOException
     {

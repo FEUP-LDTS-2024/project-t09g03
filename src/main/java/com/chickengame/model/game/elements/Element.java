@@ -7,20 +7,14 @@ import java.awt.image.BufferedImage;
 public abstract class Element
 {
     private Position position;
-    private final BufferedImage image;
 
-    public Element(int x, int y, BufferedImage image)
+    public Element(int x, int y)
     {
         this.position = new Position(x,y);
-        this.image = image;
     }
     public Position getPosition()
     {
         return this.position;
-    }
-    public BufferedImage getImage()
-    {
-        return this.image;
     }
     void setPosition(Position position)
     {

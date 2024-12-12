@@ -1,11 +1,10 @@
 package com.chickengame.model.game.elements;
 
-import java.awt.image.BufferedImage;
 
 public class Wall extends Element
 {
-    public Wall(int x, int y, BufferedImage image)
+    public Wall(int x, int y)
     {
-        super(x, y, image);
+        super(x, y);
     }
 }

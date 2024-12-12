@@ -2,6 +2,7 @@ package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Element;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class Menu {
     private int currentElement = 0;
 
     public Menu() {
-        this.elements = Arrays.asList("Play", "Shop", "Quit");
+        this.elements = new ArrayList<>();
     }
 
     public void nextEntry() {
@@ -25,7 +26,7 @@ public class Menu {
             currentElement = this.elements.size() - 1;
     }
 
-    public String getEntry(int i) {
+    public Element getEntry(int i) {
         return elements.get(i);
     }
 

@@ -15,17 +15,7 @@ public class MenuController extends Controller<Menu> {
 
     //wip
     @Override
-    public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        switch (action) {
-            case UP:
-                getLocation().previousEntry();
-                break;
-            case DOWN:
-                getLocation().nextEntry();
-                break;
-            case SELECT:
-                if (getLocation().isSelectedExit()) game.setState(null);
-                if (getLocation().isSelectedStart()) game.setState(new MarathonState(new MapBuilder(path).createArena()));
-        }
+    public void step(Game game) throws IOException {
+
     }
 }
