@@ -1,6 +1,8 @@
 package com.chickengame.gui;
 
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.chickengame.model.Position;
+import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 
@@ -11,6 +13,8 @@ public interface GUI {
     public Screen getScreen();
     public void draw(int x, int y, String paint);
     public GUI.Action getNextAction() throws IOException;
+    public void drawImage(Position position, BasicTextImage basicTextImage);
     public int processKey() throws IOException;
+    public void refresh() throws IOException;
     public void close() throws IOException;
 }

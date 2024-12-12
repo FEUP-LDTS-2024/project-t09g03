@@ -1,39 +1,28 @@
 package com.chickengame.model.game.map;
 
-import com.chickengame.model.game.elements.Background;
-import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.elements.HarmObject;
-import com.chickengame.model.game.elements.Wall;
+import com.chickengame.model.game.elements.*;
 
 import java.io.IOException;
 import java.util.List;
 /**classe Map chama classe MapBuilder para ser instanciado, passando o caminho da localizacao que deve ser mostrada na tela*/
 public class Map
 {
-    private String path;
     private Chicken chicken;
     private Background background;
     private List<HarmObject> harmObjects;
     private List<Wall> walls;
+    private List<Cupcake> cupcakes;
+    private List<Lollipop> lollipops;
+    private List<Cornspike> cornspikes;
+    private List<Platform> platforms;
 
 
-    public Map(String path) throws IOException {
-        MapBuilder mapBuilder = new MapBuilder(path);
-        mapBuilder.createElements();
-        this.path = path;
-        this.chicken = mapBuilder.getChicken();
-        this.background = mapBuilder.getBackground();
-        this.harmObjects = mapBuilder.getHarmObjects();
-        this.walls = mapBuilder.getWalls();
-
-    }
+    public Map() {}
 
     public Chicken getChicken()
     {
         return this.chicken;
     }
-
-    public String getPath() {return path;}
 
     public void setChicken(Chicken chicken)
     {
@@ -68,5 +57,37 @@ public class Map
     public void setBackground(Background background)
     {
         this.background = background;
+    }
+
+    public List<Cupcake> getCupcakes() {
+        return cupcakes;
+    }
+
+    public void setCupcakes(List<Cupcake> cupcakes) {
+        this.cupcakes = cupcakes;
+    }
+
+    public List<Lollipop> getLollipops() {
+        return lollipops;
+    }
+
+    public void setLollipops(List<Lollipop> lollipops) {
+        this.lollipops = lollipops;
+    }
+
+    public List<Cornspike> getCornspikes() {
+        return cornspikes;
+    }
+
+    public void setCornspikes(List<Cornspike> cornspikes) {
+        this.cornspikes = cornspikes;
+    }
+
+    public List<Platform> getPlatforms() {
+        return platforms;
+    }
+
+    public void setPlatforms(List<Platform> platforms) {
+        this.platforms = platforms;
     }
 }

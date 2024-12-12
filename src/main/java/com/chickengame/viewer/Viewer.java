@@ -18,8 +18,8 @@ public abstract class Viewer<T> {
     //wip
     public void draw(GUI gui) throws IOException {
         drawElements(gui);
+        gui.refresh();
     }
 
-    //wip
     protected abstract void drawElements(GUI gui);
 }

@@ -1,13 +1,10 @@
 package com.chickengame.model.game.map;
 
-import com.chickengame.controller.ImageHandler;
-import com.chickengame.model.game.elements.Background;
-import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.elements.HarmObject;
-import com.chickengame.model.game.elements.Wall;
+import com.chickengame.model.game.elements.*;
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -17,12 +14,35 @@ import java.util.List;
 
 public class MapBuilder{
 
-    private final List<String> elements;
+    private List<String> elements;
     private Chicken chicken;
     private Background background;
     private List<Wall> walls;
     private List<HarmObject> harmObjects;
+    private List<Cupcake> cupcakes;
+    private List<Lollipop> lollipops;
+    private List<Cornspike> cornspikes;
+    private List<Platform> platforms;
 
+    public Map createMap(String path) throws IOException {
+        Map map = new Map();
+
+        URL resource = MapBuilder.class.getResource(path);
+        BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
+
+        this.elements = readElements(reader);
+
+        map.setChicken(chicken);
+        map.setBackground(background);
+        map.setWalls(walls);
+        map.setHarmObjects(harmObjects);
+        map.setCornspikes(cornspikes);
+        map.setCupcakes(cupcakes);
+        map.setLollipops(lollipops);
+        map.setPlatforms(platforms);
+
+        return map;
+    }
     public MapBuilder(String path) throws IOException {
         URL resource = MapBuilder.class.getResource(path);
         BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
@@ -53,24 +73,33 @@ public class MapBuilder{
             String c = args[0];
             int x = Integer.parseInt(args[1]);
             int y = Integer.parseInt(args[2]);
-            BufferedImage img;
-            try {
-                img = ImageHandler.getImage(args[3]);
-            } catch (URISyntaxException | IOException e) {
-                throw new RuntimeException(e);
-            }
+            boolean stateDown = Boolean.parseBoolean(args[3]);
             switch (c) {
-                case "C":
-                    this.chicken = new Chicken(x, y, img);
+                case "Chicken":
+                    this.chicken = new Chicken(x, y);
                     break;
-                case "W":
-                    this.walls.add(new Wall(x, y, img));
+                case "Platform":
+                    Platform platform = new Platform(x, y);
+                    this.platforms.add(platform);
+                    this.walls.add(platform);
                     break;
-                case "H":
-                    this.harmObjects.add(new HarmObject(x, y, img));
+                case "Cornspike":
+                    Cornspike cornspike = new Cornspike(x,y,stateDown);
+                    this.cornspikes.add(cornspike);
+                    this.harmObjects.add(cornspike);
+                    break;
+                case "Cupcake":
+                    Cupcake cupcake = new Cupcake(x, y,stateDown);
+                    this.cupcakes.add(cupcake);
+                    this.walls.add(cupcake);
+                    break;
+                case "Lollipop":
+                    Lollipop lollipop = new Lollipop(x, y,stateDown);
+                    this.lollipops.add(lollipop);
+                    this.walls.add(lollipop);
                     break;
                 default:
-                    this.background = new Background(x, y, img);
+                    this.background = new Background(x, y);
             }
         }
     }
@@ -92,5 +121,45 @@ public class MapBuilder{
     public Background getBackground()
     {
         return this.background;
+    }
+
+    public List<Cupcake> getCupcakes()
+    {
+        return cupcakes;
+    }
+
+    public void setCupcakes(List<Cupcake> cupcakes)
+    {
+        this.cupcakes = cupcakes;
+    }
+
+    public List<Lollipop> getLollipops()
+    {
+        return lollipops;
+    }
+
+    public void setLollipops(List<Lollipop> lollipops)
+    {
+        this.lollipops = lollipops;
+    }
+
+    public List<Cornspike> getCornspikes()
+    {
+        return cornspikes;
+    }
+
+    public void setCornspikes(List<Cornspike> cornspikes)
+    {
+        this.cornspikes = cornspikes;
+    }
+
+    public List<Platform> getPlatforms()
+    {
+        return platforms;
+    }
+
+    public void setPlatforms(List<Platform> platforms)
+    {
+        this.platforms = platforms;
     }
 }

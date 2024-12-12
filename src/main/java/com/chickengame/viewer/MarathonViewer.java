@@ -1,30 +1,32 @@
-package com.chickengame.viewer.game;
+package com.chickengame.viewer;
 
 import com.chickengame.controller.ImageHandler;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.game.elements.Background;
-import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.elements.HarmObject;
-import com.chickengame.model.game.elements.Wall;
+import com.chickengame.model.game.elements.*;
 import com.chickengame.model.game.map.Map;
-import com.chickengame.viewer.ObjectPainter;
 
 import java.util.List;
 
-public class MarathonViewer
+public class MarathonViewer extends Viewer<Map>
 {
+    private final ChickenViewer chickenViewer = new ChickenViewer();
+
+
+    public MarathonViewer(Map map)
+    {
+        super(map);
+    }
+    @Override
+    public void drawElements(GUI gui)
+    {
+        drawElements(gui,getLocation().getChicken(), chickenViewer);
+    }
+    /*
     private final GUI gui;
     private final Map map;
     private final ImageHandler imageHandler;
     private ObjectPainter painter;
 
-    public MarathonViewer(GUI gui, Map map)
-    {
-        this.gui = gui;
-        this.map = map;
-        this.imageHandler = new ImageHandler();
-        this.painter = new ObjectPainter();
-    }
 
     public MarathonViewer(GUI gui, Map map,ImageHandler img,ObjectPainter painter)
     {
@@ -69,5 +71,15 @@ public class MarathonViewer
             painter.draw(gui,imageHandler,harmObject);
         }
     }
+     */
+
+    private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer)
+    {
+        for(T element : elements)
+        {
+            viewer.draw(element,gui);
+        }
+    }
+
 
 }
