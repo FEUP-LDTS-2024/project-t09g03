@@ -6,7 +6,7 @@ public class Chicken extends Element
 {
     private boolean movingLeft = false;
     private boolean stateMoving = true;
-    private boolean stateDown = true;
+    private boolean stateDown = false;
     private boolean movingDown = true;
     private boolean charge = true;
 
