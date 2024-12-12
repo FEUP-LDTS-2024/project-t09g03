@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Game {
 
     private static Game instance;
-    private final Gui gui;
+    private final LanternaDraw gui;
     private State state;
 
     /**cria uma nova instancia se ela ainda não existir, caso contrario retorna a existente*/
@@ -30,24 +30,22 @@ public class Game {
         this.gui = new LanternaDraw();
         try {
             this.state = new MarathonState(new Map("/menus/Game.txt"));
-            //this.state = new MarathonState("/menus/Game.txt");
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
 
     public void run() throws IOException {
-        MarathonViewer viewer = new MarathonViewer(lanternaDraw, this.state.getLocation());
         while (this.state != null)
         {
-            long startTime = System.currentTimeMillis();
-            state.step(instance, lanternaDraw, startTime);
+            double t1 = System.nanoTime();
+            state.step(this, gui);
 
             try
             {
-                viewer.drawMap();
-                lanternaDraw.getScreen().refresh();
-                if(lanternaDraw.processKey() == 1)
+                this.state.step(this,gui);
+                gui.getScreen().refresh();
+                if(gui.processKey() == 1)
                 {
                     break;
                 }
@@ -55,7 +53,10 @@ public class Game {
             {
                 throw new RuntimeException(e);
             }
+            double t2 = System.nanoTime();
+            System.out.println(1/((t2-t1)/1000000000));
         }
+        gui.close();
     }
 
     public void setState(State state)

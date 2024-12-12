@@ -7,10 +7,10 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 
 public interface GUI {
+    enum Action {UP, DOWN, SELECT, INVERT, QUIT, NONE, LEFT, RIGHT, CLICK}
     public Screen getScreen();
     public void draw(int x, int y, String paint);
-    public KeyStroke getKey() throws IOException;
+    public GUI.Action getNextAction() throws IOException;
     public int processKey() throws IOException;
-    public void clear();
     public void close() throws IOException;
 }

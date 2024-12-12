@@ -4,6 +4,7 @@ import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -18,6 +19,7 @@ import java.net.URL;
 
 public class LanternaDraw implements GUI{
 
+    private KeyStroke lastkeystroke;
     private Screen screen;
 
     public LanternaDraw(Screen screen)
@@ -77,14 +79,30 @@ public class LanternaDraw implements GUI{
     }
 
     @Override
-    public KeyStroke getKey() throws IOException
+    public Action getNextAction() throws IOException
     {
-        return screen.pollInput();
-    }
-    @Override
-    public void clear()
-    {
-        this.screen.clear();
+        KeyStroke key = screen.pollInput();
+        if(key == null)
+        {
+            return Action.NONE;
+        }
+        return switch(key.getKeyType())
+        {
+            case Enter -> Action.SELECT;
+            case Escape -> Action.QUIT;
+            case ArrowRight -> Action.RIGHT;
+            case ArrowLeft -> Action.LEFT;
+            case ArrowUp -> Action.UP;
+            case ArrowDown -> Action.DOWN;
+            case KeyType.Character->
+                    switch (key.getCharacter())
+                    {
+                        case ' '->Action.INVERT;
+                        case 'q'->Action.QUIT;
+                        default -> Action.NONE;
+                    };
+            default -> Action.NONE;
+        };
     }
     @Override
     public void close() throws IOException

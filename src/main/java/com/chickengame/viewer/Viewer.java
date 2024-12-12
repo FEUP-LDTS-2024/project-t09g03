@@ -1,5 +1,7 @@
 package com.chickengame.viewer;
 
+import com.chickengame.gui.GUI;
+
 import java.io.IOException;
 
 public abstract class Viewer<T> {
@@ -15,9 +17,7 @@ public abstract class Viewer<T> {
 
     //wip
     public void draw(GUI gui) throws IOException {
-        gui.clear();
         drawElements(gui);
-        gui.refresh();
     }
 
     //wip
