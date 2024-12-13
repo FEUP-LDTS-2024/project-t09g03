@@ -13,7 +13,7 @@ public class StoreController extends Controller<Store> {
     }
 
     @Override
-    public void step(Game game, GUI.Action action) {
+    public void step(Game game,GUI gui ,GUI.Action action) {
 
     }
 

@@ -16,13 +16,13 @@ public class ChickenViewer implements ElementViewer<Chicken>
     public void draw(Chicken chicken, GUI gui)
     {
         BasicTextImage image = imgMoving;;
-        boolean state = false;
+        boolean state = true;
 
-        if(!chicken.isStateMoving() && chicken.isStateDown())
+        if(!chicken.isStateMoving() && !chicken.isStateDown())
         {
             image = imgStatic;
         }
-        else if (!chicken.isStateMoving() && !chicken.isMovingDown())
+        else if (!chicken.isStateMoving() && chicken.isMovingDown())
         {
             image = imgStaticDown;
         }

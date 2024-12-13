@@ -14,5 +14,5 @@ public abstract class Controller<T> {
         return location;
     }
 
-    public abstract void step(Game game, GUI.Action action);
+    public abstract void step(Game game,GUI gui, GUI.Action action);
 }

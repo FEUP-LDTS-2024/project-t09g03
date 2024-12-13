@@ -3,6 +3,7 @@ package com.chickengame.model.game.map;
 import com.chickengame.model.game.elements.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 /**classe Map chama classe MapBuilder para ser instanciado, passando o caminho da localizacao que deve ser mostrada na tela*/
 public class Map
@@ -17,7 +18,15 @@ public class Map
     private List<Platform> platforms;
 
 
-    public Map() {}
+    public Map()
+    {
+        harmObjects = new ArrayList<>();
+        walls = new ArrayList<>();
+        cupcakes = new ArrayList<>();
+        lollipops = new ArrayList<>();
+        cornspikes = new ArrayList<>();
+        platforms = new ArrayList<>();
+    }
 
     public Chicken getChicken()
     {

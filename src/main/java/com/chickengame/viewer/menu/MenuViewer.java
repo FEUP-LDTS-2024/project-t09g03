@@ -28,10 +28,10 @@ public class MenuViewer extends Viewer<Menu> {
     @Override
     public void drawElements(GUI gui) {
         drawBackground(gui);
-        /*for(ButtonViewer vb: buttonViewer)
+        for(ButtonViewer vb: buttonViewer)
         {
             vb.drawElements(gui);
-        }*/
+        }
     }
     private void drawBackground(GUI gui)
     {

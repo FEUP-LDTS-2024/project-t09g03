@@ -15,31 +15,25 @@ import java.util.List;
 public class MapBuilder{
 
     private List<String> elements;
-    private Chicken chicken;
+    /*private Chicken chicken;
     private Background background;
     private List<Wall> walls = new ArrayList<Wall>();
     private List<HarmObject> harmObjects = new ArrayList<HarmObject>();
     private List<Cupcake> cupcakes = new ArrayList<Cupcake>();
     private List<Lollipop> lollipops = new ArrayList<Lollipop>();
     private List<Cornspike> cornspikes =  new ArrayList<Cornspike>();
-    private List<Platform> platforms = new ArrayList<Platform>();
+    private List<Platform> platforms = new ArrayList<Platform>();*/
 
     public Map createMap(String path) throws IOException {
         Map map = new Map();
-
         URL resource = MapBuilder.class.getResource(path);
+        if(resource == null) {
+            System.out.println("hello");
+          return map;
+        }
         BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
         this.elements = readElements(reader);
-        createElements();
-        map.setChicken(chicken);
-        map.setBackground(background);
-        map.setWalls(walls);
-        map.setHarmObjects(harmObjects);
-        map.setCornspikes(cornspikes);
-        map.setCupcakes(cupcakes);
-        map.setLollipops(lollipops);
-        map.setPlatforms(platforms);
-
+        populatemap(map);
         return map;
     }
     public MapBuilder() throws IOException {
@@ -57,11 +51,8 @@ public class MapBuilder{
         return elements;
     }
 
-    public void createElements()
+    public void populatemap(Map map)
     {
-        this.walls = new ArrayList<>();
-        this.harmObjects = new ArrayList<>();
-
         for (String element : this.elements) {
             String[] args;
             args = element.split(" ");
@@ -71,34 +62,30 @@ public class MapBuilder{
             boolean stateDown = Boolean.parseBoolean(args[3]);
             switch (c) {
                 case "Chicken":
-                    this.chicken = new Chicken(x, y);
+                    map.setChicken(new Chicken(x, y));
                     break;
                 case "Platform":
-                    Platform platform = new Platform(x, y);
-                    this.platforms.add(platform);
-                    this.walls.add(platform);
+                    map.getPlatforms().add(new Platform(x, y));
+                    map.getWalls().add(new Platform(x, y));
                     break;
                 case "Cornspike":
-                    Cornspike cornspike = new Cornspike(x,y,stateDown);
-                    this.cornspikes.add(cornspike);
-                    this.harmObjects.add(cornspike);
+                    map.getCornspikes().add(new Cornspike(x,y,stateDown));
+                    map.getHarmObjects().add(new Cornspike(x,y,stateDown));
                     break;
                 case "Cupcake":
-                    Cupcake cupcake = new Cupcake(x, y,stateDown);
-                    this.cupcakes.add(cupcake);
-                    this.walls.add(cupcake);
+                    map.getCupcakes().add(new Cupcake(x, y,stateDown));
+                    map.getWalls().add(new Cupcake(x, y,stateDown));
                     break;
                 case "Lollipop":
-                    Lollipop lollipop = new Lollipop(x, y,stateDown);
-                    this.lollipops.add(lollipop);
-                    this.walls.add(lollipop);
+                    map.getLollipops().add(new Lollipop(x, y,stateDown));
+                    map.getWalls().add(new Lollipop(x, y,stateDown));
                     break;
                 default:
-                    this.background = new Background(x, y);
+                    map.setBackground(new Background(x, y));
             }
         }
     }
-    public Chicken getChicken()
+    /*public Chicken getChicken()
     {
         return this.chicken;
     }
@@ -156,5 +143,5 @@ public class MapBuilder{
     public void setPlatforms(List<Platform> platforms)
     {
         this.platforms = platforms;
-    }
+    }*/
 }

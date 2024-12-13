@@ -25,7 +25,7 @@ public class Button extends Element {
     {
         return this.type;
     }
-    public void unselect(int selected) {
+    public void unselect() {
         this.selected = 0;
     }
 }
