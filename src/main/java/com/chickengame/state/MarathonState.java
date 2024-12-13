@@ -6,10 +6,8 @@ import com.chickengame.model.game.map.Map;
 import com.chickengame.viewer.map.MarathonViewer;
 import com.chickengame.viewer.Viewer;
 
-import java.io.IOException;
-
 public class MarathonState extends State<Map> {
-    public MarathonState(Map location) throws IOException
+    public MarathonState(Map location)
     {
         super(location);
     }

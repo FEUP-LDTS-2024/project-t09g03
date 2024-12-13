@@ -6,6 +6,7 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.elements.HarmObject;
+import com.chickengame.model.game.elements.Platform;
 import com.chickengame.model.game.elements.Wall;
 import com.chickengame.model.game.map.Map;
 
@@ -25,10 +26,11 @@ public class MarathonController extends Controller<Map> {
     }
     private void movecamera()
     {
-        for(Wall e : getLocation().getWalls())
+        for(Wall wall : getLocation().getWalls())
         {
-            Position old = e.getPosition();
-            e.setPosition(new Position(old.getX()-1,old.getY()));
+            Position old = wall.getPosition();
+
+            wall.setPosition((new Position(old.getX()-1,old.getY())));
         }
         for(HarmObject e : getLocation().getHarmObjects())
         {

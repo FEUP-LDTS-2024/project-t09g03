@@ -15,28 +15,25 @@ import java.util.List;
 public class MapBuilder{
 
     private List<String> elements;
-    /*private Chicken chicken;
-    private Background background;
-    private List<Wall> walls = new ArrayList<Wall>();
-    private List<HarmObject> harmObjects = new ArrayList<HarmObject>();
-    private List<Cupcake> cupcakes = new ArrayList<Cupcake>();
-    private List<Lollipop> lollipops = new ArrayList<Lollipop>();
-    private List<Cornspike> cornspikes =  new ArrayList<Cornspike>();
-    private List<Platform> platforms = new ArrayList<Platform>();*/
 
-    public Map createMap(String path) throws IOException {
+    public Map createMap(String path){
         Map map = new Map();
         URL resource = MapBuilder.class.getResource(path);
         if(resource == null) {
             System.out.println("hello");
           return map;
         }
-        BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
-        this.elements = readElements(reader);
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(resource.getFile()));
+            this.elements = readElements(reader);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         populatemap(map);
         return map;
     }
-    public MapBuilder() throws IOException {
+    public MapBuilder(){
     }
 
     private List<String> readElements(BufferedReader reader) throws IOException
@@ -65,83 +62,29 @@ public class MapBuilder{
                     map.setChicken(new Chicken(x, y));
                     break;
                 case "Platform":
-                    map.getPlatforms().add(new Platform(x, y));
-                    map.getWalls().add(new Platform(x, y));
+                    Platform platform = new Platform(x, y);
+                    map.getPlatforms().add(platform);
+                    map.getWalls().add(platform);
                     break;
                 case "Cornspike":
-                    map.getCornspikes().add(new Cornspike(x,y,stateDown));
-                    map.getHarmObjects().add(new Cornspike(x,y,stateDown));
+                    Cornspike cornspike = new Cornspike(x,y,stateDown);
+                    map.getCornspikes().add(cornspike);
+                    map.getHarmObjects().add(cornspike);
                     break;
                 case "Cupcake":
-                    map.getCupcakes().add(new Cupcake(x, y,stateDown));
-                    map.getWalls().add(new Cupcake(x, y,stateDown));
+                    Cupcake cupcake = new Cupcake(x,y,stateDown);
+                    map.getCupcakes().add(cupcake);
+                    map.getWalls().add(cupcake);
                     break;
                 case "Lollipop":
-                    map.getLollipops().add(new Lollipop(x, y,stateDown));
-                    map.getWalls().add(new Lollipop(x, y,stateDown));
+                    Lollipop lollipop = new Lollipop(x,y,stateDown);
+                    map.getLollipops().add(lollipop);
+                    map.getWalls().add(lollipop);
                     break;
                 default:
                     map.setBackground(new Background(x, y));
             }
         }
     }
-    /*public Chicken getChicken()
-    {
-        return this.chicken;
-    }
 
-    public List<HarmObject> getHarmObjects()
-    {
-        return this.harmObjects;
-    }
-
-    public List<Wall> getWalls()
-    {
-        return this.walls;
-    }
-
-    public Background getBackground()
-    {
-        return this.background;
-    }
-
-    public List<Cupcake> getCupcakes()
-    {
-        return cupcakes;
-    }
-
-    public void setCupcakes(List<Cupcake> cupcakes)
-    {
-        this.cupcakes = cupcakes;
-    }
-
-    public List<Lollipop> getLollipops()
-    {
-        return lollipops;
-    }
-
-    public void setLollipops(List<Lollipop> lollipops)
-    {
-        this.lollipops = lollipops;
-    }
-
-    public List<Cornspike> getCornspikes()
-    {
-        return cornspikes;
-    }
-
-    public void setCornspikes(List<Cornspike> cornspikes)
-    {
-        this.cornspikes = cornspikes;
-    }
-
-    public List<Platform> getPlatforms()
-    {
-        return platforms;
-    }
-
-    public void setPlatforms(List<Platform> platforms)
-    {
-        this.platforms = platforms;
-    }*/
 }

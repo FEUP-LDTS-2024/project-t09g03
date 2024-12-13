@@ -99,8 +99,8 @@ public class Map
     public void setPlatforms(List<Platform> platforms) {
         this.platforms = platforms;
     }
-/*
-    public boolean colides(int x1, int y1, int x2, int y2)
+
+    /*public boolean colides(int x1, int y1, int x2, int y2)
     {
         for(Wall w : getWalls())
         {
@@ -113,6 +113,6 @@ public class Map
     public void colidesup()
     {
 
-    }
-     */
+    }*/
+
 }
