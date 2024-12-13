@@ -107,11 +107,12 @@ public class Map
             if(w.getPosition().getX() + w.getWIDTH()>x1 && w.getPosition().getX()<x1 || w.getPosition().getX() + w.getWIDTH()>x1 && w.getPosition().getX()<x1 & )
         }
     }
-*/
+
 
 
     public void colidesup()
     {
 
     }
+     */
 }
