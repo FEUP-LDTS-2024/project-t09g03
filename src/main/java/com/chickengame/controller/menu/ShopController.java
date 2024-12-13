@@ -3,12 +3,10 @@ package com.chickengame.controller.menu;
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.game.map.Store;
+import com.chickengame.model.game.shop.Shop;
 
-import java.io.IOException;
-
-public class StoreController extends Controller<Store> {
-    public StoreController(Store location) {
+public class ShopController extends Controller<Shop> {
+    public ShopController(Shop location) {
         super(location);
     }
 

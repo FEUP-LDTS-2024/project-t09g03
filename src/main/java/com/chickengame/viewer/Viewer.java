@@ -15,7 +15,6 @@ public abstract class Viewer<T> {
         return location;
     }
 
-    //wip
     public void draw(GUI gui) throws IOException {
         drawElements(gui);
         gui.refresh();
