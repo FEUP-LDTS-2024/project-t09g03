@@ -4,7 +4,9 @@ package com.chickengame;
 import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
 import com.chickengame.model.game.map.MapBuilder;
+import com.chickengame.model.game.menu.Menu;
 import com.chickengame.state.MarathonState;
+import com.chickengame.state.MenuState;
 import com.chickengame.state.State;
 
 import java.io.IOException;
@@ -28,11 +30,7 @@ public class Game {
 
     private Game(){
         this.gui = new LanternaDraw();
-        try {
-            this.state = new MarathonState(new MapBuilder().createMap("/menus/Game.txt"));
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        this.state = new MenuState(new Menu());
     }
 
     public void run() throws IOException {

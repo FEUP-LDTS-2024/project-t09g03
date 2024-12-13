@@ -72,9 +72,10 @@ public class LanternaDraw implements GUI{
 
     @Override
     public void drawImage(Position position, BasicTextImage basicTextImage) {
+        double t1 = System.nanoTime();
         TerminalPosition pos = new TerminalPosition(position.getX(),position.getY());
         textGraphics.drawImage(pos,basicTextImage);
-
+        System.out.println(System.nanoTime()-t1);
     }
 
     @Override
