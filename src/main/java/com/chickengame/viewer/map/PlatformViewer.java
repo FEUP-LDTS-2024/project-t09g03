@@ -7,11 +7,12 @@ import com.googlecode.lanterna.graphics.BasicTextImage;
 
 public class PlatformViewer implements ElementViewer<Platform>
 {
-    private ImageLoader imageLoader = new ImageLoader();
-    private BasicTextImage image = imageLoader.getImage("images/game/platform.png");
+    private ImageLoader imgLoader = new ImageLoader();
+
+    private BasicTextImage imgPlatform = imgLoader.getImage("images/game/platform.png");
 
     public void draw(Platform platform, GUI gui)
     {
-        gui.drawImage(platform.getPosition(),image);
+        gui.drawImage(platform.getPosition(),imgPlatform);
     }
 }

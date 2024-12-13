@@ -7,8 +7,7 @@ public class Chicken extends Element
     private static final int WIDTH = 21;
     private static final int HEIGHT = 28;
     private boolean movingLeft = false;
-    private boolean stateMoving = true;
-    private boolean stateDown = false;
+    private boolean stateMoving = false;
     private boolean movingDown = true;
     private boolean charge = true;
 
@@ -55,21 +54,6 @@ public class Chicken extends Element
     public void setCharge(boolean charge)
     {
         this.charge = charge;
-    }
-
-    public boolean isStateDown()
-    {
-        return stateDown;
-    }
-
-    public boolean getStateDown()
-    {
-        return this.stateDown;
-    }
-
-    public void setStateDown(boolean stateDown)
-    {
-        this.stateDown = stateDown;
     }
 
     public static int getHEIGHT() {
