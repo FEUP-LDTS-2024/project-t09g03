@@ -1,6 +1,7 @@
 package com.chickengame;
 
 
+import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
 import com.chickengame.model.game.map.MapBuilder;
 import com.chickengame.state.MarathonState;
@@ -12,7 +13,7 @@ import java.io.IOException;
 public class Game {
 
     private static Game instance;
-    private final LanternaDraw gui;
+    private final GUI gui;
     private State state;
 
     /**cria uma nova instancia se ela ainda não existir, caso contrario retorna a existente*/
@@ -38,16 +39,15 @@ public class Game {
         while (this.state != null)
         {
             double t1 = System.nanoTime();
-            state.step(this, gui.getNextAction(),gui);
-
             try
             {
-                this.state.step(this,gui.getNextAction(),gui);
-                gui.getScreen().refresh();
-                if(gui.processKey() == 1)
+                GUI.Action action = gui.getNextAction();
+                if(action == GUI.Action.QUIT)
                 {
                     break;
                 }
+                this.state.step(this,action,gui);
+
             } catch (IOException e)
             {
                 throw new RuntimeException(e);

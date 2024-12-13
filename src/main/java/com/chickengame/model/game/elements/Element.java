@@ -16,7 +16,7 @@ public abstract class Element
     {
         return this.position;
     }
-    void setPosition(Position position)
+    public void setPosition(Position position)
     {
         this.position = position;
     }

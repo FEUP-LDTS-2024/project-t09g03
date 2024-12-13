@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 public class Chicken extends Element
 {
+    private static final int WIDTH = 21;
+    private static final int HEIGHT = 28;
     private boolean movingLeft = false;
     private boolean stateMoving = true;
     private boolean stateDown = false;
@@ -68,5 +70,13 @@ public class Chicken extends Element
     public void setStateDown(boolean stateDown)
     {
         this.stateDown = stateDown;
+    }
+
+    public static int getHEIGHT() {
+        return HEIGHT;
+    }
+
+    public static int getWIDTH() {
+        return WIDTH;
     }
 }

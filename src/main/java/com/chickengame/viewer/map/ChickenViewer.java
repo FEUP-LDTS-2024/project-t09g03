@@ -8,30 +8,29 @@ import com.googlecode.lanterna.graphics.BasicTextImage;
 public class ChickenViewer implements ElementViewer<Chicken>
 {
     private ImageLoader imageLoader = new ImageLoader();
-    private BasicTextImage imageMoving = imageLoader.getImage("images/game/chickenMoving.png");
-    private BasicTextImage imageStatic = imageLoader.getImage("images/game/chickenStatic.png");
+    private BasicTextImage imgMoving = imageLoader.getImage("images/game/chickenMoving.png");
+    private BasicTextImage imgStatic = imageLoader.getImage("images/game/chickenStatic.png");
+    private BasicTextImage imgStaticDown = imageLoader.getImage("images/game/chickenStaticDown.png");
+    private BasicTextImage imgMovingDown = imageLoader.getImage("images/game/chickenMovingDown.png");
     @Override
     public void draw(Chicken chicken, GUI gui)
     {
-        BasicTextImage image;
+        BasicTextImage image = imgMoving;;
         boolean state = false;
-        if(chicken.isStateMoving() && chicken.isMovingDown())
+
+        if(!chicken.isStateMoving() && chicken.isStateDown())
         {
-            image = imageMoving;
-        } else
-            image = imageStatic;
-            /*if (!chicken.isStateMoving() && chicken.isMovingDown()) {
+            image = imgStatic;
+        }
+        else if (!chicken.isStateMoving() && !chicken.isMovingDown())
+        {
+            image = imgStaticDown;
         }
         else if (chicken.isStateMoving() && !chicken.isMovingDown())
         {
-            //image = ;
-            state = true;
+            image = imgMovingDown;
         }
-        else
-        {
-            //image = ;
-            state = true;
-        }*/
+
         gui.drawImage(chicken.getPosition(),image);
         chicken.setStateMoving(state);
     }

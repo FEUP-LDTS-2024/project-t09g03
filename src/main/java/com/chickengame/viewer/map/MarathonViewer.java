@@ -12,8 +12,10 @@ public class MarathonViewer extends Viewer<Map>
 {
     private final List<ElementViewer<?>> viewerList = new ArrayList<ElementViewer<?>>();
     private final ChickenViewer chickenviewer = new ChickenViewer();
-    private final PlatformViewer platformviewer = new PlatformViewer();
     private final BackgroudViewer backgroundviewer = new BackgroudViewer();
+    private final CupcakeViewer cupcakeviwer = new CupcakeViewer();
+    private final PlatformViewer platformviewer = new PlatformViewer();
+    private final CornspikeViwer cornspikeViwer = new CornspikeViwer();
 
     public MarathonViewer(Map map)
     {
@@ -22,14 +24,29 @@ public class MarathonViewer extends Viewer<Map>
     @Override
     public void drawElements(GUI gui)
     {
+
         if(getLocation().getChicken()== null){
         }else
         {
             this.drawElements(gui,getLocation().getBackground(),backgroundviewer);
             this.drawElements(gui,getLocation().getChicken(), chickenviewer);
             this.drawElements(gui,getLocation().getPlatforms(), platformviewer);
+            this.drawElements(gui,getLocation().getCornspikes(), cornspikeViwer);
+            this.drawElements(gui,getLocation().getCupcakes(), cupcakeviwer);
         }
     }
+    private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer)
+    {
+        for(T element : elements)
+        {
+            viewer.draw(element,gui);
+        }
+    }
+    private <T extends Element> void drawElements(GUI gui, T elements, ElementViewer<T> viewer)
+    {
+        viewer.draw(elements,gui);
+    }
+
     /*
     private final GUI gui;
     private final Map map;
@@ -82,17 +99,6 @@ public class MarathonViewer extends Viewer<Map>
     }
      */
 
-    private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer)
-    {
-        for(T element : elements)
-        {
-            viewer.draw(element,gui);
-        }
-    }
-    private <T extends Element> void drawElements(GUI gui, T elements, ElementViewer<T> viewer)
-    {
-        viewer.draw(elements,gui);
-    }
 
 
 }

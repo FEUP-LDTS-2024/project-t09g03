@@ -4,6 +4,8 @@ import java.awt.image.BufferedImage;
 
 public class Cupcake extends Wall
 {
+    private static final int WIDTH = 26;
+    private static final int HEIGHT = 46;
     private boolean stateDown;
 
     public Cupcake(int x, int y, boolean stateDown)
@@ -19,5 +21,16 @@ public class Cupcake extends Wall
     public void setStateDown(boolean stateDown)
     {
         this.stateDown = stateDown;
+    }
+
+
+    @Override
+    public int getHEIGHT() {
+        return HEIGHT;
+    }
+
+    @Override
+    public int getWIDTH() {
+        return WIDTH;
     }
 }

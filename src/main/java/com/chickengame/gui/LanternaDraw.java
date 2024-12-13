@@ -81,27 +81,27 @@ public class LanternaDraw implements GUI{
     public Action getNextAction() throws IOException
     {
         KeyStroke key = screen.pollInput();
-        if(key == null)
+        if(key != null)
         {
-            return Action.NONE;
+            return switch(key.getKeyType())
+            {
+                case Enter -> Action.SELECT;
+                case Escape -> Action.QUIT;
+                case ArrowRight -> Action.RIGHT;
+                case ArrowLeft -> Action.LEFT;
+                case ArrowUp -> Action.UP;
+                case ArrowDown -> Action.DOWN;
+                case KeyType.Character->
+                        switch (key.getCharacter())
+                        {
+                            case ' '->Action.INVERT;
+                            case 'q'->Action.QUIT;
+                            default -> Action.NONE;
+                        };
+                default -> Action.NONE;
+            };
         }
-        return switch(key.getKeyType())
-        {
-            case Enter -> Action.SELECT;
-            case Escape -> Action.QUIT;
-            case ArrowRight -> Action.RIGHT;
-            case ArrowLeft -> Action.LEFT;
-            case ArrowUp -> Action.UP;
-            case ArrowDown -> Action.DOWN;
-            case KeyType.Character->
-                    switch (key.getCharacter())
-                    {
-                        case ' '->Action.INVERT;
-                        case 'q'->Action.QUIT;
-                        default -> Action.NONE;
-                    };
-            default -> Action.NONE;
-        };
+        return Action.NONE;
     }
 
     @Override

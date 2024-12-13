@@ -1,7 +1,7 @@
 package com.chickengame.model.game.elements;
 
 
-public class HarmObject extends Element
+public abstract class HarmObject extends Element
 {
     public HarmObject(int x, int y)
     {
