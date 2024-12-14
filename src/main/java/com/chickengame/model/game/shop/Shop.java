@@ -9,28 +9,21 @@ import java.util.List;
 public class Shop {
     private final List<Button> buttons;
     private int currentButton = 0;
-    private final List<Chicken> chickens;
-    private int currentChicken;
+    private int currentChicken = 0;
     private final int maxChicken = 3;
 
     public Shop() {
         this.buttons = new ArrayList<>();
-        this.buttons.add(new Button(298,275,Button.Type.Back));
-        this.buttons.add(new Button(460,225,Button.Type.Next));
-        this.buttons.add(new Button(235,225,Button.Type.Previous));
+        this.buttons.add(new Button(302,265,Button.Type.Back));
+        this.buttons.add(new Button(440,175,Button.Type.Next));
+        this.buttons.add(new Button(270,175,Button.Type.Previous));
         this.buttons.getFirst().select();
-        this.chickens = new ArrayList<>();
-        this.chickens.add(new Chicken(250, 250, 0));
-        this.chickens.add(new Chicken(300, 300, 0));
-        this.chickens.add(new Chicken(350, 350, 0));
     }
 
     public List<Button> getButtons()
     {
         return buttons;
     }
-
-    public List<Chicken> getChickens() {return chickens;}
 
     public void nextButton() {
         this.buttons.get(currentButton).unselect();
@@ -48,6 +41,10 @@ public class Shop {
         this.buttons.get(currentButton).select();
     }
 
+    public int getMaxChicken()
+    {
+        return maxChicken;
+    }
 
     public Button getSelected() {
         return buttons.get(currentButton);
@@ -59,11 +56,15 @@ public class Shop {
     
     public int getCurrentChicken() {return this.currentChicken;}
 
-    public void moveLeft() {
-        currentChicken = (currentChicken-1+maxChicken)%maxChicken;
+    public int getNextSkin()
+    {
+        currentChicken = (currentChicken + 1)%maxChicken;
+        return currentChicken;
+    }
+    public int getPrevious()
+    {
+        currentChicken = (currentChicken-1) <0 ? maxChicken-1: currentChicken-1;
+        return currentChicken;
     }
 
-    public void moveRight() {
-        currentChicken = (currentChicken+1)%maxChicken;
-    }
 }

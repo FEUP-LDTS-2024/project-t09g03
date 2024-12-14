@@ -17,6 +17,7 @@ public class Game {
     private static Game instance;
     private final GUI gui;
     private State state;
+    private int chickenSkin = 0;
 
     /**cria uma nova instancia se ela ainda não existir, caso contrario retorna a existente*/
     public static Game getInstance()
@@ -65,5 +66,13 @@ public class Game {
     public void setState(State state)
     {
         this.state = state;
+    }
+
+    public int getChickenSkin() {
+        return chickenSkin;
+    }
+
+    public void setChickenSkin(int chickenSkin) {
+        this.chickenSkin = chickenSkin;
     }
 }

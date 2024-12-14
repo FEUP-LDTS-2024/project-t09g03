@@ -16,10 +16,10 @@ public class ChickenViewer implements ElementViewer<Chicken>
     public ChickenViewer(int type)
     {
         ImageLoader imgLoader = new ImageLoader();
-        imgMoving = imgLoader.getImage("images/game/chickenMoving" + type + ".png");
-        imgStatic = imgLoader.getImage("images/game/chickenStatic"+ type + ".png");
-        imgMovingDown = imgLoader.getImage("images/game/chickenMovingDown" + type + ".png");
-        imgStaticDown = imgLoader.getImage("images/game/chickenStaticDown" + type + ".png");
+        imgMoving = imgLoader.getImage("images/game/chicken/chickenMoving" + type + ".png");
+        imgStatic = imgLoader.getImage("images/game/chicken/chickenStatic"+ type + ".png");
+        imgMovingDown = imgLoader.getImage("images/game/chicken/chickenMovingDown" + type + ".png");
+        imgStaticDown = imgLoader.getImage("images/game/chicken/chickenStaticDown" + type + ".png");
     }
     @Override
     public void draw(Chicken chicken, GUI gui)

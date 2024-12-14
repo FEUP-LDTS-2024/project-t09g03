@@ -17,8 +17,11 @@ import java.util.List;
 public class ShopViewer extends Viewer<Shop> {
     private ImageLoader imageLoader = new ImageLoader();
     private List<ButtonViewer> buttonViewer = new ArrayList<>();
-    private List<ChickenViewer> chickenViewer = new ArrayList<>();
+    private final Position posLeft = new Position(160,125);
+    private final Position posMiddle = new Position(340,125);
+    private final Position posRigth = new Position(510,125);
     private final BasicTextImage background = imageLoader.getImage("images/shop/Background_shop.png");
+    private final List<BasicTextImage> Skins = new ArrayList<>();
 
     public ShopViewer(Shop location) {
         super(location);
@@ -26,10 +29,11 @@ public class ShopViewer extends Viewer<Shop> {
         {
             buttonViewer.add(new ButtonViewer(b));
         }
-        for(Chicken c : getLocation().getChickens())
+        for(int i = 0; i<getLocation().getMaxChicken(); i++)
         {
-            chickenViewer.add(new ChickenViewer(c.getType()));
+            Skins.add(imageLoader.getImage("images/shop/chicken" + i + ".png"));
         }
+
     }
 
     @Override
@@ -39,12 +43,29 @@ public class ShopViewer extends Viewer<Shop> {
         {
             vb.drawElements(gui);
         }
-
-        BasicTextImage il = imageLoader.getImage("/cars/player/car" + getLocation().getCurrentChicken() + ".png");
-        gui.drawImage(new Position(130, 150), il);
+        gui.drawImage(posMiddle, Skins.get(getLocation().getCurrentChicken()));
+        gui.drawImage(posRigth,  Skins.get((getLocation().getCurrentChicken()+1)< getLocation().getMaxChicken()? getLocation().getCurrentChicken()+1:0));
+        gui.drawImage(posLeft, Skins.get((getLocation().getCurrentChicken()-1)< 0? getLocation().getMaxChicken()-1:getLocation().getCurrentChicken()-1));
     }
     private void drawBackground(GUI gui)
     {
         gui.drawImage(new Position(0,0),background);
     }
+/* Porque caralhos precisamos disto????????????
+    public void rotate(int left, int middle, int right, GUI gui)
+    {
+        drawBackground(gui);
+        for(ButtonViewer vb: buttonViewer)
+        {
+            vb.drawElements(gui);
+        }
+        BasicTextImage chickenLeft = imageLoader.getImage("images/shop/chicken" + left + ".png");
+        BasicTextImage chickenMiddle = imageLoader.getImage("images/shop/chicken" + middle + ".png");
+        BasicTextImage chickenRigth = imageLoader.getImage("images/shop/chicken" + right + ".png");
+        gui.drawImage(posLeft, chickenLeft);
+        gui.drawImage(posMiddle, chickenMiddle);
+        gui.drawImage(posRigth, chickenRigth);
+    }
+
+ */
 }

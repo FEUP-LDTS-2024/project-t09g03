@@ -21,6 +21,7 @@ public class ShopController extends Controller<Shop> {
 
     @Override
     public void step(Game game,GUI gui ,GUI.Action action) {
+        System.out.println(counter);
         switch (action)
         {
             case LEFT ->getLocation().previousButton();
@@ -30,17 +31,16 @@ public class ShopController extends Controller<Shop> {
                 switch (getLocation().getSelected().getType()) {
                     case Back ->
                     {
-                        game.getState().setChickenType(counter);
+                        game.setChickenSkin(counter);
                         game.setState(new MenuState(new Menu()));
                     }
                     case Next ->
                     {
-
-                        changeCounter(1);
+                        changeCounter(getLocation().getNextSkin());
                     }
                     case Previous ->
                     {
-                        changeCounter(-1);
+                        changeCounter(getLocation().getPrevious());
                     }
                 }
             }
@@ -48,13 +48,7 @@ public class ShopController extends Controller<Shop> {
     }
 
     private void changeCounter(int i) {
-        counter+=i;
-        switch (counter)
-        {
-            case -1 -> counter = max-1;
-            case max -> counter = 0;
-
-        }
+        counter = i;
     }
 
 }
