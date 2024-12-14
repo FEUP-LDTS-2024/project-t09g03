@@ -11,6 +11,7 @@ public abstract class State<T> {
     private T location;
     private final Controller<T> stateController;
     private final Viewer<T> stateViewer;
+    private int chickenType = 0;
 
 
     public State(T location) {
@@ -35,4 +36,13 @@ public abstract class State<T> {
     }
 
 
+    public int getChickenType()
+    {
+        return chickenType;
+    }
+
+    public void setChickenType(int chickenType)
+    {
+        this.chickenType = chickenType;
+    }
 }

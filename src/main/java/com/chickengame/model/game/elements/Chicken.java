@@ -2,26 +2,17 @@ package com.chickengame.model.game.elements;
 
 public class Chicken extends Element
 {
+    private int type;
     private static final int WIDTH = 21;
     private static final int HEIGHT = 28;
-    private boolean movingLeft = false;
     private boolean stateMoving = false;
     private boolean movingDown = true;
     private boolean charge = false;
 
-    public Chicken(int x, int y)
+    public Chicken(int x, int y,int type)
     {
         super(x, y);
-    }
-
-    public boolean isMovingLeft()
-    {
-        return movingLeft;
-    }
-
-    public void setMovingLeft(boolean movingLeft)
-    {
-        this.movingLeft = movingLeft;
+        this.type = type;
     }
 
     public boolean isStateMoving()
@@ -60,5 +51,15 @@ public class Chicken extends Element
 
     public int getWIDTH() {
         return WIDTH;
+    }
+
+    public int getType()
+    {
+        return type;
+    }
+
+    public void setType(int type)
+    {
+        this.type = type;
     }
 }

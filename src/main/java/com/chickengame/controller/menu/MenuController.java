@@ -29,7 +29,7 @@ public class MenuController extends Controller<Menu> {
 
                             gui.close();
                                          }
-                    case Play -> game.setState(new MarathonState(new MapBuilder().createMap("/menus/Game.txt")));
+                    case Play -> game.setState(new MarathonState(new MapBuilder().createMap("/menus/Game.txt",game.getState().getChickenType())));
                 }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
