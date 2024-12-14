@@ -16,7 +16,7 @@ public class MapBuilder{
 
     private List<String> elements;
 
-    public Map createMap(String path){
+    public Map createMap(String path, int type){
         Map map = new Map();
         URL resource = MapBuilder.class.getResource(path);
         if(resource == null) {
@@ -30,7 +30,7 @@ public class MapBuilder{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        populatemap(map);
+        populatemap(map,type);
         return map;
     }
     public MapBuilder(){
@@ -48,7 +48,7 @@ public class MapBuilder{
         return elements;
     }
 
-    public void populatemap(Map map)
+    public void populatemap(Map map, int type)
     {
         for (String element : this.elements) {
             String[] args;
@@ -59,7 +59,7 @@ public class MapBuilder{
             boolean stateDown = Boolean.parseBoolean(args[3]);
             switch (c) {
                 case "Chicken":
-                    map.setChicken(new Chicken(x, y));
+                    map.setChicken(new Chicken(x, y,type));
                     break;
                 case "Platform":
                     Platform platform = new Platform(x, y);

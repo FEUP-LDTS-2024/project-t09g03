@@ -10,7 +10,7 @@ import java.util.List;
 
 public class MarathonViewer extends Viewer<Map>
 {
-    private final ChickenViewer chickenViewer = new ChickenViewer();
+    private final ChickenViewer chickenViewer = new ChickenViewer(getLocation().getChicken().getType());
     private final BackgroundViewer backgroundViewer = new BackgroundViewer();
     private final CupcakeViewer cupcakeViewer = new CupcakeViewer();
     private final PlatformViewer platformViewer = new PlatformViewer();

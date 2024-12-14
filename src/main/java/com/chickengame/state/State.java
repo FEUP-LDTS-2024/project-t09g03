@@ -29,17 +29,20 @@ public abstract class State<T> {
         return this.location;
     }
 
+    //wip
     public void step(Game game,GUI.Action action, GUI gui) throws IOException {
         stateViewer.draw(gui);
         stateController.step(game,gui, action);
     }
 
 
-    public int getChickenType() {
+    public int getChickenType()
+    {
         return chickenType;
     }
 
-    public void setChickenType(int chickenType) {
+    public void setChickenType(int chickenType)
+    {
         this.chickenType = chickenType;
     }
 }

@@ -7,14 +7,20 @@ import com.googlecode.lanterna.graphics.BasicTextImage;
 
 public class ChickenViewer implements ElementViewer<Chicken>
 {
-    private ImageLoader imgLoader = new ImageLoader();
+    private BasicTextImage imgMoving;
+    private BasicTextImage imgStatic;
 
-    private BasicTextImage imgMoving = imgLoader.getImage("images/game/chickenMoving.png");
-    private BasicTextImage imgStatic = imgLoader.getImage("images/game/chickenStatic.png");
+    private BasicTextImage imgMovingDown;
+    private BasicTextImage imgStaticDown;
 
-    private BasicTextImage imgMovingDown = imgLoader.getImage("images/game/chickenMovingDown.png");
-    private BasicTextImage imgStaticDown = imgLoader.getImage("images/game/chickenStaticDown.png");
-
+    public ChickenViewer(int type)
+    {
+        ImageLoader imgLoader = new ImageLoader();
+        imgMoving = imgLoader.getImage("images/game/chickenMoving" + type + ".png");
+        imgStatic = imgLoader.getImage("images/game/chickenStatic"+ type + ".png");
+        imgMovingDown = imgLoader.getImage("images/game/chickenMovingDown" + type + ".png");
+        imgStaticDown = imgLoader.getImage("images/game/chickenStaticDown" + type + ".png");
+    }
     @Override
     public void draw(Chicken chicken, GUI gui)
     {
