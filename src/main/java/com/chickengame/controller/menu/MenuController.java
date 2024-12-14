@@ -6,9 +6,7 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.model.game.map.MapBuilder;
 import com.chickengame.model.game.menu.Menu;
-import com.chickengame.model.game.shop.Shop;
 import com.chickengame.state.MarathonState;
-import com.chickengame.state.ShopState;
 
 import java.io.IOException;
 
@@ -31,8 +29,7 @@ public class MenuController extends Controller<Menu> {
 
                             gui.close();
                                          }
-                    case Play -> game.setState(new MarathonState(new MapBuilder().createMap("/menus/Game.txt")));
-                    case Shop -> game.setState(new ShopState(new Shop()));
+                    case Play -> game.setState(new MarathonState(new MapBuilder().createMap("/menus/Game.txt", game.getState().getChickenType())));
                 }
                 } catch (IOException e) {
                     throw new RuntimeException(e);
