@@ -1,16 +1,13 @@
 package com.chickengame.model.game.elements;
 
-import java.awt.image.BufferedImage;
-
 public class Chicken extends Element
 {
     private static final int WIDTH = 21;
     private static final int HEIGHT = 28;
     private boolean movingLeft = false;
-    private boolean stateMoving = true;
-    private boolean stateDown = false;
+    private boolean stateMoving = false;
     private boolean movingDown = true;
-    private boolean charge = true;
+    private boolean charge = false;
 
     public Chicken(int x, int y)
     {
@@ -57,26 +54,11 @@ public class Chicken extends Element
         this.charge = charge;
     }
 
-    public boolean isStateDown()
-    {
-        return stateDown;
-    }
-
-    public boolean getStateDown()
-    {
-        return this.stateDown;
-    }
-
-    public void setStateDown(boolean stateDown)
-    {
-        this.stateDown = stateDown;
-    }
-
-    public static int getHEIGHT() {
+    public int getHEIGHT() {
         return HEIGHT;
     }
 
-    public static int getWIDTH() {
+    public int getWIDTH() {
         return WIDTH;
     }
 }

@@ -15,34 +15,25 @@ import java.util.List;
 public class MapBuilder{
 
     private List<String> elements;
-    private Chicken chicken;
-    private Background background;
-    private List<Wall> walls = new ArrayList<Wall>();
-    private List<HarmObject> harmObjects = new ArrayList<HarmObject>();
-    private List<Cupcake> cupcakes = new ArrayList<Cupcake>();
-    private List<Lollipop> lollipops = new ArrayList<Lollipop>();
-    private List<Cornspike> cornspikes =  new ArrayList<Cornspike>();
-    private List<Platform> platforms = new ArrayList<Platform>();
 
-    public Map createMap(String path) throws IOException {
+    public Map createMap(String path){
         Map map = new Map();
-
         URL resource = MapBuilder.class.getResource(path);
-        BufferedReader reader = new BufferedReader(new FileReader(resource.getFile()));
-        this.elements = readElements(reader);
-        createElements();
-        map.setChicken(chicken);
-        map.setBackground(background);
-        map.setWalls(walls);
-        map.setHarmObjects(harmObjects);
-        map.setCornspikes(cornspikes);
-        map.setCupcakes(cupcakes);
-        map.setLollipops(lollipops);
-        map.setPlatforms(platforms);
-
+        if(resource == null) {
+            System.out.println("hello");
+          return map;
+        }
+        BufferedReader reader = null;
+        try {
+            reader = new BufferedReader(new FileReader(resource.getFile()));
+            this.elements = readElements(reader);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        populatemap(map);
         return map;
     }
-    public MapBuilder() throws IOException {
+    public MapBuilder(){
     }
 
     private List<String> readElements(BufferedReader reader) throws IOException
@@ -57,11 +48,8 @@ public class MapBuilder{
         return elements;
     }
 
-    public void createElements()
+    public void populatemap(Map map)
     {
-        this.walls = new ArrayList<>();
-        this.harmObjects = new ArrayList<>();
-
         for (String element : this.elements) {
             String[] args;
             args = element.split(" ");
@@ -71,90 +59,32 @@ public class MapBuilder{
             boolean stateDown = Boolean.parseBoolean(args[3]);
             switch (c) {
                 case "Chicken":
-                    this.chicken = new Chicken(x, y);
+                    map.setChicken(new Chicken(x, y));
                     break;
                 case "Platform":
                     Platform platform = new Platform(x, y);
-                    this.platforms.add(platform);
-                    this.walls.add(platform);
+                    map.getPlatforms().add(platform);
+                    map.getWalls().add(platform);
                     break;
                 case "Cornspike":
                     Cornspike cornspike = new Cornspike(x,y,stateDown);
-                    this.cornspikes.add(cornspike);
-                    this.harmObjects.add(cornspike);
+                    map.getCornspikes().add(cornspike);
+                    map.getHarmObjects().add(cornspike);
                     break;
                 case "Cupcake":
-                    Cupcake cupcake = new Cupcake(x, y,stateDown);
-                    this.cupcakes.add(cupcake);
-                    this.walls.add(cupcake);
+                    Cupcake cupcake = new Cupcake(x,y,stateDown);
+                    map.getCupcakes().add(cupcake);
+                    map.getWalls().add(cupcake);
                     break;
                 case "Lollipop":
-                    Lollipop lollipop = new Lollipop(x, y,stateDown);
-                    this.lollipops.add(lollipop);
-                    this.walls.add(lollipop);
+                    Lollipop lollipop = new Lollipop(x,y,stateDown);
+                    map.getLollipops().add(lollipop);
+                    map.getWalls().add(lollipop);
                     break;
                 default:
-                    this.background = new Background(x, y);
+                    map.setBackground(new Background(x, y));
             }
         }
     }
-    public Chicken getChicken()
-    {
-        return this.chicken;
-    }
 
-    public List<HarmObject> getHarmObjects()
-    {
-        return this.harmObjects;
-    }
-
-    public List<Wall> getWalls()
-    {
-        return this.walls;
-    }
-
-    public Background getBackground()
-    {
-        return this.background;
-    }
-
-    public List<Cupcake> getCupcakes()
-    {
-        return cupcakes;
-    }
-
-    public void setCupcakes(List<Cupcake> cupcakes)
-    {
-        this.cupcakes = cupcakes;
-    }
-
-    public List<Lollipop> getLollipops()
-    {
-        return lollipops;
-    }
-
-    public void setLollipops(List<Lollipop> lollipops)
-    {
-        this.lollipops = lollipops;
-    }
-
-    public List<Cornspike> getCornspikes()
-    {
-        return cornspikes;
-    }
-
-    public void setCornspikes(List<Cornspike> cornspikes)
-    {
-        this.cornspikes = cornspikes;
-    }
-
-    public List<Platform> getPlatforms()
-    {
-        return platforms;
-    }
-
-    public void setPlatforms(List<Platform> platforms)
-    {
-        this.platforms = platforms;
-    }
 }

@@ -7,31 +7,35 @@ import com.googlecode.lanterna.graphics.BasicTextImage;
 
 public class ChickenViewer implements ElementViewer<Chicken>
 {
-    private ImageLoader imageLoader = new ImageLoader();
-    private BasicTextImage imgMoving = imageLoader.getImage("images/game/chickenMoving.png");
-    private BasicTextImage imgStatic = imageLoader.getImage("images/game/chickenStatic.png");
-    private BasicTextImage imgStaticDown = imageLoader.getImage("images/game/chickenStaticDown.png");
-    private BasicTextImage imgMovingDown = imageLoader.getImage("images/game/chickenMovingDown.png");
+    private ImageLoader imgLoader = new ImageLoader();
+
+    private BasicTextImage imgMoving = imgLoader.getImage("images/game/chickenMoving.png");
+    private BasicTextImage imgStatic = imgLoader.getImage("images/game/chickenStatic.png");
+
+    private BasicTextImage imgMovingDown = imgLoader.getImage("images/game/chickenMovingDown.png");
+    private BasicTextImage imgStaticDown = imgLoader.getImage("images/game/chickenStaticDown.png");
+
     @Override
     public void draw(Chicken chicken, GUI gui)
     {
-        BasicTextImage image = imgMoving;;
         boolean state = false;
-
-        if(!chicken.isStateMoving() && chicken.isStateDown())
+        if(chicken.isStateMoving() && chicken.isMovingDown())
         {
-            image = imgStatic;
+            gui.drawImage(chicken.getPosition(),imgMoving);
+        }
+        else if(!chicken.isStateMoving() && chicken.isMovingDown())
+        {
+            gui.drawImage(chicken.getPosition(),imgStatic);
+            state = true;
         }
         else if (!chicken.isStateMoving() && !chicken.isMovingDown())
         {
-            image = imgStaticDown;
+            gui.drawImage(chicken.getPosition(),imgStaticDown);
+            state = true;
         }
-        else if (chicken.isStateMoving() && !chicken.isMovingDown())
-        {
-            image = imgMovingDown;
+        else {
+            gui.drawImage(chicken.getPosition(), imgMovingDown);
         }
-
-        gui.drawImage(chicken.getPosition(),image);
         chicken.setStateMoving(state);
     }
 }
