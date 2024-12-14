@@ -1,7 +1,5 @@
 package com.chickengame.model.game.elements;
 
-import java.awt.image.BufferedImage;
-
 public class Chicken extends Element
 {
     private static final int WIDTH = 21;
@@ -9,7 +7,7 @@ public class Chicken extends Element
     private boolean movingLeft = false;
     private boolean stateMoving = false;
     private boolean movingDown = true;
-    private boolean charge = true;
+    private boolean charge = false;
 
     public Chicken(int x, int y)
     {
@@ -56,11 +54,11 @@ public class Chicken extends Element
         this.charge = charge;
     }
 
-    public static int getHEIGHT() {
+    public int getHEIGHT() {
         return HEIGHT;
     }
 
-    public static int getWIDTH() {
+    public int getWIDTH() {
         return WIDTH;
     }
 }

@@ -7,4 +7,8 @@ public abstract class HarmObject extends Element
     {
         super(x, y);
     }
+
+    public abstract int getHEIGHT();
+
+    public abstract int getWIDTH();
 }

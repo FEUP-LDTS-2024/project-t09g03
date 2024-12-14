@@ -20,10 +20,12 @@ public class Cornspike extends HarmObject{
         this.stateDown = stateDown;
     }
 
+    @Override
     public int getHEIGHT() {
         return HEIGHT;
     }
 
+    @Override
     public int getWIDTH() {
         return WIDTH;
     }

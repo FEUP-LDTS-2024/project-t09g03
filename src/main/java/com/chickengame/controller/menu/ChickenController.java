@@ -12,23 +12,30 @@ public class ChickenController extends Controller<Chicken> {
     }
 
     @Override
-    public void step(Game game, GUI gui,GUI.Action action) {
+    public void step(Game game, GUI gui, GUI.Action action) {
         switch(action)
         {
             case INVERT -> invertChickenGravity();
         }
-        move();
     }
+
     private void invertChickenGravity()
     {
         if(super.getLocation().isCharge())
         {
             super.getLocation().setMovingDown(!super.getLocation().isMovingDown());
+            super.getLocation().setCharge(false);
         }
     }
-    private void move()
+    public void moveY(int adapter)
     {
         Position old = getLocation().getPosition();
-        getLocation().setPosition(new Position(old.getX(), getLocation().isMovingDown()? old.getY()+1:old.getY()-1));
+        getLocation().setPosition(new Position(old.getX(), getLocation().isMovingDown()? old.getY()+adapter:old.getY()-adapter));
+    }
+
+    public void stopX(int adapter)
+    {
+        Position old = getLocation().getPosition();
+        getLocation().setPosition(new Position(old.getX()-adapter, old.getY()));
     }
 }

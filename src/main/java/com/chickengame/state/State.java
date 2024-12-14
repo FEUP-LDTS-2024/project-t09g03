@@ -15,8 +15,8 @@ public abstract class State<T> {
 
     public State(T location) {
         this.location = location;
-        this.stateController = getStateController();
         this.stateViewer = getStateViewer();
+        this.stateController = getStateController();
     }
 
     public abstract Viewer<T> getStateViewer();
@@ -27,10 +27,11 @@ public abstract class State<T> {
     {
         return this.location;
     }
+
     //wip
     public void step(Game game,GUI.Action action, GUI gui) throws IOException {
-        stateController.step(game,gui, action);
         stateViewer.draw(gui);
+        stateController.step(game,gui, action);
     }
 
 

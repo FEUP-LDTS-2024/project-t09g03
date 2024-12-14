@@ -2,10 +2,9 @@ package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.*;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-/**classe Map chama classe MapBuilder para ser instanciado, passando o caminho da localizacao que deve ser mostrada na tela*/
+
 public class Map
 {
     private Chicken chicken;
@@ -43,19 +42,9 @@ public class Map
         return this.harmObjects;
     }
 
-    public void setHarmObjects(List<HarmObject> harmObjects)
-    {
-        this.harmObjects = harmObjects;
-    }
-
     public List<Wall> getWalls()
     {
         return this.walls;
-    }
-
-    public void setWalls(List<Wall> walls)
-    {
-        this.walls = walls;
     }
 
     public Background getBackground()
@@ -72,47 +61,116 @@ public class Map
         return cupcakes;
     }
 
-    public void setCupcakes(List<Cupcake> cupcakes) {
-        this.cupcakes = cupcakes;
-    }
-
     public List<Lollipop> getLollipops() {
         return lollipops;
-    }
-
-    public void setLollipops(List<Lollipop> lollipops) {
-        this.lollipops = lollipops;
     }
 
     public List<Cornspike> getCornspikes() {
         return cornspikes;
     }
 
-    public void setCornspikes(List<Cornspike> cornspikes) {
-        this.cornspikes = cornspikes;
-    }
-
     public List<Platform> getPlatforms() {
         return platforms;
     }
 
-    public void setPlatforms(List<Platform> platforms) {
-        this.platforms = platforms;
-    }
 
-    /*public boolean colides(int x1, int y1, int x2, int y2)
+    public Boolean colidesHarmObject()
     {
-        for(Wall w : getWalls())
+        int chickenXMin = chicken.getPosition().getX();
+        int chickenXMax = chickenXMin + chicken.getWIDTH();
+        int chickenYMin = chicken.getPosition().getY();
+        int chickenYMax = chickenYMin + chicken.getHEIGHT();
+        for (HarmObject harmobject : harmObjects)
         {
-            if(w.getPosition().getX() + w.getWIDTH()>x1 && w.getPosition().getX()<x1 || w.getPosition().getX() + w.getWIDTH()>x1 && w.getPosition().getX()<x1 & )
+            int harmObjectXMin = harmobject.getPosition().getX();
+            int harmObjectXMax = harmObjectXMin + harmobject.getWIDTH();
+            int harmObjectYMin = harmobject.getPosition().getY();
+            int harmObjectYMax = harmObjectYMin + harmobject.getHEIGHT();
+
+            boolean overlapX = (chickenXMax >= harmObjectXMin && chickenXMin <= harmObjectXMax);
+            boolean overlapY = (chickenYMax >= harmObjectYMin && chickenYMin <= harmObjectYMax);
+
+            if (overlapX && overlapY)
+            {
+                return true;
+            }
         }
+        return false;
     }
 
 
-
-    public void colidesup()
+    public boolean colidesUp()
     {
+        int chickenXMin = chicken.getPosition().getX();
+        int chickenXMax = chickenXMin + chicken.getWIDTH();
+        int chickenYMin = chicken.getPosition().getY();
+        int chickenYMax = chickenYMin + chicken.getHEIGHT();
 
-    }*/
+        for (Wall wall : walls)
+        {
+            int wallXMin = wall.getPosition().getX();
+            int wallXMax = wallXMin + wall.getWIDTH();
+            int wallYMin = wall.getPosition().getY();
+            int wallYMax = wallYMin + wall.getHEIGHT();
 
+            boolean overlapX = (chickenXMax >= wallXMin && chickenXMin <= wallXMax);
+            boolean touchingUp = (chickenYMin == wallYMax);
+
+            if (overlapX && touchingUp)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean colidesDown()
+    {
+        int chickenXMin = chicken.getPosition().getX();
+        int chickenXMax = chickenXMin + chicken.getWIDTH();
+        int chickenYMin = chicken.getPosition().getY();
+        int chickenYMax = chickenYMin + chicken.getHEIGHT();
+
+        for (Wall wall : walls)
+        {
+            int wallXMin = wall.getPosition().getX();
+            int wallXMax = wallXMin + wall.getWIDTH();
+            int wallYMin = wall.getPosition().getY();
+            int wallYMax = wallYMin + wall.getHEIGHT();
+
+            boolean overlapX = (chickenXMax >= wallXMin && chickenXMin <= wallXMax);
+            boolean touchingUp = (chickenYMax == wallYMin);
+
+            if (overlapX && touchingUp)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean colidesRight()
+    {
+        int chickenXMin = chicken.getPosition().getX();
+        int chickenXMax = chickenXMin + chicken.getWIDTH();
+        int chickenYMin = chicken.getPosition().getY();
+        int chickenYMax = chickenYMin + chicken.getHEIGHT();
+
+        for (Wall wall : walls)
+        {
+            int wallXMin = wall.getPosition().getX();
+            int wallXMax = wallXMin + wall.getWIDTH();
+            int wallYMin = wall.getPosition().getY();
+            int wallYMax = wallYMin + wall.getHEIGHT();
+
+            boolean touchingRight = (chickenXMax == wallXMin);
+            boolean overlapY = (chickenYMax > wallYMin && chickenYMin < wallYMax);
+
+            if (touchingRight && overlapY)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

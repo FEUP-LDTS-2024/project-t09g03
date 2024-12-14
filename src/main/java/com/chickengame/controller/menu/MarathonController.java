@@ -4,13 +4,12 @@ import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
-import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.elements.HarmObject;
-import com.chickengame.model.game.elements.Platform;
 import com.chickengame.model.game.elements.Wall;
 import com.chickengame.model.game.map.Map;
+import com.chickengame.model.game.menu.Menu;
+import com.chickengame.state.MenuState;
 
-import java.io.IOException;
 
 public class MarathonController extends Controller<Map> {
     private final ChickenController chickencontroller;
@@ -18,10 +17,33 @@ public class MarathonController extends Controller<Map> {
         super(location);
         this.chickencontroller = new ChickenController(location.getChicken());
     }
+    int adapter = 1;
 
     @Override
     public void step(Game game,GUI gui ,GUI.Action action) {
         this.movecamera();
+        boolean chickenOut = (getLocation().getChicken().getPosition().getX() + getLocation().getChicken().getWIDTH() <= 0);
+        if(getLocation().colidesHarmObject() || chickenOut)
+        {
+            game.setState(new MenuState(new Menu()));
+        }
+
+        boolean chickenCollidesDown = (getLocation().getChicken().isMovingDown() && getLocation().colidesDown());
+        boolean chickenCollidesUp = (!getLocation().getChicken().isMovingDown() && getLocation().colidesUp());
+
+        if(chickenCollidesDown || chickenCollidesUp)
+        {
+            getLocation().getChicken().setCharge(true);
+        }
+        else
+        {
+            chickencontroller.moveY(adapter);
+        }
+
+        if(getLocation().colidesRight())
+        {
+            chickencontroller.stopX(adapter);
+        }
         chickencontroller.step(game,gui,action);
     }
     private void movecamera()
@@ -30,11 +52,11 @@ public class MarathonController extends Controller<Map> {
         {
             Position old = wall.getPosition();
 
-            wall.setPosition((new Position(old.getX()-1,old.getY())));
+            wall.setPosition((new Position(old.getX()-adapter,old.getY())));
         }
-        for(HarmObject e : getLocation().getHarmObjects())
+        for(HarmObject harmObject : getLocation().getHarmObjects())
         {
-            e.setPosition(new Position(e.getPosition().getX()-1,e.getPosition().getY()));
+            harmObject.setPosition(new Position(harmObject.getPosition().getX()-adapter,harmObject.getPosition().getY()));
         }
     }
 
