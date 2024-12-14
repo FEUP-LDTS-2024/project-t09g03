@@ -11,6 +11,7 @@ public abstract class State<T> {
     private T location;
     private final Controller<T> stateController;
     private final Viewer<T> stateViewer;
+    private int chickenType = 0;
 
 
     public State(T location) {
@@ -28,11 +29,17 @@ public abstract class State<T> {
         return this.location;
     }
 
-    //wip
     public void step(Game game,GUI.Action action, GUI gui) throws IOException {
         stateViewer.draw(gui);
         stateController.step(game,gui, action);
     }
 
 
+    public int getChickenType() {
+        return chickenType;
+    }
+
+    public void setChickenType(int chickenType) {
+        this.chickenType = chickenType;
+    }
 }
