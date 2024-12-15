@@ -9,7 +9,8 @@ public class CandyCaneViewer implements ElementViewer<CandyCane>
 {
     private ImageLoader imgLoader = new ImageLoader();
     private BasicTextImage imgCandyCane= imgLoader.getImage("images/game/candyCane.png");
-    private BasicTextImage imgCandyCaneDown = imgLoader.getImage("images/game/candyCane.png");
+    private BasicTextImage imgCandyCaneDown = imgLoader.getImage("images/game/candyCaneDown.png");
+
     @Override
     public void draw(CandyCane candyCane, GUI gui)
     {

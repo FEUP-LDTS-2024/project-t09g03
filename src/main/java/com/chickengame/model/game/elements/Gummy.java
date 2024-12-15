@@ -24,11 +24,11 @@ public class Gummy extends HarmObject
 
     @Override
     public int getHEIGHT() {
-        return 0;
+        return WIDTH;
     }
 
     @Override
     public int getWIDTH() {
-        return 0;
+        return HEIGHT;
     }
 }

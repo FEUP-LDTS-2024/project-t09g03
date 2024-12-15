@@ -45,10 +45,10 @@ Platform 1080 275 false
 Platform 1120 275 false
 Platform 1160 275 false
 Platform 1200 275 false
-Platform 0 346 false
-Platform 40 346 false
-Platform 80 346 false
-Platform 120 346 false
+ChocolatePlatform 0 346 false
+ChocolatePlatform 40 346 false
+ChocolatePlatform 80 346 false
+ChocolatePlatform 120 346 false
 Platform 160 346 false
 Platform 200 346 false
 Platform 240 346 false
@@ -67,8 +67,8 @@ Platform 720 346 false
 Platform 760 346 false
 Platform 800 346 false
 Platform 840 346 false
-Cornspike 420 30 true
-Cornspike 1000 30 true
-Gummy 160 306 false
+Toblerone 420 30 true
+CandyCane 1000 30 true
+CandyCane 160 299 false
 Cupcake 700 229 false
 Chicken 45 318 false
