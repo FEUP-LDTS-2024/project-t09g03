@@ -23,6 +23,7 @@ public class MarathonController extends Controller<Map> {
     public void step(Game game,GUI gui ,GUI.Action action) {
         this.movecamera();
         boolean chickenOut = (getLocation().getChicken().getPosition().getX() + getLocation().getChicken().getWIDTH() <= 0);
+        chickenOut |= getLocation().getChicken().getPosition().getY()+getLocation().getChicken().getHEIGHT()<0 | getLocation().getChicken().getPosition().getY()>375;
         if(getLocation().colidesHarmObject() || chickenOut)
         {
             game.setState(new MenuState(new Menu()));
@@ -59,9 +60,4 @@ public class MarathonController extends Controller<Map> {
             harmObject.setPosition(new Position(harmObject.getPosition().getX()-adapter,harmObject.getPosition().getY()));
         }
     }
-
-
-
-
-
 }
