@@ -15,6 +15,12 @@ public class Map
     private List<Lollipop> lollipops;
     private List<Cornspike> cornspikes;
     private List<Platform> platforms;
+    private List<CandyCane> candyCanes;
+    private List<Gummy> gummies;
+    private List<IceCream> icecreams;
+    private List<Cookie> cookies;
+    private List<Toblerone> toblerones;
+    private List<ChocolatePlatform> chocolatePlatforms;
 
 
     public Map()
@@ -25,6 +31,11 @@ public class Map
         lollipops = new ArrayList<>();
         cornspikes = new ArrayList<>();
         platforms = new ArrayList<>();
+        candyCanes = new ArrayList<>();
+        gummies = new ArrayList<>();
+        cookies = new ArrayList<>();
+        toblerones = new ArrayList<>();
+        chocolatePlatforms = new ArrayList<>();
     }
 
     public Chicken getChicken()
@@ -73,6 +84,65 @@ public class Map
         return platforms;
     }
 
+    public List<CandyCane> getCandyCanes()
+    {
+        return candyCanes;
+    }
+
+    public void setCandyCanes(List<CandyCane> candyCanes)
+    {
+        this.candyCanes = candyCanes;
+    }
+
+    public List<Gummy> getGummies()
+    {
+        return gummies;
+    }
+
+    public void setGummies(List<Gummy> gummies)
+    {
+        this.gummies = gummies;
+    }
+
+    public List<IceCream> getIcecreams()
+    {
+        return icecreams;
+    }
+
+    public void setIcecreams(List<IceCream> icecreams)
+    {
+        this.icecreams = icecreams;
+    }
+
+    public List<Cookie> getCookies()
+    {
+        return cookies;
+    }
+
+    public void setCookies(List<Cookie> cookies)
+    {
+        this.cookies = cookies;
+    }
+
+    public List<Toblerone> getToblerones()
+    {
+        return toblerones;
+    }
+
+    public void setToblerones(List<Toblerone> toblerones)
+    {
+        this.toblerones = toblerones;
+    }
+
+    public List<ChocolatePlatform> getChocolatePlatforms()
+    {
+        return chocolatePlatforms;
+    }
+
+    public void setChocolatePlatforms(List<ChocolatePlatform> chocolatePlatforms)
+    {
+        this.chocolatePlatforms = chocolatePlatforms;
+    }
 
     public Boolean colidesHarmObject()
     {
@@ -123,7 +193,6 @@ public class Map
         }
         return false;
     }
-
     public boolean colidesDown()
     {
         int chickenXMin = chicken.getPosition().getX();

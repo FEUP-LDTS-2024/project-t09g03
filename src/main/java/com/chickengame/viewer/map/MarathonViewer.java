@@ -25,11 +25,11 @@ public class MarathonViewer extends Viewer<Map>
     public void drawElements(GUI gui)
     {
         this.drawElements(gui,getLocation().getBackground(),backgroundViewer);
-        this.drawElements(gui,getLocation().getChicken(), chickenViewer);
         this.drawElements(gui,getLocation().getPlatforms(), platformViewer);
         this.drawElements(gui,getLocation().getCornspikes(), cornspikeViewer);
         this.drawElements(gui,getLocation().getCupcakes(), cupcakeViewer);
         this.drawElements(gui,getLocation().getLollipops(),lollipopViewer);
+        this.drawElements(gui,getLocation().getChicken(), chickenViewer);
     }
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer)
     {

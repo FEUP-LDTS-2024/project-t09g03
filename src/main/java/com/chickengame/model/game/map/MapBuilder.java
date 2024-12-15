@@ -81,6 +81,13 @@ public class MapBuilder{
                     map.getLollipops().add(lollipop);
                     map.getWalls().add(lollipop);
                     break;
+                case "CandyCane":
+                    CandyCane candyCane = new CandyCane(x,y,stateDown);
+                    map.getCandyCanes().add(candyCane);
+                    map.getWalls().add(candyCane);
+                    break;
+                case "Gummy":
+                    Gummy gummy = new Gummy(x,y,stateDown);
                 default:
                     map.setBackground(new Background(x, y));
             }
