@@ -232,6 +232,7 @@ Platform 1360 346 false
 Cornspike 1060 30 true
 Cornspike 1600 30 true
 Cornspike 4090 305 false
+Cornspike 5330 30 true
 Lollipop 900 306 false
 Lollipop 4850 306 false
 Lollipop 4950 211 true
@@ -239,7 +240,15 @@ Lollipop 5050 306 false
 Lollipop 5150 211 true
 Lollipop 5250 306 false
 Lollipop 5350 211 true
-Cupcake 1300 229 false
-Cupcake 2920 254 false
-Cupcake 3800 30 true
+IceCream 1300 229 false
+IceCream 2900 254 false
+IceCream 4930 30 true
+Gummy 3300 30 true
+Gummy 3400 85 false
+Gummy 3500 30 true
+Gummy 3600 85 false
+Gummy 5130 30 true
+Gummy 5230 155 false
+CandyCane 3800 30 true
+CandyCane 5030 123 false
 Chicken 200 318 false
