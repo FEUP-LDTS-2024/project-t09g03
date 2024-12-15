@@ -14,23 +14,22 @@ import java.util.List;
 
 public class MapBuilder{
 
-    private List<String> elements;
+    private List<String> lines;
 
-    public Map createMap(String path, int type){
+    public Map createMap(String path, int offset){
         Map map = new Map();
         URL resource = MapBuilder.class.getResource(path);
         if(resource == null) {
-            System.out.println("hello");
           return map;
         }
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(resource.getFile()));
-            this.elements = readElements(reader);
+            this.lines = readElements(reader);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        populatemap(map,type);
+        populatemap(map, offset);
         return map;
     }
     public MapBuilder(){
@@ -48,49 +47,53 @@ public class MapBuilder{
         return elements;
     }
 
-    public void populatemap(Map map, int type)
+    public void populatemap(Map map, int offset)
     {
-        for (String element : this.elements) {
+        int maxsize = 0;
+        for (String line : this.lines) {
             String[] args;
-            args = element.split(" ");
-            String c = args[0];
+            args = line.split(" ");
+            String element = args[0];
             int x = Integer.parseInt(args[1]);
             int y = Integer.parseInt(args[2]);
             boolean stateDown = Boolean.parseBoolean(args[3]);
-            switch (c) {
-                case "Chicken":
-                    map.setChicken(new Chicken(x, y,type));
-                    break;
+            switch (element) {
                 case "Platform":
-                    Platform platform = new Platform(x, y);
+                    Platform platform = new Platform(x+offset, y);
+                    maxsize = Math.max(maxsize, x + platform.getWIDTH());
                     map.getPlatforms().add(platform);
                     map.getWalls().add(platform);
                     break;
                 case "Cornspike":
-                    Cornspike cornspike = new Cornspike(x,y,stateDown);
+                    Cornspike cornspike = new Cornspike(x+offset,y,stateDown);
+                    maxsize = Math.max(maxsize, x + cornspike.getWIDTH());
                     map.getCornspikes().add(cornspike);
                     map.getHarmObjects().add(cornspike);
                     break;
                 case "Cupcake":
-                    Cupcake cupcake = new Cupcake(x,y,stateDown);
+                    Cupcake cupcake = new Cupcake(x+offset,y,stateDown);
+                    maxsize = Math.max(maxsize, x + cupcake.getWIDTH());
                     map.getCupcakes().add(cupcake);
                     map.getWalls().add(cupcake);
                     break;
                 case "Lollipop":
-                    Lollipop lollipop = new Lollipop(x,y,stateDown);
+                    Lollipop lollipop = new Lollipop(x+offset,y,stateDown);
+                    maxsize = Math.max(maxsize, x + lollipop.getWIDTH());
                     map.getLollipops().add(lollipop);
                     map.getWalls().add(lollipop);
                     break;
                 case "CandyCane":
-                    CandyCane candyCane = new CandyCane(x,y,stateDown);
+                    CandyCane candyCane = new CandyCane(x+offset,y,stateDown);
+                    maxsize = Math.max(maxsize, x + candyCane.getWIDTH());
                     map.getCandyCanes().add(candyCane);
                     map.getWalls().add(candyCane);
                     break;
                 case "Gummy":
-                    Gummy gummy = new Gummy(x,y,stateDown);
-                default:
-                    map.setBackground(new Background(x, y));
+                    Gummy gummy = new Gummy(x+offset,y,stateDown);
+                    maxsize = Math.max(maxsize, x + gummy.getWIDTH());
+
             }
+            map.setSizeX(maxsize);
         }
     }
 

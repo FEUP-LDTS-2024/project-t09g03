@@ -1,5 +1,6 @@
 package com.chickengame.model.game.map;
 
+import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.*;
 
 import java.util.ArrayList;
@@ -7,8 +8,7 @@ import java.util.List;
 
 public class Map
 {
-    private Chicken chicken;
-    private Background background;
+    private int sizeX;
     private List<HarmObject> harmObjects;
     private List<Wall> walls;
     private List<Cupcake> cupcakes;
@@ -38,16 +38,6 @@ public class Map
         chocolatePlatforms = new ArrayList<>();
     }
 
-    public Chicken getChicken()
-    {
-        return this.chicken;
-    }
-
-    public void setChicken(Chicken chicken)
-    {
-        this.chicken = chicken;
-    }
-
     public List<HarmObject> getHarmObjects()
     {
         return this.harmObjects;
@@ -56,16 +46,6 @@ public class Map
     public List<Wall> getWalls()
     {
         return this.walls;
-    }
-
-    public Background getBackground()
-    {
-        return this.background;
-    }
-
-    public void setBackground(Background background)
-    {
-        this.background = background;
     }
 
     public List<Cupcake> getCupcakes() {
@@ -89,19 +69,9 @@ public class Map
         return candyCanes;
     }
 
-    public void setCandyCanes(List<CandyCane> candyCanes)
-    {
-        this.candyCanes = candyCanes;
-    }
-
     public List<Gummy> getGummies()
     {
         return gummies;
-    }
-
-    public void setGummies(List<Gummy> gummies)
-    {
-        this.gummies = gummies;
     }
 
     public List<IceCream> getIcecreams()
@@ -109,19 +79,9 @@ public class Map
         return icecreams;
     }
 
-    public void setIcecreams(List<IceCream> icecreams)
-    {
-        this.icecreams = icecreams;
-    }
-
     public List<Cookie> getCookies()
     {
         return cookies;
-    }
-
-    public void setCookies(List<Cookie> cookies)
-    {
-        this.cookies = cookies;
     }
 
     public List<Toblerone> getToblerones()
@@ -129,22 +89,20 @@ public class Map
         return toblerones;
     }
 
-    public void setToblerones(List<Toblerone> toblerones)
-    {
-        this.toblerones = toblerones;
-    }
-
     public List<ChocolatePlatform> getChocolatePlatforms()
     {
         return chocolatePlatforms;
     }
 
-    public void setChocolatePlatforms(List<ChocolatePlatform> chocolatePlatforms)
-    {
-        this.chocolatePlatforms = chocolatePlatforms;
+    public int getSizeX() {
+        return sizeX;
     }
 
-    public Boolean colidesHarmObject()
+    public void setSizeX(int sizeX) {
+        this.sizeX = sizeX;
+    }
+
+    public Boolean colidesHarmObject(Chicken chicken)
     {
         int chickenXMin = chicken.getPosition().getX();
         int chickenXMax = chickenXMin + chicken.getWIDTH();
@@ -169,7 +127,7 @@ public class Map
     }
 
 
-    public boolean colidesUp()
+    public boolean colidesUp(Chicken chicken)
     {
         int chickenXMin = chicken.getPosition().getX();
         int chickenXMax = chickenXMin + chicken.getWIDTH();
@@ -193,7 +151,7 @@ public class Map
         }
         return false;
     }
-    public boolean colidesDown()
+    public boolean colidesDown(Chicken chicken)
     {
         int chickenXMin = chicken.getPosition().getX();
         int chickenXMax = chickenXMin + chicken.getWIDTH();
@@ -218,7 +176,7 @@ public class Map
         return false;
     }
 
-    public boolean colidesRight()
+    public boolean colidesRight(Chicken chicken)
     {
         int chickenXMin = chicken.getPosition().getX();
         int chickenXMax = chickenXMin + chicken.getWIDTH();
@@ -242,4 +200,33 @@ public class Map
         }
         return false;
     }
+
+
+    public void moveMap(int offset)
+    {
+        moveWalls(offset);
+        moveHarmObjects(offset);
+    }
+
+    public void resetMapposition()
+    {
+        moveMap(getSizeX()*2);
+    }
+
+
+    private void moveHarmObjects(int offset)
+    {
+        for(HarmObject H: harmObjects)
+        {
+            H.setPosition( new Position(H.getPosition().getX()+offset,H.getPosition().getY()));
+        }
+    }
+
+    private void moveWalls(int offset)
+    {
+        for(Wall w: this.walls) {
+            w.setPosition(new Position(w.getPosition().getX() + offset, w.getPosition().getY()));
+        }
+    }
+
 }

@@ -5,6 +5,8 @@ import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.model.game.map.MapBuilder;
+import com.chickengame.model.game.map.MarathonBuilder;
+import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.model.game.menu.Menu;
 import com.chickengame.model.game.shop.Shop;
 import com.chickengame.state.MarathonState;
@@ -31,7 +33,7 @@ public class MenuController extends Controller<Menu> {
 
                             gui.close();
                                          }
-                    case Play -> game.setState(new MarathonState(new MapBuilder().createMap("/menus/Game.txt", game.getChickenSkin())));
+                    case Play -> game.setState(new MarathonState(new MarathonBuilder().createMarathonMap(4, "/maps/", new MapBuilder(), game.getChickenSkin())));
                     case Shop -> game.setState(new ShopState(new Shop()));
                 }
                 } catch (IOException e) {
