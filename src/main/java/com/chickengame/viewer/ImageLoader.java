@@ -16,6 +16,10 @@ public class ImageLoader {
 
     public BasicTextImage getImage(String imagePath){
         URL resource = ImageLoader.class.getClassLoader().getResource(imagePath);
+        if(resource == null)
+        {
+            System.out.println(imagePath);
+        }
         File file = null;
         try {
             file = new File(resource.toURI());

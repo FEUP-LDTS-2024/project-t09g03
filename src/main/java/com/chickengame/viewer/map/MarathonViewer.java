@@ -16,6 +16,14 @@ public class MarathonViewer extends Viewer<Map>
     private final PlatformViewer platformViewer = new PlatformViewer();
     private final CornspikeViewer cornspikeViewer = new CornspikeViewer();
     private final LollipopViewer lollipopViewer = new LollipopViewer();
+    private final GummyViewer gummyViewer = new GummyViewer();
+    private final CandyCaneViewer candyCaneViewer = new CandyCaneViewer();
+    private final IceCreamViewer iceCreamViewer = new IceCreamViewer();
+    private final CookieViewer cookieViewer = new CookieViewer();
+    private final TobleroneViewer tobleroneViewer = new TobleroneViewer();
+    private final ChocolatePlatformViewer chocolatePlatformViewer = new ChocolatePlatformViewer();
+
+
 
     public MarathonViewer(Map map)
     {
@@ -24,12 +32,18 @@ public class MarathonViewer extends Viewer<Map>
     @Override
     public void drawElements(GUI gui)
     {
-        this.drawElements(gui,getLocation().getBackground(),backgroundViewer);
-        this.drawElements(gui,getLocation().getPlatforms(), platformViewer);
-        this.drawElements(gui,getLocation().getCornspikes(), cornspikeViewer);
-        this.drawElements(gui,getLocation().getCupcakes(), cupcakeViewer);
-        this.drawElements(gui,getLocation().getLollipops(),lollipopViewer);
-        this.drawElements(gui,getLocation().getChicken(), chickenViewer);
+        drawElements(gui,getLocation().getBackground(),backgroundViewer);
+        drawElements(gui,getLocation().getPlatforms(), platformViewer);
+        drawElements(gui,getLocation().getCornspikes(), cornspikeViewer);
+        drawElements(gui,getLocation().getCupcakes(), cupcakeViewer);
+        drawElements(gui,getLocation().getLollipops(),lollipopViewer);
+        drawElements(gui,getLocation().getGummies(),gummyViewer);
+        drawElements(gui,getLocation().getCandyCanes(),candyCaneViewer);
+        drawElements(gui,getLocation().getIcecreams(), iceCreamViewer);
+        drawElements(gui,getLocation().getCookies(), cookieViewer);
+        drawElements(gui,getLocation().getToblerones(), tobleroneViewer);
+        drawElements(gui, getLocation().getChocolatePlatforms(), chocolatePlatformViewer);
+        drawElements(gui,getLocation().getChicken(), chickenViewer);
     }
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer)
     {

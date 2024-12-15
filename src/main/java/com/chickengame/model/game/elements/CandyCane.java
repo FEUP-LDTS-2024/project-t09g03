@@ -2,8 +2,8 @@ package com.chickengame.model.game.elements;
 
 public class CandyCane extends Wall
 {
-    private static final int WIDTH = 26;
-    private static final int HEIGHT = 46;
+    private static final int WIDTH = 24;
+    private static final int HEIGHT = 47;
     private boolean stateDown;
 
     public CandyCane(int x, int y, boolean stateDown)
@@ -23,11 +23,11 @@ public class CandyCane extends Wall
 
     @Override
     public int getHEIGHT() {
-        return 0;
+        return WIDTH;
     }
 
     @Override
     public int getWIDTH() {
-        return 0;
+        return HEIGHT;
     }
 }

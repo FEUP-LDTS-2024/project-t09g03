@@ -88,8 +88,32 @@ public class MapBuilder{
                     break;
                 case "Gummy":
                     Gummy gummy = new Gummy(x,y,stateDown);
-                default:
+                    map.getGummies().add(gummy);
+                    map.getHarmObjects().add(gummy);
+                    break;
+                case "IceCream":
+                    IceCream iceCream = new IceCream(x,y,stateDown);
+                    map.getIcecreams().add(iceCream);
+                    map.getWalls().add(iceCream);
+                    break;
+                case "Cookie":
+                    Cookie cookie = new Cookie(x,y);
+                    map.getCookies().add(cookie);
+                    map.getWalls().add(cookie);
+                    break;
+                case "Toblerone":
+                    Toblerone toblerone = new Toblerone(x,y,stateDown);
+                    map.getToblerones().add(toblerone);
+                    map.getHarmObjects().add(toblerone);
+                    break;
+                case "ChocolatePlatform":
+                    ChocolatePlatform chocolatePlatform = new ChocolatePlatform(x,y);
+                    map.getChocolatePlatforms().add(chocolatePlatform);
+                    map.getWalls().add(chocolatePlatform);
+                    break;
+                case "Background":
                     map.setBackground(new Background(x, y));
+                    break;
             }
         }
     }

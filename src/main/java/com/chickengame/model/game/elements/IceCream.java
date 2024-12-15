@@ -24,12 +24,12 @@ public class IceCream extends Wall
     @Override
     public int getHEIGHT()
     {
-        return 0;
+        return HEIGHT;
     }
 
     @Override
     public int getWIDTH()
     {
-        return 0;
+        return WIDTH;
     }
 }
