@@ -13,6 +13,13 @@ public class MapViewer extends Viewer<Map> {
     private final PlatformViewer platformViewer = new PlatformViewer();
     private final CornspikeViewer cornspikeViewer = new CornspikeViewer();
     private final LollipopViewer lollipopViewer = new LollipopViewer();
+    private final GummyViewer gummyViewer = new GummyViewer();
+    private final CandyCaneViewer candyCaneViewer = new CandyCaneViewer();
+    private final IceCreamViewer iceCreamViewer = new IceCreamViewer();
+    private final CookieViewer cookieViewer = new CookieViewer();
+    private final TobleroneViewer tobleroneViewer = new TobleroneViewer();
+    private final ChocolatePlatformViewer chocolatePlatformViewer = new ChocolatePlatformViewer();
+
 
     public MapViewer(Map location) {
         super(location);
@@ -25,6 +32,12 @@ public class MapViewer extends Viewer<Map> {
         this.drawElements(gui,getLocation().getCornspikes(), cornspikeViewer);
         this.drawElements(gui,getLocation().getCupcakes(), cupcakeViewer);
         this.drawElements(gui,getLocation().getLollipops(),lollipopViewer);
+        this.drawElements(gui, getLocation().getGummies(), gummyViewer);
+        this.drawElements(gui, getLocation().getCandyCanes(), candyCaneViewer);
+        this.drawElements(gui, getLocation().getIcecreams(), iceCreamViewer);
+        this.drawElements(gui, getLocation().getCookies(), cookieViewer);
+        this.drawElements(gui, getLocation().getToblerones(), tobleroneViewer);
+        this.drawElements(gui, getLocation().getChocolatePlatforms(), chocolatePlatformViewer);
 
     }
 
@@ -39,7 +52,6 @@ public class MapViewer extends Viewer<Map> {
     }
     private <T extends Element> void drawElements(GUI gui, T element, ElementViewer<T> viewer)
     {
-        System.out.println(element.getPosition().getX()+ " " + element.getPosition().getY());
         viewer.draw(element,gui);
     }
 }

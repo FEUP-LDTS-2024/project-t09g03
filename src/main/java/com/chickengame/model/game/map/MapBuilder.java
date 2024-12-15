@@ -19,9 +19,6 @@ public class MapBuilder{
     public Map createMap(String path, int offset){
         Map map = new Map();
         URL resource = MapBuilder.class.getResource(path);
-        if(resource == null) {
-          return map;
-        }
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new FileReader(resource.getFile()));
@@ -91,7 +88,33 @@ public class MapBuilder{
                 case "Gummy":
                     Gummy gummy = new Gummy(x+offset,y,stateDown);
                     maxsize = Math.max(maxsize, x + gummy.getWIDTH());
-
+                    map.getGummies().add(gummy);
+                    map.getHarmObjects().add(gummy);
+                    break;
+                case "IceCream":
+                    IceCream iceCream = new IceCream(x,y,stateDown);
+                    maxsize = Math.max(maxsize, x + iceCream.getWIDTH());
+                    map.getIcecreams().add(iceCream);
+                    map.getWalls().add(iceCream);
+                    break;
+                case "Cookie":
+                    Cookie cookie = new Cookie(x,y);
+                    maxsize = Math.max(maxsize, x + cookie.getWIDTH());
+                    map.getCookies().add(cookie);
+                    map.getWalls().add(cookie);
+                    break;
+                case "Toblerone":
+                    Toblerone toblerone = new Toblerone(x,y,stateDown);
+                    maxsize = Math.max(maxsize, x + toblerone.getWIDTH());
+                    map.getToblerones().add(toblerone);
+                    map.getHarmObjects().add(toblerone);
+                    break;
+                case "ChocolatePlatform":
+                    ChocolatePlatform chocolatePlatform = new ChocolatePlatform(x,y);
+                    maxsize = Math.max(maxsize, x + chocolatePlatform.getWIDTH());
+                    map.getChocolatePlatforms().add(chocolatePlatform);
+                    map.getWalls().add(chocolatePlatform);
+                    break;
             }
             map.setSizeX(maxsize);
         }

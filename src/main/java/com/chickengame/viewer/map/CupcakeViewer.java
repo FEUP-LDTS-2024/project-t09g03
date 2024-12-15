@@ -14,11 +14,13 @@ public class CupcakeViewer implements ElementViewer<Cupcake>
     @Override
     public void draw(Cupcake cupcake, GUI gui)
     {
-        BasicTextImage image = imgCupcake;
         if(cupcake.getStateDown())
         {
-            image = imgCupcakeDown;
+            gui.drawImage(cupcake.getPosition(),imgCupcakeDown);
         }
-        gui.drawImage(cupcake.getPosition(),image);
+        else
+        {
+            gui.drawImage(cupcake.getPosition(),imgCupcake);
+        }
     }
 }
