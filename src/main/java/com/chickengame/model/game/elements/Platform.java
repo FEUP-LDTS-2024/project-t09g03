@@ -19,6 +19,4 @@ public class Platform extends Wall
     public int getWIDTH() {
         return WIDTH;
     }
-
-
 }

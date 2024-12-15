@@ -1,18 +1,16 @@
 package com.chickengame.model.game.elements;
 
-import java.awt.image.BufferedImage;
-
-public class Lollipop extends Wall
+public class IceCream extends Wall
 {
+    private static final int WIDTH = 26;
+    private static final int HEIGHT = 46;
     private boolean stateDown;
-    private static final int WIDTH = 24;
-    private static final int HEIGHT = 40;
-    public Lollipop(int x, int y, boolean stateDown)
+
+    public IceCream(int x, int y, boolean stateDown)
     {
         super(x, y);
         this.stateDown = stateDown;
     }
-
     public boolean getStateDown()
     {
         return this.stateDown;
@@ -23,14 +21,15 @@ public class Lollipop extends Wall
         this.stateDown = stateDown;
     }
 
-
     @Override
-    public int getHEIGHT() {
-        return HEIGHT;
+    public int getHEIGHT()
+    {
+        return 0;
     }
 
     @Override
-    public int getWIDTH() {
-        return WIDTH;
+    public int getWIDTH()
+    {
+        return 0;
     }
 }

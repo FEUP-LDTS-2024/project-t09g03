@@ -27,15 +27,15 @@ public class ChickenController extends Controller<Chicken> {
             super.getLocation().setCharge(false);
         }
     }
-    public void moveY(int adapter)
+    public void moveY()
     {
         Position old = getLocation().getPosition();
-        getLocation().setPosition(new Position(old.getX(), getLocation().isMovingDown()? old.getY()+adapter:old.getY()-adapter));
+        getLocation().setPosition(new Position(old.getX(), getLocation().isMovingDown()? old.getY()+1:old.getY()-1));
     }
 
-    public void stopX(int adapter)
+    public void stopX()
     {
         Position old = getLocation().getPosition();
-        getLocation().setPosition(new Position(old.getX()-adapter, old.getY()));
+        getLocation().setPosition(new Position(old.getX()-1, old.getY()));
     }
 }
