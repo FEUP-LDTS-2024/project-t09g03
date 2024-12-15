@@ -163,6 +163,14 @@ public class Map
 
             if (overlapX && overlapY)
             {
+                System.out.println("chickenmin:");
+                System.out.println(chickenYMin);
+                System.out.println("harmObjectYmin:");
+                System.out.println(harmObjectYMin);
+                System.out.println("height");
+                System.out.println(harmobject.getHEIGHT());
+                System.out.println("harmobjectmax");
+                System.out.println(harmObjectYMax);
                 return true;
             }
         }
