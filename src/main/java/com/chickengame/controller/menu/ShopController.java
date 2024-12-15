@@ -21,7 +21,6 @@ public class ShopController extends Controller<Shop> {
 
     @Override
     public void step(Game game,GUI gui ,GUI.Action action) {
-        System.out.println(counter);
         switch (action)
         {
             case LEFT ->getLocation().previousButton();

@@ -31,7 +31,7 @@ public class MenuController extends Controller<Menu> {
 
                             gui.close();
                                          }
-                    case Play -> game.setState(new MarathonState(new MapBuilder().createMap("/menus/Game.txt", game.getChickenSkin())));
+                    case Play -> game.setState(new MarathonState(new MapBuilder().createMap("/menus/ChocolateGame.txt", game.getChickenSkin())));
                     case Shop -> game.setState(new ShopState(new Shop()));
                 }
                 } catch (IOException e) {
