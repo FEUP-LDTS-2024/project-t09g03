@@ -16,6 +16,7 @@ public class Menu {
         this.buttons.add(new Button(290,170,Button.Type.LevelMenu));
         this.buttons.add(new Button(290,230,Button.Type.Shop));
         this.buttons.add(new Button(290,290,Button.Type.Exit));
+        this.buttons.add(new Button(690,10, Button.Type.Help));
         this.buttons.getFirst().select();
     }
 

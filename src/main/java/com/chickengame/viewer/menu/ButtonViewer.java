@@ -16,41 +16,47 @@ import java.util.Map;
 
 public class ButtonViewer extends Viewer<Button> {
 
-    private ImageLoader imageLoader = new ImageLoader();
     private final Map<Button.Type, List<BasicTextImage>> buttonmap;
     public ButtonViewer(Button button) {
         super(button);
         this.buttonmap =new HashMap<>();
         this.buttonmap.put(Button.Type.Play,new ArrayList<BasicTextImage>());
-        this.buttonmap.get(Button.Type.Play).add(imageLoader.getImage("images/menu/play_button.png"));
-        this.buttonmap.get(Button.Type.Play).add(imageLoader.getImage("images/menu/play_button_pressed.png"));
+        this.buttonmap.get(Button.Type.Play).add(getImageLoader().getImage("images/menu/play_button.png"));
+        this.buttonmap.get(Button.Type.Play).add(getImageLoader().getImage("images/menu/play_button_pressed.png"));
         this.buttonmap.put(Button.Type.Exit,new ArrayList<>());
-        this.buttonmap.get(Button.Type.Exit).add(imageLoader.getImage("images/menu/quit_button.png"));
-        this.buttonmap.get(Button.Type.Exit).add(imageLoader.getImage("images/menu/quit_button_pressed.png"));
+        this.buttonmap.get(Button.Type.Exit).add(getImageLoader().getImage("images/menu/quit_button.png"));
+        this.buttonmap.get(Button.Type.Exit).add(getImageLoader().getImage("images/menu/quit_button_pressed.png"));
         this.buttonmap.put(Button.Type.Shop,new ArrayList<>());
-        this.buttonmap.get(Button.Type.Shop).add(imageLoader.getImage("images/menu/shop_button.png"));
-        this.buttonmap.get(Button.Type.Shop).add(imageLoader.getImage("images/menu/shop_button_pressed.png"));
+        this.buttonmap.get(Button.Type.Shop).add(getImageLoader().getImage("images/menu/shop_button.png"));
+        this.buttonmap.get(Button.Type.Shop).add(getImageLoader().getImage("images/menu/shop_button_pressed.png"));
         this.buttonmap.put(Button.Type.LevelMenu,new ArrayList<>());
-        this.buttonmap.get(Button.Type.LevelMenu).add(imageLoader.getImage("images/menu/Levels_button.png"));
-        this.buttonmap.get(Button.Type.LevelMenu).add(imageLoader.getImage("images/menu/Levels_button_pressed.png"));
+        this.buttonmap.get(Button.Type.LevelMenu).add(getImageLoader().getImage("images/menu/Levels_button.png"));
+        this.buttonmap.get(Button.Type.LevelMenu).add(getImageLoader().getImage("images/menu/Levels_button_pressed.png"));
+        this.buttonmap.put(Button.Type.Help, new ArrayList<>());
+        this.buttonmap.get(Button.Type.Help).add(getImageLoader().getImage("images/menu/help_button.png"));
+        this.buttonmap.get(Button.Type.Help).add(getImageLoader().getImage("images/menu/help_button_pressed.png"));
+
 
         this.buttonmap.put(Button.Type.Level, new ArrayList<>());
-        this.buttonmap.get(Button.Type.Level).add(imageLoader.getImage("images/menu/levelmenu/Level1_button_pressed.png"));
-        this.buttonmap.get(Button.Type.Level).add(imageLoader.getImage("images/menu/levelmenu/Level1_button.png"));
-        this.buttonmap.get(Button.Type.Level).add(imageLoader.getImage("images/menu/levelmenu/Level2_button_pressed.png"));
-        this.buttonmap.get(Button.Type.Level).add(imageLoader.getImage("images/menu/levelmenu/Level2_button.png"));
-        this.buttonmap.get(Button.Type.Level).add(imageLoader.getImage("images/menu/levelmenu/Level3_button_pressed.png"));
-        this.buttonmap.get(Button.Type.Level).add(imageLoader.getImage("images/menu/levelmenu/Level3_button.png"));
+        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level1_button_pressed.png"));
+        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level1_button.png"));
+        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level2_button_pressed.png"));
+        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level2_button.png"));
+        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level3_button_pressed.png"));
+        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level3_button.png"));
 
         this.buttonmap.put(Button.Type.Back,new ArrayList<>());
-        this.buttonmap.get(Button.Type.Back).add(imageLoader.getImage("images/shop/back_button.png"));
-        this.buttonmap.get(Button.Type.Back).add(imageLoader.getImage("images/shop/back_button_pressed.png"));
+        this.buttonmap.get(Button.Type.Back).add(getImageLoader().getImage("images/shop/back_button.png"));
+        this.buttonmap.get(Button.Type.Back).add(getImageLoader().getImage("images/shop/back_button_pressed.png"));
         this.buttonmap.put(Button.Type.Next,new ArrayList<>());
-        this.buttonmap.get(Button.Type.Next).add(imageLoader.getImage("images/shop/arrow_right.png"));
-        this.buttonmap.get(Button.Type.Next).add(imageLoader.getImage("images/shop/arrow_right_pressed.png"));
+        this.buttonmap.get(Button.Type.Next).add(getImageLoader().getImage("images/shop/arrow_right.png"));
+        this.buttonmap.get(Button.Type.Next).add(getImageLoader().getImage("images/shop/arrow_right_pressed.png"));
         this.buttonmap.put(Button.Type.Previous,new ArrayList<>());
-        this.buttonmap.get(Button.Type.Previous).add(imageLoader.getImage("images/shop/arrow_left.png"));
-        this.buttonmap.get(Button.Type.Previous).add(imageLoader.getImage("images/shop/arrow_left_pressed.png"));
+        this.buttonmap.get(Button.Type.Previous).add(getImageLoader().getImage("images/shop/arrow_left.png"));
+        this.buttonmap.get(Button.Type.Previous).add(getImageLoader().getImage("images/shop/arrow_left_pressed.png"));
+
+
+
     }
 
 
