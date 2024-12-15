@@ -26,6 +26,7 @@ public class ShopController extends Controller<Shop> {
         {
             case LEFT ->getLocation().previousButton();
             case RIGHT -> getLocation().nextButton();
+            case DOWN -> getLocation().getButton(0);
             case SELECT ->
             {
                 switch (getLocation().getSelected().getType()) {

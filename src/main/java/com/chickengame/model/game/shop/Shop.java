@@ -25,6 +25,12 @@ public class Shop {
         return buttons;
     }
 
+    public void getButton(int i) {
+        this.buttons.get(currentButton).unselect();
+        currentButton = i;
+        this.buttons.get(currentButton).select();
+    }
+
     public void nextButton() {
         this.buttons.get(currentButton).unselect();
         currentButton++;
