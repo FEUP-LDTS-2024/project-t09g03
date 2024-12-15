@@ -14,7 +14,6 @@ public class LollipopViewer implements ElementViewer<Lollipop>
     @Override
     public void draw(Lollipop lollipop, GUI gui)
     {
-        BasicTextImage image;
         if(lollipop.getStateDown())
         {
             gui.drawImage(lollipop.getPosition(),imgLollipopDown);

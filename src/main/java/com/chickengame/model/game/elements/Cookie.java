@@ -5,7 +5,7 @@ public class Cookie extends Wall
     private static final int WIDTH = 20;
     private static final int HEIGHT = 20;
 
-    public Cookie(int x, int y, boolean stateDown)
+    public Cookie(int x, int y)
     {
         super(x, y);
     }

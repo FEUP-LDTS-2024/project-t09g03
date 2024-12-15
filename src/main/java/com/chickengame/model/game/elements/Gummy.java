@@ -21,6 +21,7 @@ public class Gummy extends HarmObject
         this.stateDown = stateDown;
     }
 
+
     @Override
     public int getHEIGHT() {
         return 0;

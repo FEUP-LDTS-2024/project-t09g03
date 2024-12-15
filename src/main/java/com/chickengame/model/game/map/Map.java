@@ -36,6 +36,7 @@ public class Map
         cookies = new ArrayList<>();
         toblerones = new ArrayList<>();
         chocolatePlatforms = new ArrayList<>();
+        icecreams = new ArrayList<>();
     }
 
     public Chicken getChicken()

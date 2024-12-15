@@ -16,6 +16,7 @@ public class MarathonViewer extends Viewer<Map>
     private final PlatformViewer platformViewer = new PlatformViewer();
     private final CornspikeViewer cornspikeViewer = new CornspikeViewer();
     private final LollipopViewer lollipopViewer = new LollipopViewer();
+    private final GummyViewer gummyViewer = new GummyViewer();
 
     public MarathonViewer(Map map)
     {
@@ -29,6 +30,7 @@ public class MarathonViewer extends Viewer<Map>
         this.drawElements(gui,getLocation().getCornspikes(), cornspikeViewer);
         this.drawElements(gui,getLocation().getCupcakes(), cupcakeViewer);
         this.drawElements(gui,getLocation().getLollipops(),lollipopViewer);
+        this.drawElements(gui,getLocation().getGummies(),gummyViewer);
         this.drawElements(gui,getLocation().getChicken(), chickenViewer);
     }
     private <T extends Element> void drawElements(GUI gui, List<T> elements, ElementViewer<T> viewer)

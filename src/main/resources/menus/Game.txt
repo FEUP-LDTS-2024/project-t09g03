@@ -69,6 +69,6 @@ Platform 800 346 false
 Platform 840 346 false
 Cornspike 420 30 true
 Cornspike 1000 30 true
-Lollipop 160 306 false
+Gummy 160 306 false
 Cupcake 700 229 false
 Chicken 45 318 false
