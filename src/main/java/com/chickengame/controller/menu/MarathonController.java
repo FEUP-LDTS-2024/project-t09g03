@@ -17,7 +17,7 @@ public class MarathonController extends Controller<Map> {
         super(location);
         this.chickencontroller = new ChickenController(location.getChicken());
     }
-    private int adapter = 8;
+    private int adapter = 5;
 
     @Override
     public void step(Game game,GUI gui ,GUI.Action action) {
