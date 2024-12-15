@@ -8,32 +8,27 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 
-public class MarathonBuilder {
+public class LevelMapBuilder {
 
-    public MarathonMap createMarathonMap(int n,String folderPath,MapBuilder mapBuilder, int ChickenSkin) {
-        MarathonMap marathonMap = new MarathonMap(n);
-
-        int offset = 0;
+    public LevelMap createLevelMap(String folderPath,MapBuilder mapBuilder ,int chickenSkin, int level)
+    {
+        LevelMap levelmap = new LevelMap();
         try {
-            getSingleElements(folderPath + "marathon.txt",marathonMap,ChickenSkin);
+            getSingleElements(folderPath + "startlevel.txt",levelmap,chickenSkin);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        for (int i = 1; i <= n; i++){
-            String path = folderPath + "Map"+i+".txt";
-            Map map = mapBuilder.createMap(path,offset);
-            offset = map.getSizeX();
-            marathonMap.getMaps().add(map);
-        }
-        return marathonMap;
+        String path = folderPath + "Map" + level +".txt";
+        Map map = mapBuilder.createMap(path,0);
+        levelmap.setMap(map);
+        return levelmap;
     }
-
-    private void getSingleElements(String path, MarathonMap map, int chickenType) throws IOException {
-        URL resource = MarathonMap.class.getResource(path);
+    private void getSingleElements(String path, LevelMap map, int chickenType) throws IOException {
+        URL resource = LevelMap.class.getResource(path);
         BufferedReader reader = null;
         if(resource == null) {
             throw new IOException("Invalid FilePath");
-         }
+        }
         reader  = new BufferedReader(new FileReader(resource.getFile()));
         String line = reader.readLine() ;
         while (line != null)
@@ -51,7 +46,4 @@ public class MarathonBuilder {
             line = reader.readLine();
         }
     }
-
-
-
 }

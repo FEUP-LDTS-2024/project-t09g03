@@ -2,12 +2,10 @@ package com.chickengame.viewer.shop;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
-import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.menu.Button;
 import com.chickengame.model.game.shop.Shop;
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.Viewer;
-import com.chickengame.viewer.map.ChickenViewer;
 import com.chickengame.viewer.menu.ButtonViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 
@@ -41,6 +39,7 @@ public class ShopViewer extends Viewer<Shop> {
         drawBackground(gui);
         for(ButtonViewer vb: buttonViewer)
         {
+
             vb.drawElements(gui);
         }
         gui.drawImage(posMiddle, Skins.get(getLocation().getCurrentChicken()));
@@ -51,21 +50,4 @@ public class ShopViewer extends Viewer<Shop> {
     {
         gui.drawImage(new Position(0,0),background);
     }
-/* Porque caralhos precisamos disto????????????
-    public void rotate(int left, int middle, int right, GUI gui)
-    {
-        drawBackground(gui);
-        for(ButtonViewer vb: buttonViewer)
-        {
-            vb.drawElements(gui);
-        }
-        BasicTextImage chickenLeft = imageLoader.getImage("images/shop/chicken" + left + ".png");
-        BasicTextImage chickenMiddle = imageLoader.getImage("images/shop/chicken" + middle + ".png");
-        BasicTextImage chickenRigth = imageLoader.getImage("images/shop/chicken" + right + ".png");
-        gui.drawImage(posLeft, chickenLeft);
-        gui.drawImage(posMiddle, chickenMiddle);
-        gui.drawImage(posRigth, chickenRigth);
-    }
-
- */
 }

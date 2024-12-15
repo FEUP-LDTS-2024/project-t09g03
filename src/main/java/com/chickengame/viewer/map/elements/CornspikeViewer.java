@@ -1,4 +1,4 @@
-package com.chickengame.viewer.map;
+package com.chickengame.viewer.map.elements;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Cornspike;

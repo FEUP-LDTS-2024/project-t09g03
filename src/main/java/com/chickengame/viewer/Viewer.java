@@ -6,6 +6,7 @@ import java.io.IOException;
 
 public abstract class Viewer<T> {
     private T location;
+    private final ImageLoader imageLoader = new ImageLoader();
 
     public Viewer(T location) {
         this.location = location;
@@ -18,6 +19,11 @@ public abstract class Viewer<T> {
     public void draw(GUI gui) throws IOException {
         drawElements(gui);
         gui.refresh();
+    }
+
+    protected ImageLoader getImageLoader()
+    {
+        return imageLoader;
     }
 
     protected abstract void drawElements(GUI gui);

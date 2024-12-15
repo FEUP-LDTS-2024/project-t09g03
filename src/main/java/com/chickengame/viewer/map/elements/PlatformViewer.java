@@ -1,4 +1,4 @@
-package com.chickengame.viewer.map;
+package com.chickengame.viewer.map.elements;
 
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.gui.GUI;

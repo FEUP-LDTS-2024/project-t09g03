@@ -29,7 +29,7 @@ public class MarathonController extends Controller<MarathonMap> {
         boolean chickenOutUp = (getLocation().getChicken().getPosition().getY() + getLocation().getChicken().getHEIGHT() <= 0);
         boolean chickenOutDown = (getLocation().getChicken().getPosition().getY() > 375);
 
-        if(getLocation().getMaps().get(getLocation().getCurrent()).colidesHarmObject(getLocation().getChicken())|| getLocation().getMaps().get(getLocation().getNextMap()).colidesHarmObject(getLocation().getChicken()) || chickenOutX || chickenOutUp || chickenOutDown)
+        if(getLocation().getMaps().get(getLocation().getCurrent()).colidesHarmObject(getLocation().getChicken()) || getLocation().getMaps().get(getLocation().getNextMap()).colidesHarmObject(getLocation().getChicken()) || chickenOutX || chickenOutUp || chickenOutDown)
         {
             game.setState(new MenuState(new Menu()));
         }

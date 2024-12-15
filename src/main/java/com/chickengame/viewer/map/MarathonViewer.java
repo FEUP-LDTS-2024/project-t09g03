@@ -5,6 +5,9 @@ import com.chickengame.model.game.elements.*;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.*;
+import com.chickengame.viewer.map.elements.BackgroundViewer;
+import com.chickengame.viewer.map.elements.ChickenViewer;
+import com.chickengame.viewer.map.elements.ElementViewer;
 
 import java.util.ArrayList;
 import java.util.List;

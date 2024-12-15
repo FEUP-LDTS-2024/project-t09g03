@@ -13,8 +13,9 @@ public class Menu {
     public Menu() {
         this.buttons = new ArrayList<>();
         this.buttons.add(new Button(290,110,Button.Type.Play));
-        this.buttons.add(new Button(290,170,Button.Type.Shop));
-        this.buttons.add(new Button(290,230,Button.Type.Exit));
+        this.buttons.add(new Button(290,170,Button.Type.LevelMenu));
+        this.buttons.add(new Button(290,230,Button.Type.Shop));
+        this.buttons.add(new Button(290,290,Button.Type.Exit));
         this.buttons.getFirst().select();
     }
 
