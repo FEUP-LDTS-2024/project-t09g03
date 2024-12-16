@@ -1,7 +1,7 @@
 package com.chickengame.state;
 
 import com.chickengame.controller.Controller;
-import com.chickengame.controller.menu.MarathonController;
+import com.chickengame.controller.game.MarathonController;
 import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.map.MarathonViewer;
 import com.chickengame.viewer.Viewer;

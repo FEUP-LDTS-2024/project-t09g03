@@ -1,4 +1,4 @@
-package com.chickengame.controller.menu;
+package com.chickengame.controller.game;
 
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;

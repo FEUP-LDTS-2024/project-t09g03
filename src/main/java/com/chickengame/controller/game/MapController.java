@@ -1,12 +1,12 @@
-package com.chickengame.controller.menu;
+package com.chickengame.controller.game;
 
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
+import com.chickengame.model.game.GameOver;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.map.Map;
-import com.chickengame.model.game.menu.Menu;
-import com.chickengame.state.MenuState;
+import com.chickengame.state.GameOverState;
 
 public class MapController extends Controller<Map> {
     private Chicken chicken;
@@ -16,6 +16,7 @@ public class MapController extends Controller<Map> {
         this.chicken = chicken;
         chickenController = new ChickenController(chicken);
     }
+
     private int adapter = 5;
 
     @Override
@@ -27,7 +28,7 @@ public class MapController extends Controller<Map> {
 
         if(getLocation().colidesHarmObject(chicken) || getLocation().colidesHarmObject(chicken) || chickenOutX || chickenOutUp || chickenOutDown)
         {
-            game.setState(new MenuState(new Menu()));
+            game.setState(new GameOverState(new GameOver()));
         }
 
         for(int i = 0; i< adapter;i++)

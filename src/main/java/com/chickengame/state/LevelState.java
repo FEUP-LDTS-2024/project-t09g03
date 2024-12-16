@@ -1,7 +1,7 @@
 package com.chickengame.state;
 
 import com.chickengame.controller.Controller;
-import com.chickengame.controller.menu.LevelController;
+import com.chickengame.controller.game.LevelController;
 import com.chickengame.model.game.map.LevelMap;
 import com.chickengame.viewer.Viewer;
 import com.chickengame.viewer.map.LevelViewer;

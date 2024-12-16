@@ -2,6 +2,7 @@ package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Background;
 import com.chickengame.model.game.elements.Chicken;
+import com.chickengame.model.game.elements.FinishLine;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -42,6 +43,7 @@ public class LevelMapBuilder {
             {
                 case "Chicken"->map.setChicken(new Chicken(x,y,chickenType));
                 case "Background"-> map.setBackground(new Background(x,y));
+                case "FinishLine"-> map.setFinishLine(new FinishLine(x,y));
             }
             line = reader.readLine();
         }

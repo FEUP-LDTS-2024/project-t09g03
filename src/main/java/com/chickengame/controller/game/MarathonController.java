@@ -1,16 +1,11 @@
-package com.chickengame.controller.menu;
+package com.chickengame.controller.game;
 
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.gui.LanternaDraw;
-import com.chickengame.model.Position;
-import com.chickengame.model.game.elements.HarmObject;
-import com.chickengame.model.game.elements.Wall;
-import com.chickengame.model.game.map.Map;
+import com.chickengame.model.game.GameOver;
 import com.chickengame.model.game.map.MarathonMap;
-import com.chickengame.model.game.menu.Menu;
-import com.chickengame.state.MenuState;
+import com.chickengame.state.GameOverState;
 
 
 public class MarathonController extends Controller<MarathonMap> {
@@ -24,14 +19,13 @@ public class MarathonController extends Controller<MarathonMap> {
 
     @Override
     public void step(Game game,GUI gui ,GUI.Action action) {
-
         boolean chickenOutX = (getLocation().getChicken().getPosition().getX() + getLocation().getChicken().getWIDTH() <= 0);
         boolean chickenOutUp = (getLocation().getChicken().getPosition().getY() + getLocation().getChicken().getHEIGHT() <= 0);
         boolean chickenOutDown = (getLocation().getChicken().getPosition().getY() > 375);
 
         if(getLocation().getMaps().get(getLocation().getCurrent()).colidesHarmObject(getLocation().getChicken()) || getLocation().getMaps().get(getLocation().getNextMap()).colidesHarmObject(getLocation().getChicken()) || chickenOutX || chickenOutUp || chickenOutDown)
         {
-            game.setState(new MenuState(new Menu()));
+            game.setState(new GameOverState(new GameOver()));
         }
 
         for(int i = 0; i< adapter;i++)
