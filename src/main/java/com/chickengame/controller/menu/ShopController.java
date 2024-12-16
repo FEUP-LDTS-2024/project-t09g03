@@ -12,7 +12,7 @@ public class ShopController extends Controller<Shop> {
         super(location);
     }
     private int counter = 0;
-    private final int max = 3;
+    private final int max = 8;
 
     @Override
     public void step(Game game,GUI gui ,GUI.Action action) {

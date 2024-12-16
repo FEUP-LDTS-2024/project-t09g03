@@ -9,7 +9,7 @@ public class Shop {
     private final List<Button> buttons;
     private int currentButton = 0;
     private int currentChicken = 0;
-    private final int maxChicken = 4;
+    private final int maxChicken = 9;
 
     public Shop() {
         this.buttons = new ArrayList<>();

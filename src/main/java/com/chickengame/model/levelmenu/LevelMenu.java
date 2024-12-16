@@ -8,7 +8,7 @@ import java.util.List;
 
 public class LevelMenu{
     private final List<Button> buttons = new ArrayList<>();
-    private int currentButton = 0;
+    private int currentButton = 1;
 
     public LevelMenu()
     {
@@ -16,6 +16,7 @@ public class LevelMenu{
         this.buttons.add(new ButtonLevel(200,150,Button.Type.Level, 1));
         this.buttons.add(new ButtonLevel(360,150,Button.Type.Level, 2));
         this.buttons.add(new ButtonLevel(520,150,Button.Type.Level, 3));
+        this.buttons.get(1).select();
     }
     public List<Button> getButtons()
     {
