@@ -1,7 +1,7 @@
 package com.chickengame.model.levelmenu;
 
 import com.chickengame.model.game.elements.Background;
-import com.chickengame.model.game.menu.Button;
+import com.chickengame.model.menu.Button;
 
 import java.util.ArrayList;
 import java.util.List;

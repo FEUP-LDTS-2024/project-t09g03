@@ -23,6 +23,7 @@ public class MarathonBuilder {
             String path = folderPath + "Map"+i+".txt";
             Map map = mapBuilder.createMap(path,offset);
             offset = map.getSizeX();
+            System.out.println(offset);
             marathonMap.getMaps().add(map);
         }
         return marathonMap;

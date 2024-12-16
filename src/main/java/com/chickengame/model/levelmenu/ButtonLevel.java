@@ -1,6 +1,6 @@
 package com.chickengame.model.levelmenu;
 
-import com.chickengame.model.game.menu.Button;
+import com.chickengame.model.menu.Button;
 
 public class ButtonLevel extends Button {
 

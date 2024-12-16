@@ -1,7 +1,7 @@
 package com.chickengame.viewer.menu;
 
 import com.chickengame.gui.GUI;
-import com.chickengame.model.game.menu.Button;
+import com.chickengame.model.menu.Button;
 import com.chickengame.model.levelmenu.ButtonLevel;
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.Viewer;

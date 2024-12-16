@@ -1,6 +1,6 @@
 package com.chickengame.model.game;
 
-import com.chickengame.model.game.menu.Button;
+import com.chickengame.model.menu.Button;
 
 public class GameOver {
     private final Button back;

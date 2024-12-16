@@ -19,6 +19,7 @@ public class MarathonController extends Controller<MarathonMap> {
 
     @Override
     public void step(Game game,GUI gui ,GUI.Action action) {
+        System.out.println(getLocation().getCurrent()+ "->" + getLocation().getNextMap());
         boolean chickenOutX = (getLocation().getChicken().getPosition().getX() + getLocation().getChicken().getWIDTH() <= 0);
         boolean chickenOutUp = (getLocation().getChicken().getPosition().getY() + getLocation().getChicken().getHEIGHT() <= 0);
         boolean chickenOutDown = (getLocation().getChicken().getPosition().getY() > 375);
@@ -47,7 +48,7 @@ public class MarathonController extends Controller<MarathonMap> {
                 chickencontroller.moveY();
             }
 
-            if(getLocation().getMaps().get(getLocation().getCurrent()).colidesRight(getLocation().getChicken()))
+            if(getLocation().getMaps().get(getLocation().getCurrent()).colidesRight(getLocation().getChicken()) || getLocation().getMaps().get(getLocation().getNextMap()).colidesRight(getLocation().getChicken()))
             {
                 chickencontroller.stopX();
             }

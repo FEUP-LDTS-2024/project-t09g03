@@ -3,9 +3,8 @@ package com.chickengame.controller.menu;
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.game.menu.Button;
-import com.chickengame.model.game.menu.HelpMenu;
-import com.chickengame.model.game.menu.Menu;
+import com.chickengame.model.menu.HelpMenu;
+import com.chickengame.model.menu.Menu;
 import com.chickengame.state.MenuState;
 
 public class HelpControler extends Controller<HelpMenu> {

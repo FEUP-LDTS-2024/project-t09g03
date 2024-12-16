@@ -2,7 +2,7 @@ package com.chickengame.state;
 
 import com.chickengame.controller.Controller;
 import com.chickengame.controller.menu.HelpControler;
-import com.chickengame.model.game.menu.HelpMenu;
+import com.chickengame.model.menu.HelpMenu;
 import com.chickengame.viewer.Viewer;
 import com.chickengame.viewer.menu.HelpViewer;
 

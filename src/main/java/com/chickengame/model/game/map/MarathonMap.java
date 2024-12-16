@@ -19,7 +19,7 @@ public class MarathonMap{
     MarathonMap(int numberofmaps)
     {
         current = 0;
-        nextMap = 1;
+        nextMap = 2;
         this.nMaps = numberofmaps;
     }
 

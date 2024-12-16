@@ -2,8 +2,8 @@ package com.chickengame.viewer.shop;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
-import com.chickengame.model.game.menu.Button;
-import com.chickengame.model.game.shop.Shop;
+import com.chickengame.model.menu.Button;
+import com.chickengame.model.shop.Shop;
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.Viewer;
 import com.chickengame.viewer.menu.ButtonViewer;

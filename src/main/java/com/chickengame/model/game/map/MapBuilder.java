@@ -54,6 +54,7 @@ public class MapBuilder{
             int x = Integer.parseInt(args[1]);
             int y = Integer.parseInt(args[2]);
             boolean stateDown = Boolean.parseBoolean(args[3]);
+            System.out.println(element+ ' ' + (x+offset) + ' ' + y);
             switch (element) {
                 case "Platform":
                     Platform platform = new Platform(x+offset, y);
@@ -92,25 +93,25 @@ public class MapBuilder{
                     map.getHarmObjects().add(gummy);
                     break;
                 case "IceCream":
-                    IceCream iceCream = new IceCream(x,y,stateDown);
+                    IceCream iceCream = new IceCream(x+offset,y,stateDown);
                     maxsize = Math.max(maxsize, x + iceCream.getWIDTH());
                     map.getIcecreams().add(iceCream);
                     map.getWalls().add(iceCream);
                     break;
                 case "Cookie":
-                    Cookie cookie = new Cookie(x,y);
+                    Cookie cookie = new Cookie(x+offset,y);
                     maxsize = Math.max(maxsize, x + cookie.getWIDTH());
                     map.getCookies().add(cookie);
                     map.getWalls().add(cookie);
                     break;
                 case "Toblerone":
-                    Toblerone toblerone = new Toblerone(x,y,stateDown);
+                    Toblerone toblerone = new Toblerone(x+offset,y,stateDown);
                     maxsize = Math.max(maxsize, x + toblerone.getWIDTH());
                     map.getToblerones().add(toblerone);
                     map.getHarmObjects().add(toblerone);
                     break;
                 case "ChocolatePlatform":
-                    ChocolatePlatform chocolatePlatform = new ChocolatePlatform(x,y);
+                    ChocolatePlatform chocolatePlatform = new ChocolatePlatform(x+offset,y);
                     maxsize = Math.max(maxsize, x + chocolatePlatform.getWIDTH());
                     map.getChocolatePlatforms().add(chocolatePlatform);
                     map.getWalls().add(chocolatePlatform);

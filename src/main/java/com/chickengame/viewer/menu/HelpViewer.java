@@ -2,7 +2,7 @@ package com.chickengame.viewer.menu;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
-import com.chickengame.model.game.menu.HelpMenu;
+import com.chickengame.model.menu.HelpMenu;
 import com.chickengame.viewer.Viewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 
