@@ -1,7 +1,4 @@
-package com.chickengame.model.game.menu;
-
-import com.chickengame.model.game.elements.Background;
-import com.chickengame.model.game.elements.Element;
+package com.chickengame.model.menu;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -3,14 +3,9 @@ package com.chickengame.controller.menu;
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.game.map.MapBuilder;
-import com.chickengame.model.game.menu.Menu;
-import com.chickengame.model.game.shop.Shop;
-import com.chickengame.state.MarathonState;
+import com.chickengame.model.menu.Menu;
+import com.chickengame.model.shop.Shop;
 import com.chickengame.state.MenuState;
-import com.chickengame.state.ShopState;
-
-import java.io.IOException;
 
 public class ShopController extends Controller<Shop> {
     public ShopController(Shop location) {

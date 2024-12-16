@@ -7,7 +7,7 @@ import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.HarmObject;
 import com.chickengame.model.game.elements.Wall;
 import com.chickengame.model.game.map.Map;
-import com.chickengame.model.game.menu.Menu;
+import com.chickengame.model.menu.Menu;
 import com.chickengame.state.MenuState;
 
 

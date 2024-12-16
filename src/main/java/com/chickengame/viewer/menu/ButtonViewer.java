@@ -1,9 +1,7 @@
 package com.chickengame.viewer.menu;
 
 import com.chickengame.gui.GUI;
-import com.chickengame.model.Position;
-import com.chickengame.model.game.elements.Background;
-import com.chickengame.model.game.menu.Button;
+import com.chickengame.model.menu.Button;
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.Viewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;

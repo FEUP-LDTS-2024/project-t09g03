@@ -23,11 +23,11 @@ public class CandyCane extends Wall
 
     @Override
     public int getHEIGHT() {
-        return WIDTH;
+        return HEIGHT;
     }
 
     @Override
     public int getWIDTH() {
-        return HEIGHT;
+        return WIDTH;
     }
 }
