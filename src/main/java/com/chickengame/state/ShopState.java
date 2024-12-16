@@ -2,7 +2,7 @@ package com.chickengame.state;
 
 import com.chickengame.controller.Controller;
 import com.chickengame.controller.menu.ShopController;
-import com.chickengame.model.game.shop.Shop;
+import com.chickengame.model.shop.Shop;
 import com.chickengame.viewer.shop.ShopViewer;
 import com.chickengame.viewer.Viewer;
 

@@ -1,4 +1,4 @@
-package com.chickengame.model.game.menu;
+package com.chickengame.model.menu;
 
 import com.chickengame.model.game.elements.Element;
 

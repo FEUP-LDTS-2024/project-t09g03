@@ -3,11 +3,9 @@ package com.chickengame;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
-import com.chickengame.model.game.menu.Menu;
-import com.chickengame.model.game.shop.Shop;
+import com.chickengame.model.menu.Menu;
 import com.chickengame.state.MenuState;
 import com.chickengame.state.State;
-import com.chickengame.state.ShopState;
 
 import java.io.IOException;
 

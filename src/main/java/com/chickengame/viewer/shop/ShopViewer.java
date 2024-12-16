@@ -39,7 +39,6 @@ public class ShopViewer extends Viewer<Shop> {
         drawBackground(gui);
         for(ButtonViewer vb: buttonViewer)
         {
-
             vb.drawElements(gui);
         }
         gui.drawImage(posMiddle, Skins.get(getLocation().getCurrentChicken()));

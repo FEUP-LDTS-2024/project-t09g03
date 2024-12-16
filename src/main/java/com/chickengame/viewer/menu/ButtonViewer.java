@@ -1,8 +1,6 @@
 package com.chickengame.viewer.menu;
 
 import com.chickengame.gui.GUI;
-import com.chickengame.model.Position;
-import com.chickengame.model.game.elements.Background;
 import com.chickengame.model.game.menu.Button;
 import com.chickengame.model.levelmenu.ButtonLevel;
 import com.chickengame.viewer.ImageLoader;
@@ -16,6 +14,7 @@ import java.util.Map;
 
 public class ButtonViewer extends Viewer<Button> {
 
+    private ImageLoader imageLoader = new ImageLoader();
     private final Map<Button.Type, List<BasicTextImage>> buttonmap;
     public ButtonViewer(Button button) {
         super(button);
