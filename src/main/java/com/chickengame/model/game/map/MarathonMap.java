@@ -3,23 +3,23 @@ package com.chickengame.model.game.map;
 import com.chickengame.model.game.elements.Background;
 import com.chickengame.model.game.elements.Chicken;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class MarathonMap{
 
-    private List<Map> maps = new ArrayList<>();
+    private List<Map> maps;
     private int nMaps;
-    private int current;
-    private int nextMap;
+    private Map current;
+    private Map nextMap;
     private Chicken chicken;
     private Background background;
 
-    MarathonMap(int numberofmaps)
+    MarathonMap(int numberofmaps, List<Map> mapas)
     {
-        current = 0;
-        nextMap = 2;
+        this.maps = mapas;
+        current = mapas.getFirst();
+        nextMap = mapas.getLast();
         this.nMaps = numberofmaps;
     }
 
@@ -31,21 +31,19 @@ public class MarathonMap{
     {
         Random  rand = new Random();
         current = nextMap;
-        nextMap = rand.nextInt()%nMaps;
-        if(nextMap<0)nextMap = -nextMap;
         while(nextMap == current)
         {
-            nextMap = rand.nextInt()%nMaps;
-            if(nextMap<0)nextMap = -nextMap;
-
+            int next = rand.nextInt()%nMaps;
+            if(next<0)next = -next;
+            nextMap = maps.get(next);
         }
     }
 
-    public int getCurrent() {
+    public Map getCurrent() {
         return current;
     }
 
-    public int getNextMap() {
+    public Map getNextMap() {
         return nextMap;
     }
 

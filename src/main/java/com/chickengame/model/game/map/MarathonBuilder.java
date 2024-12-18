@@ -3,16 +3,18 @@ package com.chickengame.model.game.map;
 import com.chickengame.model.game.elements.Background;
 import com.chickengame.model.game.elements.Chicken;
 
+import java.awt.List;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class MarathonBuilder {
 
     public MarathonMap createMarathonMap(int n,String folderPath,MapBuilder mapBuilder, int ChickenSkin) {
-        MarathonMap marathonMap = new MarathonMap(n);
-
+        ArrayList<Map> mapList = new ArrayList<Map>();
+        MarathonMap marathonMap = new MarathonMap(n, mapList);
         int offset = 0;
         try {
             getSingleElements(folderPath + "marathon.txt",marathonMap,ChickenSkin);
@@ -23,7 +25,6 @@ public class MarathonBuilder {
             String path = folderPath + "Map"+i+".txt";
             Map map = mapBuilder.createMap(path,offset);
             offset = map.getSizeX();
-            System.out.println(offset);
             marathonMap.getMaps().add(map);
         }
         return marathonMap;
