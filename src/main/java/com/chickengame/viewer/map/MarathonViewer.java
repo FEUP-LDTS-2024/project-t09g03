@@ -19,7 +19,7 @@ public class MarathonViewer extends Viewer<MarathonMap>
     {
         super(marathonMap);
         elementViewerFactory = new ElementViewerFactory();
-        mapViewer = new MapViewer(getLocation().getMaps().get(getLocation().getCurrent()),elementViewerFactory);
+        mapViewer = new MapViewer(getLocation().getCurrent(),elementViewerFactory);
         backgroundViewer = elementViewerFactory.getViewer(getLocation().getBackground().getName());
         chickenViewer = elementViewerFactory.getChickenViewer(getLocation().getChicken().getSkin());
     }
@@ -28,9 +28,9 @@ public class MarathonViewer extends Viewer<MarathonMap>
     public void drawElements(GUI gui)
     {
         backgroundViewer.draw(gui,getLocation().getBackground());
-        mapViewer = new MapViewer(getLocation().getMaps().get(getLocation().getCurrent()),elementViewerFactory);
+        mapViewer = new MapViewer(getLocation().getCurrent(),elementViewerFactory);
         mapViewer.drawElements(gui);
-        mapViewer = new MapViewer(getLocation().getMaps().get(getLocation().getNextMap()),elementViewerFactory);
+        mapViewer = new MapViewer(getLocation().getNextMap(),elementViewerFactory);
         mapViewer.drawElements(gui);
         chickenViewer.draw(gui,getLocation().getChicken());
     }

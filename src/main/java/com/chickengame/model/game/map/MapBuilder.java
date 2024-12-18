@@ -69,7 +69,7 @@ public class MapBuilder{
                     break;
                 case "cornSpike":
                     inverted = Boolean.parseBoolean(args[3]);
-                    element = new InvertedElement(x + offset,y,40,42,name,inverted);
+                    element = new InvertedElement(x + offset,y,70,15,name,inverted);
                     map.getHarmObjects().add(element);
                     break;
                 case "cupcake", "iceCream":

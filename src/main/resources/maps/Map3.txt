@@ -184,6 +184,20 @@ platform 4420 143
 platform 4460 143
 platform 4500 143
 platform 4540 143
+gummy 3015 88 false 
+lollipop 3100 30 true 
+lollipop 3180 63 false 
+lollipop 3260 30 true 
+gummy 3370 88 false 
+cornSpike 3480 128 false 
+cornSpike 3570 30 true 
+lollipop 3900 103 false 
+lollipop 3900 30 true 
+lollipop 4200 103 false 
+lollipop 4200 30 true 
+lollipop 4500 103 false 
+lollipop 4500 30 true 
+gummy 4715 30 true 
 platform 4800 210
 platform 4840 210
 platform 4880 252
