@@ -8,7 +8,7 @@ import com.googlecode.lanterna.graphics.BasicTextImage;
 
 public class HelpViewer extends Viewer<HelpMenu> {
 
-    private final BasicTextImage background = getImageLoader().getImage("images/menu/Help.png");
+    private final BasicTextImage background = getImageLoader().getImage("images/menu/help.png");
     private final ButtonViewer buttonViewer;
     public HelpViewer(HelpMenu location) {
         super(location);

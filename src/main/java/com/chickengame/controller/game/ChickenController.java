@@ -23,14 +23,14 @@ public class ChickenController extends Controller<Chicken> {
     {
         if(super.getLocation().isCharge())
         {
-            super.getLocation().setMovingDown(!super.getLocation().isMovingDown());
+            super.getLocation().setInverted(!super.getLocation().isInverted());
             super.getLocation().setCharge(false);
         }
     }
     public void moveY()
     {
         Position old = getLocation().getPosition();
-        getLocation().setPosition(new Position(old.getX(), getLocation().isMovingDown()? old.getY()+1:old.getY()-1));
+        getLocation().setPosition(new Position(old.getX(), getLocation().isInverted()? old.getY()-1:old.getY()+1));
     }
 
     public void stopX()

@@ -1,7 +1,7 @@
 package com.chickengame.model.game.map;
 
-import com.chickengame.model.game.elements.Background;
 import com.chickengame.model.game.elements.Chicken;
+import com.chickengame.model.game.elements.Element;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,12 +14,12 @@ public class MarathonMap{
     private int current;
     private int nextMap;
     private Chicken chicken;
-    private Background background;
+    private Element background;
 
     MarathonMap(int numberofmaps)
     {
-        current = 0;
-        nextMap = 2;
+        current = 2;
+        nextMap = 0;
         this.nMaps = numberofmaps;
     }
 
@@ -57,11 +57,11 @@ public class MarathonMap{
         this.chicken = chicken;
     }
 
-    public Background getBackground() {
+    public Element getBackground() {
         return background;
     }
 
-    public void setBackground(Background background) {
+    public void setBackground(Element background) {
         this.background = background;
     }
 

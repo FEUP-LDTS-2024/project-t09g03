@@ -13,9 +13,9 @@ public class Shop {
 
     public Shop() {
         this.buttons = new ArrayList<>();
-        this.buttons.add(new Button(302,265,Button.Type.Back));
-        this.buttons.add(new Button(440,175,Button.Type.Next));
-        this.buttons.add(new Button(270,175,Button.Type.Previous));
+        this.buttons.add(new Button(302,265,155,50,Button.Type.Back));
+        this.buttons.add(new Button(440,175,55,40,Button.Type.Next));
+        this.buttons.add(new Button(270,175,55,40,Button.Type.Previous));
         this.buttons.getFirst().select();
     }
 

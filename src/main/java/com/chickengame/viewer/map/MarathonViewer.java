@@ -1,44 +1,38 @@
 package com.chickengame.viewer.map;
 
 import com.chickengame.gui.GUI;
-import com.chickengame.model.game.elements.*;
-import com.chickengame.model.game.map.Map;
 import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.*;
-import com.chickengame.viewer.map.elements.BackgroundViewer;
 import com.chickengame.viewer.map.elements.ChickenViewer;
 import com.chickengame.viewer.map.elements.ElementViewer;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class MarathonViewer extends Viewer<MarathonMap>
 {
-    private final ChickenViewer chickenViewer = new ChickenViewer(getLocation().getChicken().getType());
-    private final List<MapViewer> mapViewerList = new ArrayList<>();
-    private final BackgroundViewer backgroundViewer = new BackgroundViewer();
+    private  MapViewer mapViewer;
+    private final ElementViewer backgroundViewer;
+    private final ChickenViewer chickenViewer;
+    private final ElementViewerFactory elementViewerFactory;
 
 
-    public MarathonViewer(MarathonMap map)
+    public MarathonViewer(MarathonMap marathonMap)
     {
-        super(map);
-        for(Map m : map.getMaps())
-        {
-            mapViewerList.add(new MapViewer(m));
-        }
-
+        super(marathonMap);
+        elementViewerFactory = new ElementViewerFactory();
+        mapViewer = new MapViewer(getLocation().getMaps().get(getLocation().getCurrent()),elementViewerFactory);
+        backgroundViewer = elementViewerFactory.getViewer(getLocation().getBackground().getName());
+        chickenViewer = elementViewerFactory.getChickenViewer(getLocation().getChicken().getSkin());
     }
+
     @Override
     public void drawElements(GUI gui)
     {
-        this.drawElements(gui,getLocation().getBackground(), backgroundViewer);
-        mapViewerList.get(getLocation().getCurrent()).drawElements(gui);
-        mapViewerList.get(getLocation().getNextMap()).drawElements(gui);
-        this.drawElements(gui, this.getLocation().getChicken(), chickenViewer);
+        backgroundViewer.draw(gui,getLocation().getBackground());
+        mapViewer = new MapViewer(getLocation().getMaps().get(getLocation().getCurrent()),elementViewerFactory);
+        mapViewer.drawElements(gui);
+        mapViewer = new MapViewer(getLocation().getMaps().get(getLocation().getNextMap()),elementViewerFactory);
+        mapViewer.drawElements(gui);
+        chickenViewer.draw(gui,getLocation().getChicken());
     }
 
-    private <T extends Element> void drawElements(GUI gui, T elements, ElementViewer<T> viewer)
-    {
-        viewer.draw(elements,gui);
-    }
 }

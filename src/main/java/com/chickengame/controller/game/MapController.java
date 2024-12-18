@@ -22,11 +22,11 @@ public class MapController extends Controller<Map> {
     @Override
     public void step(Game game, GUI gui, GUI.Action action)
     {
-        boolean chickenOutX = (chicken.getPosition().getX() + chicken.getWIDTH() <= 0);
-        boolean chickenOutUp = (chicken.getPosition().getY() + chicken.getHEIGHT() <= 0);
+        boolean chickenOutX = (chicken.getPosition().getX() + chicken.getWidth() <= 0);
+        boolean chickenOutUp = (chicken.getPosition().getY() + chicken.getHeight() <= 0);
         boolean chickenOutDown = (chicken.getPosition().getY() > 375);
 
-        if(getLocation().colidesHarmObject(chicken) || getLocation().colidesHarmObject(chicken) || chickenOutX || chickenOutUp || chickenOutDown)
+        if(getLocation().colidesHarmObject(chicken) || chickenOutX || chickenOutUp || chickenOutDown)
         {
             game.setState(new GameOverState(new GameOver()));
         }
@@ -34,8 +34,8 @@ public class MapController extends Controller<Map> {
         for(int i = 0; i< adapter;i++)
         {
             this.movecamera();
-            boolean chickenCollidesDown = (chicken.isMovingDown() && (getLocation().colidesDown(chicken)|| getLocation().colidesDown(chicken)));
-            boolean chickenCollidesUp = (!chicken.isMovingDown() && (getLocation().colidesUp(chicken)||getLocation().colidesUp(chicken)));
+            boolean chickenCollidesDown = (!chicken.isInverted() && getLocation().colidesDown(chicken) );
+            boolean chickenCollidesUp = (chicken.isInverted() && getLocation().colidesUp(chicken));
 
             if(getLocation().colidesHarmObject(chicken))
             {
@@ -58,10 +58,6 @@ public class MapController extends Controller<Map> {
         }
 
     }
-
-
-
-
 
     private void movecamera()
     {

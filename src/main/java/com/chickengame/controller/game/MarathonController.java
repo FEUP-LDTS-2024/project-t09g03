@@ -20,8 +20,8 @@ public class MarathonController extends Controller<MarathonMap> {
     @Override
     public void step(Game game,GUI gui ,GUI.Action action) {
         System.out.println(getLocation().getCurrent()+ "->" + getLocation().getNextMap());
-        boolean chickenOutX = (getLocation().getChicken().getPosition().getX() + getLocation().getChicken().getWIDTH() <= 0);
-        boolean chickenOutUp = (getLocation().getChicken().getPosition().getY() + getLocation().getChicken().getHEIGHT() <= 0);
+        boolean chickenOutX = (getLocation().getChicken().getPosition().getX() + getLocation().getChicken().getWidth() <= 0);
+        boolean chickenOutUp = (getLocation().getChicken().getPosition().getY() + getLocation().getChicken().getHeight() <= 0);
         boolean chickenOutDown = (getLocation().getChicken().getPosition().getY() > 375);
 
         if(getLocation().getMaps().get(getLocation().getCurrent()).colidesHarmObject(getLocation().getChicken()) || getLocation().getMaps().get(getLocation().getNextMap()).colidesHarmObject(getLocation().getChicken()) || chickenOutX || chickenOutUp || chickenOutDown)
@@ -32,8 +32,8 @@ public class MarathonController extends Controller<MarathonMap> {
         for(int i = 0; i< adapter;i++)
         {
             this.movecamera();
-            boolean chickenCollidesDown = (getLocation().getChicken().isMovingDown() && (getLocation().getMaps().get(getLocation().getCurrent()).colidesDown(getLocation().getChicken())|| getLocation().getMaps().get(getLocation().getNextMap()).colidesDown(getLocation().getChicken())));
-            boolean chickenCollidesUp = (!getLocation().getChicken().isMovingDown() && (getLocation().getMaps().get(getLocation().getCurrent()).colidesUp(getLocation().getChicken())||getLocation().getMaps().get(getLocation().getNextMap()).colidesUp(getLocation().getChicken())));
+            boolean chickenCollidesDown = (!getLocation().getChicken().isInverted() && (getLocation().getMaps().get(getLocation().getCurrent()).colidesDown(getLocation().getChicken())|| getLocation().getMaps().get(getLocation().getNextMap()).colidesDown(getLocation().getChicken())));
+            boolean chickenCollidesUp = (getLocation().getChicken().isInverted() && (getLocation().getMaps().get(getLocation().getCurrent()).colidesUp(getLocation().getChicken())||getLocation().getMaps().get(getLocation().getNextMap()).colidesUp(getLocation().getChicken())));
 
             if(getLocation().getMaps().get(getLocation().getCurrent()).colidesHarmObject(getLocation().getChicken()))
             {
