@@ -3,9 +3,12 @@ package com.chickengame;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
+import com.chickengame.gui.LanternaScreenFactory;
 import com.chickengame.model.menu.Menu;
 import com.chickengame.state.MenuState;
 import com.chickengame.state.State;
+import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 
 import java.io.IOException;
 
@@ -28,9 +31,12 @@ public class Game {
     }
 
     private Game(){
-        this.gui = new LanternaDraw();
+        try {
+            this.gui = new LanternaDraw(new LanternaScreenFactory(new DefaultTerminalFactory(), new TerminalSize(750,375)).createScreen());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         this.state = new MenuState(new Menu());
-        //this.state = new MenuState(new Menu());
     }
 
     public void run() throws IOException {

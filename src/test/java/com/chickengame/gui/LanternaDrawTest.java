@@ -7,6 +7,7 @@ import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
+import com.googlecode.lanterna.terminal.Terminal;
 import net.jqwik.api.*;
 import net.jqwik.api.constraints.CharRange;
 import net.jqwik.api.constraints.WithNull;
@@ -15,12 +16,17 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 
 import static com.chickengame.gui.GUI.Action.NONE;
+import static java.awt.Font.TRUETYPE_FONT;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class LanternaDrawTest
 {
@@ -30,8 +36,7 @@ public class LanternaDrawTest
     private Map<KeyStroke,GUI.Action> keyTypeActionMap = new HashMap<>();
 
     @BeforeEach
-    void helper()
-    {
+    void helper() throws IOException {
         this.screen = Mockito.mock(Screen.class);
         this.textGraphics = Mockito.mock(TextGraphics.class);
         Mockito.when(this.screen.newTextGraphics()).thenReturn(textGraphics);
@@ -56,8 +61,7 @@ public class LanternaDrawTest
         */
     }
     @BeforeProperty
-    void helper2()
-    {
+    void helper2() throws IOException {
         this.screen = Mockito.mock(Screen.class);
         lanterna = new LanternaDraw(screen);
         keyTypeActionMap.put(new KeyStroke(KeyType.EOF),GUI.Action.QUIT);
@@ -94,6 +98,35 @@ public class LanternaDrawTest
         GUI.Action action = lanterna.getNextAction();
         assertEquals(keyTypeActionMap.getOrDefault(realStroke, NONE), action);
     }
+
+
+    @Provide
+    Arbitrary<String> validFontPaths() {
+        return Arbitraries.strings()
+                .withChars("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/_.")
+                .ofMinLength(5)
+                .ofMaxLength(50);
+    }
+
+    @Provide
+    Arbitrary<Integer> screenDimensions() {
+        return Arbitraries.integers().between(100, 1000);
+    }
+
+    @Property
+    void shouldInitializeTextGraphicsProperly(
+            @ForAll("screenDimensions") int width,
+            @ForAll("screenDimensions") int height
+    ) throws IOException {
+        Screen mockScreen = Mockito.mock(Screen.class);
+        TextGraphics mockTextGraphics = Mockito.mock(TextGraphics.class);
+        Mockito.when(mockScreen.newTextGraphics()).thenReturn(mockTextGraphics);
+
+        LanternaDraw lanternaDraw = new LanternaDraw(mockScreen);
+
+        assert lanternaDraw != null;
+    }
+
 
 
 }

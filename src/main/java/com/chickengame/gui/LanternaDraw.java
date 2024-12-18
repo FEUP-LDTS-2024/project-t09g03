@@ -24,50 +24,14 @@ public class LanternaDraw implements GUI{
 
     private Screen screen;
     private final TextGraphics textGraphics;
+    private static final int WIDTH = 750;
+    private static final int HEIGHT = 375;
 
-    public LanternaDraw(Screen screen)
-    {
+
+    public LanternaDraw(Screen screen) throws IOException {
         this.screen = screen;
-        this.textGraphics = screen.newTextGraphics();
-    }
-
-
-    public LanternaDraw() {
-        URL resource = getClass().getClassLoader().getResource("font/square.ttf");
-        try {
-            File fontFile = new File(resource.toURI());
-            Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
-            Terminal terminal = createTerminal(750,375, font);
-            createScreen(terminal);
-            this.textGraphics = this.screen.newTextGraphics();
-        } catch (FontFormatException | IOException | URISyntaxException e)
-        {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private Terminal createTerminal(int width, int height, Font font) throws IOException
-    {
-        // Process font to AWTTerminalFontConfiguration
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        ge.registerFont(font);
-        Font loadedFont = font.deriveFont(Font.PLAIN, 2);
-        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
-
-        //create Terminal
-        TerminalSize terminalSize = new TerminalSize(width, height);
-        DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
-        terminalFactory.setForceAWTOverSwing(true);
-        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
-        return terminalFactory.createTerminal();
-    }
-
-    private void createScreen(Terminal terminal) throws IOException
-    {
-        this.screen = new TerminalScreen(terminal);
-        this.screen.setCursorPosition(null);
         this.screen.startScreen();
-        this.screen.doResizeIfNecessary();
+        this.textGraphics = screen.newTextGraphics();
     }
 
     @Override
