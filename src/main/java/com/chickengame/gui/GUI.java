@@ -13,7 +13,6 @@ public interface GUI {
     public Screen getScreen();
     public GUI.Action getNextAction() throws IOException;
     public void drawImage(Position position, BasicTextImage basicTextImage);
-    public int processKey() throws IOException;
     public void refresh() throws IOException;
     public void close() throws IOException;
 }

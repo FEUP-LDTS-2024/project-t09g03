@@ -22,9 +22,15 @@ import java.net.URL;
 
 public class LanternaDraw implements GUI{
 
-    private KeyStroke lastkeystroke;
     private Screen screen;
     private final TextGraphics textGraphics;
+
+    public LanternaDraw(Screen screen)
+    {
+        this.screen = screen;
+        this.textGraphics = screen.newTextGraphics();
+    }
+
 
     public LanternaDraw() {
         URL resource = getClass().getClassLoader().getResource("font/square.ttf");
@@ -116,18 +122,4 @@ public class LanternaDraw implements GUI{
         this.screen.close();
     }
 
-    @Override
-    public int processKey() throws IOException {
-        KeyStroke key = screen.pollInput();
-        if(key != null)
-        {
-            if(key.getCharacter() == 'q')
-            {
-                this.close();
-                return 1;
-            }
-
-        }
-        return 0;
-    }
 }
