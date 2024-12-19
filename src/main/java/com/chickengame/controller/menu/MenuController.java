@@ -15,6 +15,7 @@ import com.chickengame.state.MarathonState;
 import com.chickengame.state.ShopState;
 
 import java.io.IOException;
+import java.io.InterruptedIOException;
 
 public class MenuController extends Controller<Menu> {
     public MenuController(Menu location) {
