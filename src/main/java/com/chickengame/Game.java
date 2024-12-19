@@ -32,7 +32,8 @@ public class Game {
 
     private Game(){
         try {
-            this.gui = new LanternaDraw(new LanternaScreenFactory(new DefaultTerminalFactory(), new TerminalSize(750,375)).createScreen());
+            LanternaScreenFactory lanternaScreenFactory = new LanternaScreenFactory(new DefaultTerminalFactory(), "font/square.ttf",new TerminalSize(750,375));
+            this.gui = new LanternaDraw(lanternaScreenFactory.createScreen());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

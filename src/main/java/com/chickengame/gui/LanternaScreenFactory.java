@@ -20,18 +20,17 @@ public class LanternaScreenFactory implements ScreenFactory {
     private DefaultTerminalFactory terminalFactory;
 
 
-    public LanternaScreenFactory(DefaultTerminalFactory terminalFactory, TerminalSize terminalSize)
+    public LanternaScreenFactory(DefaultTerminalFactory terminalFactory, String fontPath, TerminalSize terminalSize)
     {
         this.terminalSize = terminalSize;
         this.terminalFactory = terminalFactory;
 
-        Font font = getFont("font/square.ttf");
+        Font font = getFont(fontPath);
         GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
         ge.registerFont(font);
         Font loadedFont = font.deriveFont(Font.PLAIN, 2);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
 
-        //create Terminal
         this.terminalFactory.setInitialTerminalSize(terminalSize);
         this.terminalFactory.setForceAWTOverSwing(true);
         this.terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
@@ -45,13 +44,12 @@ public class LanternaScreenFactory implements ScreenFactory {
             File fontFile = new File(resource.toURI());
             font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
-        } catch (FontFormatException | IOException | URISyntaxException e)
+        } catch (FontFormatException| NullPointerException | IOException | URISyntaxException e)
         {
             throw new RuntimeException(e);
         }
         return font;
     }
-
 
     @Override
     public Screen createScreen() throws IOException {
@@ -68,11 +66,11 @@ public class LanternaScreenFactory implements ScreenFactory {
 
     @Override
     public int getWidth() {
-        return 0;
+        return terminalSize.getColumns();
     }
 
     @Override
     public int getHeight() {
-        return 0;
+        return terminalSize.getRows();
     }
 }
