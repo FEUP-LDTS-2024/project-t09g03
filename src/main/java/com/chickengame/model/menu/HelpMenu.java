@@ -1,7 +1,7 @@
 package com.chickengame.model.menu;
 
 public class HelpMenu {
-    private final Button back = new Button(500,10, Button.Type.Back);
+    private final Button back = new Button(500,10,155,55,Button.Type.Back);
 
     public HelpMenu()
     {

@@ -7,7 +7,7 @@ public class Win{
 
     public Win()
     {
-        this.back = new Button(290,290,Button.Type.Back);
+        this.back = new Button(290,290,155,50,Button.Type.Back);
         this.back.select();
 
     }

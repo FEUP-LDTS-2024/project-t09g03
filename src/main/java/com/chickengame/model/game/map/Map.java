@@ -9,90 +9,25 @@ import java.util.List;
 public class Map
 {
     private int sizeX;
-    private List<HarmObject> harmObjects;
-    private List<Wall> walls;
-    private List<Cupcake> cupcakes;
-    private List<Lollipop> lollipops;
-    private List<Cornspike> cornspikes;
-    private List<Platform> platforms;
-    private List<CandyCane> candyCanes;
-    private List<Gummy> gummies;
-    private List<IceCream> icecreams;
-    private List<Cookie> cookies;
-    private List<Toblerone> toblerones;
-    private List<ChocolatePlatform> chocolatePlatforms;
-
+    private List<Element> harmObjects;
+    private List<Element> walls;
+    private List<Element> elements;
 
     public Map()
     {
         harmObjects = new ArrayList<>();
         walls = new ArrayList<>();
-        cupcakes = new ArrayList<>();
-        lollipops = new ArrayList<>();
-        cornspikes = new ArrayList<>();
-        platforms = new ArrayList<>();
-        candyCanes = new ArrayList<>();
-        gummies = new ArrayList<>();
-        cookies = new ArrayList<>();
-        toblerones = new ArrayList<>();
-        chocolatePlatforms = new ArrayList<>();
-        icecreams = new ArrayList<>();
+        elements = new ArrayList<>();
     }
 
-    public List<HarmObject> getHarmObjects()
+    public List<Element> getHarmObjects()
     {
-        return this.harmObjects;
+        return harmObjects;
     }
 
-    public List<Wall> getWalls()
+    public List<Element> getWalls()
     {
         return this.walls;
-    }
-
-    public List<Cupcake> getCupcakes() {
-        return cupcakes;
-    }
-
-    public List<Lollipop> getLollipops() {
-        return lollipops;
-    }
-
-    public List<Cornspike> getCornspikes() {
-        return cornspikes;
-    }
-
-    public List<Platform> getPlatforms() {
-        return platforms;
-    }
-
-    public List<CandyCane> getCandyCanes()
-    {
-        return candyCanes;
-    }
-
-    public List<Gummy> getGummies()
-    {
-        return gummies;
-    }
-
-    public List<IceCream> getIcecreams()
-    {
-        return icecreams;
-    }
-
-    public List<Cookie> getCookies()
-    {
-        return cookies;
-    }
-
-    public List<Toblerone> getToblerones()
-    {
-        return toblerones;
-    }
-
-    public List<ChocolatePlatform> getChocolatePlatforms()
-    {
-        return chocolatePlatforms;
     }
 
     public int getSizeX() {
@@ -106,15 +41,15 @@ public class Map
     public Boolean colidesHarmObject(Chicken chicken)
     {
         int chickenXMin = chicken.getPosition().getX();
-        int chickenXMax = chickenXMin + chicken.getWIDTH();
+        int chickenXMax = chickenXMin + chicken.getWidth();
         int chickenYMin = chicken.getPosition().getY();
-        int chickenYMax = chickenYMin + chicken.getHEIGHT();
-        for (HarmObject harmobject : harmObjects)
+        int chickenYMax = chickenYMin + chicken.getHeight();
+        for (Element harmObject : harmObjects)
         {
-            int harmObjectXMin = harmobject.getPosition().getX();
-            int harmObjectXMax = harmObjectXMin + harmobject.getWIDTH();
-            int harmObjectYMin = harmobject.getPosition().getY();
-            int harmObjectYMax = harmObjectYMin + harmobject.getHEIGHT();
+            int harmObjectXMin = harmObject.getPosition().getX();
+            int harmObjectXMax = harmObjectXMin + harmObject.getWidth();
+            int harmObjectYMin = harmObject.getPosition().getY();
+            int harmObjectYMax = harmObjectYMin + harmObject.getHeight();
 
             boolean overlapX = (chickenXMax >= harmObjectXMin && chickenXMin <= harmObjectXMax);
             boolean overlapY = (chickenYMax >= harmObjectYMin && chickenYMin <= harmObjectYMax);
@@ -131,16 +66,16 @@ public class Map
     public boolean colidesUp(Chicken chicken)
     {
         int chickenXMin = chicken.getPosition().getX();
-        int chickenXMax = chickenXMin + chicken.getWIDTH();
+        int chickenXMax = chickenXMin + chicken.getWidth();
         int chickenYMin = chicken.getPosition().getY();
-        int chickenYMax = chickenYMin + chicken.getHEIGHT();
+        int chickenYMax = chickenYMin + chicken.getHeight();
 
-        for (Wall wall : walls)
+        for (Element wall : walls)
         {
             int wallXMin = wall.getPosition().getX();
-            int wallXMax = wallXMin + wall.getWIDTH();
+            int wallXMax = wallXMin + wall.getWidth();
             int wallYMin = wall.getPosition().getY();
-            int wallYMax = wallYMin + wall.getHEIGHT();
+            int wallYMax = wallYMin + wall.getHeight();
 
             boolean overlapX = (chickenXMax >= wallXMin && chickenXMin <= wallXMax);
             boolean touchingUp = (chickenYMin == wallYMax);
@@ -155,16 +90,16 @@ public class Map
     public boolean colidesDown(Chicken chicken)
     {
         int chickenXMin = chicken.getPosition().getX();
-        int chickenXMax = chickenXMin + chicken.getWIDTH();
+        int chickenXMax = chickenXMin + chicken.getWidth();
         int chickenYMin = chicken.getPosition().getY();
-        int chickenYMax = chickenYMin + chicken.getHEIGHT();
+        int chickenYMax = chickenYMin + chicken.getHeight();
 
-        for (Wall wall : walls)
+        for (Element wall : walls)
         {
             int wallXMin = wall.getPosition().getX();
-            int wallXMax = wallXMin + wall.getWIDTH();
+            int wallXMax = wallXMin + wall.getWidth();
             int wallYMin = wall.getPosition().getY();
-            int wallYMax = wallYMin + wall.getHEIGHT();
+            int wallYMax = wallYMin + wall.getHeight();
 
             boolean overlapX = (chickenXMax >= wallXMin && chickenXMin <= wallXMax);
             boolean touchingUp = (chickenYMax == wallYMin);
@@ -180,16 +115,16 @@ public class Map
     public boolean colidesRight(Chicken chicken)
     {
         int chickenXMin = chicken.getPosition().getX();
-        int chickenXMax = chickenXMin + chicken.getWIDTH();
+        int chickenXMax = chickenXMin + chicken.getWidth();
         int chickenYMin = chicken.getPosition().getY();
-        int chickenYMax = chickenYMin + chicken.getHEIGHT();
+        int chickenYMax = chickenYMin + chicken.getHeight();
 
-        for (Wall wall : walls)
+        for (Element wall : walls)
         {
             int wallXMin = wall.getPosition().getX();
-            int wallXMax = wallXMin + wall.getWIDTH();
+            int wallXMax = wallXMin + wall.getWidth();
             int wallYMin = wall.getPosition().getY();
-            int wallYMax = wallYMin + wall.getHEIGHT();
+            int wallYMax = wallYMin + wall.getHeight();
 
             boolean touchingRight = (chickenXMax == wallXMin);
             boolean overlapY = (chickenYMax > wallYMin && chickenYMin < wallYMax);
@@ -201,7 +136,6 @@ public class Map
         }
         return false;
     }
-
 
     public void moveMap(int offset)
     {
@@ -217,17 +151,21 @@ public class Map
 
     private void moveHarmObjects(int offset)
     {
-        for(HarmObject H: harmObjects)
+        for(Element harmObject: harmObjects)
         {
-            H.setPosition( new Position(H.getPosition().getX()+offset,H.getPosition().getY()));
+            harmObject.setPosition( new Position(harmObject.getPosition().getX()+offset,harmObject.getPosition().getY()));
         }
     }
 
     private void moveWalls(int offset)
     {
-        for(Wall w: this.walls) {
-            w.setPosition(new Position(w.getPosition().getX() + offset, w.getPosition().getY()));
+        for(Element wall : this.walls) {
+            wall.setPosition(new Position(wall.getPosition().getX() + offset, wall.getPosition().getY()));
         }
+    }
+
+    public List<Element> getElements() {
+        return elements;
     }
 
 }

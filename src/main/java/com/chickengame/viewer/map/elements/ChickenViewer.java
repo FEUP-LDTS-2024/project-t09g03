@@ -1,47 +1,37 @@
 package com.chickengame.viewer.map.elements;
 
+import com.chickengame.model.Position;
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Chicken;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 
-public class ChickenViewer implements ElementViewer<Chicken>
+public class ChickenViewer extends InvertedElementViewer
 {
     private BasicTextImage imgMoving;
-    private BasicTextImage imgStatic;
-
     private BasicTextImage imgMovingDown;
-    private BasicTextImage imgStaticDown;
 
-    public ChickenViewer(int type)
+    public ChickenViewer(ImageLoader imgLoader,String path, String invertedPath,String movingPath,String movingDownPath)
     {
-        ImageLoader imgLoader = new ImageLoader();
-        imgMoving = imgLoader.getImage("images/game/chicken/chickenMoving" + type + ".png");
-        imgStatic = imgLoader.getImage("images/game/chicken/chickenStatic"+ type + ".png");
-        imgMovingDown = imgLoader.getImage("images/game/chicken/chickenMovingDown" + type + ".png");
-        imgStaticDown = imgLoader.getImage("images/game/chicken/chickenStaticDown" + type + ".png");
+        super(imgLoader,path,invertedPath);
+        imgMoving = imgLoader.getImage(movingPath);
+        imgMovingDown = imgLoader.getImage(movingDownPath);
     }
-    @Override
-    public void draw(Chicken chicken, GUI gui)
+
+    public void draw(GUI gui,Chicken chicken)
     {
-        boolean state = false;
-        if(chicken.isStateMoving() && chicken.isMovingDown())
+        if(!chicken.isWalking())
+        {
+            super.draw(gui,chicken);
+        }
+        else if(!chicken.isInverted())
         {
             gui.drawImage(chicken.getPosition(),imgMoving);
         }
-        else if(!chicken.isStateMoving() && chicken.isMovingDown())
+        else
         {
-            gui.drawImage(chicken.getPosition(),imgStatic);
-            state = true;
+            gui.drawImage(chicken.getPosition(),imgMovingDown);
         }
-        else if (!chicken.isStateMoving() && !chicken.isMovingDown())
-        {
-            gui.drawImage(chicken.getPosition(),imgStaticDown);
-            state = true;
-        }
-        else {
-            gui.drawImage(chicken.getPosition(), imgMovingDown);
-        }
-        chicken.setStateMoving(state);
+        chicken.setWalking(!chicken.isWalking());
     }
 }

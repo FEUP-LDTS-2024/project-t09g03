@@ -11,31 +11,31 @@ import com.chickengame.state.GameOverState;
 public class MapController extends Controller<Map> {
     private Chicken chicken;
     private final ChickenController chickenController;
-    public MapController(Map location, Chicken chicken) {
+    private final int adapter;
+    public MapController(Map location, Chicken chicken, int adapter) {
         super(location);
         this.chicken = chicken;
         chickenController = new ChickenController(chicken);
+        this.adapter = adapter;
     }
-
-    private int adapter = 5;
 
     @Override
     public void step(Game game, GUI gui, GUI.Action action)
     {
-        boolean chickenOutX = (chicken.getPosition().getX() + chicken.getWIDTH() <= 0);
-        boolean chickenOutUp = (chicken.getPosition().getY() + chicken.getHEIGHT() <= 0);
+        boolean chickenOutX = (chicken.getPosition().getX() + chicken.getWidth() <= 0);
+        boolean chickenOutUp = (chicken.getPosition().getY() + chicken.getHeight() <= 0);
         boolean chickenOutDown = (chicken.getPosition().getY() > 375);
 
-        if(getLocation().colidesHarmObject(chicken) || getLocation().colidesHarmObject(chicken) || chickenOutX || chickenOutUp || chickenOutDown)
+        if(getLocation().colidesHarmObject(chicken) || chickenOutX || chickenOutUp || chickenOutDown)
         {
             game.setState(new GameOverState(new GameOver()));
         }
 
         for(int i = 0; i< adapter;i++)
         {
-            this.movecamera();
-            boolean chickenCollidesDown = (chicken.isMovingDown() && (getLocation().colidesDown(chicken)|| getLocation().colidesDown(chicken)));
-            boolean chickenCollidesUp = (!chicken.isMovingDown() && (getLocation().colidesUp(chicken)||getLocation().colidesUp(chicken)));
+            this.movecamera(-1);
+            boolean chickenCollidesDown = (!chicken.isInverted() && getLocation().colidesDown(chicken) );
+            boolean chickenCollidesUp = (chicken.isInverted() && getLocation().colidesUp(chicken));
 
             if(getLocation().colidesHarmObject(chicken))
             {
@@ -59,12 +59,8 @@ public class MapController extends Controller<Map> {
 
     }
 
-
-
-
-
-    private void movecamera()
+    public void movecamera(int offset)
     {
-        getLocation().moveMap(-1);
+        getLocation().moveMap(offset);
     }
 }

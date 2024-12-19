@@ -1,7 +1,7 @@
 package com.chickengame.model.game.map;
 
-import com.chickengame.model.game.elements.Background;
 import com.chickengame.model.game.elements.Chicken;
+import com.chickengame.model.game.elements.Element;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,18 +9,22 @@ import java.util.Random;
 
 public class MarathonMap{
 
-    private List<Map> maps = new ArrayList<>();
-    private int nMaps;
-    private int current;
-    private int nextMap;
+    private List<Map> maps;
+    private Map current;
+    private Map nextMap;
     private Chicken chicken;
-    private Background background;
+    private Element background;
+    private Random random = new Random();
 
-    MarathonMap(int numberofmaps)
+    MarathonMap(List<Map> mapas)
     {
-        current = 0;
-        nextMap = 2;
-        this.nMaps = numberofmaps;
+        if(mapas.size()<2)throw new RuntimeException("Not enough maps");
+        this.maps = mapas;
+        int first = random.nextInt(mapas.size());
+        System.out.println(first);
+        current = mapas.get(first);
+        nextMap = mapas.get((first+1)%mapas.size());
+        nextMap.moveMap(current.getSizeX());
     }
 
     public List<Map> getMaps() {
@@ -30,22 +34,21 @@ public class MarathonMap{
     public void setNextMap()
     {
         Random  rand = new Random();
+
         current = nextMap;
-        nextMap = rand.nextInt()%nMaps;
-        if(nextMap<0)nextMap = -nextMap;
         while(nextMap == current)
         {
-            nextMap = rand.nextInt()%nMaps;
-            if(nextMap<0)nextMap = -nextMap;
-
+            int next = rand.nextInt(maps.size());
+            nextMap = maps.get(next);
         }
+        nextMap.moveMap(current.getSizeX());
     }
 
-    public int getCurrent() {
+    public Map getCurrent() {
         return current;
     }
 
-    public int getNextMap() {
+    public Map getNextMap() {
         return nextMap;
     }
 
@@ -57,11 +60,11 @@ public class MarathonMap{
         this.chicken = chicken;
     }
 
-    public Background getBackground() {
+    public Element getBackground() {
         return background;
     }
 
-    public void setBackground(Background background) {
+    public void setBackground(Element background) {
         this.background = background;
     }
 

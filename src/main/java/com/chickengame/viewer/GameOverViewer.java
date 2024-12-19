@@ -7,7 +7,7 @@ import com.chickengame.viewer.menu.ButtonViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 
 public class GameOverViewer extends Viewer<GameOver> {
-    private final BasicTextImage background = getImageLoader().getImage("images/menu/gameover/GameOver.png");
+    private final BasicTextImage background = getImageLoader().getImage("images/menu/gameover/gameOver.png");
     private final ButtonViewer buttonViewer;
 
     public GameOverViewer(GameOver location) {

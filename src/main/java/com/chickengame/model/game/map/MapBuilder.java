@@ -2,12 +2,9 @@ package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.*;
 
-import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +23,7 @@ public class MapBuilder{
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        populatemap(map, offset);
+        populateMap(map, offset);
         return map;
     }
     public MapBuilder(){
@@ -44,79 +41,61 @@ public class MapBuilder{
         return elements;
     }
 
-    public void populatemap(Map map, int offset)
+    public void populateMap(Map map, int offset)
     {
         int maxsize = 0;
         for (String line : this.lines) {
             String[] args;
             args = line.split(" ");
-            String element = args[0];
+            String name = args[0];
             int x = Integer.parseInt(args[1]);
             int y = Integer.parseInt(args[2]);
-            boolean stateDown = Boolean.parseBoolean(args[3]);
-            System.out.println(element+ ' ' + (x+offset) + ' ' + y);
-            switch (element) {
-                case "Platform":
-                    Platform platform = new Platform(x+offset, y);
-                    maxsize = Math.max(maxsize, x + platform.getWIDTH());
-                    map.getPlatforms().add(platform);
-                    map.getWalls().add(platform);
+            boolean inverted = false;
+            Element element = null;
+            switch(name)
+            {
+                case "candyCane":
+                    inverted = Boolean.parseBoolean(args[3]);
+                    element = new InvertedElement(x + offset,y,24,47,name,inverted);
+                    map.getWalls().add(element);
                     break;
-                case "Cornspike":
-                    Cornspike cornspike = new Cornspike(x+offset,y,stateDown);
-                    maxsize = Math.max(maxsize, x + cornspike.getWIDTH());
-                    map.getCornspikes().add(cornspike);
-                    map.getHarmObjects().add(cornspike);
+                case "chocolatePlatform", "platform":
+                    element = new Element(x + offset,y,40,42,name);
+                    map.getWalls().add(element);
                     break;
-                case "Cupcake":
-                    Cupcake cupcake = new Cupcake(x+offset,y,stateDown);
-                    maxsize = Math.max(maxsize, x + cupcake.getWIDTH());
-                    map.getCupcakes().add(cupcake);
-                    map.getWalls().add(cupcake);
+                case "cookie":
+                    element = new Element(x + offset,y,20,20,name);
+                    map.getWalls().add(element);;
                     break;
-                case "Lollipop":
-                    Lollipop lollipop = new Lollipop(x+offset,y,stateDown);
-                    maxsize = Math.max(maxsize, x + lollipop.getWIDTH());
-                    map.getLollipops().add(lollipop);
-                    map.getWalls().add(lollipop);
+                case "cornSpike":
+                    inverted = Boolean.parseBoolean(args[3]);
+                    element = new InvertedElement(x + offset,y,70,15,name,inverted);
+                    map.getHarmObjects().add(element);
                     break;
-                case "CandyCane":
-                    CandyCane candyCane = new CandyCane(x+offset,y,stateDown);
-                    maxsize = Math.max(maxsize, x + candyCane.getWIDTH());
-                    map.getCandyCanes().add(candyCane);
-                    map.getWalls().add(candyCane);
+                case "cupcake", "iceCream":
+                    inverted = Boolean.parseBoolean(args[3]);
+                    element = new InvertedElement(x+offset,y,26,46,name,inverted);
+                    map.getWalls().add(element);
                     break;
-                case "Gummy":
-                    Gummy gummy = new Gummy(x+offset,y,stateDown);
-                    maxsize = Math.max(maxsize, x + gummy.getWIDTH());
-                    map.getGummies().add(gummy);
-                    map.getHarmObjects().add(gummy);
+                case "gummy":
+                    inverted = Boolean.parseBoolean(args[3]);
+                    element = new InvertedElement(x+offset,y,23,15,name,inverted);
+                    map.getHarmObjects().add(element);
                     break;
-                case "IceCream":
-                    IceCream iceCream = new IceCream(x+offset,y,stateDown);
-                    maxsize = Math.max(maxsize, x + iceCream.getWIDTH());
-                    map.getIcecreams().add(iceCream);
-                    map.getWalls().add(iceCream);
+                case "lollipop":
+                    inverted = Boolean.parseBoolean(args[3]);
+                    element = new InvertedElement(x+offset,y,24,40,name,inverted);
+                    map.getWalls().add(element);
                     break;
-                case "Cookie":
-                    Cookie cookie = new Cookie(x+offset,y);
-                    maxsize = Math.max(maxsize, x + cookie.getWIDTH());
-                    map.getCookies().add(cookie);
-                    map.getWalls().add(cookie);
-                    break;
-                case "Toblerone":
-                    Toblerone toblerone = new Toblerone(x+offset,y,stateDown);
-                    maxsize = Math.max(maxsize, x + toblerone.getWIDTH());
-                    map.getToblerones().add(toblerone);
-                    map.getHarmObjects().add(toblerone);
-                    break;
-                case "ChocolatePlatform":
-                    ChocolatePlatform chocolatePlatform = new ChocolatePlatform(x+offset,y);
-                    maxsize = Math.max(maxsize, x + chocolatePlatform.getWIDTH());
-                    map.getChocolatePlatforms().add(chocolatePlatform);
-                    map.getWalls().add(chocolatePlatform);
+                case "toblerone":
+                    inverted = Boolean.parseBoolean(args[3]);
+                    element = new InvertedElement(x + offset,y,70,15,name,inverted);
+                    map.getHarmObjects().add(element);
                     break;
             }
+            assert element != null;
+            map.getElements().add(element);
+            maxsize = Math.max(maxsize, x + element.getWidth());
             map.setSizeX(maxsize);
         }
     }

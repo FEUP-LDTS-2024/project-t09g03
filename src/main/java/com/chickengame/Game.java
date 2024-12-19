@@ -58,7 +58,7 @@ public class Game {
                 throw new RuntimeException(e);
             }
             double t2 = System.nanoTime();
-            System.out.println(1/((t2-t1)/1000000000));
+            //System.out.println(1/((t2-t1)/1000000000));
         }
         gui.close();
     }

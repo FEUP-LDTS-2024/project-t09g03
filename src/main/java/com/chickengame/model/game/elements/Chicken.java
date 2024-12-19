@@ -1,38 +1,25 @@
 package com.chickengame.model.game.elements;
 
-public class Chicken extends Element
+public class Chicken extends InvertedElement
 {
-    private int type;
-    private static final int WIDTH = 21;
-    private static final int HEIGHT = 28;
-    private boolean stateMoving = false;
-    private boolean movingDown = true;
+    private int skin;
+    private boolean walking = false;
     private boolean charge = false;
 
-    public Chicken(int x, int y,int type)
+    public Chicken(int x, int y,String name, boolean inverted, int skin)
     {
-        super(x, y);
-        this.type = type;
+        super(x,y,21,28,name,inverted);
+        this.skin = skin;
     }
 
-    public boolean isStateMoving()
+    public boolean isWalking()
     {
-        return stateMoving;
+        return walking;
     }
 
-    public void setStateMoving(boolean stateMoving)
+    public void setWalking(boolean walking)
     {
-        this.stateMoving = stateMoving;
-    }
-
-    public boolean isMovingDown()
-    {
-        return movingDown;
-    }
-
-    public void setMovingDown(boolean movingDown)
-    {
-        this.movingDown = movingDown;
+        this.walking = walking;
     }
 
     public boolean isCharge()
@@ -45,21 +32,13 @@ public class Chicken extends Element
         this.charge = charge;
     }
 
-    public int getHEIGHT() {
-        return HEIGHT;
-    }
-
-    public int getWIDTH() {
-        return WIDTH;
-    }
-
-    public int getType()
+    public int getSkin()
     {
-        return type;
+        return skin;
     }
 
-    public void setType(int type)
+    public void setSkin(int skin)
     {
-        this.type = type;
+        this.skin = skin;
     }
 }

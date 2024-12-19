@@ -2,25 +2,53 @@ package com.chickengame.model.game.elements;
 
 import com.chickengame.model.Position;
 
-import java.awt.image.BufferedImage;
-
-public abstract class Element
+public class Element
 {
     private Position position;
 
-    public Element(int x, int y)
+    private String name;
+
+    private int width;
+    private int height;
+
+
+    public Element(int x, int y, int width, int height,String name)
     {
         this.position = new Position(x,y);
+        this.width = width;
+        this.height = height;
+        this.name = name;
     }
+
     public Position getPosition()
     {
         return this.position;
     }
+
     public void setPosition(Position position)
     {
         this.position = position;
     }
 
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public void setHeight(int height) {
+        this.height = height;
+    }
+
+    public String getName() {
+        return name;
+    }
 }
 
 

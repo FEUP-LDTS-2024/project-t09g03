@@ -1,14 +1,13 @@
 package com.chickengame.model.game.map;
 
-import com.chickengame.model.game.elements.Background;
 import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.elements.FinishLine;
+import com.chickengame.model.game.elements.Element;
 
 public class LevelMap {
     private Map map;
-    private Background background;
+    private Element background;
     private Chicken chicken;
-    private FinishLine finishLine;
+    private Element finishLine;
 
     public Map getMap() {
         return map;
@@ -18,11 +17,11 @@ public class LevelMap {
         this.map = map;
     }
 
-    public void setBackground(Background background) {
+    public void setBackground(Element background) {
         this.background = background;
     }
 
-    public Background getBackground() {
+    public Element getBackground() {
         return background;
     }
 
@@ -34,11 +33,11 @@ public class LevelMap {
         this.chicken = chicken;
     }
 
-    public FinishLine getFinishLine() {
+    public Element getFinishLine() {
         return finishLine;
     }
 
-    public void setFinishLine(FinishLine finishLine) {
+    public void setFinishLine(Element finishLine) {
         this.finishLine = finishLine;
     }
 }

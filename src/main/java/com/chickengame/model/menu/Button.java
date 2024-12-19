@@ -6,8 +6,8 @@ public class Button extends Element {
     public enum Type {Play,Shop,Exit, Back, Next, Previous, Level, LevelMenu, Help}
     private final Button.Type type;
     private int selected;
-    public Button(int x, int y, Type type) {
-        super(x, y);
+    public Button(int x, int y, int width, int height,Type type) {
+        super(x, y,width,height,"button");
         this.type = type;
         this.selected = 0;
     }
