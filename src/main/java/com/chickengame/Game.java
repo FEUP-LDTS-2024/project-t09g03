@@ -5,7 +5,10 @@ import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
 import com.chickengame.model.menus.MainMenu;
 import com.chickengame.state.MainMenuState;
+import com.chickengame.gui.LanternaScreenFactory;
 import com.chickengame.state.State;
+import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 
 import java.io.IOException;
 
@@ -25,9 +28,13 @@ public class Game {
         return instance;
     }
 
-    private Game()
-    {
-        this.gui = new LanternaDraw();
+    private Game(){
+        try {
+            LanternaScreenFactory lanternaScreenFactory = new LanternaScreenFactory(new DefaultTerminalFactory(), "font/square.ttf",new TerminalSize(750,375));
+            this.gui = new LanternaDraw(lanternaScreenFactory.createScreen());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
         this.state = new MainMenuState(new MainMenu());
     }
 

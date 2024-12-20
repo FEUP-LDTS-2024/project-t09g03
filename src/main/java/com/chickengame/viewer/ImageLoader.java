@@ -16,10 +16,7 @@ public class ImageLoader {
 
     public BasicTextImage getImage(String imagePath){
         URL resource = ImageLoader.class.getClassLoader().getResource(imagePath);
-        if(resource == null)
-        {
-            System.out.println(imagePath);
-        }
+        assert(resource != null);
         File file = null;
         try {
             file = new File(resource.toURI());
@@ -33,11 +30,11 @@ public class ImageLoader {
             throw new RuntimeException(e);
         }
         BasicTextImage textImage = new BasicTextImage(bufferedImage.getWidth(),bufferedImage.getHeight());
-        BuffertoBasic(bufferedImage, textImage);
+        buffertoBasic(bufferedImage, textImage);
         return textImage;
     }
 
-    public void BuffertoBasic(BufferedImage image,BasicTextImage textImage)
+    public void buffertoBasic(BufferedImage image, BasicTextImage textImage)
     {
         double t1 = System.nanoTime();
         for(int i = 0; i< image.getWidth();i++)
