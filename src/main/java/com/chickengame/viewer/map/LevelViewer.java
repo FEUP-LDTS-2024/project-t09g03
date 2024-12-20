@@ -8,7 +8,6 @@ import com.chickengame.viewer.elements.ChickenViewer;
 import com.chickengame.viewer.elements.ElementViewer;
 
 public class LevelViewer extends Viewer<LevelMap> {
-
     private final MapViewer mapViewer;
     private final ElementViewer backgroundViewer;
     private final ElementViewer finishLineViewer;
