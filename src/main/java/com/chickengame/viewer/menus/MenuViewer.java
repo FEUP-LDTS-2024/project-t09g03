@@ -15,10 +15,10 @@ public class MenuViewer extends Viewer<Menu>
     private final ElementViewer backgroundViewer;
     private final List<Button> buttons;
 
-    public MenuViewer(Menu location)
+    public MenuViewer(Menu location, ElementViewerFactory elementViewerFactory)
     {
         super(location);
-        elementViewerFactory = new ElementViewerFactory();
+        this.elementViewerFactory = elementViewerFactory;
         backgroundViewer = elementViewerFactory.getViewer(getLocation().getBackground().getName());
         buttons = getLocation().getButtons();
     }

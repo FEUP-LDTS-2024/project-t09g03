@@ -4,6 +4,7 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.viewer.ImageLoader;
+import com.chickengame.viewer.elements.ElementViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

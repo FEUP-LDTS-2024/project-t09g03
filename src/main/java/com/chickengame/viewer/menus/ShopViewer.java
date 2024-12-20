@@ -3,13 +3,14 @@ package com.chickengame.viewer.menus;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.ShopMenu;
+import com.chickengame.viewer.ElementViewerFactory;
 import com.chickengame.viewer.elements.ElementViewer;
 
 public class ShopViewer extends MenuViewer
 {
-    public ShopViewer(Menu location)
+    public ShopViewer(Menu location, ElementViewerFactory elementViewerFactory)
     {
-        super(location);
+        super(location, elementViewerFactory);
     }
     @Override
     protected void drawElements(GUI gui)
