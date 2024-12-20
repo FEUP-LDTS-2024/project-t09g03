@@ -13,7 +13,7 @@ import java.io.IOException;
 public class Game {
 
     private static Game instance;
-    private final GUI gui;
+        private final GUI gui;
     private State state;
     private int chickenSkin = 0;
 
@@ -51,14 +51,9 @@ public class Game {
                 throw new RuntimeException(e);
             }
             double t2 = System.nanoTime();
-            //System.out.println(1/((t2-t1)/1000000000));
+            System.out.println(1/((t2-t1)/1000000000));
         }
         gui.close();
-    }
-
-    public State getState()
-    {
-        return state;
     }
 
     public void setState(State state)

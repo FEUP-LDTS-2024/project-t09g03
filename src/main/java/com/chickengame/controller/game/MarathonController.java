@@ -20,8 +20,8 @@ public class MarathonController extends Controller<MarathonMap> {
     private static final int adapter = 5;
     public MarathonController(MarathonMap location) {
         super(location);
-        currentMapController = new MapController(getLocation().getCurrent(),getLocation().getChicken(),adapter);
-        nextMapController = new MapController(getLocation().getNextMap(),getLocation().getChicken(),adapter);
+        currentMapController = new MapController(getLocation().getCurrent(),new ChickenController(getLocation().getChicken()),adapter);
+        nextMapController = new MapController(getLocation().getNextMap(),new ChickenController(getLocation().getChicken()),adapter);
     }
     @Override
     public void step(Game game,GUI gui ,GUI.Action action)
@@ -55,8 +55,8 @@ public class MarathonController extends Controller<MarathonMap> {
         getLocation().getCurrent().resetMapposition();
         getLocation().setNextMap();
         offsetCounter = 0;
-        currentMapController = new MapController(getLocation().getCurrent(),getLocation().getChicken(),adapter);
-        nextMapController = new MapController(getLocation().getNextMap(),getLocation().getChicken(),adapter);
+        currentMapController = new MapController(getLocation().getCurrent(),new ChickenController(getLocation().getChicken()),adapter);
+        nextMapController = new MapController(getLocation().getNextMap(),new ChickenController(getLocation().getChicken()),adapter);
     }
 
 

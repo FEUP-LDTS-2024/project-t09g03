@@ -12,10 +12,11 @@ public class MapController extends Controller<Map> {
     private Chicken chicken;
     private final ChickenController chickenController;
     private final int adapter;
-    public MapController(Map location, Chicken chicken, int adapter) {
+    public MapController(Map location, ChickenController chickenController, int adapter) {
         super(location);
         this.chicken = chicken;
-        chickenController = new ChickenController(chicken);
+        this.chickenController = chickenController;
+        this.chicken = chickenController.getLocation();
         this.adapter = adapter;
     }
 

@@ -9,7 +9,7 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 
 public interface GUI {
-    enum Action {UP, DOWN, SELECT, INVERT, QUIT, NONE, LEFT, RIGHT, CLICK}
+    enum Action {UP, DOWN, SELECT, INVERT, QUIT, NONE, LEFT, RIGHT}
     public Screen getScreen();
     public GUI.Action getNextAction() throws IOException;
     public void drawImage(Position position, BasicTextImage basicTextImage);

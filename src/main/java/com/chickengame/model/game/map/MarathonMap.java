@@ -21,7 +21,6 @@ public class MarathonMap{
         if(mapas.size()<2)throw new RuntimeException("Not enough maps");
         this.maps = mapas;
         int first = random.nextInt(mapas.size());
-        System.out.println(first);
         current = mapas.get(first);
         nextMap = mapas.get((first+1)%mapas.size());
         nextMap.moveMap(current.getSizeX());

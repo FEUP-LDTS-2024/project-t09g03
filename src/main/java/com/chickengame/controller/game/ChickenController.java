@@ -30,12 +30,12 @@ public class ChickenController extends Controller<Chicken> {
     public void moveY()
     {
         Position old = getLocation().getPosition();
-        getLocation().setPosition(new Position(old.getX(), getLocation().isInverted()? old.getY()-1:old.getY()+1));
+        old.setY(getLocation().isInverted()? old.getY()-1:old.getY()+1);
     }
 
     public void stopX()
     {
         Position old = getLocation().getPosition();
-        getLocation().setPosition(new Position(old.getX()-1, old.getY()));
+        old.setX(old.getX()-1);
     }
 }
