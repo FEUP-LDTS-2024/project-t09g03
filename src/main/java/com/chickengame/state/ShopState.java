@@ -2,23 +2,26 @@ package com.chickengame.state;
 
 import com.chickengame.controller.Controller;
 import com.chickengame.controller.menu.ShopController;
-import com.chickengame.model.shop.Shop;
-import com.chickengame.viewer.shop.ShopViewer;
+import com.chickengame.model.Menu;
+import com.chickengame.viewer.ShopViewer;
 import com.chickengame.viewer.Viewer;
 
-public class ShopState extends State<Shop>{
+public class ShopState extends State<Menu>{
 
-    public ShopState(Shop location) {
+    public ShopState(Menu location)
+    {
         super(location);
     }
 
     @Override
-    public Viewer<Shop> getStateViewer() {
+    public Viewer<Menu> getStateViewer()
+    {
         return new ShopViewer(getLocation());
     }
 
     @Override
-    public Controller<Shop> getStateController() {
+    public Controller<Menu> getStateController()
+    {
         return new ShopController(getLocation());
     }
 }

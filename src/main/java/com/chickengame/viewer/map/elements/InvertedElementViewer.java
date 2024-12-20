@@ -13,8 +13,6 @@ public class InvertedElementViewer extends ElementViewer
     public InvertedElementViewer(ImageLoader imgLoader,String path, String invertedPath)
     {
         super(imgLoader,path);
-        System.out.println(path);
-        System.out.println(invertedPath);
         this.invertedImage = imgLoader.getImage(invertedPath);
     }
 

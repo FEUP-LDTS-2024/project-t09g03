@@ -6,9 +6,9 @@ public class Chicken extends InvertedElement
     private boolean walking = false;
     private boolean charge = false;
 
-    public Chicken(int x, int y,String name, boolean inverted, int skin)
+    public Chicken(int x, int y, int skin)
     {
-        super(x,y,21,28,name,inverted);
+        super(x,y,21,28,"chicken",false);
         this.skin = skin;
     }
 

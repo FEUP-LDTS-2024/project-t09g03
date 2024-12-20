@@ -1,75 +1,121 @@
 package com.chickengame.model.shop;
 
+import com.chickengame.model.Menu;
+import com.chickengame.model.Position;
+import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.menu.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shop {
-    private final List<Button> buttons;
+public class Shop extends Menu
+{
+    private static final Position posLeft = new Position(160,125);
+    private static final Position posMiddle = new Position(340,125);
+    private static final Position posRight = new Position(510,125);
+
+    private final List<Button> buttons = new ArrayList<>();
     private int currentButton = 0;
-    private int currentChicken = 0;
+    private int currentChicken;
     private final int maxChicken = 9;
+    private final List<Element> chickens = new ArrayList<>();
 
-    public Shop() {
-        this.buttons = new ArrayList<>();
-        this.buttons.add(new Button(302,265,155,50,Button.Type.Back));
-        this.buttons.add(new Button(440,175,55,40,Button.Type.Next));
-        this.buttons.add(new Button(270,175,55,40,Button.Type.Previous));
-        this.buttons.getFirst().select();
-    }
-
-    public List<Button> getButtons()
+    public Shop()
     {
-        return buttons;
+        super.setBackground("shop");
+        buttons.add(new Button(302,265,155,50,"back",Button.Type.Back));
+        buttons.add(new Button(440,175,55,40,"next",Button.Type.Next));
+        buttons.add(new Button(270,175,55,40,"previous",Button.Type.Previous));
+        buttons.getFirst().select();
+        super.setButtons(buttons);
+
+        for(int i = 0; i < maxChicken;i++)
+        {
+            chickens.add(new Element(0,0,82,109,"chicken"+i));
+        }
+        chickens.getFirst().setPosition(posMiddle);
+        chickens.get(1).setPosition(posRight);
+        chickens.getLast().setPosition(posLeft);
+        currentButton = 0;
     }
 
-    public void getButton(int i) {
-        this.buttons.get(currentButton).unselect();
+    public void getButton(int i)
+    {
+        buttons.get(currentButton).unselect();
         currentButton = i;
-        this.buttons.get(currentButton).select();
+        buttons.get(currentButton).select();
     }
 
-    public void nextButton() {
-        this.buttons.get(currentButton).unselect();
+    public void nextButton()
+    {
+        buttons.get(currentButton).unselect();
         currentButton++;
         if (currentButton > this.buttons.size() - 1)
+        {
             currentButton = 0;
-        this.buttons.get(currentButton).select();
+        }
+        buttons.get(currentButton).select();
     }
 
-    public void previousButton() {
-        this.buttons.get(currentButton).unselect();
+    public void previousButton()
+    {
+        buttons.get(currentButton).unselect();
         currentButton--;
         if (currentButton < 0)
+        {
             currentButton = this.buttons.size() - 1;
-        this.buttons.get(currentButton).select();
+        }
+        buttons.get(currentButton).select();
     }
 
-    public int getMaxChicken()
+    public Button getSelected()
     {
-        return maxChicken;
-    }
-
-    public Button getSelected() {
         return buttons.get(currentButton);
     }
 
-    public int getNumberEntries() {
-        return this.buttons.size();
-    }
     
-    public int getCurrentChicken() {return this.currentChicken;}
+    public int getCurrentChicken()
+    {
+        return currentChicken;
+    }
 
     public int getNextSkin()
     {
-        currentChicken = (currentChicken + 1)%maxChicken;
+        currentChicken = (currentChicken + 1) % maxChicken;
         return currentChicken;
     }
+
     public int getPrevious()
     {
         currentChicken = (currentChicken-1) <0 ? maxChicken-1: currentChicken-1;
         return currentChicken;
     }
 
+    public Element getMiddleChicken()
+    {
+        chickens.get(currentChicken).setPosition(posMiddle);
+        return chickens.get(currentChicken);
+    }
+
+    public Element getRightChicken()
+    {
+        int right = currentChicken+1;
+        if(currentChicken + 1 >= maxChicken)
+        {
+            right = 0;
+        }
+        chickens.get(right).setPosition(posRight);
+        return chickens.get(right);
+    }
+
+    public Element getLeftChicken()
+    {
+        int left = currentChicken-1;
+        if(currentChicken -1 < 0)
+        {
+            left = maxChicken-1;
+        }
+        chickens.get(left).setPosition(posLeft);
+        return chickens.get(left);
+    }
 }

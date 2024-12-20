@@ -1,45 +1,42 @@
 package com.chickengame.model.levelmenu;
 
+import com.chickengame.model.Menu;
 import com.chickengame.model.menu.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LevelMenu{
+public class LevelMenu extends Menu
+{
     private final List<Button> buttons = new ArrayList<>();
     private int currentButton = 1;
 
     public LevelMenu()
     {
-        this.buttons.add(new Button(302,265,150,50,Button.Type.Back));
-        this.buttons.add(new ButtonLevel(200,150,50,50,Button.Type.Level, 1));
-        this.buttons.add(new ButtonLevel(360,150,50,50,Button.Type.Level, 2));
-        this.buttons.add(new ButtonLevel(520,150,50,50,Button.Type.Level, 3));
-        this.buttons.get(1).select();
-    }
-    public List<Button> getButtons()
-    {
-        return buttons;
+        super.setBackground("shop");
+        buttons.add(new Button(302,265,150,50,"back",Button.Type.Back));
+        buttons.add(new ButtonLevel(200,150,50,50,Button.Type.Level, 1));
+        buttons.add(new ButtonLevel(360,150,50,50,Button.Type.Level, 2));
+        buttons.add(new ButtonLevel(520,150,50,50,Button.Type.Level, 3));
+        buttons.get(1).select();
+        super.setButtons(buttons);
     }
 
     public Button getCurrentButton() {
         return buttons.get(currentButton);
     }
 
-    public void setCurrentButton(int currentButton) {
-        this.currentButton = currentButton;
-    }
 
     public void selectBack()
     {
-        unselectall();
+        unSelectAll();
         currentButton = 0;
         buttons.getFirst().select();
     }
 
     public void selectNext()
     {
-        unselectall();
+        unSelectAll();
         currentButton++;
         if(currentButton >= buttons.size())
         {
@@ -49,7 +46,7 @@ public class LevelMenu{
     }
     public void selectPrev()
     {
-        unselectall();
+        unSelectAll();
         currentButton--;
         if(currentButton<1)
         {
@@ -57,11 +54,11 @@ public class LevelMenu{
         }
         buttons.get(currentButton).select();
     }
-    private void unselectall()
+    private void unSelectAll()
     {
-        for(Button b: buttons)
+        for(Button button : buttons)
         {
-            b.unselect();
+            button.unselect();
         }
     }
 

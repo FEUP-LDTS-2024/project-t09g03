@@ -8,7 +8,8 @@ import com.googlecode.lanterna.screen.Screen;
 
 import java.io.IOException;
 
-public interface GUI {
+public interface GUI
+{
     enum Action {UP, DOWN, SELECT, INVERT, QUIT, NONE, LEFT, RIGHT, CLICK}
     public Screen getScreen();
     public GUI.Action getNextAction() throws IOException;

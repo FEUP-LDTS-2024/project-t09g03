@@ -1,6 +1,8 @@
 package com.chickengame.model.game.map;
 
+import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.*;
+import com.chickengame.viewer.map.elements.ElementViewer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -17,28 +19,29 @@ public class MapBuilder{
         Map map = new Map();
         URL resource = MapBuilder.class.getResource(path);
         BufferedReader reader = null;
-        try {
+
+        try
+        {
             reader = new BufferedReader(new FileReader(resource.getFile()));
-            this.lines = readElements(reader);
+            lines = readElements(reader);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
         populateMap(map, offset);
         return map;
-    }
-    public MapBuilder(){
     }
 
     private List<String> readElements(BufferedReader reader) throws IOException
     {
-        List<String> elements = new ArrayList<>();
-        String element = reader.readLine();
-        while(element != null)
+        List<String> lines = new ArrayList<>();
+        String line = reader.readLine();
+        while(line != null)
         {
-            elements.add(element);
-            element = reader.readLine();
+            lines.add(line);
+            line = reader.readLine();
         }
-        return elements;
+        return lines;
     }
 
     public void populateMap(Map map, int offset)
@@ -67,7 +70,7 @@ public class MapBuilder{
                     element = new Element(x + offset,y,20,20,name);
                     map.getWalls().add(element);;
                     break;
-                case "cornSpike":
+                case "cornSpike", "toblerone":
                     inverted = Boolean.parseBoolean(args[3]);
                     element = new InvertedElement(x + offset,y,70,15,name,inverted);
                     map.getHarmObjects().add(element);
@@ -86,11 +89,6 @@ public class MapBuilder{
                     inverted = Boolean.parseBoolean(args[3]);
                     element = new InvertedElement(x+offset,y,24,40,name,inverted);
                     map.getWalls().add(element);
-                    break;
-                case "toblerone":
-                    inverted = Boolean.parseBoolean(args[3]);
-                    element = new InvertedElement(x + offset,y,70,15,name,inverted);
-                    map.getHarmObjects().add(element);
                     break;
             }
             assert element != null;

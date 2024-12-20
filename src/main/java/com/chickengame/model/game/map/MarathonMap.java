@@ -3,28 +3,29 @@ package com.chickengame.model.game.map;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class MarathonMap{
 
-    private List<Map> maps;
+    private final List<Map> maps;
     private Map current;
     private Map nextMap;
     private Chicken chicken;
     private Element background;
     private Random random = new Random();
 
-    MarathonMap(List<Map> mapas)
+    MarathonMap(List<Map> maps)
     {
-        if(mapas.size()<2)throw new RuntimeException("Not enough maps");
-        this.maps = mapas;
-        int first = random.nextInt(mapas.size());
-        System.out.println(first);
-        current = mapas.get(first);
-        nextMap = mapas.get((first+1)%mapas.size());
+        if(maps.size()<2)
+        {
+            throw new RuntimeException("Not enough maps");
+        }
+        int first = random.nextInt(maps.size());
+        current = maps.get(first);
+        nextMap = maps.get((first+1) % maps.size());
         nextMap.moveMap(current.getSizeX());
+        this.maps = maps;
     }
 
     public List<Map> getMaps() {

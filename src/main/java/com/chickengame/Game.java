@@ -3,13 +3,12 @@ package com.chickengame;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
-import com.chickengame.model.menu.Menu;
+import com.chickengame.model.menu.MainMenu;
 import com.chickengame.state.MenuState;
 import com.chickengame.state.State;
 
 import java.io.IOException;
 
-/** principio singleton: apenas uma instancia da classe*/
 public class Game {
 
     private static Game instance;
@@ -17,7 +16,6 @@ public class Game {
     private State state;
     private int chickenSkin = 0;
 
-    /**cria uma nova instancia se ela ainda não existir, caso contrario retorna a existente*/
     public static Game getInstance()
     {
         if(instance == null)
@@ -27,10 +25,10 @@ public class Game {
         return instance;
     }
 
-    private Game(){
+    private Game()
+    {
         this.gui = new LanternaDraw();
-        this.state = new MenuState(new Menu());
-        //this.state = new MenuState(new Menu());
+        this.state = new MenuState(new MainMenu());
     }
 
     public void run() throws IOException {

@@ -34,30 +34,7 @@ public class ButtonViewer extends Viewer<Button> {
         this.buttonmap.put(Button.Type.Help, new ArrayList<>());
         this.buttonmap.get(Button.Type.Help).add(getImageLoader().getImage("images/menu/help_button.png"));
         this.buttonmap.get(Button.Type.Help).add(getImageLoader().getImage("images/menu/help_button_pressed.png"));
-
-
-        this.buttonmap.put(Button.Type.Level, new ArrayList<>());
-        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level1_button_pressed.png"));
-        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level1_button.png"));
-        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level2_button_pressed.png"));
-        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level2_button.png"));
-        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level3_button_pressed.png"));
-        this.buttonmap.get(Button.Type.Level).add(getImageLoader().getImage("images/menu/levelmenu/Level3_button.png"));
-
-        this.buttonmap.put(Button.Type.Back,new ArrayList<>());
-        this.buttonmap.get(Button.Type.Back).add(getImageLoader().getImage("images/shop/back_button.png"));
-        this.buttonmap.get(Button.Type.Back).add(getImageLoader().getImage("images/shop/back_button_pressed.png"));
-        this.buttonmap.put(Button.Type.Next,new ArrayList<>());
-        this.buttonmap.get(Button.Type.Next).add(getImageLoader().getImage("images/shop/arrow_right.png"));
-        this.buttonmap.get(Button.Type.Next).add(getImageLoader().getImage("images/shop/arrow_right_pressed.png"));
-        this.buttonmap.put(Button.Type.Previous,new ArrayList<>());
-        this.buttonmap.get(Button.Type.Previous).add(getImageLoader().getImage("images/shop/arrow_left.png"));
-        this.buttonmap.get(Button.Type.Previous).add(getImageLoader().getImage("images/shop/arrow_left_pressed.png"));
-
-
-
     }
-
 
     @Override
     public void drawElements(GUI gui) {

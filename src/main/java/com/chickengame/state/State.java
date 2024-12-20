@@ -29,7 +29,6 @@ public abstract class State<T> {
         return this.location;
     }
 
-    //wip
     public void step(Game game,GUI.Action action, GUI gui) throws IOException {
         stateViewer.draw(gui);
         stateController.step(game,gui, action);

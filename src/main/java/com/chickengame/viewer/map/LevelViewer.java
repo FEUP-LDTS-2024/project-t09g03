@@ -27,8 +27,8 @@ public class LevelViewer extends Viewer<LevelMap> {
     protected void drawElements(GUI gui){
         backgroundViewer.draw(gui,getLocation().getBackground());
         mapViewer.drawElements(gui);
-        finishLineViewer.draw(gui,getLocation().getFinishLine());
         chickenViewer.draw(gui,getLocation().getChicken());
+        finishLineViewer.draw(gui,getLocation().getFinishLine());
     }
 
 
