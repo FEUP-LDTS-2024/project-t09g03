@@ -1,11 +1,11 @@
-package com.chickengame.controller.menu;
+package com.chickengame.controller.menus;
 
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.Menu;
-import com.chickengame.model.menu.MainMenu;
-import com.chickengame.state.MenuState;
+import com.chickengame.model.menus.Menu;
+import com.chickengame.model.menus.MainMenu;
+import com.chickengame.state.MainMenuState;
 
 public class GameEndController extends Controller<Menu>
 {
@@ -19,7 +19,7 @@ public class GameEndController extends Controller<Menu>
     {
         switch (action)
         {
-            case SELECT -> game.setState(new MenuState(new MainMenu()));
+            case SELECT -> game.setState(new MainMenuState(new MainMenu()));
         }
     }
 }

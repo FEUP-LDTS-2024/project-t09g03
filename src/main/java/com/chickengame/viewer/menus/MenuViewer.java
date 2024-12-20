@@ -1,10 +1,11 @@
-package com.chickengame.viewer;
+package com.chickengame.viewer.menus;
 
-import com.chickengame.model.menu.Button;
+import com.chickengame.model.menus.buttons.Button;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.Menu;
-import com.chickengame.viewer.map.ElementViewerFactory;
-import com.chickengame.viewer.map.elements.ElementViewer;
+import com.chickengame.model.menus.Menu;
+import com.chickengame.viewer.ElementViewerFactory;
+import com.chickengame.viewer.Viewer;
+import com.chickengame.viewer.elements.ElementViewer;
 
 import java.util.List;
 

@@ -3,7 +3,7 @@ package com.chickengame.controller.game;
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.game.GameEnd;
+import com.chickengame.model.menus.GameEndMenu;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.state.GameEndState;
@@ -36,7 +36,7 @@ public class MapController extends Controller<Map>
 
         if(getLocation().collidesHarmObject(chickenXMin,chickenXMax, chickenYMin,chickenYMax) || chickenOutX || chickenOutUp || chickenOutDown)
         {
-            game.setState(new GameEndState(new GameEnd(true)));
+            game.setState(new GameEndState(new GameEndMenu(true)));
         }
         for(int i = 0; i < adapter;i++)
         {
@@ -71,7 +71,6 @@ public class MapController extends Controller<Map>
 
             chickenController.step(game,gui,action);
         }
-
     }
 
     public void moveCamera(int offset)

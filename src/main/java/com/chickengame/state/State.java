@@ -7,7 +7,8 @@ import com.chickengame.viewer.Viewer;
 
 import java.io.IOException;
 
-public abstract class State<T> {
+public abstract class State<T>
+{
     private T location;
     private final Controller<T> stateController;
     private final Viewer<T> stateViewer;
@@ -29,7 +30,8 @@ public abstract class State<T> {
         return this.location;
     }
 
-    public void step(Game game,GUI.Action action, GUI gui) throws IOException {
+    public void step(Game game,GUI.Action action, GUI gui) throws IOException
+    {
         stateViewer.draw(gui);
         stateController.step(game,gui, action);
     }

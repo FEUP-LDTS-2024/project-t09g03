@@ -1,14 +1,13 @@
-package com.chickengame.model.shop;
+package com.chickengame.model.menus;
 
-import com.chickengame.model.Menu;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Element;
-import com.chickengame.model.menu.Button;
+import com.chickengame.model.menus.buttons.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Shop extends Menu
+public class ShopMenu extends Menu
 {
     private static final Position posLeft = new Position(160,125);
     private static final Position posMiddle = new Position(340,125);
@@ -20,7 +19,7 @@ public class Shop extends Menu
     private final int maxChicken = 9;
     private final List<Element> chickens = new ArrayList<>();
 
-    public Shop()
+    public ShopMenu()
     {
         super.setBackground("shop");
         buttons.add(new Button(302,265,155,50,"back",Button.Type.Back));

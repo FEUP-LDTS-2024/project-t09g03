@@ -1,6 +1,6 @@
-package com.chickengame.model.menu;
+package com.chickengame.model.menus;
 
-import com.chickengame.model.Menu;
+import com.chickengame.model.menus.buttons.Button;
 
 import java.util.ArrayList;
 import java.util.List;

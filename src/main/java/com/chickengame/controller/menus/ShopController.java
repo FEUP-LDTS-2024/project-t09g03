@@ -1,12 +1,12 @@
-package com.chickengame.controller.menu;
+package com.chickengame.controller.menus;
 
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.Menu;
-import com.chickengame.model.menu.MainMenu;
-import com.chickengame.model.shop.Shop;
-import com.chickengame.state.MenuState;
+import com.chickengame.model.menus.Menu;
+import com.chickengame.model.menus.MainMenu;
+import com.chickengame.model.menus.ShopMenu;
+import com.chickengame.state.MainMenuState;
 
 public class ShopController extends Controller<Menu>
 {
@@ -21,7 +21,7 @@ public class ShopController extends Controller<Menu>
     @Override
     public void step(Game game,GUI gui ,GUI.Action action)
     {
-        Shop location = (Shop)getLocation();
+        ShopMenu location = (ShopMenu)getLocation();
         switch (action)
         {
             case LEFT -> location.previousButton();
@@ -33,16 +33,10 @@ public class ShopController extends Controller<Menu>
                     case Back ->
                     {
                         game.setChickenSkin(counter);
-                        game.setState(new MenuState(new MainMenu()));
+                        game.setState(new MainMenuState(new MainMenu()));
                     }
-                    case Next ->
-                    {
-                        changeCounter(location.getNextSkin());
-                    }
-                    case Previous ->
-                    {
-                        changeCounter(location.getPrevious());
-                    }
+                    case Next -> changeCounter(location.getNextSkin());
+                    case Previous -> changeCounter(location.getPrevious());
                 }
             }
         }

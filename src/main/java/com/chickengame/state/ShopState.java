@@ -1,12 +1,13 @@
 package com.chickengame.state;
 
 import com.chickengame.controller.Controller;
-import com.chickengame.controller.menu.ShopController;
-import com.chickengame.model.Menu;
-import com.chickengame.viewer.ShopViewer;
+import com.chickengame.controller.menus.ShopController;
+import com.chickengame.model.menus.Menu;
+import com.chickengame.viewer.menus.ShopViewer;
 import com.chickengame.viewer.Viewer;
 
-public class ShopState extends State<Menu>{
+public class ShopState extends State<Menu>
+{
 
     public ShopState(Menu location)
     {

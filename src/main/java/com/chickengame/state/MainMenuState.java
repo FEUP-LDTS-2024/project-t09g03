@@ -1,14 +1,14 @@
 package com.chickengame.state;
 
 import com.chickengame.controller.Controller;
-import com.chickengame.controller.menu.MainMenuController;
-import com.chickengame.model.Menu;
-import com.chickengame.viewer.MenuViewer;
+import com.chickengame.controller.menus.MainMenuController;
+import com.chickengame.model.menus.Menu;
+import com.chickengame.viewer.menus.MenuViewer;
 import com.chickengame.viewer.Viewer;
 
-public class MenuState extends State<Menu>
+public class MainMenuState extends State<Menu>
 {
-    public MenuState(Menu location)
+    public MainMenuState(Menu location)
     {
         super(location);
     }

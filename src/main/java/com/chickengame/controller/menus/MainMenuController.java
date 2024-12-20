@@ -1,15 +1,15 @@
-package com.chickengame.controller.menu;
+package com.chickengame.controller.menus;
 
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.Menu;
+import com.chickengame.model.menus.Menu;
 import com.chickengame.model.game.map.MapBuilder;
 import com.chickengame.model.game.map.MarathonBuilder;
-import com.chickengame.model.menu.HelpMenu;
-import com.chickengame.model.menu.MainMenu;
-import com.chickengame.model.shop.Shop;
-import com.chickengame.model.levelmenu.LevelMenu;
+import com.chickengame.model.menus.HelpMenu;
+import com.chickengame.model.menus.MainMenu;
+import com.chickengame.model.menus.ShopMenu;
+import com.chickengame.model.menus.LevelMenu;
 import com.chickengame.state.HelpState;
 import com.chickengame.state.LevelMenuState;
 import com.chickengame.state.MarathonState;
@@ -40,7 +40,7 @@ public class MainMenuController extends Controller<Menu>
                     {
                         case Exit -> gui.close();
                         case Play -> game.setState(new MarathonState(new MarathonBuilder().createMarathonMap(3, "/maps/", new MapBuilder(), game.getChickenSkin())));
-                        case Shop -> game.setState(new ShopState(new Shop()));
+                        case Shop -> game.setState(new ShopState(new ShopMenu()));
                         case LevelMenu -> game.setState(new LevelMenuState(new LevelMenu()));
                         case Help -> game.setState(new HelpState(new HelpMenu()));
                     }

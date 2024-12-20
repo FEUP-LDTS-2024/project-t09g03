@@ -1,17 +1,17 @@
-package com.chickengame.controller.menu;
+package com.chickengame.controller.menus;
 
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.Menu;
+import com.chickengame.model.menus.Menu;
 import com.chickengame.model.game.map.LevelMapBuilder;
 import com.chickengame.model.game.map.MapBuilder;
-import com.chickengame.model.menu.Button;
-import com.chickengame.model.menu.MainMenu;
-import com.chickengame.model.levelmenu.ButtonLevel;
-import com.chickengame.model.levelmenu.LevelMenu;
+import com.chickengame.model.menus.buttons.Button;
+import com.chickengame.model.menus.MainMenu;
+import com.chickengame.model.menus.buttons.ButtonLevel;
+import com.chickengame.model.menus.LevelMenu;
 import com.chickengame.state.LevelState;
-import com.chickengame.state.MenuState;
+import com.chickengame.state.MainMenuState;
 
 public class LevelMenuController extends Controller<Menu>
 {
@@ -33,7 +33,7 @@ public class LevelMenuController extends Controller<Menu>
             {
                 switch (location.getCurrentButton().getType())
                 {
-                    case Button.Type.Back->game.setState(new MenuState(new MainMenu()));
+                    case Button.Type.Back->game.setState(new MainMenuState(new MainMenu()));
                     case Button.Type.Level ->runLevel(game,((ButtonLevel)location.getCurrentButton()).getLevel());
                 }
             }

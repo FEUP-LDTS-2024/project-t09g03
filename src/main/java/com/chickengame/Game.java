@@ -3,8 +3,8 @@ package com.chickengame;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
-import com.chickengame.model.menu.MainMenu;
-import com.chickengame.state.MenuState;
+import com.chickengame.model.menus.MainMenu;
+import com.chickengame.state.MainMenuState;
 import com.chickengame.state.State;
 
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class Game {
     private Game()
     {
         this.gui = new LanternaDraw();
-        this.state = new MenuState(new MainMenu());
+        this.state = new MainMenuState(new MainMenu());
     }
 
     public void run() throws IOException {

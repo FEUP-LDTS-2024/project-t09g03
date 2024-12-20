@@ -1,18 +1,16 @@
-package com.chickengame.viewer.map;
+package com.chickengame.viewer;
 
-import com.chickengame.model.game.elements.InvertedElement;
-import com.chickengame.viewer.ImageLoader;
-import com.chickengame.viewer.map.elements.ChickenViewer;
-import com.chickengame.viewer.map.elements.ElementViewer;
-import com.chickengame.viewer.map.elements.InvertedElementViewer;
+import com.chickengame.viewer.elements.ChickenViewer;
+import com.chickengame.viewer.elements.ElementViewer;
+import com.chickengame.viewer.elements.InvertedElementViewer;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class ElementViewerFactory
 {
-    private static final String backButtonPath = "images/shop/backButton.png";
-    private static final String backButtonPressedPath = "images/shop/backButtonPressed.png";
+    private static final String backButtonPath = "images/menus/buttons/backButton.png";
+    private static final String backButtonPressedPath = "images/menus/buttons/backButtonPressed.png";
     private static final String backgroundPath = "images/game/background.png";
     private static final String candyCanePath = "images/game/candyCane.png";
     private static final String candyCaneDownPath = "images/game/candyCaneDown.png";
@@ -23,49 +21,47 @@ public class ElementViewerFactory
     private static final String cupcakePath = "images/game/cupcake.png";
     private static final String cupcakeDownPath = "images/game/cupcakeDown.png";
     private static final String finishLinePath = "images/game/finishLine.png";
-    private static final String gameOverPath = "images/menu/gameEnd/gameOver.png";
+    private static final String gameOverBackgroundPath = "images/menus/backgrounds/gameOverBackground.png";
     private static final String gummyPath = "images/game/gummy.png";
     private static final String gummyDownPath = "images/game/gummyDown.png";
-    private static final String helpBackgroundPath = "images/menu/helpBackground.png";
-    private static final String helpButtonPath = "images/menu/helpButton.png";
-    private static final String helpButtonPressedPath = "images/menu/helpButtonPressed.png";
+    private static final String helpBackgroundPath = "images/menus/backgrounds/helpBackground.png";
+    private static final String helpButtonPath = "images/menus/buttons/helpButton.png";
+    private static final String helpButtonPressedPath = "images/menus/buttons/helpButtonPressed.png";
     private static final String iceCreamPath = "images/game/iceCream.png";
     private static final String iceCreamDownPath = "images/game/iceCreamDown.png";
-    private static final String level1ButtonPath = "images/menu/levelMenu/level1Button.png";
-    private static final String level1ButtonPressedPath = "images/menu/levelMenu/level1ButtonPressed.png";
-    private static final String level2ButtonPath = "images/menu/levelMenu/level2Button.png";
-    private static final String level2ButtonPressedPath = "images/menu/levelMenu/level2ButtonPressed.png";
-    private static final String level3ButtonPath = "images/menu/levelMenu/level3Button.png";
-    private static final String level3ButtonPressedPath = "images/menu/levelMenu/level3ButtonPressed.png";
-    private static final String levelButtonPath = "images/menu/levelButton.png";
-    private static final String levelPressedButtonPath = "images/menu/levelButtonPressed.png";
+    private static final String level1ButtonPath = "images/menus/buttons/level1Button.png";
+    private static final String level1ButtonPressedPath = "images/menus/buttons/level1ButtonPressed.png";
+    private static final String level2ButtonPath = "images/menus/buttons/level2Button.png";
+    private static final String level2ButtonPressedPath = "images/menus/buttons/level2ButtonPressed.png";
+    private static final String level3ButtonPath = "images/menus/buttons/level3Button.png";
+    private static final String level3ButtonPressedPath = "images/menus/buttons/level3ButtonPressed.png";
+    private static final String levelButtonPath = "images/menus/buttons/levelButton.png";
+    private static final String levelPressedButtonPath = "images/menus/buttons/levelButtonPressed.png";
     private static final String lollipopPath = "images/game/lollipop.png";
     private static final String lollipopDownPath = "images/game/lollipopDown.png";
-    private static final String mainBackgroundPath = "images/menu/mainBackground.png";
-    private static final String nextButtonPath = "images/shop/nextButton.png";
-    private static final String nextButtonPressedPath = "images/shop/nextButtonPressed.png";
+    private static final String mainBackgroundPath = "images/menus/backgrounds/mainBackground.png";
+    private static final String nextButtonPath = "images/menus/buttons/nextButton.png";
+    private static final String nextButtonPressedPath = "images/menus/buttons/nextButtonPressed.png";
     private static final String platformPath = "images/game/platform.png";
-    private static final String playButtonPath = "images/menu/playButton.png";
-    private static final String playButtonPressedPath = "images/menu/playButtonPressed.png";
-    private static final String previousButtonPath = "images/shop/previousButton.png";
-    private static final String previousButtonPressedPath = "images/shop/previousButtonPressed.png";
-    private static final String quitButtonPath = "images/menu/quitButton.png";
-    private static final String quitButtonPressedPath = "images/menu/quitButtonPressed.png";
-    private static final String shopBackgroundPath = "images/shop/shopBackground.png";
-    private static final String shopButtonPath = "images/menu/shopButton.png";
-    private static final String shopButtonPressedPath = "images/menu/shopButtonPressed.png";
+    private static final String playButtonPath = "images/menus/buttons/playButton.png";
+    private static final String playButtonPressedPath = "images/menus/buttons/playButtonPressed.png";
+    private static final String previousButtonPath = "images/menus/buttons/previousButton.png";
+    private static final String previousButtonPressedPath = "images/menus/buttons/previousButtonPressed.png";
+    private static final String quitButtonPath = "images/menus/buttons/quitButton.png";
+    private static final String quitButtonPressedPath = "images/menus/buttons/quitButtonPressed.png";
+    private static final String shopBackgroundPath = "images/menus/backgrounds/shopBackground.png";
+    private static final String shopButtonPath = "images/menus/buttons/shopButton.png";
+    private static final String shopButtonPressedPath = "images/menus/buttons/shopButtonPressed.png";
     private static final String tobleronePath = "images/game/toblerone.png";
     private static final String tobleroneDownPath = "images/game/tobleroneDown.png";
-    private static final String winPath = "images/menu/gameEnd/win.png";
+    private static final String winBackgroundPath = "images/menus/backgrounds/winBackground.png";
 
     private static final String chickenMovingPath = "images/game/chicken/chickenMoving";
     private static final String chickenStaticPath = "images/game/chicken/chickenStatic";
     private static final String chickenMovingDownPath = "images/game/chicken/chickenMovingDown";
     private static final String chickenStaticDownPath = "images/game/chicken/chickenStaticDown";
 
-    private static final String chickenShopPath = "images/shop/";
-
-
+    private static final String chickenShopPath = "images/menus/chickens/";
 
     private ImageLoader imgLoader = new ImageLoader();
 
@@ -102,7 +98,7 @@ public class ElementViewerFactory
                     cache.put(name, new ElementViewer(imgLoader,finishLinePath));
                     break;
                 case "gameEndBackground":
-                    cache.put(name,new InvertedElementViewer(imgLoader,winPath,gameOverPath));
+                    cache.put(name,new InvertedElementViewer(imgLoader,winBackgroundPath,gameOverBackgroundPath));
                     break;
                 case "gummy":
                     cache.put(name, new InvertedElementViewer(imgLoader,gummyPath,gummyDownPath));

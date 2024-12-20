@@ -1,4 +1,4 @@
-package com.chickengame.model.menu;
+package com.chickengame.model.menus.buttons;
 
 import com.chickengame.model.game.elements.InvertedElement;
 

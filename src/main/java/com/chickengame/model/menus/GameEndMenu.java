@@ -1,15 +1,13 @@
-package com.chickengame.model.game;
+package com.chickengame.model.menus;
 
-import com.chickengame.model.Menu;
-import com.chickengame.model.game.elements.InvertedElement;
-import com.chickengame.model.menu.Button;
+import com.chickengame.model.menus.buttons.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameEnd extends Menu
+public class GameEndMenu extends Menu
 {
-    public GameEnd(boolean loose)
+    public GameEndMenu(boolean loose)
     {
         super.setBackground("gameEnd",loose);
 

@@ -2,9 +2,10 @@ package com.chickengame.viewer.map;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.map.LevelMap;
+import com.chickengame.viewer.ElementViewerFactory;
 import com.chickengame.viewer.Viewer;
-import com.chickengame.viewer.map.elements.ChickenViewer;
-import com.chickengame.viewer.map.elements.ElementViewer;
+import com.chickengame.viewer.elements.ChickenViewer;
+import com.chickengame.viewer.elements.ElementViewer;
 
 public class LevelViewer extends Viewer<LevelMap> {
 

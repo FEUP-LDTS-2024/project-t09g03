@@ -36,9 +36,4 @@ public class Chicken extends InvertedElement
     {
         return skin;
     }
-
-    public void setSkin(int skin)
-    {
-        this.skin = skin;
-    }
 }

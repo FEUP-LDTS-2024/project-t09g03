@@ -1,8 +1,6 @@
 package com.chickengame.model.game.map;
 
-import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.*;
-import com.chickengame.viewer.map.elements.ElementViewer;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
