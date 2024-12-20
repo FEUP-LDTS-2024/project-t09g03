@@ -20,9 +20,9 @@ public class MarathonMap{
     {
         if(mapas.size()<2)throw new RuntimeException("Not enough maps");
         this.maps = mapas;
-        int first = random.nextInt(mapas.size());
-        current = mapas.get(first);
-        nextMap = mapas.get((first+1)%mapas.size());
+        int first = random.nextInt(maps.size());
+        current = maps.get(first);
+        nextMap = maps.get((first+1)%maps.size());
         nextMap.moveMap(current.getSizeX());
     }
 

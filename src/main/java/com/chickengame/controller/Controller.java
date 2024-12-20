@@ -3,14 +3,17 @@ package com.chickengame.controller;
 import com.chickengame.Game;
 import com.chickengame.gui.GUI;
 
-public abstract class Controller<T> {
+public abstract class Controller<T>
+{
     private T location;
 
-    public Controller(T location) {
+    public Controller(T location)
+    {
         this.location = location;
     }
 
-    public T getLocation() {
+    public T getLocation()
+    {
         return location;
     }
 

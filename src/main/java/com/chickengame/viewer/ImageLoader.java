@@ -16,6 +16,7 @@ public class ImageLoader {
 
     public BasicTextImage getImage(String imagePath){
         URL resource = ImageLoader.class.getClassLoader().getResource(imagePath);
+        assert(resource != null);
         File file = null;
         try {
             file = new File(resource.toURI());
@@ -29,43 +30,36 @@ public class ImageLoader {
             throw new RuntimeException(e);
         }
         BasicTextImage textImage = new BasicTextImage(bufferedImage.getWidth(),bufferedImage.getHeight());
-        BuffertoBasic(bufferedImage, textImage);
+        buffertoBasic(bufferedImage, textImage);
         return textImage;
     }
 
-    public void BuffertoBasic(BufferedImage image,BasicTextImage textImage)
+    public void buffertoBasic(BufferedImage image, BasicTextImage textImage)
     {
-        double t1 = System.nanoTime();
+
         for(int i = 0; i< image.getWidth();i++)
         {
             for(int c = 0; c<image.getHeight(); c++)
             {
-                String paint = getColor(i,c,image);
-                if(paint.equals("#000000"))
-                {
+                TextColor textColor = getColor(i,c,image);
 
-                    TextColor txcolor = TextColor.Factory.fromString("#00FFFD");
-                    textImage.setCharacterAt(i,c,new TextCharacter(' ', txcolor,txcolor));
-                }
-                else
-                {
-                    TextColor txcolor = TextColor.Factory.fromString(paint);
-                    textImage.setCharacterAt(i,c,new TextCharacter(' ', txcolor,txcolor));
-                }
+                    textImage.setCharacterAt(i,c,new TextCharacter(' ', textColor,textColor));
+
             }
         }
+
     }
 
-    public String getColor(int x, int y, BufferedImage image)
+    public TextColor getColor(int x, int y, BufferedImage image)
     {
         int rgb = image.getRGB(x,y);
         if(((rgb>>24)&0xff) == 0)
         {
-            return "#000000";
+            return new TextColor.RGB(0,0,0);
         }
         int red = (rgb>>16) & 0xff;
         int green = (rgb>>8) & 0xff;
         int blue = rgb & 0xff;
-        return String.format("#%02x%02x%02x", red, green, blue);
+        return new TextColor.RGB(red,green,blue);
     }
 }

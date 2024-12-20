@@ -1,23 +1,27 @@
 package com.chickengame.state;
 
 import com.chickengame.controller.Controller;
-import com.chickengame.controller.menu.LevelMenuController;
-import com.chickengame.model.levelmenu.LevelMenu;
+import com.chickengame.controller.menus.LevelMenuController;
+import com.chickengame.model.menus.Menu;
+import com.chickengame.viewer.menus.MenuViewer;
 import com.chickengame.viewer.Viewer;
-import com.chickengame.viewer.levelmenu.LevelMenuViewer;
 
-public class LevelMenuState extends State<LevelMenu>{
-    public LevelMenuState(LevelMenu location) {
+public class LevelMenuState extends State<Menu>
+{
+    public LevelMenuState(Menu location)
+    {
         super(location);
     }
 
     @Override
-    public Viewer<LevelMenu> getStateViewer() {
-        return new LevelMenuViewer(getLocation());
+    public Viewer<Menu> getStateViewer()
+    {
+        return new MenuViewer(getLocation());
     }
 
     @Override
-    public Controller<LevelMenu> getStateController() {
+    public Controller<Menu> getStateController()
+    {
         return new LevelMenuController(getLocation());
     }
 }

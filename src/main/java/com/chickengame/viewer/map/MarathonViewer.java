@@ -3,8 +3,8 @@ package com.chickengame.viewer.map;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.*;
-import com.chickengame.viewer.map.elements.ChickenViewer;
-import com.chickengame.viewer.map.elements.ElementViewer;
+import com.chickengame.viewer.elements.ChickenViewer;
+import com.chickengame.viewer.elements.ElementViewer;
 
 
 public class MarathonViewer extends Viewer<MarathonMap>

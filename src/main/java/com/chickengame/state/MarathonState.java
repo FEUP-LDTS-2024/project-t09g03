@@ -6,19 +6,22 @@ import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.map.MarathonViewer;
 import com.chickengame.viewer.Viewer;
 
-public class MarathonState extends State<MarathonMap> {
+public class MarathonState extends State<MarathonMap>
+{
     public MarathonState(MarathonMap location)
     {
         super(location);
     }
 
     @Override
-    public Viewer<MarathonMap> getStateViewer() {
+    public Viewer<MarathonMap> getStateViewer()
+    {
         return new MarathonViewer(getLocation());
     }
 
     @Override
-    public Controller<MarathonMap> getStateController() {
+    public Controller<MarathonMap> getStateController()
+    {
         return new MarathonController(getLocation());
     }
 
