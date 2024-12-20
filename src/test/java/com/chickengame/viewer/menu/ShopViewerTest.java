@@ -3,22 +3,15 @@ package com.chickengame.viewer.menu;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
-import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.ShopMenu;
-import com.chickengame.model.menus.buttons.Button;
 import com.chickengame.viewer.ElementViewerFactory;
 import com.chickengame.viewer.elements.ElementViewer;
-import com.chickengame.viewer.menus.MenuViewer;
 import com.chickengame.viewer.menus.ShopViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-
 import java.io.IOException;
-
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
 
 public class ShopViewerTest {
     private GUI gui;
@@ -39,11 +32,9 @@ public class ShopViewerTest {
         this.element1 = Mockito.mock(Chicken.class);
         this.element2 = Mockito.mock(Chicken.class);
         this.element3 = Mockito.mock(Chicken.class);
+        this.background = Mockito.mock(Element.class);
         this.shopmenu = Mockito.mock(ShopMenu.class);
         this.elementViewerFactory = Mockito.mock(ElementViewerFactory.class);
-        this.background = Mockito.mock(Element.class);
-
-
 
         Mockito.when(shopmenu.getBackground()).thenReturn(background);
         Mockito.when(element1.getName()).thenReturn("chicken1");
@@ -56,6 +47,7 @@ public class ShopViewerTest {
         Mockito.when(shopmenu.getLeftChicken()).thenReturn(element1);
         Mockito.when(shopmenu.getRightChicken()).thenReturn(element3);
         Mockito.when(shopmenu.getBackground()).thenReturn(background);
+
         this.shopViewer = new ShopViewer(shopmenu , elementViewerFactory);
     }
 
