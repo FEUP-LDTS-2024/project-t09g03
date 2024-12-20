@@ -1,4 +1,0 @@
-Background 0 0
-Play 290 110
-Shop 290 170
-Quit 290 230
