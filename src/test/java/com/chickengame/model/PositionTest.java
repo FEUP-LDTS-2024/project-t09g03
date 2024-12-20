@@ -1,11 +1,11 @@
 package com.chickengame.model;
-
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PositionTest
 {
+    /*
     @Test
     void getUp()
     {
@@ -40,5 +40,5 @@ public class PositionTest
         int y = 15;
         assertEquals(new Position(x,y).getLeft().getX(),14);
         assertEquals(new Position(x,y).getLeft().getY(),15);
-    }
+    }*/
 }

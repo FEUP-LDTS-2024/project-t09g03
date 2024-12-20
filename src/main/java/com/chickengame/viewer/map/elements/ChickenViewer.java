@@ -1,6 +1,5 @@
 package com.chickengame.viewer.map.elements;
 
-import com.chickengame.model.Position;
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Chicken;
