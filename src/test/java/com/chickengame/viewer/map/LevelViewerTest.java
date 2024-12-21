@@ -13,14 +13,12 @@ import com.googlecode.lanterna.graphics.BasicTextImage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
 import static org.mockito.ArgumentMatchers.any;
 
-/*
+
 public class LevelViewerTest {
     private LevelViewer levelViewer;
     private GUI gui;
@@ -83,4 +81,3 @@ public class LevelViewerTest {
         Mockito.verify(mapViewer, Mockito.times(1)).drawElements(gui);
     }
 }
-*/
