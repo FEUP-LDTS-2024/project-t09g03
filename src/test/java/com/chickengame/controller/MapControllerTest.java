@@ -106,12 +106,6 @@ public class MapControllerTest {
         Mockito.verify(chickenController, Mockito.times(5)).step(game,gui,action);
     }
 
-    @AfterEach
-    void cleaner()
-    {
-
-    }
-
     @Provide
     Arbitrary<GUI.Action> ActionArbitrary() {
         return Arbitraries.of(GUI.Action.INVERT, GUI.Action.DOWN, GUI.Action.UP, GUI.Action.QUIT, GUI.Action.LEFT, GUI.Action.RIGHT, GUI.Action.SELECT);

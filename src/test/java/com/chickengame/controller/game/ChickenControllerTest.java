@@ -1,7 +1,6 @@
-package com.chickengame.controller;
+package com.chickengame.controller.game;
 
 import com.chickengame.Game;
-import com.chickengame.controller.game.ChickenController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Chicken;
