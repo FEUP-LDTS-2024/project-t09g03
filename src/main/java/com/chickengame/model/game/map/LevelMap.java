@@ -2,28 +2,27 @@ package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
+import com.googlecode.lanterna.graphics.BasicTextImage;
 
-public class LevelMap
+public class LevelMap implements GameMode
 {
-    private Map map;
+    private final Map map;
     private Element background;
     private Chicken chicken;
     private Element finishLine;
 
+    LevelMap(Map map, Chicken chicken, Element background, Element finishLine)
+    {
+        this.map = map;
+        this.chicken = chicken;
+        this.background = background;
+        this.finishLine = finishLine;
+    }
     public Map getMap()
     {
         return map;
     }
 
-    public void setMap(Map map)
-    {
-        this.map = map;
-    }
-
-    public void setBackground(Element background)
-    {
-        this.background = background;
-    }
 
     public Element getBackground()
     {
@@ -35,18 +34,9 @@ public class LevelMap
         return chicken;
     }
 
-    public void setChicken(Chicken chicken)
-    {
-        this.chicken = chicken;
-    }
-
     public Element getFinishLine()
     {
         return finishLine;
     }
 
-    public void setFinishLine(Element finishLine)
-    {
-        this.finishLine = finishLine;
-    }
 }

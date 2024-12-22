@@ -29,14 +29,14 @@ public class LevelMenu extends Menu
 
     public void selectBack()
     {
-        unSelectAll();
+        unselectAll();
         currentButton = 0;
         buttons.getFirst().select();
     }
 
     public void selectNext()
     {
-        unSelectAll();
+        unselectAll();
         currentButton++;
         if(currentButton >= buttons.size())
         {
@@ -46,7 +46,7 @@ public class LevelMenu extends Menu
     }
     public void selectPrev()
     {
-        unSelectAll();
+        unselectAll();
         currentButton--;
         if(currentButton<1)
         {
@@ -54,7 +54,7 @@ public class LevelMenu extends Menu
         }
         buttons.get(currentButton).select();
     }
-    private void unSelectAll()
+    private void unselectAll()
     {
         for(Button button : buttons)
         {

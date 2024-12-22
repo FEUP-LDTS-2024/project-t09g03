@@ -15,10 +15,10 @@ public class MarathonViewer extends Viewer<MarathonMap>
     private final ElementViewerFactory elementViewerFactory;
 
 
-    public MarathonViewer(MarathonMap marathonMap)
+    public MarathonViewer(MarathonMap marathonMap, ElementViewerFactory viewerFactory)
     {
         super(marathonMap);
-        elementViewerFactory = new ElementViewerFactory();
+        elementViewerFactory = viewerFactory;
         mapViewer = new MapViewer(getLocation().getCurrent(),elementViewerFactory);
         backgroundViewer = elementViewerFactory.getViewer(getLocation().getBackground().getName());
         chickenViewer = elementViewerFactory.getChickenViewer(getLocation().getChicken().getSkin());

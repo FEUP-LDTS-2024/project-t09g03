@@ -16,7 +16,7 @@ public class LevelController extends Controller<LevelMap>
     public LevelController(LevelMap location)
     {
         super(location);
-        mapController = new MapController(getLocation().getMap(),getLocation().getChicken(), adapter);
+        mapController = new MapController(getLocation().getMap(),new ChickenController(getLocation().getChicken()), 5);
     }
 
     @Override

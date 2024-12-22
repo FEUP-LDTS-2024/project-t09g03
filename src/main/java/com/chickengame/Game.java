@@ -41,7 +41,7 @@ public class Game {
     public void run() throws IOException {
         while (this.state != null)
         {
-           // double t1 = System.nanoTime();
+            double t1 = System.nanoTime();
             try
             {
                 GUI.Action action = gui.getNextAction();
@@ -55,15 +55,10 @@ public class Game {
             {
                 throw new RuntimeException(e);
             }
-            //double t2 = System.nanoTime();
-            //System.out.println(1/((t2-t1)/1000000000));
+            double t2 = System.nanoTime();
+            System.out.println(1/((t2-t1)/1000000000));
         }
         gui.close();
-    }
-
-    public State getState()
-    {
-        return state;
     }
 
     public void setState(State state)

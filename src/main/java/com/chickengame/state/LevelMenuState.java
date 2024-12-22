@@ -3,7 +3,8 @@ package com.chickengame.state;
 import com.chickengame.controller.Controller;
 import com.chickengame.controller.menus.LevelMenuController;
 import com.chickengame.model.menus.Menu;
-import com.chickengame.viewer.ElementViewerFactory;
+import com.chickengame.viewer.ButtonViewerFactory;
+import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.menus.MenuViewer;
 import com.chickengame.viewer.Viewer;
 
@@ -15,13 +16,13 @@ public class LevelMenuState extends State<Menu>
     }
 
     @Override
-    public Viewer<Menu> getStateViewer()
+    public MenuViewer getStateViewer()
     {
-        return new MenuViewer(getLocation(), new ElementViewerFactory());
+        return new MenuViewer(getLocation(),new ButtonViewerFactory(new ImageLoader()));
     }
 
     @Override
-    public Controller<Menu> getStateController()
+    public LevelMenuController getStateController()
     {
         return new LevelMenuController(getLocation());
     }

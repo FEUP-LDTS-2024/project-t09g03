@@ -38,7 +38,7 @@ public class ShopMenu extends Menu
         currentButton = 0;
     }
 
-    public void getButton(int i)
+    public void selectButton(int i)
     {
         buttons.get(currentButton).unselect();
         currentButton = i;
@@ -72,19 +72,13 @@ public class ShopMenu extends Menu
         return buttons.get(currentButton);
     }
 
-    
-    public int getCurrentChicken()
-    {
-        return currentChicken;
-    }
-
     public int getNextSkin()
     {
         currentChicken = (currentChicken + 1) % maxChicken;
         return currentChicken;
     }
 
-    public int getPrevious()
+    public int getPreviousSkin()
     {
         currentChicken = (currentChicken-1) <0 ? maxChicken-1: currentChicken-1;
         return currentChicken;
