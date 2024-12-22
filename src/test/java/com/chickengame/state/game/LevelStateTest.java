@@ -1,14 +1,10 @@
-package com.chickengame.state;
+package com.chickengame.state.game;
 
 import com.chickengame.Game;
 import com.chickengame.controller.game.LevelController;
-import com.chickengame.controller.menus.MainMenuController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.map.LevelMap;
-import com.chickengame.model.menus.Menu;
-import com.chickengame.state.game.LevelState;
 import com.chickengame.viewer.game.map.LevelViewer;
-import com.chickengame.viewer.menus.MenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
