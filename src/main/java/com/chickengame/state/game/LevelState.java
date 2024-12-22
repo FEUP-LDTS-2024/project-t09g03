@@ -1,14 +1,13 @@
-package com.chickengame.state;
+package com.chickengame.state.game;
 
-import com.chickengame.controller.Controller;
 import com.chickengame.controller.game.LevelController;
 import com.chickengame.model.game.map.LevelMap;
+import com.chickengame.state.State;
 import com.chickengame.viewer.ElementViewerFactory;
 import com.chickengame.viewer.ImageLoader;
-import com.chickengame.viewer.Viewer;
-import com.chickengame.viewer.map.LevelViewer;
+import com.chickengame.viewer.game.map.LevelViewer;
 
-public class LevelState extends State<LevelMap>{
+public class LevelState extends State<LevelMap> {
     public LevelState(LevelMap location) {
         super(location);
     }

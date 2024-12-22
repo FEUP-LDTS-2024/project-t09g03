@@ -3,11 +3,12 @@ package com.chickengame.controller.menus;
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
+import com.chickengame.model.menus.GameEndMenu;
 import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.MainMenu;
-import com.chickengame.state.MainMenuState;
+import com.chickengame.state.menus.MainMenuState;
 
-public class GameEndController extends Controller<Menu>
+public class GameEndController extends Controller<GameEndMenu>
 {
     public GameEndController(Menu location)
     {

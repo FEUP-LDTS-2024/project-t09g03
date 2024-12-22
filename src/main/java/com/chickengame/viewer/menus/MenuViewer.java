@@ -11,13 +11,13 @@ import com.googlecode.lanterna.graphics.BasicTextImage;
 
 import java.util.List;
 
-public class MenuViewer extends Viewer<Menu>
+public class MenuViewer<T extends Menu> extends Viewer<T>
 {
     private final ButtonViewerFactory buttonViewerFactory;
     private final BasicTextImage backgroundBasicTextImage;
     private final List<Button> buttons;
 
-    public MenuViewer(Menu location, ButtonViewerFactory viewerFactory)
+    public MenuViewer(T location, ButtonViewerFactory viewerFactory)
     {
         super(location);
         buttonViewerFactory = viewerFactory;

@@ -1,12 +1,12 @@
-package com.chickengame.viewer.map;
+package com.chickengame.viewer.game.map;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.map.LevelMap;
 import com.chickengame.viewer.ElementViewerFactory;
 import com.chickengame.viewer.Viewer;
-import com.chickengame.viewer.elements.ChickenViewer;
-import com.chickengame.viewer.elements.ElementViewer;
+import com.chickengame.viewer.game.elements.ChickenViewer;
+import com.chickengame.viewer.game.elements.ElementViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 
 public class LevelViewer extends Viewer<LevelMap> {

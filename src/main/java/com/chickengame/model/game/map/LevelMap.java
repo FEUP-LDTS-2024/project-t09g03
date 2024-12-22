@@ -2,7 +2,6 @@ package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
-import com.googlecode.lanterna.graphics.BasicTextImage;
 
 public class LevelMap
 {

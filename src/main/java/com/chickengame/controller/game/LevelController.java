@@ -6,7 +6,7 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.menus.GameEndMenu;
 import com.chickengame.model.game.map.LevelMap;
-import com.chickengame.state.GameEndState;
+import com.chickengame.state.menus.GameEndState;
 
 public class LevelController extends Controller<LevelMap>
 {

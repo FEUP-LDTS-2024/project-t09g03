@@ -3,19 +3,18 @@ package com.chickengame.controller.menus;
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.menus.Menu;
 import com.chickengame.model.game.map.LevelMapBuilder;
 import com.chickengame.model.game.map.MapBuilder;
 import com.chickengame.model.menus.buttons.Button;
 import com.chickengame.model.menus.MainMenu;
 import com.chickengame.model.menus.buttons.ButtonLevel;
 import com.chickengame.model.menus.LevelMenu;
-import com.chickengame.state.LevelState;
-import com.chickengame.state.MainMenuState;
+import com.chickengame.state.game.LevelState;
+import com.chickengame.state.menus.MainMenuState;
 
-public class LevelMenuController extends Controller<Menu>
+public class LevelMenuController extends Controller<LevelMenu>
 {
-    public LevelMenuController(Menu location)
+    public LevelMenuController(LevelMenu location)
     {
         super(location);
     }
@@ -23,18 +22,17 @@ public class LevelMenuController extends Controller<Menu>
     @Override
     public void step(Game game, GUI gui, GUI.Action action)
     {
-        LevelMenu location = (LevelMenu)getLocation();
         switch(action)
         {
-            case UP, RIGHT -> location.selectNext();
-            case DOWN -> location.selectBack();
-            case LEFT -> location.selectPrev();
+            case UP, RIGHT -> getLocation().selectNext();
+            case DOWN -> getLocation().selectBack();
+            case LEFT -> getLocation().selectPrev();
             case SELECT ->
             {
-                switch (location.getCurrentButton().getType())
+                switch (getLocation().getCurrentButton().getType())
                 {
                     case Button.Type.Back->game.setState(new MainMenuState(new MainMenu()));
-                    case Button.Type.Level ->runLevel(game,((ButtonLevel)location.getCurrentButton()).getLevel());
+                    case Button.Type.Level ->runLevel(game,((ButtonLevel)getLocation().getCurrentButton()).getLevel());
                 }
             }
         }

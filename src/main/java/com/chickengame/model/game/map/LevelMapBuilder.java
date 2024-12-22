@@ -12,7 +12,6 @@ public class LevelMapBuilder
         Map map = mapBuilder.createMap(path,0);
         Chicken chicken = new Chicken(200,300,chickenSkin);
         Element FinishLine = new Element(5440,30,40,375,"finishLine");
-        LevelMap levelMap = new LevelMap(map,chicken,FinishLine);
-        return levelMap;
+        return new LevelMap(map,chicken,FinishLine);
     }
 }

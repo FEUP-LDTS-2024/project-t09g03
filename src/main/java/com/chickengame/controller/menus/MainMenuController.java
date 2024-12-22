@@ -10,16 +10,16 @@ import com.chickengame.model.menus.HelpMenu;
 import com.chickengame.model.menus.MainMenu;
 import com.chickengame.model.menus.ShopMenu;
 import com.chickengame.model.menus.LevelMenu;
-import com.chickengame.state.HelpState;
-import com.chickengame.state.LevelMenuState;
-import com.chickengame.state.MarathonState;
-import com.chickengame.state.ShopState;
+import com.chickengame.state.menus.HelpState;
+import com.chickengame.state.menus.LevelMenuState;
+import com.chickengame.state.game.MarathonState;
+import com.chickengame.state.menus.ShopState;
 
 import java.io.IOException;
 
-public class MainMenuController extends Controller<Menu>
+public class MainMenuController extends Controller<MainMenu>
 {
-    public MainMenuController(Menu location)
+    public MainMenuController(MainMenu location)
     {
         super(location);
     }
@@ -27,16 +27,15 @@ public class MainMenuController extends Controller<Menu>
     @Override
     public void step(Game game, GUI gui,GUI.Action action)
     {
-        MainMenu location = (MainMenu) getLocation();
         switch (action)
         {
-            case UP -> location.previousButton();
-            case DOWN -> location.nextButton();
+            case UP -> getLocation().previousButton();
+            case DOWN -> getLocation().nextButton();
             case SELECT ->
             {
                 try
                 {
-                    switch (location.getSelected().getType())
+                    switch (getLocation().getSelected().getType())
                     {
                         case Exit -> gui.close();
                         case Play -> game.setState(new MarathonState(new MarathonBuilder().createMarathonMap(3, "/maps/", new MapBuilder(), game.getChickenSkin())));

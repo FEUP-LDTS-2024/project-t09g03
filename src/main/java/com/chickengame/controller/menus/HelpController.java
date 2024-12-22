@@ -3,11 +3,12 @@ package com.chickengame.controller.menus;
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
+import com.chickengame.model.menus.HelpMenu;
 import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.MainMenu;
-import com.chickengame.state.MainMenuState;
+import com.chickengame.state.menus.MainMenuState;
 
-public class HelpController extends Controller<Menu>
+public class HelpController extends Controller<HelpMenu>
 {
 
     public HelpController(Menu location)

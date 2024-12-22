@@ -1,7 +1,6 @@
 package com.chickengame.viewer;
 
 import com.chickengame.model.menus.buttons.Button;
-import com.chickengame.viewer.elements.ElementViewer;
 import com.chickengame.viewer.menus.ButtonViewer;
 
 import java.util.HashMap;

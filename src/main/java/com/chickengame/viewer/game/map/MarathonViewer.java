@@ -1,10 +1,10 @@
-package com.chickengame.viewer.map;
+package com.chickengame.viewer.game.map;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.*;
-import com.chickengame.viewer.elements.ChickenViewer;
+import com.chickengame.viewer.game.elements.ChickenViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 
 

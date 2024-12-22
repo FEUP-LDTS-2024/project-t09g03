@@ -1,9 +1,9 @@
 package com.chickengame.viewer;
 
 import com.chickengame.model.game.elements.Element;
-import com.chickengame.viewer.elements.ChickenViewer;
-import com.chickengame.viewer.elements.ElementViewer;
-import com.chickengame.viewer.elements.InvertedElementViewer;
+import com.chickengame.viewer.game.elements.ChickenViewer;
+import com.chickengame.viewer.game.elements.ElementViewer;
+import com.chickengame.viewer.game.elements.InvertedElementViewer;
 
 import java.util.HashMap;
 import java.util.Map;

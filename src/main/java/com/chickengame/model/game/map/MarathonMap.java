@@ -1,9 +1,7 @@
 package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.elements.Element;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -16,7 +14,7 @@ public class MarathonMap
     private final Chicken chicken;
     private final Random random = new Random();
 
-    MarathonMap(List<Map> maps, String background, Chicken chicken)
+    MarathonMap(List<Map> maps, Chicken chicken)
     {
         this.chicken = chicken;
         if(maps.size()<2)throw new RuntimeException("Not enough maps");

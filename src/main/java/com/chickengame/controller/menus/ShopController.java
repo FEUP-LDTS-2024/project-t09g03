@@ -3,14 +3,13 @@ package com.chickengame.controller.menus;
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.MainMenu;
 import com.chickengame.model.menus.ShopMenu;
-import com.chickengame.state.MainMenuState;
+import com.chickengame.state.menus.MainMenuState;
 
-public class ShopController extends Controller<Menu>
+public class ShopController extends Controller<ShopMenu>
 {
-    public ShopController(Menu location)
+    public ShopController(ShopMenu location)
     {
         super(location);
     }
@@ -21,22 +20,21 @@ public class ShopController extends Controller<Menu>
     @Override
     public void step(Game game,GUI gui ,GUI.Action action)
     {
-        ShopMenu location = (ShopMenu)getLocation();
         switch (action)
         {
-            case LEFT -> location.previousButton();
-            case RIGHT -> location.nextButton();
-            case DOWN -> location.selectButton(0);
+            case LEFT -> getLocation().previousButton();
+            case RIGHT -> getLocation().nextButton();
+            case DOWN -> getLocation().selectButton(0);
             case SELECT ->
             {
-                switch (location.getSelected().getType()) {
+                switch (getLocation().getSelected().getType()) {
                     case Back ->
                     {
                         game.setChickenSkin(counter);
                         game.setState(new MainMenuState(new MainMenu()));
                     }
-                    case Next -> changeCounter(location.getNextSkin());
-                    case Previous -> changeCounter(location.getPreviousSkin());
+                    case Next -> changeCounter(getLocation().getNextSkin());
+                    case Previous -> changeCounter(getLocation().getPreviousSkin());
                 }
             }
         }
