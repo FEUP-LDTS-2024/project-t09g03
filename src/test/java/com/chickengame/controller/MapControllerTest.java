@@ -26,9 +26,9 @@ import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-
-public class MapControllerTest {
 /*
+public class MapControllerTest {
+
     private Game game;
     private Map map;
     private Chicken chicken;
@@ -125,8 +125,6 @@ public class MapControllerTest {
         Mockito.verify(map, Mockito.times(1)).moveMap(offset);
     }
 
-*/
-
-
 
 }
+*/

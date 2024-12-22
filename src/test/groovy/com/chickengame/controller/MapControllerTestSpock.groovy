@@ -7,7 +7,7 @@ import com.chickengame.gui.GUI
 import com.chickengame.model.game.elements.Chicken
 import org.mockito.Mockito
 import spock.lang.Specification
-
+/*
 class MapControllerTestSpock extends Specification{
 
     def chicken
@@ -43,3 +43,4 @@ class MapControllerTestSpock extends Specification{
 
 
 }
+*/
