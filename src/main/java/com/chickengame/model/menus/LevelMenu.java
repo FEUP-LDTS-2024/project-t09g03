@@ -9,16 +9,17 @@ import java.util.List;
 public class LevelMenu extends Menu
 {
     private final List<Button> buttons = new ArrayList<>();
-    private int currentButton = 1;
+    private int currentButton;
 
     public LevelMenu()
     {
-        super.setBackground("shop");
-        buttons.add(new Button(302,265,150,50,"back",Button.Type.Back));
-        buttons.add(new ButtonLevel(200,150,50,50,Button.Type.Level, 1));
-        buttons.add(new ButtonLevel(360,150,50,50,Button.Type.Level, 2));
-        buttons.add(new ButtonLevel(520,150,50,50,Button.Type.Level, 3));
-        buttons.get(1).select();
+        super("shop");
+        buttons.add(new Button(302,265,Button.Type.Back));
+        buttons.add(new ButtonLevel(200,150,Button.Type.Level, 1));
+        buttons.add(new ButtonLevel(360,150,Button.Type.Level, 2));
+        buttons.add(new ButtonLevel(520,150,Button.Type.Level, 3));
+        buttons.get(1).setSelected(true);
+        currentButton = 1;
         super.setButtons(buttons);
     }
 
@@ -29,38 +30,30 @@ public class LevelMenu extends Menu
 
     public void selectBack()
     {
-        unSelectAll();
+        buttons.get(currentButton).setSelected(false);
         currentButton = 0;
-        buttons.getFirst().select();
+        buttons.getFirst().setSelected(true);
     }
 
     public void selectNext()
     {
-        unSelectAll();
+        buttons.get(currentButton).setSelected(false);
         currentButton++;
         if(currentButton >= buttons.size())
         {
             currentButton = 1;
         }
-        buttons.get(currentButton).select();
+        buttons.get(currentButton).setSelected(true);
     }
+
     public void selectPrev()
     {
-        unSelectAll();
+        buttons.get(currentButton).setSelected(false);
         currentButton--;
         if(currentButton<1)
         {
             currentButton = buttons.size()-1;
         }
-        buttons.get(currentButton).select();
+        buttons.get(currentButton).setSelected(true);
     }
-    private void unSelectAll()
-    {
-        for(Button button : buttons)
-        {
-            button.unselect();
-        }
-    }
-
-
 }

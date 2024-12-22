@@ -1,10 +1,11 @@
 /*package com.chickengame.controller;
 
 import com.chickengame.Game;
-import com.chickengame.controller.menu.MenuController;
+import com.chickengame.controller.menus.MainMenuController;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.menu.Button;
-import com.chickengame.model.menu.Menu;
+import com.chickengame.model.menus.MainMenu;
+import com.chickengame.model.menus.Menu;
+import com.chickengame.model.menus.buttons.Button;
 import com.chickengame.state.HelpState;
 import com.chickengame.state.LevelMenuState;
 import com.chickengame.state.MarathonState;
@@ -27,9 +28,8 @@ import static org.mockito.Mockito.doThrow;
 public class MenuControllerTest {
     private Game game;
     private GUI gui;
-    private Menu menu;
-    private MenuController menuController;
-    private MenuController mockedMenuController;
+    private MainMenu mainmenu;
+    private MainMenuController menuController;
     private Button button;
 
 
@@ -37,31 +37,29 @@ public class MenuControllerTest {
     public void setup() {
         this.game = Mockito.mock(Game.class);
         this.gui = Mockito.mock(GUI.class);
-        this.menu = Mockito.mock(Menu.class);
-        this.mockedMenuController = Mockito.mock(MenuController.class);
+        this.mainmenu = Mockito.mock(MainMenu.class);
         this.button = Mockito.mock(Button.class);
 
 
-        Mockito.when(mockedMenuController.getLocation()).thenReturn(menu);
-        Mockito.when(menu.getSelected()).thenReturn(button);
-        this.menuController = new MenuController(menu);
+        Mockito.when(mainmenu.getSelected()).thenReturn(button);
+        this.menuController = new MainMenuController(mainmenu);
     }
 
     @Property
     public void downTest(@ForAll @IntRange(min = 1, max = 10) int repetitions) {
-        Mockito.reset(menu);
+        Mockito.reset(mainmenu);
         for (int i = 1; i < repetitions; i++) {
             this.menuController.step(game, gui, GUI.Action.DOWN);
-            Mockito.verify(menu, Mockito.times(i)).nextButton();
+            Mockito.verify(mainmenu, Mockito.times(i)).nextButton();
         }
     }
 
     @Property
     public void upTest(@ForAll @IntRange(min = 1, max = 10) int repetitions) {
-        Mockito.reset(menu);
+        Mockito.reset(mainmenu);
         for (int i = 1; i < repetitions; i++) {
             this.menuController.step(game, gui, GUI.Action.UP);
-            Mockito.verify(menu, Mockito.times(i)).previousButton();
+            Mockito.verify(mainmenu, Mockito.times(i)).previousButton();
         }
     }
 

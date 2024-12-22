@@ -16,6 +16,7 @@ public class InvertedElementViewer extends ElementViewer
         this.invertedImage = imgLoader.getImage(invertedPath);
     }
 
+    @Override
     public void draw(GUI gui, Element element)
     {
         InvertedElement invertedElement = (InvertedElement) element;

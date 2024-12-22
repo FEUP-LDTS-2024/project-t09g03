@@ -3,6 +3,8 @@ package com.chickengame.state;
 import com.chickengame.controller.Controller;
 import com.chickengame.controller.game.LevelController;
 import com.chickengame.model.game.map.LevelMap;
+import com.chickengame.viewer.ElementViewerFactory;
+import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.Viewer;
 import com.chickengame.viewer.map.LevelViewer;
 
@@ -12,12 +14,12 @@ public class LevelState extends State<LevelMap>{
     }
 
     @Override
-    public Viewer<LevelMap> getStateViewer() {
-        return new LevelViewer(getLocation());
+    public LevelViewer getStateViewer() {
+        return new LevelViewer(getLocation(),new ElementViewerFactory(new ImageLoader()));
     }
 
     @Override
-    public Controller<LevelMap> getStateController() {
+    public LevelController getStateController() {
         return new LevelController(getLocation());
     }
 }

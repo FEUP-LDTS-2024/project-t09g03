@@ -3,8 +3,8 @@ package com.chickengame.state;
 import com.chickengame.controller.Controller;
 import com.chickengame.controller.menus.ShopController;
 import com.chickengame.model.menus.Menu;
+import com.chickengame.viewer.*;
 import com.chickengame.viewer.menus.ShopViewer;
-import com.chickengame.viewer.Viewer;
 
 public class ShopState extends State<Menu>
 {
@@ -15,13 +15,14 @@ public class ShopState extends State<Menu>
     }
 
     @Override
-    public Viewer<Menu> getStateViewer()
+    public ShopViewer getStateViewer()
     {
-        return new ShopViewer(getLocation());
+        ImageLoader imageLoader = new ImageLoader();
+        return new ShopViewer(getLocation(), new ButtonViewerFactory(imageLoader), new ElementViewerFactory(imageLoader));
     }
 
     @Override
-    public Controller<Menu> getStateController()
+    public ShopController getStateController()
     {
         return new ShopController(getLocation());
     }

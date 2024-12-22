@@ -3,6 +3,8 @@ package com.chickengame.state;
 import com.chickengame.controller.Controller;
 import com.chickengame.controller.game.MarathonController;
 import com.chickengame.model.game.map.MarathonMap;
+import com.chickengame.viewer.ElementViewerFactory;
+import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.map.MarathonViewer;
 import com.chickengame.viewer.Viewer;
 
@@ -14,20 +16,15 @@ public class MarathonState extends State<MarathonMap>
     }
 
     @Override
-    public Viewer<MarathonMap> getStateViewer()
+    public MarathonViewer getStateViewer()
     {
-        return new MarathonViewer(getLocation());
+        return new MarathonViewer(getLocation(), new ElementViewerFactory(new ImageLoader()));
     }
 
     @Override
-    public Controller<MarathonMap> getStateController()
+    public MarathonController getStateController()
     {
         return new MarathonController(getLocation());
     }
 
-    @Override
-    public MarathonMap getLocation()
-    {
-        return super.getLocation();
-    }
 }

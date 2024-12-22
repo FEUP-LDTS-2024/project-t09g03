@@ -17,12 +17,9 @@ public class MarathonBuilder
             Map map = mapBuilder.createMap(path,0);
             mapList.add(map);
         }
+        Chicken chicken = new Chicken(300,300,chickenSkin);
 
-        MarathonMap marathonMap = new MarathonMap(mapList);
-        marathonMap.setChicken(new Chicken(300,300,chickenSkin));
-        marathonMap.setBackground(new Element(0,0,750,375,"background"));
-
-        return marathonMap;
+        return new MarathonMap(mapList, "background", chicken);
     }
 
 

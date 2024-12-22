@@ -21,10 +21,5 @@ public abstract class Viewer<T> {
         gui.refresh();
     }
 
-    protected ImageLoader getImageLoader()
-    {
-        return imageLoader;
-    }
-
     protected abstract void drawElements(GUI gui);
 }

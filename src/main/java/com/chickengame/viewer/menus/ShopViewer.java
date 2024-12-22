@@ -3,13 +3,17 @@ package com.chickengame.viewer.menus;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.ShopMenu;
+import com.chickengame.viewer.ButtonViewerFactory;
+import com.chickengame.viewer.ElementViewerFactory;
 import com.chickengame.viewer.elements.ElementViewer;
 
 public class ShopViewer extends MenuViewer
 {
-    public ShopViewer(Menu location)
+    private ElementViewerFactory elementViewerFactory;
+    public ShopViewer(Menu location, ButtonViewerFactory buttonViewerFactory, ElementViewerFactory elementViewerFactory)
     {
-        super(location);
+        super(location, buttonViewerFactory);
+        this.elementViewerFactory = elementViewerFactory;
     }
     @Override
     protected void drawElements(GUI gui)
@@ -17,9 +21,9 @@ public class ShopViewer extends MenuViewer
         super.drawElements(gui);
 
         ShopMenu location = (ShopMenu)getLocation();
-        ElementViewer shopChickenMiddleViewer = super.getElementViewerFactory().getShopChickenViewer(location.getMiddleChicken().getName());
-        ElementViewer shopChickenRightViewer = super.getElementViewerFactory().getShopChickenViewer(location.getRightChicken().getName());
-        ElementViewer shopChickenLeftViewer = super.getElementViewerFactory().getShopChickenViewer(location.getLeftChicken().getName());
+        ElementViewer shopChickenMiddleViewer = elementViewerFactory.getShopChickenViewer(location.getMiddleChicken().getName());
+        ElementViewer shopChickenRightViewer = elementViewerFactory.getShopChickenViewer(location.getRightChicken().getName());
+        ElementViewer shopChickenLeftViewer = elementViewerFactory.getShopChickenViewer(location.getLeftChicken().getName());
 
         shopChickenMiddleViewer.draw(gui,location.getMiddleChicken());
         shopChickenRightViewer.draw(gui,location.getRightChicken());

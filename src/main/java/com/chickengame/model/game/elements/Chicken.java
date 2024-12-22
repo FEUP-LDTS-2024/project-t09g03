@@ -2,7 +2,7 @@ package com.chickengame.model.game.elements;
 
 public class Chicken extends InvertedElement
 {
-    private int skin;
+    private final int skin;
     private boolean walking = false;
     private boolean charge = false;
 

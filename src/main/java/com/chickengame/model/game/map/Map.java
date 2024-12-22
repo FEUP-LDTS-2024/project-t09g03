@@ -126,7 +126,7 @@ public class Map
         }
     }
 
-    public void resetOpposition()
+    public void resetPosition()
     {
         moveMap(getSizeX()*2);
     }

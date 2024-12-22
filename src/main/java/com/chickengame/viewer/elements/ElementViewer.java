@@ -3,9 +3,10 @@ package com.chickengame.viewer.elements;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.viewer.ImageLoader;
+import com.chickengame.viewer.ObjectViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 
-public class ElementViewer
+public class ElementViewer implements ObjectViewer<Element>
 {
     protected final BasicTextImage image;
 

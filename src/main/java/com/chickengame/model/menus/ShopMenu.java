@@ -21,11 +21,11 @@ public class ShopMenu extends Menu
 
     public ShopMenu()
     {
-        super.setBackground("shop");
-        buttons.add(new Button(302,265,155,50,"back",Button.Type.Back));
-        buttons.add(new Button(440,175,55,40,"next",Button.Type.Next));
-        buttons.add(new Button(270,175,55,40,"previous",Button.Type.Previous));
-        buttons.getFirst().select();
+        super("shop");
+        buttons.add(new Button(302,265,Button.Type.Back));
+        buttons.add(new Button(440,175,Button.Type.Next));
+        buttons.add(new Button(270,175,Button.Type.Previous));
+        buttons.getFirst().setSelected(true);
         super.setButtons(buttons);
 
         for(int i = 0; i < maxChicken;i++)
@@ -38,44 +38,38 @@ public class ShopMenu extends Menu
         currentButton = 0;
     }
 
-    public void getButton(int i)
+    public void selectButton(int i)
     {
-        buttons.get(currentButton).unselect();
+        buttons.get(currentButton).setSelected(false);
         currentButton = i;
-        buttons.get(currentButton).select();
+        buttons.get(currentButton).setSelected(true);
     }
 
     public void nextButton()
     {
-        buttons.get(currentButton).unselect();
+        buttons.get(currentButton).setSelected(false);
         currentButton++;
         if (currentButton > this.buttons.size() - 1)
         {
             currentButton = 0;
         }
-        buttons.get(currentButton).select();
+        buttons.get(currentButton).setSelected(true);
     }
 
     public void previousButton()
     {
-        buttons.get(currentButton).unselect();
+        buttons.get(currentButton).setSelected(false);
         currentButton--;
         if (currentButton < 0)
         {
             currentButton = this.buttons.size() - 1;
         }
-        buttons.get(currentButton).select();
+        buttons.get(currentButton).setSelected(true);
     }
 
     public Button getSelected()
     {
         return buttons.get(currentButton);
-    }
-
-    
-    public int getCurrentChicken()
-    {
-        return currentChicken;
     }
 
     public int getNextSkin()
@@ -84,9 +78,13 @@ public class ShopMenu extends Menu
         return currentChicken;
     }
 
-    public int getPrevious()
+    public int getPreviousSkin()
     {
-        currentChicken = (currentChicken-1) <0 ? maxChicken-1: currentChicken-1;
+        currentChicken--;
+        if(currentChicken-1 < 0)
+        {
+            currentChicken = maxChicken-1;
+        }
         return currentChicken;
     }
 

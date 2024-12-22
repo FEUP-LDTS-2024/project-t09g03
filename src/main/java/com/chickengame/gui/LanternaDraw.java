@@ -15,8 +15,8 @@ public class LanternaDraw implements GUI{
 
     private Screen screen;
     private final TextGraphics textGraphics;
-    protected static final int WIDTH = 750;
-    protected static final int HEIGHT = 375;
+    public static final int WIDTH = 750;
+    public static final int HEIGHT = 375;
 
 
     public LanternaDraw(Screen screen) throws IOException {
