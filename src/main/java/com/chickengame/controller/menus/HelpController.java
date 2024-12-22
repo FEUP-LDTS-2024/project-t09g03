@@ -11,7 +11,7 @@ import com.chickengame.state.menus.MainMenuState;
 public class HelpController extends Controller<HelpMenu>
 {
 
-    public HelpController(Menu location)
+    public HelpController(HelpMenu location)
     {
         super(location);
     }

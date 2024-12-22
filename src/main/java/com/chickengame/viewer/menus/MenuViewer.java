@@ -21,7 +21,6 @@ public class MenuViewer<T extends Menu> extends Viewer<T>
     {
         super(location);
         buttonViewerFactory = viewerFactory;
-        System.out.println(location.getBackground());
         backgroundBasicTextImage = viewerFactory.getBackground(location.getBackground());
         buttons = getLocation().getButtons();
     }

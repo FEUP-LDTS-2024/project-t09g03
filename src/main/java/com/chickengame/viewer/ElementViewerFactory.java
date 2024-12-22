@@ -93,7 +93,6 @@ public class ElementViewerFactory extends ViewerFactory<Element>
 
     public ElementViewer getShopChickenViewer(String name)
     {
-        System.out.println(name);
         if(!cache.containsKey(name))
         {
             cache.put(name,new ElementViewer(imgLoader,chickenShopPath +name+ ".png"));
