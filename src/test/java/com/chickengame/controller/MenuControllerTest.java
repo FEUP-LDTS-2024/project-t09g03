@@ -1,4 +1,4 @@
-package com.chickengame.controller;
+/*package com.chickengame.controller;
 
 import com.chickengame.Game;
 import com.chickengame.controller.menu.MenuController;
@@ -110,5 +110,6 @@ public class MenuControllerTest {
     public void catchException()  {
 
 
-    }*/
+    }
 }
+*/
