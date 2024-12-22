@@ -15,9 +15,9 @@ public class LevelViewer extends Viewer<LevelMap> {
     private final ChickenViewer chickenViewer;
     private final ElementViewerFactory elementViewerFactory;
 
-    public LevelViewer(LevelMap location) {
+    public LevelViewer(LevelMap location, ElementViewerFactory viewerFactory) {
         super(location);
-        elementViewerFactory = new ElementViewerFactory();
+        elementViewerFactory = viewerFactory;
         mapViewer = new MapViewer(getLocation().getMap(),elementViewerFactory);
         chickenViewer = elementViewerFactory.getChickenViewer(location.getChicken().getSkin());
         backgroundViewer = elementViewerFactory.getViewer("background");

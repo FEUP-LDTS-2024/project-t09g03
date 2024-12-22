@@ -120,30 +120,23 @@ public class Map
 
     public void moveMap(int offset)
     {
-        moveWalls(offset);
-        moveHarmObjects(offset);
+        moveElements(offset);
     }
 
-    public void resetOpposition()
+    public void resetPosition()
     {
         moveMap(getSizeX()*2);
     }
 
 
-    private void moveHarmObjects(int offset)
+    private void moveElements(int offset)
     {
-        for(Element harmObject: harmObjects)
-        {
-            harmObject.setPosition( new Position(harmObject.getPosition().getX()+offset,harmObject.getPosition().getY()));
+        for(Element element : this.elements) {
+            element.setPosition(new Position(element.getPosition().getX() + offset, element.getPosition().getY()));
         }
+
     }
 
-    private void moveWalls(int offset)
-    {
-        for(Element wall : this.walls) {
-            wall.setPosition(new Position(wall.getPosition().getX() + offset, wall.getPosition().getY()));
-        }
-    }
 
     public List<Element> getElements() {
         return elements;

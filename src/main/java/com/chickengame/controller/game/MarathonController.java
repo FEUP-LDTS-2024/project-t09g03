@@ -50,7 +50,7 @@ public class MarathonController extends Controller<MarathonMap>
     private void changeMap()
     {
 
-        getLocation().getCurrent().resetOpposition();
+        getLocation().getCurrent().resetPosition();
         getLocation().setNextMap();
         offsetCounter = 0;
         currentMapController = new MapController(getLocation().getCurrent(),new ChickenController(getLocation().getChicken()),adapter);

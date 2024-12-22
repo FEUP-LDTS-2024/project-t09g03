@@ -6,10 +6,10 @@ public class Element
 {
     private Position position;
 
-    private String name;
+    private final String name;
 
-    private int width;
-    private int height;
+    private final int width;
+    private final int height;
 
 
     public Element(int x, int y, int width, int height,String name)

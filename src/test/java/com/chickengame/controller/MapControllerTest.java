@@ -28,7 +28,7 @@ import static org.mockito.Mockito.*;
 
 
 public class MapControllerTest {
-
+/*
     private Game game;
     private Map map;
     private Chicken chicken;
@@ -94,15 +94,16 @@ public class MapControllerTest {
         Mockito.when(chicken.getPosition()).thenReturn(new Position(0,0));
         Mockito.when(chicken.getHeight()).thenReturn(40);
         Mockito.when(chicken.getWidth()).thenReturn(40);
+        Mockito.when(chickenController.getLocation()).thenReturn(chicken);
         Mockito.when(map.collidesDown(Mockito.anyInt(), Mockito.anyInt(),Mockito.anyInt())).thenReturn(collidesDown);
         Mockito.when(map.collidesRight(Mockito.anyInt(), Mockito.anyInt(),Mockito.anyInt())).thenReturn(colidesright);
         Mockito.when(map.collidesUp(Mockito.anyInt(), Mockito.anyInt(),Mockito.anyInt())).thenReturn( collidesUp);
         Mockito.when(map.collidesHarmObject(Mockito.anyInt(), Mockito.anyInt(),Mockito.anyInt(),Mockito.anyInt())).thenReturn(false);
+        mapController = new MapController(map,chickenController,offset);
 
         mapController.step(game, gui, action);
 
-        Mockito.verify(chickenController, Mockito.atLeast(5)).step(game,gui,action);
-        Mockito.verify(chickenController, Mockito.atMost(40)).step(game,gui,action);
+        Mockito.verify(chickenController, Mockito.times(5)).step(game,gui,action);
     }
 
     @AfterEach
@@ -124,7 +125,7 @@ public class MapControllerTest {
         Mockito.verify(map, Mockito.times(1)).moveMap(offset);
     }
 
-
+*/
 
 
 

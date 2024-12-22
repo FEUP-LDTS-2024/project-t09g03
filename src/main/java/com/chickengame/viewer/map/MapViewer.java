@@ -27,9 +27,4 @@ public class MapViewer extends Viewer<Map>
             elementViewer.draw(gui,element);
         }
     }
-
-    public ElementViewerFactory getElementViewerFactory()
-    {
-        return elementViewerFactory;
-    }
 }

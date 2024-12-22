@@ -26,7 +26,7 @@ public class ShopController extends Controller<Menu>
         {
             case LEFT -> location.previousButton();
             case RIGHT -> location.nextButton();
-            case DOWN -> location.getButton(0);
+            case DOWN -> location.selectButton(0);
             case SELECT ->
             {
                 switch (location.getSelected().getType()) {
@@ -36,7 +36,7 @@ public class ShopController extends Controller<Menu>
                         game.setState(new MainMenuState(new MainMenu()));
                     }
                     case Next -> changeCounter(location.getNextSkin());
-                    case Previous -> changeCounter(location.getPrevious());
+                    case Previous -> changeCounter(location.getPreviousSkin());
                 }
             }
         }

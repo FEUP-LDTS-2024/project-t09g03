@@ -34,7 +34,7 @@ public class ImageLoader {
         return textImage;
     }
 
-    public void buffertoBasic(BufferedImage image, BasicTextImage textImage)
+    private void buffertoBasic(BufferedImage image, BasicTextImage textImage)
     {
 
         for(int i = 0; i< image.getWidth();i++)
@@ -50,7 +50,7 @@ public class ImageLoader {
 
     }
 
-    public TextColor getColor(int x, int y, BufferedImage image)
+    private TextColor getColor(int x, int y, BufferedImage image)
     {
         int rgb = image.getRGB(x,y);
         if(((rgb>>24)&0xff) == 0)
