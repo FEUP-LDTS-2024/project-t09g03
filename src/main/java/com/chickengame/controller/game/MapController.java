@@ -3,6 +3,7 @@ package com.chickengame.controller.game;
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
+import com.chickengame.model.Position;
 import com.chickengame.model.menus.GameEndMenu;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.map.Map;
@@ -22,9 +23,12 @@ public class MapController extends Controller<Map> {
 
     @Override
     public void step(Game game, GUI gui, GUI.Action action) {
-        boolean chickenOutX = (chicken.getPosition().getX() + chicken.getWidth() <= 0);
-        boolean chickenOutUp = (chicken.getPosition().getY() + chicken.getHeight() <= 0);
-        boolean chickenOutDown = (chicken.getPosition().getY() >= 375);
+
+        Position position = chicken.getPosition();
+
+        boolean chickenOutX = (position.getX() + chicken.getWidth() <= 0);
+        boolean chickenOutUp = (position.getY() + chicken.getHeight() <= 0);
+        boolean chickenOutDown = (position.getY() >= 375);
 
         chickenOut(chickenOutX,chickenOutUp,chickenOutDown, game);
 
