@@ -1,30 +1,7 @@
 package com.chickengame.controller;
 
-import com.chickengame.Game;
-import com.chickengame.controller.game.ChickenController;
-import com.chickengame.controller.game.MapController;
-import com.chickengame.gui.GUI;
-import com.chickengame.model.Position;
-import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.map.Map;
-import com.chickengame.state.GameEndState;
-import com.chickengame.state.State;
-import net.jqwik.api.*;
-import net.jqwik.api.lifecycle.AfterProperty;
-import net.jqwik.api.lifecycle.BeforeProperty;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.mockito.InOrder;
-import org.mockito.Mockito;
-import org.mockito.exceptions.verification.NoInteractionsWanted;
-
-import java.util.regex.PatternSyntaxException;
-
 import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.*;
 
 /*
 public class MapControllerTest {

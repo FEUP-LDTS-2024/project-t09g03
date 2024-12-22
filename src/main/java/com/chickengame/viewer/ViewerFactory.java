@@ -1,13 +1,9 @@
 package com.chickengame.viewer;
 
-import com.chickengame.viewer.elements.ElementViewer;
-import com.chickengame.viewer.elements.InvertedElementViewer;
+import com.googlecode.lanterna.graphics.BasicTextImage;
 
-import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
-
-public abstract class ViewerFactory<T> {
+public abstract class ViewerFactory<T>
+{
     private static final String backgroundPath = "images/game/background.png";
     private static final String gameOverBackgroundPath = "images/menus/backgrounds/gameOverBackground.png";
     private static final String helpBackgroundPath = "images/menus/backgrounds/helpBackground.png";
@@ -15,41 +11,22 @@ public abstract class ViewerFactory<T> {
     private static final String shopBackgroundPath = "images/menus/backgrounds/shopBackground.png";
     private static final String winBackgroundPath = "images/menus/backgrounds/winBackground.png";
 
-
     protected ImageLoader imgLoader;
-    private Map<String, ElementViewer> cache = new HashMap<>();
-
-
-
 
     ViewerFactory(ImageLoader imageLoader)
     {
         this.imgLoader = imageLoader;
     }
-
-    public ElementViewer getViewer(String name)
+    public BasicTextImage getBackground(String name)
     {
-        if(!cache.containsKey(name))
-        {
-            switch(name)
-            {
-                case "background":
-                    cache.put(name, new ElementViewer(imgLoader,backgroundPath));
-                break;
-                case "gameEndBackground":
-                    cache.put(name,new InvertedElementViewer(imgLoader,winBackgroundPath,gameOverBackgroundPath));
-                    break;
-                case "helpBackground":
-                    cache.put(name, new ElementViewer(imgLoader,helpBackgroundPath));
-                break;
-                case "mainBackground":
-                    cache.put(name, new ElementViewer(imgLoader,mainBackgroundPath));
-                    break;
-                case "shopBackground":
-                    cache.put(name, new ElementViewer(imgLoader,shopBackgroundPath));
-                    break;
-            }
-        }
-        return cache.get(name);
+        return switch (name) {
+            case "gameOverBackground" -> imgLoader.getImage(gameOverBackgroundPath);
+            case "helpBackground" -> imgLoader.getImage(helpBackgroundPath);
+            case "mainBackground" -> imgLoader.getImage(mainBackgroundPath);
+            case "shopBackground" -> imgLoader.getImage(shopBackgroundPath);
+            case "winBackground" -> imgLoader.getImage(winBackgroundPath);
+            default -> imgLoader.getImage(backgroundPath);
+        };
     }
+    public abstract ObjectViewer<T> getViewer(String name);
 }

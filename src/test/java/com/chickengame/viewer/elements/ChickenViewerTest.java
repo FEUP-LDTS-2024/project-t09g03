@@ -1,9 +1,11 @@
-package com.chickengame.viewer.elements;
+package com.chickengame.viewer.map.elements;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.viewer.ImageLoader;
+import com.chickengame.viewer.game.elements.ChickenViewer;
+import com.chickengame.viewer.game.elements.InvertedElementViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

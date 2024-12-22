@@ -6,7 +6,7 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.menus.GameEndMenu;
 import com.chickengame.model.game.map.LevelMap;
-import com.chickengame.state.GameEndState;
+import com.chickengame.state.menus.GameEndState;
 
 public class LevelController extends Controller<LevelMap>
 {
@@ -26,7 +26,7 @@ public class LevelController extends Controller<LevelMap>
         getLocation().getFinishLine().setPosition(new Position(old.getX()-adapter,old.getY()));
         if(getLocation().getChicken().getPosition().getX() >= getLocation().getFinishLine().getPosition().getX())
         {
-            game.setState(new GameEndState(new GameEndMenu(false)));
+            game.setState(new GameEndState(new GameEndMenu("win")));
         }
         mapController.step(game, gui, action);
     }

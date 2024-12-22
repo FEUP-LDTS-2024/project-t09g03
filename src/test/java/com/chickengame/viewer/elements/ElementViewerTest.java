@@ -4,7 +4,7 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.viewer.ImageLoader;
-import com.chickengame.viewer.elements.ElementViewer;
+import com.chickengame.viewer.game.elements.ElementViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import com.googlecode.lanterna.input.KeyType;
 import net.jqwik.api.*;

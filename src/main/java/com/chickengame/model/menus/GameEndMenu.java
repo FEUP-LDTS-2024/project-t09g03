@@ -7,13 +7,13 @@ import java.util.List;
 
 public class GameEndMenu extends Menu
 {
-    public GameEndMenu(boolean loose)
+    public GameEndMenu(String name)
     {
-        super.setBackground("gameEnd",loose);
+        super(name);
 
         List<Button> buttons = new ArrayList<>();
-        Button back = new Button(290,290,155,50,"back",Button.Type.Back);
-        back.select();
+        Button back = new Button(290,290,Button.Type.Back);
+        back.setSelected(true);
         buttons.add(back);
         super.setButtons(buttons);
     }

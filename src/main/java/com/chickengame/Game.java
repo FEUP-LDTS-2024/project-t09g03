@@ -4,7 +4,7 @@ package com.chickengame;
 import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
 import com.chickengame.model.menus.MainMenu;
-import com.chickengame.state.MainMenuState;
+import com.chickengame.state.menus.MainMenuState;
 import com.chickengame.gui.LanternaScreenFactory;
 import com.chickengame.state.State;
 import com.googlecode.lanterna.TerminalSize;

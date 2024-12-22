@@ -9,11 +9,11 @@ public class HelpMenu extends Menu
 {
     public HelpMenu()
     {
-        super.setBackground("help");
+        super("help");
 
         List<Button> buttons = new ArrayList<>();
-        Button back = new Button(500,10,155,55,"back",Button.Type.Back);
-        back.select();
+        Button back = new Button(500,10,Button.Type.Back);
+        back.setSelected(true);
         buttons.add(back);
         super.setButtons(buttons);
     }

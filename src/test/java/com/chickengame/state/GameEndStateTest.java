@@ -6,6 +6,7 @@ import com.chickengame.controller.menus.MainMenuController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.GameEndMenu;
 import com.chickengame.model.menus.Menu;
+import com.chickengame.state.menus.GameEndState;
 import com.chickengame.viewer.menus.MenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -15,7 +16,7 @@ import java.io.IOException;
 
 public class GameEndStateTest {
     private GameEndState gameEndState;
-    private Menu menu;
+    private GameEndMenu menu;
     private GameEndController gameEndController;
     private MenuViewer menuViewer;
     private Game game;
@@ -27,7 +28,7 @@ public class GameEndStateTest {
         this.gui = Mockito.mock(GUI.class);
         this.gameEndController = Mockito.mock(GameEndController.class);
         this.menuViewer = Mockito.mock(MenuViewer.class);
-        this.menu = Mockito.mock(Menu.class);
+        this.menu = Mockito.mock(GameEndMenu.class);
         this.game = Mockito.mock(Game.class);
     }
 

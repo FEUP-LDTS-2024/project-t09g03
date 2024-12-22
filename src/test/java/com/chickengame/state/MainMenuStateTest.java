@@ -3,7 +3,9 @@ package com.chickengame.state;
 import com.chickengame.Game;
 import com.chickengame.controller.menus.MainMenuController;
 import com.chickengame.gui.GUI;
+import com.chickengame.model.menus.MainMenu;
 import com.chickengame.model.menus.Menu;
+import com.chickengame.state.menus.MainMenuState;
 import com.chickengame.viewer.menus.MenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -13,7 +15,7 @@ import java.io.IOException;
 
 public class MainMenuStateTest {
     private MainMenuState mainMenuState;
-    private Menu menu;
+    private MainMenu menu;
     private MainMenuController mainMenuController;
     private MenuViewer menuViewer;
     private Game game;
@@ -25,7 +27,7 @@ public class MainMenuStateTest {
         this.gui = Mockito.mock(GUI.class);
         this.mainMenuController = Mockito.mock(MainMenuController.class);
         this.menuViewer = Mockito.mock(MenuViewer.class);
-        this.menu = Mockito.mock(Menu.class);
+        this.menu = Mockito.mock(MainMenu.class);
         this.game = Mockito.mock(Game.class);
     }
 

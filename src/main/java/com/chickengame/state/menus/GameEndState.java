@@ -1,16 +1,15 @@
-package com.chickengame.state;
+package com.chickengame.state.menus;
 
-import com.chickengame.controller.Controller;
 import com.chickengame.controller.menus.GameEndController;
-import com.chickengame.model.menus.Menu;
+import com.chickengame.model.menus.GameEndMenu;
+import com.chickengame.state.State;
 import com.chickengame.viewer.ButtonViewerFactory;
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.menus.MenuViewer;
-import com.chickengame.viewer.Viewer;
 
-public class GameEndState extends State<Menu>
+public class GameEndState extends State<GameEndMenu>
 {
-    public GameEndState(Menu location)
+    public GameEndState(GameEndMenu location)
     {
         super(location);
     }

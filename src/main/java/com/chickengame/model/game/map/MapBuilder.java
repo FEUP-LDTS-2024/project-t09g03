@@ -20,6 +20,7 @@ public class MapBuilder{
 
         try
         {
+            assert(resource != null);
             reader = new BufferedReader(new FileReader(resource.getFile()));
             lines = readElements(reader);
         } catch (IOException e) {

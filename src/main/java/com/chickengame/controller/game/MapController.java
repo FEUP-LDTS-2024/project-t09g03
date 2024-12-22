@@ -6,7 +6,7 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.GameEndMenu;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.map.Map;
-import com.chickengame.state.GameEndState;
+import com.chickengame.state.menus.GameEndState;
 
 public class MapController extends Controller<Map> {
     private final Chicken chicken;
@@ -59,7 +59,7 @@ public class MapController extends Controller<Map> {
 
         if(chickenOutX ||chickenOutUp ||chickenOutDown)
         {
-            GameEndState endState = new GameEndState(new GameEndMenu(true));
+            GameEndState endState = new GameEndState(new GameEndMenu("gameOver"));
             game.setState(endState);
         }
     }
@@ -67,7 +67,7 @@ public class MapController extends Controller<Map> {
     {
         if(colidesharmobject)
         {
-            GameEndState endState = new GameEndState(new GameEndMenu(true));
+            GameEndState endState = new GameEndState(new GameEndMenu("gameOver"));
             game.setState(endState);
         }
     }

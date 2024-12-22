@@ -7,8 +7,10 @@ import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.LevelMap;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.viewer.ElementViewerFactory;
-import com.chickengame.viewer.elements.ChickenViewer;
-import com.chickengame.viewer.elements.ElementViewer;
+import com.chickengame.viewer.game.elements.ChickenViewer;
+import com.chickengame.viewer.game.elements.ElementViewer;
+import com.chickengame.viewer.game.map.LevelViewer;
+import com.chickengame.viewer.game.map.MapViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -48,7 +50,6 @@ public class LevelViewerTest {
         this.position = Mockito.mock(Position.class);
         this.map = Mockito.mock(Map.class);
 
-        Mockito.when(location.getBackground()).thenReturn(element);
         Mockito.when(location.getFinishLine()).thenReturn(element);
         Mockito.when(location.getChicken()).thenReturn(chicken);
 
@@ -70,7 +71,7 @@ public class LevelViewerTest {
     public void drawElements() throws IOException {
         levelViewer.draw(gui);
 
-        Mockito.verify(elementViewer, Mockito.times(3)).draw(gui, element);
+        Mockito.verify(elementViewer, Mockito.times(2)).draw(gui, element);
         Mockito.verify(chickenViewer, Mockito.times(1)).draw(gui, chicken);
     }
 }

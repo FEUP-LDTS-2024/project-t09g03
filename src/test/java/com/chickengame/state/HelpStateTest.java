@@ -4,6 +4,7 @@ import com.chickengame.Game;
 import com.chickengame.controller.menus.HelpController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.HelpMenu;
+import com.chickengame.state.menus.HelpState;
 import com.chickengame.viewer.menus.MenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

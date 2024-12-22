@@ -1,13 +1,16 @@
 package com.chickengame.viewer.map;
 
 import com.chickengame.gui.GUI;
+import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.ElementViewerFactory;
-import com.chickengame.viewer.elements.ChickenViewer;
-import com.chickengame.viewer.elements.ElementViewer;
+import com.chickengame.viewer.game.elements.ChickenViewer;
+import com.chickengame.viewer.game.elements.ElementViewer;
+import com.chickengame.viewer.game.map.MarathonViewer;
+import com.googlecode.lanterna.graphics.BasicTextImage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -27,10 +30,12 @@ public class MarathonViewerTest {
     private Element element;
     private Chicken chicken;
     private Map map;
+    private BasicTextImage basicTextImage;
 
     @BeforeEach
     public void helper()
     {
+        this.basicTextImage = Mockito.mock(BasicTextImage.class);
         this.marathonMap = Mockito.mock(MarathonMap.class);
         this.gui = Mockito.mock(GUI.class);
         this.elementViewerFactory = Mockito.mock(ElementViewerFactory.class);
@@ -40,7 +45,7 @@ public class MarathonViewerTest {
         this.chicken = Mockito.mock(Chicken.class);
         this.map = Mockito.mock(Map.class);
 
-        Mockito.when(marathonMap.getBackground()).thenReturn(element);
+        Mockito.when(elementViewerFactory.getBackground("background")).thenReturn(basicTextImage);
         Mockito.when(marathonMap.getCurrent()).thenReturn(map);
         Mockito.when(marathonMap.getNextMap()).thenReturn(map);
         Mockito.when(marathonMap.getChicken()).thenReturn(chicken);
@@ -59,8 +64,8 @@ public class MarathonViewerTest {
     {
         marathonViewer.drawElements(gui);
 
-        Mockito.verify(elementViewer, Mockito.times(3)).draw(gui, element);
+        Mockito.verify(elementViewer, Mockito.times(2)).draw(gui, element);
         Mockito.verify(chickenViewer, Mockito.times(1)).draw(gui, chicken);
-
+        Mockito.verify(gui, Mockito.times(1)).drawImage(any(Position.class),any(BasicTextImage.class));
     }
 }

@@ -7,7 +7,7 @@ import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.LevelMap;
 import com.chickengame.model.game.map.Map;
-import com.chickengame.state.GameEndState;
+import com.chickengame.state.menus.GameEndState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

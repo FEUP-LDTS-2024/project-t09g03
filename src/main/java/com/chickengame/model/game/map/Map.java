@@ -120,7 +120,10 @@ public class Map
 
     public void moveMap(int offset)
     {
-        moveElements(offset);
+        for(Element element: elements)
+        {
+            element.setPosition( new Position(element.getPosition().getX()+offset,element.getPosition().getY()));
+        }
     }
 
     public void resetPosition()
@@ -128,17 +131,8 @@ public class Map
         moveMap(getSizeX()*2);
     }
 
-
-    private void moveElements(int offset)
+    public List<Element> getElements()
     {
-        for(Element element : this.elements) {
-            element.setPosition(new Position(element.getPosition().getX() + offset, element.getPosition().getY()));
-        }
-
-    }
-
-
-    public List<Element> getElements() {
         return elements;
     }
 
