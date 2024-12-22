@@ -1,9 +1,10 @@
 package com.chickengame.state;
 
 import com.chickengame.Game;
-import com.chickengame.controller.menus.HelpController;
+import com.chickengame.controller.menus.LevelMenuController;
+import com.chickengame.controller.menus.MainMenuController;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.menus.HelpMenu;
+import com.chickengame.model.menus.Menu;
 import com.chickengame.viewer.menus.MenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,10 +12,10 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 
-public class HelpStateTest {
-    private HelpState helpState;
-    private HelpMenu helpMenu;
-    private HelpController helpController;
+public class LevelMenuStateTest {
+    private LevelMenuState levelMenuState;
+    private Menu menu;
+    private LevelMenuController levelMenuController;
     private MenuViewer menuViewer;
     private Game game;
     private GUI gui;
@@ -23,15 +24,15 @@ public class HelpStateTest {
     public void helper()
     {
         this.gui = Mockito.mock(GUI.class);
-        this.helpController = Mockito.mock(HelpController.class);
+        this.levelMenuController = Mockito.mock(LevelMenuController.class);
         this.menuViewer = Mockito.mock(MenuViewer.class);
-        this.helpMenu = Mockito.mock(HelpMenu.class);
+        this.menu = Mockito.mock(Menu.class);
         this.game = Mockito.mock(Game.class);
     }
 
     @Test
-    public void helpState() throws IOException {
-        this.helpState = new HelpState(helpMenu)
+    public void mainMenuState() throws IOException {
+        this.levelMenuState = new LevelMenuState(menu)
         {
             @Override
             public MenuViewer getStateViewer()
@@ -39,14 +40,14 @@ public class HelpStateTest {
                 return menuViewer;
             }
             @Override
-            public HelpController getStateController()
+            public LevelMenuController getStateController()
             {
-                return helpController;
+                return levelMenuController;
             }
         };
 
-        helpState.step(game, GUI.Action.NONE,gui);
-        Mockito.verify(helpController, Mockito.times(1)).step(game, gui,GUI.Action.NONE);
+        levelMenuState.step(game, GUI.Action.NONE,gui);
+        Mockito.verify(levelMenuController, Mockito.times(1)).step(game, gui,GUI.Action.NONE);
         Mockito.verify(menuViewer, Mockito.times(1)).draw(gui);
     }
 }
