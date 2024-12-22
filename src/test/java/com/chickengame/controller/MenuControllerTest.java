@@ -1,10 +1,10 @@
 package com.chickengame.controller;
 
 import com.chickengame.Game;
-import com.chickengame.controller.menu.MenuController;
+import com.chickengame.controller.menus.MainMenuController;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.menu.Button;
-import com.chickengame.model.menu.Menu;
+import com.chickengame.model.menus.buttons.Button;
+import com.chickengame.model.menus.MainMenu;
 import com.chickengame.state.HelpState;
 import com.chickengame.state.LevelMenuState;
 import com.chickengame.state.MarathonState;
@@ -22,10 +22,8 @@ import java.io.IOException;
 public class MenuControllerTest {
     private Game game;
     private GUI gui;
-    private MainMenu mainmenu;
     private MainMenuController menuController;
     private MainMenu mainMenu;
-    private MainMenuController menuController;
     private MainMenuController mockedMenuController;
     private Button button;
 
@@ -102,10 +100,4 @@ public class MenuControllerTest {
         Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(HelpState.class));
     }
 
-    /*
-    @Test
-    public void catchException()  {
-
-
-    }*/
 }
