@@ -1,14 +1,13 @@
 package com.chickengame.viewer;
 
-import com.chickengame.model.game.elements.Element;
-import com.chickengame.model.menus.Menu;
-import com.chickengame.viewer.elements.ElementViewer;
-import com.chickengame.viewer.elements.InvertedElementViewer;
+import com.chickengame.model.menus.buttons.Button;
+import com.chickengame.viewer.menus.ButtonViewer;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ButtonViewerFactory extends ViewerFactory<Menu>{
+public class ButtonViewerFactory extends ViewerFactory<Button>
+{
 
     private static final String backButtonPath = "images/menus/buttons/backButton.png";
     private static final String backButtonPressedPath = "images/menus/buttons/backButtonPressed.png";
@@ -33,10 +32,7 @@ public class ButtonViewerFactory extends ViewerFactory<Menu>{
     private static final String shopButtonPath = "images/menus/buttons/shopButton.png";
     private static final String shopButtonPressedPath = "images/menus/buttons/shopButtonPressed.png";
 
-    private static final String chickenShopPath = "images/menus/chickens/";
-
-
-    private Map<String, ElementViewer> cache = new HashMap<>();
+    private Map<String, ButtonViewer> cache = new HashMap<>();
 
 
     public ButtonViewerFactory(ImageLoader imageLoader) {
@@ -45,59 +41,48 @@ public class ButtonViewerFactory extends ViewerFactory<Menu>{
 
 
     @Override
-    public ElementViewer getViewer(String name)
+    public ButtonViewer getViewer(String name)
     {
-        if(super.getViewer(name)!= null)return super.getViewer(name);
         if(!cache.containsKey(name))
         {
             switch(name)
             {
-                case "backButton":
-                    cache.put(name, new InvertedElementViewer(imgLoader,backButtonPath,backButtonPressedPath));
+                case "Back":
+                    cache.put(name, new ButtonViewer(imgLoader,backButtonPath,backButtonPressedPath));
                     break;
-                case "helpButton":
-                    cache.put(name,new InvertedElementViewer(imgLoader,helpButtonPath,helpButtonPressedPath));
+                case "Help":
+                    cache.put(name,new ButtonViewer(imgLoader,helpButtonPath,helpButtonPressedPath));
                     break;
-                case "level1Button":
-                    cache.put(name, new InvertedElementViewer(imgLoader, level1ButtonPath, level1ButtonPressedPath));
+                case "Level1":
+                    cache.put(name, new ButtonViewer(imgLoader, level1ButtonPath, level1ButtonPressedPath));
                     break;
-                case "level2Button":
-                    cache.put(name, new InvertedElementViewer(imgLoader, level2ButtonPath, level2ButtonPressedPath));
+                case "Level2":
+                    cache.put(name, new ButtonViewer(imgLoader, level2ButtonPath, level2ButtonPressedPath));
                     break;
-                case "level3Button":
-                    cache.put(name, new InvertedElementViewer(imgLoader, level3ButtonPath, level3ButtonPressedPath));
+                case "Level3":
+                    cache.put(name, new ButtonViewer(imgLoader, level3ButtonPath, level3ButtonPressedPath));
                     break;
-                case "levelButton":
-                    cache.put(name, new InvertedElementViewer(imgLoader, levelButtonPath, levelPressedButtonPath));
+                case "LevelMenu":
+                    cache.put(name, new ButtonViewer(imgLoader, levelButtonPath, levelPressedButtonPath));
                     break;
-                case "nextButton":
-                    cache.put(name, new InvertedElementViewer(imgLoader,nextButtonPath,nextButtonPressedPath));
+                case "Next":
+                    cache.put(name, new ButtonViewer(imgLoader,nextButtonPath,nextButtonPressedPath));
                     break;
-                case "playButton":
-                    cache.put(name, new InvertedElementViewer(imgLoader, playButtonPath, playButtonPressedPath));
+                case "Play":
+                    cache.put(name, new ButtonViewer(imgLoader, playButtonPath, playButtonPressedPath));
                     break;
-                case "previousButton":
-                    cache.put(name, new InvertedElementViewer(imgLoader,previousButtonPath,previousButtonPressedPath));
+                case "Previous":
+                    cache.put(name, new ButtonViewer(imgLoader,previousButtonPath,previousButtonPressedPath));
                     break;
-                case "quitButton":
-                    cache.put(name, new InvertedElementViewer(imgLoader,quitButtonPath,quitButtonPressedPath));
+                case "Exit":
+                    cache.put(name, new ButtonViewer(imgLoader,quitButtonPath,quitButtonPressedPath));
                     break;
-                case "shopButton":
-                    cache.put(name, new InvertedElementViewer(imgLoader,shopButtonPath,shopButtonPressedPath));
+                case "Shop":
+                    cache.put(name, new ButtonViewer(imgLoader,shopButtonPath,shopButtonPressedPath));
                     break;
             }
         }
         return cache.get(name);
     }
-
-    public ElementViewer getShopChickenViewer(String name)
-    {
-        if(!cache.containsKey(name))
-        {
-            cache.put(name,new ElementViewer(imgLoader,chickenShopPath +name+ ".png"));
-        }
-        return cache.get(name);
-    }
-
 
 }

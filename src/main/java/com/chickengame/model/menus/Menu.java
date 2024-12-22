@@ -8,29 +8,24 @@ import java.util.List;
 
 public abstract class Menu
 {
-
-
-    private Element background;
+    private String background;
     private List<Button> buttons;
+
+    public Menu(String background)
+    {
+        this.background = background + "Background";
+    }
 
     public List<Button> getButtons()
     {
         return buttons;
     }
 
-    public Element getBackground()
+    public String getBackground()
     {
         return background;
     }
 
-    public void setBackground(String name)
-    {
-        this.background = new Element(0,0,750,375,name+ "Background");
-    }
-
-    public void setBackground(String name,boolean inverted) {
-        this.background = new InvertedElement(0,0,750,375,name + "Background",inverted);
-    }
 
     public void setButtons(List<Button> buttons) {
         this.buttons = buttons;

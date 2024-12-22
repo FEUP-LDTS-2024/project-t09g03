@@ -8,11 +8,12 @@ import com.googlecode.lanterna.screen.Screen;
 
 import java.io.IOException;
 
-public interface GUI {
+public interface GUI
+{
     enum Action {UP, DOWN, SELECT, INVERT, QUIT, NONE, LEFT, RIGHT}
-    public Screen getScreen();
-    public GUI.Action getNextAction() throws IOException;
-    public void drawImage(Position position, BasicTextImage basicTextImage);
-    public void refresh() throws IOException;
-    public void close() throws IOException;
+    Screen getScreen();
+    GUI.Action getNextAction() throws IOException;
+    void drawImage(Position position, BasicTextImage basicTextImage);
+    void refresh() throws IOException;
+    void close() throws IOException;
 }

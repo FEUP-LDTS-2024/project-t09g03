@@ -1,11 +1,11 @@
-package com.chickengame.viewer.map;
+package com.chickengame.viewer.game.map;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.viewer.ElementViewerFactory;
 import com.chickengame.viewer.Viewer;
-import com.chickengame.viewer.elements.ElementViewer;
+import com.chickengame.viewer.game.elements.ElementViewer;
 
 import java.util.List;
 

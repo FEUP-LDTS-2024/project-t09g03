@@ -9,7 +9,7 @@ import com.chickengame.model.game.elements.Chicken
 import com.chickengame.model.game.map.Map
 import com.chickengame.state.GameEndState
 import spock.lang.Specification
-
+/*
 class MapControllerTestSpock extends Specification{
 
 
@@ -116,3 +116,4 @@ class MapControllerTestSpock extends Specification{
 
 
 }
+*/

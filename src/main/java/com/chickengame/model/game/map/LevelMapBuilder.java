@@ -11,9 +11,7 @@ public class LevelMapBuilder
         String path = folderPath + "map" + level + ".txt";
         Map map = mapBuilder.createMap(path,0);
         Chicken chicken = new Chicken(200,300,chickenSkin);
-        Element background = new Element(0,0,750,375,"background");
         Element FinishLine = new Element(5440,30,40,375,"finishLine");
-        LevelMap levelMap = new LevelMap(map, chicken, background,FinishLine);
-        return levelMap;
+        return new LevelMap(map,chicken,FinishLine);
     }
 }

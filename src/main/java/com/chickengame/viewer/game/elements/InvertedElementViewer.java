@@ -1,12 +1,11 @@
-package com.chickengame.viewer.elements;
+package com.chickengame.viewer.game.elements;
 
 import com.chickengame.gui.GUI;
-import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.elements.InvertedElement;
 import com.chickengame.viewer.ImageLoader;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 
-public class InvertedElementViewer extends ElementViewer
+public class InvertedElementViewer extends ElementViewer<InvertedElement>
 {
     private final BasicTextImage invertedImage;
 
@@ -16,9 +15,9 @@ public class InvertedElementViewer extends ElementViewer
         this.invertedImage = imgLoader.getImage(invertedPath);
     }
 
-    public void draw(GUI gui, Element element)
+    @Override
+    public void draw(GUI gui, InvertedElement invertedElement)
     {
-        InvertedElement invertedElement = (InvertedElement) element;
         if(invertedElement.isInverted())
         {
             gui.drawImage(invertedElement.getPosition(),invertedImage);

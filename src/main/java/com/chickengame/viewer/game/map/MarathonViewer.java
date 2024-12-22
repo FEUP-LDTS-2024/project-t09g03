@@ -1,16 +1,17 @@
-package com.chickengame.viewer.map;
+package com.chickengame.viewer.game.map;
 
 import com.chickengame.gui.GUI;
+import com.chickengame.model.Position;
 import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.*;
-import com.chickengame.viewer.elements.ChickenViewer;
-import com.chickengame.viewer.elements.ElementViewer;
+import com.chickengame.viewer.game.elements.ChickenViewer;
+import com.googlecode.lanterna.graphics.BasicTextImage;
 
 
 public class MarathonViewer extends Viewer<MarathonMap>
 {
     private  MapViewer mapViewer;
-    private final ElementViewer backgroundViewer;
+    private final BasicTextImage backgroundBasicTextImage;
     private final ChickenViewer chickenViewer;
     private final ElementViewerFactory elementViewerFactory;
 
@@ -19,15 +20,15 @@ public class MarathonViewer extends Viewer<MarathonMap>
     {
         super(marathonMap);
         elementViewerFactory = viewerFactory;
-        mapViewer = new MapViewer(getLocation().getCurrent(),elementViewerFactory);
-        backgroundViewer = elementViewerFactory.getViewer(getLocation().getBackground().getName());
-        chickenViewer = elementViewerFactory.getChickenViewer(getLocation().getChicken().getSkin());
+        mapViewer = new MapViewer(marathonMap.getCurrent(),elementViewerFactory);
+        backgroundBasicTextImage = viewerFactory.getBackground("background");
+        chickenViewer = elementViewerFactory.getChickenViewer(marathonMap.getChicken().getSkin());
     }
 
     @Override
     public void drawElements(GUI gui)
     {
-        backgroundViewer.draw(gui,getLocation().getBackground());
+        gui.drawImage(new Position(0,0),backgroundBasicTextImage);
         mapViewer = new MapViewer(getLocation().getCurrent(),elementViewerFactory);
         mapViewer.drawElements(gui);
         mapViewer = new MapViewer(getLocation().getNextMap(),elementViewerFactory);

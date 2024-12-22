@@ -1,16 +1,15 @@
 package com.chickengame.viewer;
 
-import com.chickengame.model.game.map.GameMode;
-import com.chickengame.viewer.elements.ChickenViewer;
-import com.chickengame.viewer.elements.ElementViewer;
-import com.chickengame.viewer.elements.InvertedElementViewer;
+import com.chickengame.model.game.elements.Element;
+import com.chickengame.viewer.game.elements.ChickenViewer;
+import com.chickengame.viewer.game.elements.ElementViewer;
+import com.chickengame.viewer.game.elements.InvertedElementViewer;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class ElementViewerFactory extends ViewerFactory<GameMode>
+public class ElementViewerFactory extends ViewerFactory<Element>
 {
-
     private static final String candyCanePath = "images/game/candyCane.png";
     private static final String candyCaneDownPath = "images/game/candyCaneDown.png";
     private static final String chocolatePlatformPath = "images/game/chocolatePlatform.png";
@@ -29,11 +28,13 @@ public class ElementViewerFactory extends ViewerFactory<GameMode>
     private static final String platformPath = "images/game/platform.png";
     private static final String tobleronePath = "images/game/toblerone.png";
     private static final String tobleroneDownPath = "images/game/tobleroneDown.png";
+
     private static final String chickenMovingPath = "images/game/chicken/chickenMoving";
     private static final String chickenStaticPath = "images/game/chicken/chickenStatic";
     private static final String chickenMovingDownPath = "images/game/chicken/chickenMovingDown";
     private static final String chickenStaticDownPath = "images/game/chicken/chickenStaticDown";
 
+    private static final String chickenShopPath = "images/menus/chickens/";
 
     private Map<String, ElementViewer> cache = new HashMap<>();
 
@@ -43,7 +44,6 @@ public class ElementViewerFactory extends ViewerFactory<GameMode>
     }
     public ElementViewer getViewer(String name)
     {
-        if(super.getViewer(name)!= null)return super.getViewer(name);
         if(!cache.containsKey(name))
         {
             switch(name)
@@ -91,4 +91,12 @@ public class ElementViewerFactory extends ViewerFactory<GameMode>
         return new ChickenViewer(imgLoader,chickenStaticPath+skin+".png",chickenStaticDownPath+skin+".png",chickenMovingPath+skin+".png",chickenMovingDownPath+skin+".png");
     }
 
+    public ElementViewer getShopChickenViewer(String name)
+    {
+        if(!cache.containsKey(name))
+        {
+            cache.put(name,new ElementViewer(imgLoader,chickenShopPath +name+ ".png"));
+        }
+        return cache.get(name);
+    }
 }

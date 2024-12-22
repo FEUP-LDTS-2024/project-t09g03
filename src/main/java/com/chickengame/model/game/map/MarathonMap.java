@@ -1,37 +1,32 @@
 package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.elements.Element;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class MarathonMap implements GameMode{
+public class MarathonMap
+{
 
     private final List<Map> maps;
     private Map current;
     private Map nextMap;
     private final Chicken chicken;
-    private final Element background;
     private final Random random = new Random();
 
-    MarathonMap(List<Map> mapas, Element background, Chicken chicken)
+    MarathonMap(List<Map> maps, Chicken chicken)
     {
-        this.background = background;
         this.chicken = chicken;
-        if(mapas.size()<2)throw new RuntimeException("Not enough maps");
-        this.maps = mapas;
+        if(maps.size()<2)throw new RuntimeException("Not enough maps");
         int first = random.nextInt(maps.size());
         current = maps.get(first);
         nextMap = maps.get((first+1)%maps.size());
         nextMap.moveMap(current.getSizeX());
+        this.maps = maps;
     }
 
     public void setNextMap()
     {
-
-
         current = nextMap;
         while(nextMap == current)
         {
@@ -53,9 +48,6 @@ public class MarathonMap implements GameMode{
         return chicken;
     }
 
-    public Element getBackground() {
-        return background;
-    }
 
 
 }

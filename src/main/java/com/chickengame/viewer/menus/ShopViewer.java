@@ -1,29 +1,30 @@
 package com.chickengame.viewer.menus;
 
 import com.chickengame.gui.GUI;
-import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.ShopMenu;
 import com.chickengame.viewer.ButtonViewerFactory;
-import com.chickengame.viewer.elements.ElementViewer;
+import com.chickengame.viewer.ElementViewerFactory;
+import com.chickengame.viewer.game.elements.ElementViewer;
 
-public class ShopViewer extends MenuViewer
+public class ShopViewer extends MenuViewer<ShopMenu>
 {
-    public ShopViewer(Menu location, ButtonViewerFactory viewerFactory)
+    private ElementViewerFactory elementViewerFactory;
+    public ShopViewer(ShopMenu location, ButtonViewerFactory buttonViewerFactory, ElementViewerFactory elementViewerFactory)
     {
-        super(location, viewerFactory);
+        super(location, buttonViewerFactory);
+        this.elementViewerFactory = elementViewerFactory;
     }
     @Override
     protected void drawElements(GUI gui)
     {
         super.drawElements(gui);
 
-        ShopMenu location = (ShopMenu)getLocation();
-        ElementViewer shopChickenMiddleViewer = super.getButtonViewerFactory().getShopChickenViewer(location.getMiddleChicken().getName());
-        ElementViewer shopChickenRightViewer = super.getButtonViewerFactory().getShopChickenViewer(location.getRightChicken().getName());
-        ElementViewer shopChickenLeftViewer = super.getButtonViewerFactory().getShopChickenViewer(location.getLeftChicken().getName());
+        ElementViewer shopChickenMiddleViewer = elementViewerFactory.getShopChickenViewer(getLocation().getMiddleChicken().getName());
+        ElementViewer shopChickenRightViewer = elementViewerFactory.getShopChickenViewer(getLocation().getRightChicken().getName());
+        ElementViewer shopChickenLeftViewer = elementViewerFactory.getShopChickenViewer(getLocation().getLeftChicken().getName());
 
-        shopChickenMiddleViewer.draw(gui,location.getMiddleChicken());
-        shopChickenRightViewer.draw(gui,location.getRightChicken());
-        shopChickenLeftViewer.draw(gui,location.getLeftChicken());
+        shopChickenMiddleViewer.draw(gui,getLocation().getMiddleChicken());
+        shopChickenRightViewer.draw(gui,getLocation().getRightChicken());
+        shopChickenLeftViewer.draw(gui,getLocation().getLeftChicken());
     }
 }

@@ -12,34 +12,36 @@ public class MainMenu extends Menu
 
     public MainMenu()
     {
-        super.setBackground("main");
-        buttons.add(new Button(290,110,155,50,"play",Button.Type.Play));
-        buttons.add(new Button(290,170,155,50,"level",Button.Type.LevelMenu));
-        buttons.add(new Button(290,230,155,50,"shop",Button.Type.Shop));
-        buttons.add(new Button(290,290,155,50,"quit",Button.Type.Exit));
-        buttons.add(new Button(690,10, 50,50,"help",Button.Type.Help));
-        buttons.getFirst().select();
+        super("main");
+        buttons.add(new Button(290,110,Button.Type.Play));
+        buttons.add(new Button(290,170,Button.Type.LevelMenu));
+        buttons.add(new Button(290,230,Button.Type.Shop));
+        buttons.add(new Button(290,290,Button.Type.Exit));
+        buttons.add(new Button(690,10, Button.Type.Help));
+        buttons.getFirst().setSelected(true);
         super.setButtons(buttons);
     }
 
     public void nextButton()
     {
-        buttons.get(currentButton).unselect();
+        buttons.get(currentButton).setSelected(false);
         currentButton++;
         if (currentButton > buttons.size() - 1)
+        {
             currentButton = 0;
-        buttons.get(currentButton).select();
+        }
+        buttons.get(currentButton).setSelected(true);
     }
 
     public void previousButton()
     {
-        buttons.get(currentButton).unselect();
+        buttons.get(currentButton).setSelected(false);
         currentButton--;
         if (currentButton < 0)
         {
             currentButton = buttons.size() - 1;
         }
-        buttons.get(currentButton).select();
+        buttons.get(currentButton).setSelected(true);
     }
 
     public Button getSelected()

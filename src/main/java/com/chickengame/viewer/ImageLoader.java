@@ -18,15 +18,12 @@ public class ImageLoader {
         URL resource = ImageLoader.class.getClassLoader().getResource(imagePath);
         assert(resource != null);
         File file = null;
-        try {
-            file = new File(resource.toURI());
-        } catch (URISyntaxException e) {
-            throw new RuntimeException(e);
-        }
         BufferedImage bufferedImage = null;
         try {
+            file = new File(resource.toURI());
             bufferedImage = ImageIO.read(file);
-        } catch (IOException e) {
+            assert(bufferedImage != null);
+        } catch (IOException | URISyntaxException | AssertionError e) {
             throw new RuntimeException(e);
         }
         BasicTextImage textImage = new BasicTextImage(bufferedImage.getWidth(),bufferedImage.getHeight());

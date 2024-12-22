@@ -1,27 +1,36 @@
 package com.chickengame.model.menus.buttons;
 
-import com.chickengame.model.game.elements.InvertedElement;
+import com.chickengame.model.Position;
 
-public class Button extends InvertedElement {
+public class Button
+{
+    private Position position;
     public enum Type {Play,Shop,Exit, Back, Next, Previous, Level, LevelMenu, Help}
     private final Button.Type type;
+    private boolean selected;
 
-    public Button(int x, int y, int width, int height,String name,Type type)
+
+    public Button(int x, int y,Type type)
     {
-        super(x, y,width,height,name + "Button",false);
+        this.position = new Position(x,y);
         this.type = type;
+        this.selected = false;
     }
 
-
-    public void select()
-    {
-        super.setInverted(true);
+    public Position getPosition() {
+        return position;
     }
+
     public Button.Type getType()
     {
         return this.type;
     }
-    public void unselect() {
-        super.setInverted(false);
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
+    }
+
+    public boolean isSelected() {
+        return selected;
     }
 }
