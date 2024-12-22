@@ -33,7 +33,7 @@ public class LevelStateTest {
     }
 
     @Test
-    public void mainMenuState() throws IOException {
+    public void LevelState() throws IOException {
         this.levelState = new LevelState(levelMap)
         {
             @Override

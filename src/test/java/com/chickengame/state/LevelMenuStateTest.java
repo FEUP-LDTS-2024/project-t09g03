@@ -31,7 +31,7 @@ public class LevelMenuStateTest {
     }
 
     @Test
-    public void mainMenuState() throws IOException {
+    public void levelMenuState() throws IOException {
         this.levelMenuState = new LevelMenuState(menu)
         {
             @Override
