@@ -38,7 +38,7 @@ public class MainMenuController extends Controller<MainMenu>
                     switch (getLocation().getSelected().getType())
                     {
                         case Exit -> gui.close();
-                        case Play -> game.setState(new MarathonState(new MarathonBuilder().createMarathonMap(3, "/maps/", new MapBuilder(), game.getChickenSkin())));
+                        case Play -> game.setState(new MarathonState(new MarathonBuilder().createMarathonMap(3, "maps/", new MapBuilder(), game.getChickenSkin())));
                         case Shop -> game.setState(new ShopState(new ShopMenu()));
                         case LevelMenu -> game.setState(new LevelMenuState(new LevelMenu()));
                         case Help -> game.setState(new HelpState(new HelpMenu()));

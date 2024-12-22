@@ -15,7 +15,7 @@ public class MapBuilder{
 
     public Map createMap(String path, int offset){
         Map map = new Map();
-        URL resource = MapBuilder.class.getResource(path);
+        URL resource = MapBuilder.class.getClassLoader().getResource(path);
         BufferedReader reader = null;
 
         try
@@ -23,7 +23,7 @@ public class MapBuilder{
             assert(resource != null);
             reader = new BufferedReader(new FileReader(resource.getFile()));
             lines = readElements(reader);
-        } catch (IOException e) {
+        } catch (IOException | AssertionError e) {
             throw new RuntimeException(e);
         }
 
