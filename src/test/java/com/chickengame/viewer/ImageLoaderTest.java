@@ -13,6 +13,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class ImageLoaderTest {
 
+
+
     @Test
     public void getImage() throws IOException {
         ImageLoader imageLoader = new ImageLoader();
@@ -93,7 +95,7 @@ public class ImageLoaderTest {
        {
         ImageLoader imageLoader = new ImageLoader();
         imageLoader.getImage("invalidImage.png");
-       }catch (AssertionError e)
+       }catch (RuntimeException e)
        {
            result = true;
        }
@@ -112,5 +114,7 @@ public class ImageLoaderTest {
         }
         assert result;
     }
+
+
 
 }

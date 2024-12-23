@@ -11,10 +11,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.net.URL;
-
+import java.util.Objects;
 import static org.junit.Assert.assertEquals;
 
 public class MapBuilderTest {
+
     private Map expecedMap = new Map();
 
     @BeforeEach
@@ -44,7 +45,6 @@ public class MapBuilderTest {
         expecedMap.getElements().add(new InvertedElement(190, 200, 24, 40, "lollipop", false));
 
     }
-
     @Property
     public void createMap(@ForAll int offset)
     {
@@ -52,31 +52,30 @@ public class MapBuilderTest {
         Map map = mapBuilder.createMap("map/mapTest.txt", offset);
         for(int i = 0; i < expecedMap.getElements().size(); i++)
         {
-            assertEquals(expecedMap.getElements().get(i).getPosition().getX() + offset, map.getElements().get(i).getPosition().getX());
-            assertEquals(expecedMap.getElements().get(i).getPosition().getY(), map.getElements().get(i).getPosition().getY());
-            assertEquals(expecedMap.getElements().get(i).getWidth(), map.getElements().get(i).getWidth());
-            assertEquals(expecedMap.getElements().get(i).getHeight(), map.getElements().get(i).getHeight());
-            assertEquals(expecedMap.getElements().get(i).getName(), map.getElements().get(i).getName());
+            assert expecedMap.getElements().get(i).getPosition().getX() + offset == map.getElements().get(i).getPosition().getX();
+            assert expecedMap.getElements().get(i).getPosition().getY() == map.getElements().get(i).getPosition().getY();
+            assert expecedMap.getElements().get(i).getWidth() == map.getElements().get(i).getWidth();
+            assert expecedMap.getElements().get(i).getHeight() == map.getElements().get(i).getHeight();
+            assert Objects.equals(expecedMap.getElements().get(i).getName(), map.getElements().get(i).getName());
         }
 
         for(int i = 0; i < expecedMap.getWalls().size(); i++)
         {
-            assertEquals(expecedMap.getWalls().get(i).getPosition().getX() + offset, map.getWalls().get(i).getPosition().getX());
-            assertEquals(expecedMap.getWalls().get(i).getPosition().getY(), map.getWalls().get(i).getPosition().getY());
-            assertEquals(expecedMap.getWalls().get(i).getWidth(), map.getWalls().get(i).getWidth());
-            assertEquals(expecedMap.getWalls().get(i).getHeight(), map.getWalls().get(i).getHeight());
-            assertEquals(expecedMap.getWalls().get(i).getName(), map.getWalls().get(i).getName());
+            assert expecedMap.getWalls().get(i).getPosition().getX() + offset == map.getWalls().get(i).getPosition().getX();
+            assert (expecedMap.getWalls().get(i).getPosition().getY() == map.getWalls().get(i).getPosition().getY());
+            assert (expecedMap.getWalls().get(i).getWidth() == map.getWalls().get(i).getWidth());
+            assert (expecedMap.getWalls().get(i).getHeight() == map.getWalls().get(i).getHeight());
+            assert (Objects.equals(expecedMap.getWalls().get(i).getName(), map.getWalls().get(i).getName()));
         }
 
         for(int i = 0; i < expecedMap.getHarmObjects().size(); i++)
         {
-            assertEquals(expecedMap.getHarmObjects().get(i).getPosition().getX() + offset, map.getHarmObjects().get(i).getPosition().getX());
-            assertEquals(expecedMap.getHarmObjects().get(i).getPosition().getY(), map.getHarmObjects().get(i).getPosition().getY());
-            assertEquals(expecedMap.getHarmObjects().get(i).getWidth(), map.getHarmObjects().get(i).getWidth());
-            assertEquals(expecedMap.getHarmObjects().get(i).getHeight(), map.getHarmObjects().get(i).getHeight());
-            assertEquals(expecedMap.getHarmObjects().get(i).getName(), map.getHarmObjects().get(i).getName());
+            assert (expecedMap.getHarmObjects().get(i).getPosition().getX() + offset == map.getHarmObjects().get(i).getPosition().getX());
+            assert (expecedMap.getHarmObjects().get(i).getPosition().getY() == map.getHarmObjects().get(i).getPosition().getY());
+            assert (expecedMap.getHarmObjects().get(i).getWidth() == map.getHarmObjects().get(i).getWidth());
+            assert (expecedMap.getHarmObjects().get(i).getHeight() == map.getHarmObjects().get(i).getHeight());
+            assert (Objects.equals(expecedMap.getHarmObjects().get(i).getName(), map.getHarmObjects().get(i).getName()));
         }
-
     }
 
     @Test
@@ -101,9 +100,11 @@ public class MapBuilderTest {
         try
         {
             mapBuilder.createMap("map/invalidElement.txt", 0);
-        }catch (AssertionError e) {
+        }catch (RuntimeException e) {
             result = true;
         }
         assert result;
     }
+
+
 }

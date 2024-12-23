@@ -90,7 +90,7 @@ public class MapBuilder{
                     map.getWalls().add(element);
                     break;
             }
-            assert element != null;
+            if(element == null)throw new RuntimeException();
             map.getElements().add(element);
             maxsize = Math.max(maxsize, x + element.getWidth());
             map.setSizeX(maxsize);
