@@ -10,35 +10,6 @@ import static org.junit.Assert.assertEquals;
 
 public class MapBuilderTest {
     private Map expecedMap = new Map();
-
-    @BeforeEach
-    @BeforeProperty
-    public void helper()
-    {
-        expecedMap.getWalls().add(new InvertedElement(10, 20, 24, 47, "candyCane", true));
-        expecedMap.getWalls().add(new Element(30, 40, 40, 42, "chocolatePlatform"));
-        expecedMap.getWalls().add(new Element(50, 60, 40, 42, "platform"));
-        expecedMap.getWalls().add(new Element(70, 80, 20, 20, "cookie"));
-        expecedMap.getHarmObjects().add(new InvertedElement(90, 100, 70, 15, "cornSpike", false));
-        expecedMap.getHarmObjects().add(new InvertedElement(110, 120, 70, 15, "toblerone", true));
-        expecedMap.getWalls().add(new InvertedElement(130, 140, 26, 46, "cupcake", true));
-        expecedMap.getWalls().add(new InvertedElement(150, 160, 26, 46, "iceCream", false));
-        expecedMap.getHarmObjects().add(new InvertedElement(170, 180, 23, 15, "gummy", true));
-        expecedMap.getWalls().add(new InvertedElement(190, 200, 24, 40, "lollipop", false));
-
-        expecedMap.getElements().add(new InvertedElement(10, 20, 24, 47, "candyCane", true));
-        expecedMap.getElements().add(new Element(30, 40, 40, 42, "chocolatePlatform"));
-        expecedMap.getElements().add(new Element(50, 60, 40, 42, "platform"));
-        expecedMap.getElements().add(new Element(70, 80, 20, 20, "cookie"));
-        expecedMap.getElements().add(new InvertedElement(90, 100, 70, 15, "cornSpike", false));
-        expecedMap.getElements().add(new InvertedElement(110, 120, 70, 15, "toblerone", true));
-        expecedMap.getElements().add(new InvertedElement(130, 140, 26, 46, "cupcake", true));
-        expecedMap.getElements().add(new InvertedElement(150, 160, 26, 46, "iceCream", false));
-        expecedMap.getElements().add(new InvertedElement(170, 180, 23, 15, "gummy", true));
-        expecedMap.getElements().add(new InvertedElement(190, 200, 24, 40, "lollipop", false));
-
-    }
-
     @Property
     public void createMap(@ForAll int offset)
     {
