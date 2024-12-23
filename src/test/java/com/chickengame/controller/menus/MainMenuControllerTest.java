@@ -1,11 +1,9 @@
-package com.chickengame.controller;
+package com.chickengame.controller.menus;
 
 import com.chickengame.Game;
-import com.chickengame.controller.menus.MainMenuController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.buttons.Button;
 import com.chickengame.model.menus.MainMenu;
-import com.chickengame.state.*;
 import com.chickengame.state.game.MarathonState;
 import com.chickengame.state.menus.HelpState;
 import com.chickengame.state.menus.LevelMenuState;
@@ -20,7 +18,9 @@ import org.mockito.Mockito;
 
 import java.io.IOException;
 
-public class MenuControllerTest {
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
+public class MainMenuControllerTest {
     private Game game;
     private GUI gui;
     private MainMenuController menuController;
@@ -30,7 +30,7 @@ public class MenuControllerTest {
 
 
     @BeforeEach @BeforeProperty
-    public void setup() {
+    public void helper() {
         this.game = Mockito.mock(Game.class);
         this.gui = Mockito.mock(GUI.class);
         this.mainMenu = Mockito.mock(MainMenu.class);
@@ -99,6 +99,17 @@ public class MenuControllerTest {
         menuController.step(game, gui, GUI.Action.SELECT);
 
         Mockito.verify(game, Mockito.times(1)).setState(Mockito.any(HelpState.class));
+    }
+
+
+    @Test
+    public void testIOExceptionHandling() throws IOException {
+        Mockito.when(button.getType()).thenReturn(Button.Type.Exit);
+        Mockito.doThrow(IOException.class).when(gui).close();
+
+        assertThrows(RuntimeException.class, () -> {
+            menuController.step(game, gui, GUI.Action.SELECT);
+        });
     }
 
 }
