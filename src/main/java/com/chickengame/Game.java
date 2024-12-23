@@ -38,10 +38,13 @@ public class Game {
         this.state = new MainMenuState(new MainMenu());
     }
 
-    public void run() throws IOException {
+    public void run() throws IOException, InterruptedException {
+        float time = (float) 1 /30;
+        System.out.println(time);
         while (this.state != null)
         {
-            double t1 = System.nanoTime();
+
+            long start = System.currentTimeMillis();
             try
             {
                 GUI.Action action = gui.getNextAction();
@@ -55,8 +58,13 @@ public class Game {
             {
                 throw new RuntimeException(e);
             }
-            double t2 = System.nanoTime();
-            System.out.println(1/((t2-t1)/1000000000));
+            long elapsed = System.currentTimeMillis()-start;
+            long sleeptime = -elapsed;
+            if(sleeptime>0)
+            {
+                Thread.sleep(sleeptime);
+            }
+
         }
         gui.close();
     }

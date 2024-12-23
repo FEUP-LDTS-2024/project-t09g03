@@ -11,7 +11,7 @@ public class Application {
             Game game = Game.getInstance();
         try {
             game.run();
-        } catch (IOException e) {
+        } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

@@ -7,6 +7,8 @@ import com.chickengame.model.menus.GameEndMenu;
 import com.chickengame.model.menus.MainMenu;
 import com.chickengame.state.menus.MainMenuState;
 
+import java.util.Objects;
+
 public class GameEndController extends Controller<GameEndMenu>
 {
     public GameEndController(GameEndMenu location)
@@ -17,9 +19,8 @@ public class GameEndController extends Controller<GameEndMenu>
     @Override
     public void step(Game game, GUI gui, GUI.Action action)
     {
-        switch (action)
-        {
-            case SELECT -> game.setState(new MainMenuState(new MainMenu()));
+        if (Objects.requireNonNull(action) == GUI.Action.SELECT) {
+            game.setState(new MainMenuState(new MainMenu()));
         }
     }
 }

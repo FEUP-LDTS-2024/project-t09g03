@@ -6,6 +6,8 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Chicken;
 
+import java.util.Objects;
+
 public class ChickenController extends Controller<Chicken>
 {
     public ChickenController(Chicken location)
@@ -16,9 +18,8 @@ public class ChickenController extends Controller<Chicken>
     @Override
     public void step(Game game, GUI gui, GUI.Action action)
     {
-        switch(action)
-        {
-            case INVERT -> invertChickenGravity();
+        if (Objects.requireNonNull(action) == GUI.Action.INVERT) {
+            invertChickenGravity();
         }
     }
 
