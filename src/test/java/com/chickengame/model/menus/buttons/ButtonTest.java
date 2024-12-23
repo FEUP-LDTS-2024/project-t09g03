@@ -3,8 +3,6 @@ package com.chickengame.model.menus.buttons;
 import net.jqwik.api.*;
 
 public class ButtonTest {
-
-
     @Property
     public void testGetters(@ForAll("ButtonTypeArbitrary") Button.Type btype)
     {
