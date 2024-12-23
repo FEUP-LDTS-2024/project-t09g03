@@ -74,7 +74,7 @@ public class ShopControllerTest {
     }
 
     @Test
-    public void selectBack() throws IOException {
+    public void selectBack() {
         Mockito.when(button.getType()).thenReturn(Button.Type.Back);
         shopController.step(game, gui, GUI.Action.SELECT);
 
