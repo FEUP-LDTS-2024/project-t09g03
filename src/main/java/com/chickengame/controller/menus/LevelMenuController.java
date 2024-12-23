@@ -40,6 +40,6 @@ public class LevelMenuController extends Controller<LevelMenu>
 
     private void runLevel(Game game, int level)
     {
-        game.setState(new LevelState(new LevelMapBuilder().createLevelMap("/maps/",new MapBuilder(), game.getChickenSkin(), level)));
+        game.setState(new LevelState(new LevelMapBuilder().createLevelMap("maps/",new MapBuilder(), game.getChickenSkin(), level)));
     }
 }
