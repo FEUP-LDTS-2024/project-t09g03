@@ -96,11 +96,7 @@ public class ShopMenu extends Menu
 
     public Element getRightChicken()
     {
-        int right = currentChicken+1;
-        if(currentChicken + 1 >= maxChicken)
-        {
-            right = 0;
-        }
+        int right = currentChicken+1 % maxChicken;
         chickens.get(right).setPosition(posRight);
         return chickens.get(right);
     }
