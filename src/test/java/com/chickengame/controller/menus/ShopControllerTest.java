@@ -9,6 +9,7 @@ import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;
 import net.jqwik.api.lifecycle.BeforeProperty;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -38,7 +39,7 @@ public class ShopControllerTest {
     @Test
     void testConstructor() {
         assertNotNull(shopController);
-        assert shopController.getLocation() == shopMenu;
+        Assertions.assertEquals(shopController.getLocation() ,shopMenu);
     }
 
     @Property

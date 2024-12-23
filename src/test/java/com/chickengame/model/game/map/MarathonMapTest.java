@@ -1,6 +1,7 @@
 package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Chicken;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -36,8 +37,8 @@ public class MarathonMapTest {
         Map current = marathonMap.getCurrent();
         Map next = marathonMap.getNextMap();
         assertNotSame(current, next);
-        assert maps.contains(current);
-        assert maps.contains(next);
+        Assertions.assertTrue(maps.contains(current));
+        Assertions.assertTrue(maps.contains(next));
         Mockito.verify(next).moveMap(current.getSizeX());
     }
 
@@ -57,16 +58,7 @@ public class MarathonMapTest {
     @Test
     public void testException() {
         List<Map> insufficientMaps = List.of(Mockito.mock(Map.class));
-        boolean result = false;
-        try
-        {
-            new MarathonMap(insufficientMaps, chicken);
-        }
-        catch (RuntimeException e)
-        {
-            result= true;
-        }
-        assert result;
+        Assertions.assertThrows(RuntimeException.class , ()->new MarathonMap(insufficientMaps, chicken));
     }
 
     @Test

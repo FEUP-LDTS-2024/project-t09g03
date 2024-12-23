@@ -3,6 +3,7 @@ package com.chickengame.model.menus.buttons;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;
+import org.junit.jupiter.api.Assertions;
 
 public class ButtonLevelTest {
     @Property
@@ -11,14 +12,17 @@ public class ButtonLevelTest {
         ButtonLevel buttonLevel1 = new ButtonLevel(0,0, Button.Type.Level, levelNumber);
         ButtonLevel buttonLevel2 = new ButtonLevel(10,20, Button.Type.Level,levelNumber);
 
-        assert buttonLevel1.getPosition().getX() == 0;
-        assert buttonLevel1.getPosition().getY() == 0;
-        assert buttonLevel1.getType() == Button.Type.Level;
-        assert buttonLevel1.getLevel() == levelNumber;
+        Assertions.assertEquals(buttonLevel1.getPosition().getX(),0);
+        Assertions.assertEquals(buttonLevel1.getPosition().getY(),0);
+        Assertions.assertEquals(buttonLevel1.getType(), Button.Type.Level);
+        Assertions.assertEquals(buttonLevel1.getLevel(), levelNumber);
 
-        assert buttonLevel2.getPosition().getX() == 10;
-        assert buttonLevel2.getPosition().getY() == 20;
-        assert buttonLevel2.getType() == Button.Type.Level;
-        assert buttonLevel2.getLevel() == levelNumber;
+
+        Assertions.assertEquals(buttonLevel2.getPosition().getX(), 10);
+        Assertions.assertEquals(buttonLevel2.getPosition().getY(), 20);
+        Assertions.assertEquals(buttonLevel2.getType(), Button.Type.Level);
+        Assertions.assertEquals(buttonLevel2.getLevel(), levelNumber);
+
+
     }
 }

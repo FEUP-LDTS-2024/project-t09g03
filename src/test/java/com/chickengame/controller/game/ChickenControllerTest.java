@@ -71,7 +71,6 @@ public class ChickenControllerTest {
     @Property
     void moveYTest(@ForAll int y, @ForAll boolean inverted )
     {
-        //inOrder = inOrder(chicken,position);
         Mockito.when(position.getY()).thenReturn(y);
         Mockito.when(chicken.getPosition()).thenReturn(position);
         Mockito.when(chicken.isInverted()).thenReturn(inverted);
@@ -83,7 +82,6 @@ public class ChickenControllerTest {
     @Property
     void moveXTest(@ForAll int x)
     {
-        //inOrder = inOrder(chicken,position);
         Mockito.when(position.getX()).thenReturn(x);
         Mockito.when(chicken.getPosition()).thenReturn(position);
         chickenController.stopX();

@@ -5,6 +5,7 @@ import com.chickengame.model.game.elements.InvertedElement;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.lifecycle.BeforeProperty;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -74,7 +75,7 @@ public class MapBuilderTest {
             assertEquals(expecedMap.getHarmObjects().get(i).getHeight(), map.getHarmObjects().get(i).getHeight());
             assertEquals(expecedMap.getHarmObjects().get(i).getName(), map.getHarmObjects().get(i).getName());
         }
-        assert map.getSizeX() == 214;
+        Assertions.assertEquals(map.getSizeX(),214);
 
     }
 

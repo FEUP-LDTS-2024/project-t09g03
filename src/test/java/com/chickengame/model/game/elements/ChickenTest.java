@@ -3,6 +3,7 @@ package com.chickengame.model.game.elements;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class ChickenTest {
@@ -11,22 +12,24 @@ public class ChickenTest {
     {
         Chicken chicken = new Chicken(0,0,skin);
 
-        assert chicken.getSkin() == skin;
+        Assertions.assertEquals(chicken.getSkin(),skin);
         chicken.setCharge(true);
-        assert chicken.isCharge();
+        Assertions.assertTrue(chicken.isCharge());
         chicken.setWalking(true);
-        assert chicken.isWalking();
+        Assertions.assertTrue(chicken.isWalking());
     }
     @Test
     public void testBooleanfalseSetters()
     {
         Chicken chicken = new Chicken(0,0,1);
 
-        assert chicken.getSkin() == 1;
+        Assertions.assertEquals(chicken.getSkin(),1);
         chicken.setCharge(false);
-        assert !chicken.isCharge();
+        Assertions.assertFalse(chicken.isCharge());
         chicken.setWalking(false);
-        assert !chicken.isWalking();
+        Assertions.assertFalse(chicken.isWalking());
+
+
     }
 
 

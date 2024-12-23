@@ -2,6 +2,7 @@ package com.chickengame.model.game.map;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;
+import org.junit.jupiter.api.Assertions;
 
 public class MarathonBuilderTest {
 /*
@@ -32,9 +33,16 @@ public class MarathonBuilderTest {
         MapBuilder mapBuilder = new MapBuilder();
         MarathonMap marathonMap = marathonBuilder.createMarathonMap(3,"map/", mapBuilder, skin);
 
-        assert marathonMap.getCurrent().getElements().size() == 2;
-        assert marathonMap.getNextMap().getElements().size() == 2;
-        assert marathonMap.getCurrent().getWalls().size()+ marathonMap.getCurrent().getHarmObjects().size() == marathonMap.getCurrent().getElements().size();
-        assert marathonMap.getNextMap().getWalls().size()+ marathonMap.getNextMap().getHarmObjects().size() == marathonMap.getNextMap().getElements().size();
+        Assertions.assertEquals(marathonMap.getCurrent().getElements().size(), 2);
+        Assertions.assertEquals(marathonMap.getNextMap().getElements().size(), 2);
+        Assertions.assertEquals(marathonMap.getCurrent().getWalls().size()+ marathonMap.getCurrent().getHarmObjects().size() , marathonMap.getCurrent().getElements().size());
+        Assertions.assertEquals(marathonMap.getNextMap().getWalls().size()+ marathonMap.getNextMap().getHarmObjects().size() , marathonMap.getNextMap().getElements().size());
     }
+
+
+
+
+
+
+
 }

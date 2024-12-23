@@ -24,7 +24,6 @@ public class MapControllerTest {
     private Chicken chicken;
     private ChickenController chickenController;
     private GUI gui;
-    private Position position;
     private MapController mapController;
     private int offset = 5;
     InOrder inOrder;
@@ -33,7 +32,6 @@ public class MapControllerTest {
     @BeforeEach @BeforeProperty
     void Helper()
     {
-        position = Mockito.mock(Position.class);
         game = Mockito.mock(Game.class);
         map = Mockito.mock(Map.class);
         chicken = Mockito.mock(Chicken.class);

@@ -5,6 +5,7 @@ import com.chickengame.controller.menus.MainMenuController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.MainMenu;
 import com.chickengame.viewer.menus.MenuViewer;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -57,7 +58,9 @@ public class MainMenuStateTest {
     {
         MainMenuState mainMenuState = new MainMenuState(mainMenu);
 
-        assert mainMenuState.getStateController() != null;
-        assert mainMenuState.getStateViewer() != null;
+        Assertions.assertNotNull(mainMenuState.getStateController());
+        Assertions.assertNotNull(mainMenuState.getStateViewer());
+
+
     }
 }

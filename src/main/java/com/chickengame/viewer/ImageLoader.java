@@ -27,14 +27,13 @@ public class ImageLoader {
         } catch (IOException | URISyntaxException | AssertionError e) {
             throw new RuntimeException(e);
         }
-        BasicTextImage textImage = new BasicTextImage(bufferedImage.getWidth(),bufferedImage.getHeight());
-        buffertoBasic(bufferedImage, textImage);
-        return textImage;
+        return buffertoBasic(bufferedImage);
     }
 
-    private void buffertoBasic(BufferedImage image, BasicTextImage textImage)
+    private BasicTextImage buffertoBasic(BufferedImage image)
     {
 
+        BasicTextImage textImage = new BasicTextImage(image.getWidth(),image.getHeight());
         for(int i = 0; i< image.getWidth();i++)
         {
             for(int c = 0; c<image.getHeight(); c++)
@@ -45,6 +44,7 @@ public class ImageLoader {
 
             }
         }
+        return textImage;
 
     }
 

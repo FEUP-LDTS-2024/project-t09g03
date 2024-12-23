@@ -3,6 +3,7 @@ package com.chickengame.model.game.map;
 import com.chickengame.model.game.elements.Element;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -40,17 +41,17 @@ public class MapTest
     @Test
     void collidesHarmObject()
     {
-        assert(map.collidesHarmObject(4,6,7,9));
-        assert(map.collidesHarmObject(8,10,7,9));
-        assertFalse(map.collidesHarmObject(4,6,9,11));
-        assertFalse(map.collidesHarmObject(7,9,2,4));
+        Assertions.assertTrue(map.collidesHarmObject(4,6,7,9));
+        Assertions.assertTrue(map.collidesHarmObject(8,10,7,9));
+        Assertions.assertFalse(map.collidesHarmObject(4,6,9,11));
+        Assertions.assertFalse(map.collidesHarmObject(7,9,2,4));
     }
 
     @Test
     void collidesUp()
     {
-        assertFalse(map.collidesUp(0,2,3));
-        assertFalse(map.collidesUp(2,4,0));
+        Assertions.assertFalse(map.collidesUp(0,2,3));
+        Assertions.assertFalse(map.collidesUp(2,4,0));
 
         assert(map.collidesUp(0,2,2));
         assert(map.collidesUp(6,8,1));
@@ -59,19 +60,19 @@ public class MapTest
     @Test
     void collidesDown()
     {
-        assert(map.collidesDown(4,6,3));
-        assert(map.collidesDown(1,3,8));
-        assertFalse(map.collidesDown(3,5,10));
-        assertFalse(map.collidesDown(3,5,10));
+        Assertions.assertTrue(map.collidesDown(4,6,3));
+        Assertions.assertTrue(map.collidesDown(1,3,8));
+        Assertions.assertFalse(map.collidesDown(3,5,10));
+        Assertions.assertFalse(map.collidesDown(3,5,10));
     }
 
     @Test
     void collidesRight()
     {
-        assert(map.collidesRight(3,3,5));
-        assert(map.collidesRight(7,0,2));
-        assertFalse(map.collidesRight(5,8,10));
-        assertFalse(map.collidesRight(3,5,7));
+        Assertions.assertTrue(map.collidesRight(3,3,5));
+        Assertions.assertTrue(map.collidesRight(7,0,2));
+        Assertions.assertFalse(map.collidesRight(5,8,10));
+        Assertions.assertFalse(map.collidesRight(3,5,7));
     }
 
     private Map movedMapHelper()
@@ -94,8 +95,8 @@ public class MapTest
         movedMap.moveMap(offset);
         for(int i = 0; i < initialMap.getElements().size(); i++)
         {
-            assertEquals(initialMap.getElements().get(i).getPosition().getX() + offset, movedMap.getElements().get(i).getPosition().getX());
-            assertEquals(initialMap.getElements().get(i).getPosition().getY(),movedMap.getElements().get(i).getPosition().getY());
+            Assertions.assertEquals(initialMap.getElements().get(i).getPosition().getX() + offset, movedMap.getElements().get(i).getPosition().getX());
+            Assertions.assertEquals(initialMap.getElements().get(i).getPosition().getY(), movedMap.getElements().get(i).getPosition().getY());
         }
     }
 
@@ -109,8 +110,8 @@ public class MapTest
         movedMap.resetPosition();
         for(int i = 0; i < initialMap.getElements().size(); i++)
         {
-            assertEquals(initialMap.getElements().get(i).getPosition().getX() + 2*sizeX, movedMap.getElements().get(i).getPosition().getX());
-            assertEquals(initialMap.getElements().get(i).getPosition().getY(),movedMap.getElements().get(i).getPosition().getY());
+            Assertions.assertEquals(initialMap.getElements().get(i).getPosition().getX() + 2*sizeX, movedMap.getElements().get(i).getPosition().getX());
+            Assertions.assertEquals(initialMap.getElements().get(i).getPosition().getY(), movedMap.getElements().get(i).getPosition().getY());
         }
     }
 }

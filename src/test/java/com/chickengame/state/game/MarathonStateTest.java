@@ -7,6 +7,7 @@ import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.game.map.MarathonViewer;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -58,8 +59,8 @@ public class MarathonStateTest {
     public void marathonStateCreate()
     {
         MarathonState marathonState = new MarathonState(marathonMap);
+        Assertions.assertNotNull(marathonState.getStateController());
+        Assertions.assertNotNull(marathonState.getStateViewer());
 
-        assert marathonState.getStateController() != null;
-        assert marathonState.getStateViewer() != null;
     }
 }
