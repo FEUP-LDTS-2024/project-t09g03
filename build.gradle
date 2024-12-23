@@ -2,9 +2,11 @@ plugins {
     id 'java'
     id 'application'
     id 'groovy'
+    id 'info.solidsoft.pitest' version '1.15.0'
+
 }
 
-group = 'com.ChickenGame'
+group = 'com.chickengame'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -26,5 +28,11 @@ test {
 }
 
 application{
-    mainClass.set("Application")
+    mainClass.set("com.chickengame.Application")
+}
+
+pitest {
+
+    junit5PluginVersion = '1.2.0'
+    pitestVersion = '1.15.0'
 }

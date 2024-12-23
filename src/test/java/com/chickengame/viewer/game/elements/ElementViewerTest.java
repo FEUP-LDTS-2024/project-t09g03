@@ -1,10 +1,9 @@
-package com.chickengame.viewer.elements;
+package com.chickengame.viewer.game.elements;
 
 import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.viewer.ImageLoader;
-import com.chickengame.viewer.game.elements.ElementViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import net.jqwik.api.*;
 import net.jqwik.api.lifecycle.BeforeProperty;

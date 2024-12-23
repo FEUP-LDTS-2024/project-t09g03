@@ -16,7 +16,7 @@ public class ImageLoader {
 
     public BasicTextImage getImage(String imagePath){
         URL resource = ImageLoader.class.getClassLoader().getResource(imagePath);
-        assert(resource != null);
+        if(resource == null)throw new RuntimeException();
         File file = null;
         BufferedImage bufferedImage = null;
         try {

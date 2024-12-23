@@ -1,11 +1,9 @@
-package com.chickengame.state;
+package com.chickengame.state.menus;
 
 import com.chickengame.Game;
 import com.chickengame.controller.menus.MainMenuController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.MainMenu;
-import com.chickengame.model.menus.Menu;
-import com.chickengame.state.menus.MainMenuState;
 import com.chickengame.viewer.menus.MenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

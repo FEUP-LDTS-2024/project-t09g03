@@ -29,10 +29,11 @@ public class ElementViewerFactory extends ViewerFactory<Element>
     private static final String tobleronePath = "images/game/toblerone.png";
     private static final String tobleroneDownPath = "images/game/tobleroneDown.png";
 
-    private static final String chickenMovingPath = "images/game/chicken/chickenMoving";
     private static final String chickenStaticPath = "images/game/chicken/chickenStatic";
-    private static final String chickenMovingDownPath = "images/game/chicken/chickenMovingDown";
     private static final String chickenStaticDownPath = "images/game/chicken/chickenStaticDown";
+    private static final String chickenMovingPath = "images/game/chicken/chickenMoving";
+    private static final String chickenMovingDownPath = "images/game/chicken/chickenMovingDown";
+
 
     private static final String chickenShopPath = "images/menus/chickens/";
 
@@ -81,6 +82,8 @@ public class ElementViewerFactory extends ViewerFactory<Element>
                 case "toblerone":
                     cache.put(name, new InvertedElementViewer(imgLoader,tobleronePath,tobleroneDownPath));
                     break;
+                default:
+                    throw new RuntimeException("Invalid element!");
             }
         }
         return cache.get(name);

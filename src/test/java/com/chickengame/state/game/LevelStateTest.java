@@ -1,4 +1,4 @@
-package com.chickengame.state;
+package com.chickengame.state.game;
 
 import com.chickengame.Game;
 import com.chickengame.controller.game.LevelController;

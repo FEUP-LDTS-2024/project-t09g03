@@ -80,6 +80,8 @@ public class ButtonViewerFactory extends ViewerFactory<Button>
                 case "Shop":
                     cache.put(name, new ButtonViewer(imgLoader,shopButtonPath,shopButtonPressedPath));
                     break;
+                default:
+                    throw new RuntimeException("Invalid button!");
             }
         }
         return cache.get(name);

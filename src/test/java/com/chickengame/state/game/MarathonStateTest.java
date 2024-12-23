@@ -1,14 +1,10 @@
-package com.chickengame.state;
+package com.chickengame.state.game;
 
 import com.chickengame.Game;
 import com.chickengame.controller.game.MarathonController;
-import com.chickengame.controller.menus.MainMenuController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.map.MarathonMap;
-import com.chickengame.model.menus.Menu;
-import com.chickengame.state.game.MarathonState;
 import com.chickengame.viewer.game.map.MarathonViewer;
-import com.chickengame.viewer.menus.MenuViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

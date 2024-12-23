@@ -15,7 +15,7 @@ public class MapBuilder{
 
     public Map createMap(String path, int offset){
         Map map = new Map();
-        URL resource = MapBuilder.class.getResource(path);
+        URL resource = MapBuilder.class.getClassLoader().getResource(path);
         BufferedReader reader = null;
 
         try
@@ -23,7 +23,7 @@ public class MapBuilder{
             assert(resource != null);
             reader = new BufferedReader(new FileReader(resource.getFile()));
             lines = readElements(reader);
-        } catch (IOException e) {
+        } catch (IOException | AssertionError e) {
             throw new RuntimeException(e);
         }
 
@@ -90,7 +90,7 @@ public class MapBuilder{
                     map.getWalls().add(element);
                     break;
             }
-            assert element != null;
+            if(element == null)throw new RuntimeException();
             map.getElements().add(element);
             maxsize = Math.max(maxsize, x + element.getWidth());
             map.setSizeX(maxsize);
