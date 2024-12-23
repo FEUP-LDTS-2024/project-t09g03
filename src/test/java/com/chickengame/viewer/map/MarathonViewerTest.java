@@ -20,7 +20,8 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 
-public class MarathonViewerTest {
+public class MarathonViewerTest
+{
     private MarathonViewer marathonViewer;
     private MarathonMap marathonMap;
     private GUI gui;
@@ -64,8 +65,9 @@ public class MarathonViewerTest {
     {
         marathonViewer.drawElements(gui);
 
+        Mockito.verify(gui, Mockito.times(1)).drawImage(any(Position.class),any(BasicTextImage.class));
         Mockito.verify(elementViewer, Mockito.times(2)).draw(gui, element);
         Mockito.verify(chickenViewer, Mockito.times(1)).draw(gui, chicken);
-        Mockito.verify(gui, Mockito.times(1)).drawImage(any(Position.class),any(BasicTextImage.class));
+
     }
 }

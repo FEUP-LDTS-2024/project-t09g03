@@ -1,69 +1,96 @@
 package com.chickengame.viewer.menu;
 
 import com.chickengame.gui.GUI;
-import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.menus.MainMenu;
+import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.buttons.Button;
+import com.chickengame.model.menus.buttons.ButtonLevel;
 import com.chickengame.viewer.ButtonViewerFactory;
-import com.chickengame.viewer.game.elements.ElementViewer;
 import com.chickengame.viewer.menus.ButtonViewer;
 import com.chickengame.viewer.menus.MenuViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InOrder;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.inOrder;
 
 public class MenuViewerTest {
     private MenuViewer menuViewer;
-    private GUI gui;
-    private ButtonViewer buttonViewer;
-    private MainMenu mainMenu;
     private ButtonViewerFactory buttonViewerFactory;
+    private GUI gui;
+    private Menu menu;
     private List<Button> buttons;
-    private Element background;
-    private Button button;
-    private InOrder inOrder;
+    private Button button1;
+    private Button button2;
+    private Button button3;
+    private ButtonLevel button4;
+    private ButtonViewer buttonViewer1;
+    private ButtonViewer buttonViewer2;
+    private ButtonViewer buttonViewer3;
+    private ButtonViewer buttonViewer4;
     private BasicTextImage basicTextImage;
 
     @BeforeEach
     public void helper()
     {
-        this.gui = Mockito.mock(GUI.class);
-        this.buttonViewer = Mockito.mock(ButtonViewer.class);
-        this.mainMenu = Mockito.mock(MainMenu.class);
-        this.buttonViewerFactory = Mockito.mock(ButtonViewerFactory.class);
-        this.buttons = new ArrayList<>();
-        this.background = Mockito.mock(Element.class);
-        this.button = Mockito.mock(Button.class);
-        this.inOrder = inOrder(buttonViewer);
+        this.menu = Mockito.mock(MainMenu.class);
         this.basicTextImage = Mockito.mock(BasicTextImage.class);
+        this.buttonViewerFactory = Mockito.mock(ButtonViewerFactory.class);
+        this.gui = Mockito.mock(GUI.class);
+        this.buttons = new ArrayList<>();
 
+        this.button1 = Mockito.mock(Button.class);
+        this.button2 = Mockito.mock(Button.class);
+        this.button3 = Mockito.mock(Button.class);
+        this.button4 = Mockito.mock(ButtonLevel.class);
 
-        buttons.add(button);
-        Mockito.when(mainMenu.getBackground()).thenReturn("mainBackground");
-        Mockito.when(button.getType()).thenReturn(Button.Type.Back);
-        Mockito.when(buttonViewerFactory.getViewer(anyString())).thenReturn(buttonViewer);
-        Mockito.when(background.getName()).thenReturn("name");
-        Mockito.when(mainMenu.getButtons()).thenReturn(buttons);
-        Mockito.when(buttonViewerFactory.getBackground("mainBackground")).thenReturn(basicTextImage);
+        buttons.add(button1);
+        buttons.add(button2);
+        buttons.add(button3);
+        buttons.add(button4);
 
-        this.menuViewer = new MenuViewer(mainMenu, buttonViewerFactory);
+        this.buttonViewer1 = Mockito.mock(ButtonViewer.class);
+        this.buttonViewer2 = Mockito.mock(ButtonViewer.class);
+        this.buttonViewer3 = Mockito.mock(ButtonViewer.class);
+        this.buttonViewer4 = Mockito.mock(ButtonViewer.class);
+
+        Mockito.when(buttonViewerFactory.getBackground("background")).thenReturn(basicTextImage);
+
+        Mockito.when(button1.getType()).thenReturn(Button.Type.Back);
+        Mockito.when(button2.getType()).thenReturn(Button.Type.Previous);
+        Mockito.when(button3.getType()).thenReturn(Button.Type.Next);
+        Mockito.when(button4.getType()).thenReturn(Button.Type.Level);
+
+        Mockito.when(button4.getLevel()).thenReturn(2);
+
+        Mockito.when(buttonViewerFactory.getViewer("Back")).thenReturn(buttonViewer1);
+        Mockito.when(buttonViewerFactory.getViewer("Previous")).thenReturn(buttonViewer2);
+        Mockito.when(buttonViewerFactory.getViewer("Next")).thenReturn(buttonViewer3);
+        Mockito.when(buttonViewerFactory.getViewer("Level2")).thenReturn(buttonViewer4);
+
+        Mockito.when(menu.getButtons()).thenReturn(buttons);
+
+        this.menuViewer = new MenuViewer(menu, buttonViewerFactory);
     }
 
     @Test
     public void drawElements() throws IOException {
         menuViewer.draw(gui);
 
-        Mockito.verify(buttonViewerFactory, Mockito.times(buttons.size())).getViewer(button.getType().toString());
-        inOrder.verify(buttonViewer, Mockito.calls(buttons.size())).draw(any(GUI.class),any(Button.class));
+        Mockito.verify(buttonViewerFactory, Mockito.times(1)).getViewer("Back");
+        Mockito.verify(buttonViewer1, Mockito.times(1)).draw(gui,button1);
+
+        Mockito.verify(buttonViewerFactory, Mockito.times(1)).getViewer("Previous");
+        Mockito.verify(buttonViewer2, Mockito.times(1)).draw(gui,button2);
+
+        Mockito.verify(buttonViewerFactory, Mockito.times(1)).getViewer("Next");
+        Mockito.verify(buttonViewer3, Mockito.times(1)).draw(gui,button3);
+
+        Mockito.verify(buttonViewerFactory, Mockito.times(1)).getViewer("Level2");
+        Mockito.verify(buttonViewer4, Mockito.times(1)).draw(gui,button4);
     }
 }

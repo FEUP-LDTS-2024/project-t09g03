@@ -9,7 +9,8 @@ import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.game.map.LevelViewer;
 
 public class LevelState extends State<LevelMap> {
-    public LevelState(LevelMap location) {
+    public LevelState(LevelMap location)
+    {
         super(location);
     }
 
@@ -19,7 +20,8 @@ public class LevelState extends State<LevelMap> {
     }
 
     @Override
-    public LevelController getStateController() {
+    public LevelController getStateController()
+    {
         return new LevelController(getLocation());
     }
 }
