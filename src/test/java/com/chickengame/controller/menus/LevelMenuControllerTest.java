@@ -1,10 +1,8 @@
 package com.chickengame.controller.menus;
 
 import com.chickengame.Game;
-import com.chickengame.controller.game.LevelController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.LevelMenu;
-import com.chickengame.model.menus.ShopMenu;
 import com.chickengame.model.menus.buttons.Button;
 import com.chickengame.model.menus.buttons.ButtonLevel;
 import com.chickengame.state.game.LevelState;
@@ -16,8 +14,6 @@ import net.jqwik.api.lifecycle.BeforeProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
-import java.io.IOException;
 
 import static org.mockito.ArgumentMatchers.any;
 

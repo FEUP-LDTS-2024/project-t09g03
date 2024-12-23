@@ -4,9 +4,7 @@ import com.chickengame.Game;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.ShopMenu;
 import com.chickengame.model.menus.buttons.Button;
-import com.chickengame.state.game.MarathonState;
 import com.chickengame.state.menus.MainMenuState;
-import com.chickengame.state.menus.ShopState;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;
@@ -14,9 +12,6 @@ import net.jqwik.api.lifecycle.BeforeProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-
-import java.io.IOException;
-
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 
