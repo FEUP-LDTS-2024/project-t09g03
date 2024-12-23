@@ -2,9 +2,6 @@ package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
-import com.chickengame.model.game.map.LevelMap;
-import com.chickengame.model.game.map.LevelMapBuilder;
-import com.chickengame.model.game.map.MapBuilder;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;

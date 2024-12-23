@@ -1,6 +1,4 @@
 package com.chickengame.model.game.map;
-import com.chickengame.model.game.map.*;
-import com.chickengame.model.game.map.MarathonMap;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.constraints.IntRange;
@@ -39,7 +37,4 @@ public class MarathonBuilderTest {
         assert marathonMap.getCurrent().getWalls().size()+ marathonMap.getCurrent().getHarmObjects().size() == marathonMap.getCurrent().getElements().size();
         assert marathonMap.getNextMap().getWalls().size()+ marathonMap.getNextMap().getHarmObjects().size() == marathonMap.getNextMap().getElements().size();
     }
-
-
-
 }

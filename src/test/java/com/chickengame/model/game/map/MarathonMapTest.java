@@ -1,8 +1,6 @@
 package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.map.Map;
-import com.chickengame.model.game.map.MarathonMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

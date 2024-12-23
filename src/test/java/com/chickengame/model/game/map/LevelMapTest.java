@@ -2,8 +2,6 @@ package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
-import com.chickengame.model.game.map.LevelMap;
-import com.chickengame.model.game.map.Map;
 import org.junit.jupiter.api.Test;
 
 public class LevelMapTest {
