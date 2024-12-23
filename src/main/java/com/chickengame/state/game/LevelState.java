@@ -1,6 +1,5 @@
 package com.chickengame.state.game;
 
-import com.chickengame.controller.Controller;
 import com.chickengame.controller.game.LevelController;
 import com.chickengame.model.game.map.LevelMap;
 import com.chickengame.state.State;

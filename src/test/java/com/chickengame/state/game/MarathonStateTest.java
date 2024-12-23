@@ -3,6 +3,8 @@ package com.chickengame.state.game;
 import com.chickengame.Game;
 import com.chickengame.controller.game.MarathonController;
 import com.chickengame.gui.GUI;
+import com.chickengame.model.game.elements.Chicken;
+import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.game.map.MarathonViewer;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,6 +29,8 @@ public class MarathonStateTest {
         this.marathonViewer = Mockito.mock(MarathonViewer.class);
         this.marathonMap = Mockito.mock(MarathonMap.class);
         this.game = Mockito.mock(Game.class);
+
+        Mockito.when(marathonMap.getChicken()).thenReturn(new Chicken(0,0,1));
     }
 
     @Test
@@ -48,5 +52,14 @@ public class MarathonStateTest {
         marathonState.step(game, GUI.Action.NONE,gui);
         Mockito.verify(marathonController, Mockito.times(1)).step(game, gui,GUI.Action.NONE);
         Mockito.verify(marathonViewer, Mockito.times(1)).draw(gui);
+    }
+
+    @Test
+    public void marathonStateCreate()
+    {
+        MarathonState marathonState = new MarathonState(marathonMap);
+
+        assert marathonState.getStateController() != null;
+        assert marathonState.getStateViewer() != null;
     }
 }

@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class MainMenuStateTest {
     private MainMenuState mainMenuState;
-    private MainMenu menu;
+    private MainMenu mainMenu;
     private MainMenuController mainMenuController;
     private MenuViewer menuViewer;
     private Game game;
@@ -25,13 +25,15 @@ public class MainMenuStateTest {
         this.gui = Mockito.mock(GUI.class);
         this.mainMenuController = Mockito.mock(MainMenuController.class);
         this.menuViewer = Mockito.mock(MenuViewer.class);
-        this.menu = Mockito.mock(MainMenu.class);
+        this.mainMenu = Mockito.mock(MainMenu.class);
         this.game = Mockito.mock(Game.class);
+
+        Mockito.when(mainMenu.getBackground()).thenReturn("backgorund");
     }
 
     @Test
     public void mainMenuState() throws IOException {
-        this.mainMenuState = new MainMenuState(menu)
+        this.mainMenuState = new MainMenuState(mainMenu)
         {
           @Override
           public MenuViewer getStateViewer()
@@ -48,5 +50,14 @@ public class MainMenuStateTest {
         mainMenuState.step(game, GUI.Action.NONE,gui);
         Mockito.verify(mainMenuController, Mockito.times(1)).step(game, gui,GUI.Action.NONE);
         Mockito.verify(menuViewer, Mockito.times(1)).draw(gui);
+    }
+
+    @Test
+    public void mainMenuStateCreate()
+    {
+        MainMenuState mainMenuState = new MainMenuState(mainMenu);
+
+        assert mainMenuState.getStateController() != null;
+        assert mainMenuState.getStateViewer() != null;
     }
 }
