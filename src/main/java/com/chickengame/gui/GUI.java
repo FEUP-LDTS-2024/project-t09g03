@@ -1,9 +1,7 @@
 package com.chickengame.gui;
 
-import com.googlecode.lanterna.graphics.TextGraphics;
 import com.chickengame.model.Position;
 import com.googlecode.lanterna.graphics.BasicTextImage;
-import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 
 import java.io.IOException;

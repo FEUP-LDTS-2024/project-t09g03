@@ -3,7 +3,6 @@ package com.chickengame.controller.menus;
 import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.menus.Menu;
 import com.chickengame.model.game.map.MapBuilder;
 import com.chickengame.model.game.map.MarathonBuilder;
 import com.chickengame.model.menus.HelpMenu;

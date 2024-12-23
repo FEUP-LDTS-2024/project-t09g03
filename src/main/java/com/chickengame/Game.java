@@ -1,6 +1,5 @@
 package com.chickengame;
 
-
 import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
 import com.chickengame.model.menus.MainMenu;

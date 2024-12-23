@@ -4,7 +4,6 @@ import com.chickengame.Game;
 import com.chickengame.controller.game.MarathonController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.MarathonMap;
 import com.chickengame.viewer.game.map.MarathonViewer;
 import org.junit.jupiter.api.Assertions;

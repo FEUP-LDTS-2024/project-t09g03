@@ -70,4 +70,18 @@ public class LevelControllerTest {
 
         Mockito.verify(game, Mockito.times(1)).setState(any(GameEndState.class));
     }
+
+    @Test
+    public void testPosition()
+    {
+        Element element1 = new Element(10, 10, 10, 10, "name");
+        Mockito.when(levelMap.getFinishLine()).thenReturn(element1);
+
+        this.levelController = new LevelController(levelMap);
+
+        levelController.step(game,gui, GUI.Action.LEFT);
+
+        assert element1.getPosition().getX() == 5;
+        assert element1.getPosition().getY() == 10;
+    }
 }
