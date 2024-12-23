@@ -9,17 +9,20 @@ import com.chickengame.viewer.game.elements.ChickenViewer;
 import com.chickengame.viewer.game.elements.ElementViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 
-public class LevelViewer extends Viewer<LevelMap> {
+public class LevelViewer extends Viewer<LevelMap>
+{
     private final MapViewer mapViewer;
     private final BasicTextImage backgroundBasicTextImage;
     private final ElementViewer finishLineViewer;
     private final ChickenViewer chickenViewer;
     private final ElementViewerFactory elementViewerFactory;
+    private final Position backgroundPosition = new Position(0,0);
 
-    public LevelViewer(LevelMap location, ElementViewerFactory viewerFactory) {
+    public LevelViewer(LevelMap location, ElementViewerFactory viewerFactory)
+    {
         super(location);
         elementViewerFactory = viewerFactory;
-        mapViewer = new MapViewer(getLocation().getMap(),elementViewerFactory);
+        mapViewer = new MapViewer(location.getMap(),elementViewerFactory);
         chickenViewer = elementViewerFactory.getChickenViewer(location.getChicken().getSkin());
         backgroundBasicTextImage = viewerFactory.getBackground("background");
         finishLineViewer = elementViewerFactory.getViewer("finishLine");
@@ -27,12 +30,10 @@ public class LevelViewer extends Viewer<LevelMap> {
 
     @Override
     protected void drawElements(GUI gui){
-        gui.drawImage(new Position(0,0),backgroundBasicTextImage);
+        gui.drawImage(backgroundPosition,backgroundBasicTextImage);
         mapViewer.drawElements(gui);
         chickenViewer.draw(gui,getLocation().getChicken());
         finishLineViewer.draw(gui,getLocation().getFinishLine());
     }
-
-
 
 }

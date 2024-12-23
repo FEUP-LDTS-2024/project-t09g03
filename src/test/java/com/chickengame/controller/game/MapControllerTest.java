@@ -1,4 +1,4 @@
-package com.chickengame.controller;
+package com.chickengame.controller.game;
 
 import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.any;

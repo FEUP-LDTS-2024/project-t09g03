@@ -228,7 +228,7 @@ platform 5800 346
 platform 5840 346
 platform 5880 346
 platform 5920 346
-cornSpike 5020 321 false 
+cornSpike 5020 331 false
 platform 5220 -12
 platform 5260 -12
 platform 5300 -12

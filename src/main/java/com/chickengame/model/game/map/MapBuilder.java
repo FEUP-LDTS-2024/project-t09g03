@@ -20,7 +20,7 @@ public class MapBuilder{
 
         try
         {
-            assert(resource != null);
+            if(resource == null)throw (new RuntimeException("Wrong File"));
             reader = new BufferedReader(new FileReader(resource.getFile()));
             lines = readElements(reader);
         } catch (IOException | AssertionError e) {

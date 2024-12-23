@@ -4,6 +4,7 @@ import com.chickengame.Game;
 import com.chickengame.controller.game.LevelController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.map.LevelMap;
+import com.chickengame.state.game.LevelState;
 import com.chickengame.viewer.game.map.LevelViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
