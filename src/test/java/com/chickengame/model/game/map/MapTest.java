@@ -1,7 +1,6 @@
 package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Element;
-import com.chickengame.model.game.map.Map;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import org.junit.jupiter.api.BeforeEach;

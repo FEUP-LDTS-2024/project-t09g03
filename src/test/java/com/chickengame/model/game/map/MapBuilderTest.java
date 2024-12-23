@@ -1,8 +1,6 @@
 package com.chickengame.model.game.map;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.elements.InvertedElement;
-import com.chickengame.model.game.map.Map;
-import com.chickengame.model.game.map.MapBuilder;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
 import net.jqwik.api.lifecycle.BeforeProperty;

@@ -38,6 +38,8 @@ public class MarathonMapTest {
         Map current = marathonMap.getCurrent();
         Map next = marathonMap.getNextMap();
         assertNotSame(current, next);
+        assert maps.contains(current);
+        assert maps.contains(next);
         Mockito.verify(next).moveMap(current.getSizeX());
     }
 
