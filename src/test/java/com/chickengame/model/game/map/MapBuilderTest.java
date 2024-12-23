@@ -74,7 +74,7 @@ public class MapBuilderTest {
             assertEquals(expecedMap.getHarmObjects().get(i).getHeight(), map.getHarmObjects().get(i).getHeight());
             assertEquals(expecedMap.getHarmObjects().get(i).getName(), map.getHarmObjects().get(i).getName());
         }
-
+        assert map.getSizeX() == 214;
 
     }
 

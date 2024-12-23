@@ -5,6 +5,7 @@ import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -39,8 +40,8 @@ public class ImageLoader {
             for(int c = 0; c<image.getHeight(); c++)
             {
                 TextColor textColor = getColor(i,c,image);
-
-                    textImage.setCharacterAt(i,c,new TextCharacter(' ', textColor,textColor));
+                if(textColor == null)throw(new RuntimeException("File Currupted"));
+                textImage.setCharacterAt(i,c,new TextCharacter(' ', textColor,textColor));
 
             }
         }
@@ -49,14 +50,7 @@ public class ImageLoader {
 
     private TextColor getColor(int x, int y, BufferedImage image)
     {
-        int rgb = image.getRGB(x,y);
-        if(((rgb>>24)&0xff) == 0)
-        {
-            return new TextColor.RGB(0,0,0);
-        }
-        int red = (rgb>>16) & 0xff;
-        int green = (rgb>>8) & 0xff;
-        int blue = rgb & 0xff;
-        return new TextColor.RGB(red,green,blue);
+        Color color = new Color(image.getRGB(x,y));
+        return new TextColor.RGB(color.getRed(), color.getGreen(),color.getBlue());
     }
 }

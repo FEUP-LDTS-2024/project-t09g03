@@ -5,8 +5,11 @@ import com.chickengame.controller.menus.GameEndController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.GameEndMenu;
 import com.chickengame.viewer.menus.MenuViewer;
+import org.apache.tools.ant.taskdefs.Length;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.io.IOException;
@@ -49,4 +52,15 @@ public class GameEndStateTest {
         Mockito.verify(gameEndController, Mockito.times(1)).step(game, gui,GUI.Action.NONE);
         Mockito.verify(menuViewer, Mockito.times(1)).draw(gui);
     }
+
+    @Test
+    public void GameEndStateCreate()
+    {
+        Mockito.when(menu.getBackground()).thenReturn("background");
+        this.gameEndState = new GameEndState(menu);
+
+        assert gameEndState.getStateViewer() != null;
+        assert gameEndState.getStateController() != null;
+    }
+
 }

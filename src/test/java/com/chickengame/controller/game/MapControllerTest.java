@@ -1,9 +1,22 @@
 package com.chickengame.controller.game;
 
+import com.chickengame.Game;
+import com.chickengame.gui.GUI;
+import com.chickengame.model.Position;
+import com.chickengame.model.game.elements.Chicken;
+import com.chickengame.model.game.map.Map;
+import com.chickengame.state.menus.GameEndState;
+import net.jqwik.api.*;
+import net.jqwik.api.lifecycle.BeforeProperty;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.mockito.InOrder;
+import org.mockito.Mockito;
+
 import static org.junit.Assert.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.inOrder;
 
-/*
 public class MapControllerTest {
 
     private Game game;
@@ -30,6 +43,7 @@ public class MapControllerTest {
         gui = Mockito.mock(GUI.class);
         inOrder = inOrder(game, chicken,chickenController);
     }
+    /*
     @Property
     void verifychickenout(@ForAll int x, @ForAll int y, @ForAll int width, @ForAll int height)
     {
@@ -39,14 +53,17 @@ public class MapControllerTest {
         Mockito.when(chicken.getWidth()).thenReturn(width);
         Mockito.when(chicken.getHeight()).thenReturn(height);
         Mockito.when(map.collidesHarmObject(Mockito.anyInt(), Mockito.anyInt(),Mockito.anyInt(),Mockito.anyInt())).thenReturn(false);
-        if(width+x<=0 || height+y<=0)
+        if(width+x<=0 || height+y<0)
         {
             inOrder.verify(game, Mockito.calls(1)).setState(any(GameEndState.class));
+        }else
+        {
+            inOrder.verify(game, Mockito.calls(0)).setState(any(GameEndState.class));
         }
-
 
     }
 
+*/
 
 
 
@@ -80,7 +97,7 @@ public class MapControllerTest {
 
         mapController.step(game, gui, action);
 
-        Mockito.verify(chickenController, Mockito.times(5)).step(game,gui,action);
+        inOrder.verify(chickenController, Mockito.times(5)).step(game,gui,action);
     }
 
     @Provide
@@ -98,4 +115,3 @@ public class MapControllerTest {
 
 
 }
-*/

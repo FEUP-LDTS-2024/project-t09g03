@@ -10,9 +10,10 @@ public class PositionTest
     {
         Position position1 = new Position(0, 0);
         Position position2 = new Position(10, 20);
-
-        assertEquals(position1.getX(),0);
-        assertEquals(position1.getY(),0);
+        position1.setX(5);
+        position1.setY(10);
+        assertEquals(position1.getX(),5);
+        assertEquals(position1.getY(),10);
 
         assertEquals(position2.getX(),10);
         assertEquals(position2.getY(),20);

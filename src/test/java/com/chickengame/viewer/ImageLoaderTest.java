@@ -77,7 +77,6 @@ public class ImageLoaderTest {
     }
     public boolean equals4(BufferedImage bufferedImage, BasicTextImage basicTextImage)
     {
-        boolean result = true;
         Color color = new Color(bufferedImage.getRGB(1, 1));
         int red = color.getRed();
         int green = color.getGreen();
