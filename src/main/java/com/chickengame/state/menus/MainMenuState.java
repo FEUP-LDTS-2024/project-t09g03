@@ -6,7 +6,6 @@ import com.chickengame.state.State;
 import com.chickengame.viewer.ButtonViewerFactory;
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.menus.MenuViewer;
-import com.chickengame.viewer.Viewer;
 
 public class MainMenuState extends State<MainMenu>
 {

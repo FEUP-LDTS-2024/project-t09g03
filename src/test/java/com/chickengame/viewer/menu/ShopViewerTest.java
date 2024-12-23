@@ -14,7 +14,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import java.io.IOException;
 
-import static net.jqwik.time.api.Times.times;
 import static org.mockito.ArgumentMatchers.any;
 
 public class ShopViewerTest {

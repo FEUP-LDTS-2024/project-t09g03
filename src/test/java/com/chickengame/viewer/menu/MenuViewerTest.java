@@ -5,7 +5,6 @@ import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.menus.MainMenu;
 import com.chickengame.model.menus.buttons.Button;
 import com.chickengame.viewer.ButtonViewerFactory;
-import com.chickengame.viewer.game.elements.ElementViewer;
 import com.chickengame.viewer.menus.ButtonViewer;
 import com.chickengame.viewer.menus.MenuViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;

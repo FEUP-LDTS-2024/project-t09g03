@@ -56,9 +56,4 @@ public class MarathonController extends Controller<MarathonMap>
         currentMapController = new MapController(getLocation().getCurrent(),new ChickenController(getLocation().getChicken()),adapter);
         nextMapController = new MapController(getLocation().getNextMap(),new ChickenController(getLocation().getChicken()),adapter);
     }
-
-
-
-
-
 }

@@ -6,14 +6,11 @@ import com.chickengame.model.game.elements.Element;
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.game.elements.ElementViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
-import com.googlecode.lanterna.input.KeyType;
 import net.jqwik.api.*;
 import net.jqwik.api.lifecycle.BeforeProperty;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 import org.mockito.InOrder;
 import org.mockito.Mockito;
-import org.mockito.stubbing.OngoingStubbing;
 
 import java.util.List;
 

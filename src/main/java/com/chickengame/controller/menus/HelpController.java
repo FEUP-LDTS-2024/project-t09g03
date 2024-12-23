@@ -4,7 +4,6 @@ import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.HelpMenu;
-import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.MainMenu;
 import com.chickengame.state.menus.MainMenuState;
 

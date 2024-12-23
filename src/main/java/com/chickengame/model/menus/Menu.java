@@ -1,7 +1,5 @@
 package com.chickengame.model.menus;
 
-import com.chickengame.model.game.elements.Element;
-import com.chickengame.model.game.elements.InvertedElement;
 import com.chickengame.model.menus.buttons.Button;
 
 import java.util.List;
