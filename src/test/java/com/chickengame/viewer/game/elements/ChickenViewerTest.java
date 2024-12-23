@@ -16,7 +16,8 @@ import org.mockito.Mockito;
 import static org.mockito.Mockito.calls;
 import static org.mockito.Mockito.inOrder;
 
-public class ChickenViewerTest {
+public class ChickenViewerTest
+{
     private BasicTextImage imgMoving;
     private BasicTextImage imgMovingDown;
     private BasicTextImage imgStatic;
