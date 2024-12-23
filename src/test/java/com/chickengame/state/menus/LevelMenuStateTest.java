@@ -13,7 +13,7 @@ import java.io.IOException;
 
 public class LevelMenuStateTest {
     private LevelMenuState levelMenuState;
-    private LevelMenu menu;
+    private LevelMenu levelMenu;
     private LevelMenuController levelMenuController;
     private MenuViewer menuViewer;
     private Game game;
@@ -25,13 +25,15 @@ public class LevelMenuStateTest {
         this.gui = Mockito.mock(GUI.class);
         this.levelMenuController = Mockito.mock(LevelMenuController.class);
         this.menuViewer = Mockito.mock(MenuViewer.class);
-        this.menu = Mockito.mock(LevelMenu.class);
+        this.levelMenu = Mockito.mock(LevelMenu.class);
         this.game = Mockito.mock(Game.class);
+
+        Mockito.when(levelMenu.getBackground()).thenReturn("background");
     }
 
     @Test
     public void levelMenuState() throws IOException {
-        this.levelMenuState = new LevelMenuState(menu)
+        this.levelMenuState = new LevelMenuState(levelMenu)
         {
             @Override
             public MenuViewer getStateViewer()
@@ -48,5 +50,14 @@ public class LevelMenuStateTest {
         levelMenuState.step(game, GUI.Action.NONE,gui);
         Mockito.verify(levelMenuController, Mockito.times(1)).step(game, gui,GUI.Action.NONE);
         Mockito.verify(menuViewer, Mockito.times(1)).draw(gui);
+    }
+
+    @Test
+    public void levelMenuStateCreate()
+    {
+        LevelMenuState levelMenuState = new LevelMenuState(levelMenu);
+
+        assert levelMenuState.getStateController() != null;
+        assert levelMenuState.getStateViewer() != null;
     }
 }

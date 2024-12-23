@@ -3,20 +3,19 @@ package com.chickengame.state.menus;
 import com.chickengame.Game;
 import com.chickengame.controller.menus.GameEndController;
 import com.chickengame.gui.GUI;
+import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.menus.GameEndMenu;
+import com.chickengame.state.game.MarathonState;
 import com.chickengame.viewer.menus.MenuViewer;
-import org.apache.tools.ant.taskdefs.Length;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 
 public class GameEndStateTest {
     private GameEndState gameEndState;
-    private GameEndMenu menu;
+    private GameEndMenu gameEndMenu;
     private GameEndController gameEndController;
     private MenuViewer menuViewer;
     private Game game;
@@ -28,13 +27,15 @@ public class GameEndStateTest {
         this.gui = Mockito.mock(GUI.class);
         this.gameEndController = Mockito.mock(GameEndController.class);
         this.menuViewer = Mockito.mock(MenuViewer.class);
-        this.menu = Mockito.mock(GameEndMenu.class);
+        this.gameEndMenu = Mockito.mock(GameEndMenu.class);
         this.game = Mockito.mock(Game.class);
+
+        Mockito.when(gameEndMenu.getBackground()).thenReturn("backgroudn");
     }
 
     @Test
-    public void GameEndState() throws IOException {
-        this.gameEndState = new GameEndState(menu)
+    public void gameEndState() throws IOException {
+        this.gameEndState = new GameEndState(gameEndMenu)
         {
             @Override
             public MenuViewer getStateViewer()
@@ -54,13 +55,11 @@ public class GameEndStateTest {
     }
 
     @Test
-    public void GameEndStateCreate()
+    public void gameEndStateCreate()
     {
-        Mockito.when(menu.getBackground()).thenReturn("background");
-        this.gameEndState = new GameEndState(menu);
+        GameEndState gameEndState = new GameEndState(gameEndMenu);
 
-        assert gameEndState.getStateViewer() != null;
         assert gameEndState.getStateController() != null;
+        assert gameEndState.getStateViewer() != null;
     }
-
 }
