@@ -49,7 +49,7 @@ public class MapBuilderTest {
     public void createMap(@ForAll int offset)
     {
         MapBuilder mapBuilder = new MapBuilder();
-        Map map = mapBuilder.createMap("map/mapTest.txt", offset);
+        Map map = mapBuilder.createMap("map/map10.txt", offset);
         for(int i = 0; i < expecedMap.getElements().size(); i++)
         {
             assertEquals(expecedMap.getElements().get(i).getPosition().getX() + offset, map.getElements().get(i).getPosition().getX());

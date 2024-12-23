@@ -14,7 +14,7 @@ public class MarathonMap
     private final Chicken chicken;
     private final Random random = new Random();
 
-    MarathonMap(List<Map> maps, Chicken chicken)
+    public MarathonMap(List<Map> maps, Chicken chicken)
     {
         this.chicken = chicken;
         if(maps.size()<2)throw new RuntimeException("Not enough maps");
@@ -47,7 +47,5 @@ public class MarathonMap
     public Chicken getChicken() {
         return chicken;
     }
-
-
 
 }

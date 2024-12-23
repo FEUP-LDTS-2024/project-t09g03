@@ -9,7 +9,7 @@ public class LevelMap
     private Chicken chicken;
     private Element finishLine;
 
-    LevelMap(Map map, Chicken chicken, Element finishLine)
+    public LevelMap(Map map, Chicken chicken, Element finishLine)
     {
         this.map = map;
         this.chicken = chicken;
