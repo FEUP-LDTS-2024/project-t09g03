@@ -7,8 +7,8 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.map.Map;
-import com.chickengame.state.GameEndState;
 import com.chickengame.state.State;
+import com.chickengame.state.menus.GameEndState;
 import net.jqwik.api.*;
 import net.jqwik.api.constraints.Positive;
 import net.jqwik.api.lifecycle.AfterProperty;
@@ -55,6 +55,7 @@ public class MapControllerTest {
         inOrder = inOrder(game, chicken,chickenController);
     }
 
+    @Test
     void verifychickenoutX()
     {
         Mockito.when(position.getX()).thenReturn(-40);
@@ -83,7 +84,7 @@ public class MapControllerTest {
 
         if(colidesHarmObject)
         {
-            inOrder.verify(game, Mockito.atLeast(1)).setState(any(GameEndState.class));
+            Mockito.verify(game, Mockito.atLeast(1)).setState(any(GameEndState.class));
         }
     }
 
@@ -102,7 +103,7 @@ public class MapControllerTest {
 
         mapController.step(game, gui, action);
 
-        Mockito.verify(chickenController, Mockito.times(5)).step(game,gui,action);
+        inOrder.verify(chickenController, Mockito.times(5)).step(game,gui,action);
     }
 
     @AfterEach

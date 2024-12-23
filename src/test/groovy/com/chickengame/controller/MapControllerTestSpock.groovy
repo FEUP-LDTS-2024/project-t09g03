@@ -7,9 +7,9 @@ import com.chickengame.gui.GUI
 import com.chickengame.model.Position
 import com.chickengame.model.game.elements.Chicken
 import com.chickengame.model.game.map.Map
-import com.chickengame.state.GameEndState
+import com.chickengame.state.menus.GameEndState
 import spock.lang.Specification
-/*
+
 class MapControllerTestSpock extends Specification{
 
 
@@ -116,4 +116,3 @@ class MapControllerTestSpock extends Specification{
 
 
 }
-*/
