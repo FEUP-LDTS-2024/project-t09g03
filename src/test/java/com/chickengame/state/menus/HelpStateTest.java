@@ -27,6 +27,8 @@ public class HelpStateTest {
         this.menuViewer = Mockito.mock(MenuViewer.class);
         this.helpMenu = Mockito.mock(HelpMenu.class);
         this.game = Mockito.mock(Game.class);
+
+        Mockito.when(helpMenu.getBackground()).thenReturn("background");
     }
 
     @Test
@@ -48,5 +50,14 @@ public class HelpStateTest {
         helpState.step(game, GUI.Action.NONE,gui);
         Mockito.verify(helpController, Mockito.times(1)).step(game, gui,GUI.Action.NONE);
         Mockito.verify(menuViewer, Mockito.times(1)).draw(gui);
+    }
+
+    @Test
+    public void helpStateCreate()
+    {
+        HelpState helpState = new HelpState(helpMenu);
+
+        assert helpState.getStateController() != null;
+        assert helpState.getStateViewer() != null;
     }
 }
