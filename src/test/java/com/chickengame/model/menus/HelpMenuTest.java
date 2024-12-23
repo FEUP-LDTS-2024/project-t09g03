@@ -1,7 +1,6 @@
-package com.chickengame.model.menus.buttons;
+package com.chickengame.model.menus;
 
-import com.chickengame.model.menus.GameEndMenu;
-import com.chickengame.model.menus.HelpMenu;
+import com.chickengame.model.menus.buttons.Button;
 import org.junit.jupiter.api.Test;
 
 public class HelpMenuTest {
