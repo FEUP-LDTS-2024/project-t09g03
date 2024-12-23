@@ -1,5 +1,4 @@
-package com.chickengame.model.map;
-
+package com.chickengame.model.game.map;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.elements.InvertedElement;
 import com.chickengame.model.game.map.Map;
@@ -9,9 +8,6 @@ import net.jqwik.api.Property;
 import net.jqwik.api.lifecycle.BeforeProperty;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import java.net.URL;
-
 import static org.junit.Assert.assertEquals;
 
 public class MapBuilderTest {
@@ -76,6 +72,7 @@ public class MapBuilderTest {
             assertEquals(expecedMap.getHarmObjects().get(i).getHeight(), map.getHarmObjects().get(i).getHeight());
             assertEquals(expecedMap.getHarmObjects().get(i).getName(), map.getHarmObjects().get(i).getName());
         }
+        assert map.getSizeX() == 214;
 
     }
 

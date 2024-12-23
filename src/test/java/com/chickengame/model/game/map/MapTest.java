@@ -1,4 +1,4 @@
-package com.chickengame.model.map;
+package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.Map;

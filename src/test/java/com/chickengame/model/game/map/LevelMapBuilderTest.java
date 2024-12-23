@@ -1,4 +1,4 @@
-package com.chickengame.model.map;
+package com.chickengame.model.game.map;
 
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
@@ -23,6 +23,7 @@ public class LevelMapBuilderTest {
         this.expectedLevelMap = new LevelMap(mapBuilder.createMap("map/map10.txt",0), new Chicken(200,300,skin), new Element(5440,30,40,375,"finishLine"));
         LevelMap levelMap = levelMapBuilder.createLevelMap("map/", mapBuilder, skin, 10);
 
+        assert expectedLevelMap.getChicken().getSkin() == skin;
         Mockito.verify(mapBuilder, Mockito.times(2)).createMap("map/map10.txt",0);
         assertEquals(expectedLevelMap.getChicken().getPosition().getX(), levelMap.getChicken().getPosition().getX());
         assertEquals(expectedLevelMap.getChicken().getPosition().getY(), levelMap.getChicken().getPosition().getY());

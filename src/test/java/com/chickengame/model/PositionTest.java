@@ -5,40 +5,16 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PositionTest
 {
-    /*
     @Test
-    void getUp()
+    void testGetters()
     {
-        int x = 15;
-        int y = 15;
-        assertEquals(new Position(x,y).getUp().getX(),15);
-        assertEquals(new Position(x,y).getUp().getY(),14);
-    }
+        Position position1 = new Position(0, 0);
+        Position position2 = new Position(10, 20);
 
-    @Test
-    void getDown()
-    {
-        int x = 15;
-        int y = 15;
-        assertEquals(new Position(x,y).getDown().getX(),15);
-        assertEquals(new Position(x,y).getDown().getY(),16);
-    }
+        assertEquals(position1.getX(),0);
+        assertEquals(position1.getY(),0);
 
-    @Test
-    void getRight()
-    {
-        int x = 15;
-        int y = 15;
-        assertEquals(new Position(x,y).getRight().getX(),16);
-        assertEquals(new Position(x,y).getRight().getY(),15);
+        assertEquals(position2.getX(),10);
+        assertEquals(position2.getY(),20);
     }
-
-    @Test
-    void getLeft()
-    {
-        int x = 15;
-        int y = 15;
-        assertEquals(new Position(x,y).getLeft().getX(),14);
-        assertEquals(new Position(x,y).getLeft().getY(),15);
-    }*/
 }
