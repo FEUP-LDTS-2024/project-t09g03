@@ -4,7 +4,6 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.viewer.ImageLoader;
-import com.chickengame.viewer.game.elements.ChickenViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;
@@ -60,7 +59,7 @@ public class ChickenViewerTest
         Mockito.when(imgLoader.getImage(movingPath)).thenReturn(imgMoving);
         Mockito.when(imgLoader.getImage(movingDownPath)).thenReturn(imgMovingDown);
 
-        InOrder inOrder = inOrder(gui,imgLoader);
+        InOrder inOrder = inOrder(gui,imgLoader,chicken);
 
         ChickenViewer chickenViewer = new ChickenViewer(imgLoader,path,invertedPath,movingPath,movingDownPath);
 
@@ -75,6 +74,8 @@ public class ChickenViewerTest
         inOrder.verify(gui, Mockito.never()).drawImage(position, imgStaticDown);
         inOrder.verify(gui, Mockito.never()).drawImage(position, imgMoving);
         inOrder.verify(gui, Mockito.never()).drawImage(position, imgMovingDown);
+
+        inOrder.verify(chicken,calls(1)).setWalking(true);
     }
 
     @Property
@@ -95,7 +96,7 @@ public class ChickenViewerTest
         Mockito.when(imgLoader.getImage(movingPath)).thenReturn(imgMoving);
         Mockito.when(imgLoader.getImage(movingDownPath)).thenReturn(imgMovingDown);
 
-        InOrder inOrder = inOrder(gui,imgLoader);
+        InOrder inOrder = inOrder(gui,imgLoader,chicken);
 
         ChickenViewer chickenViewer = new ChickenViewer(imgLoader,path,invertedPath,movingPath,movingDownPath);
 
@@ -110,6 +111,8 @@ public class ChickenViewerTest
         inOrder.verify(gui, calls(1)).drawImage(position, imgStaticDown);
         inOrder.verify(gui, Mockito.never()).drawImage(position, imgMoving);
         inOrder.verify(gui, Mockito.never()).drawImage(position, imgMovingDown);
+
+        inOrder.verify(chicken,calls(1)).setWalking(true);
     }
 
     @Property
@@ -130,7 +133,7 @@ public class ChickenViewerTest
         Mockito.when(imgLoader.getImage(movingPath)).thenReturn(imgMoving);
         Mockito.when(imgLoader.getImage(movingDownPath)).thenReturn(imgMovingDown);
 
-        InOrder inOrder = inOrder(gui,imgLoader);
+        InOrder inOrder = inOrder(gui,imgLoader,chicken);
 
         ChickenViewer chickenViewer = new ChickenViewer(imgLoader,path,invertedPath,movingPath,movingDownPath);
 
@@ -145,6 +148,8 @@ public class ChickenViewerTest
         inOrder.verify(gui, Mockito.never()).drawImage(position, imgStaticDown);
         inOrder.verify(gui, calls(1)).drawImage(position, imgMoving);
         inOrder.verify(gui, Mockito.never()).drawImage(position, imgMovingDown);
+
+        inOrder.verify(chicken,calls(1)).setWalking(false);
     }
 
     @Property
@@ -165,7 +170,7 @@ public class ChickenViewerTest
         Mockito.when(imgLoader.getImage(movingPath)).thenReturn(imgMoving);
         Mockito.when(imgLoader.getImage(movingDownPath)).thenReturn(imgMovingDown);
 
-        InOrder inOrder = inOrder(gui,imgLoader);
+        InOrder inOrder = inOrder(gui,imgLoader,chicken);
 
         ChickenViewer chickenViewer = new ChickenViewer(imgLoader,path,invertedPath,movingPath,movingDownPath);
 
@@ -180,5 +185,7 @@ public class ChickenViewerTest
         inOrder.verify(gui, Mockito.never()).drawImage(position, imgStaticDown);
         inOrder.verify(gui, Mockito.never()).drawImage(position, imgMoving);
         inOrder.verify(gui, calls(1)).drawImage(position, imgMovingDown);
+
+        inOrder.verify(chicken,calls(1)).setWalking(false);
     }
 }

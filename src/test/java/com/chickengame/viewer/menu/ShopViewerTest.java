@@ -1,6 +1,7 @@
 package com.chickengame.viewer.menu;
 
 import com.chickengame.gui.GUI;
+import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.menus.ShopMenu;
 import com.chickengame.model.menus.buttons.Button;
@@ -17,6 +18,8 @@ import org.mockito.Mockito;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.mockito.ArgumentMatchers.any;
 
 public class ShopViewerTest
 {
@@ -78,7 +81,8 @@ public class ShopViewerTest
         this.buttonViewerFactory = Mockito.mock(ButtonViewerFactory.class);
         this.elementViewerFactory=Mockito.mock(ElementViewerFactory.class);
 
-        Mockito.when(buttonViewerFactory.getBackground("background")).thenReturn(basicTextImage);
+        Mockito.when(shopMenu.getBackground()).thenReturn("shopBackground");
+        Mockito.when(buttonViewerFactory.getBackground("shopBackground")).thenReturn(basicTextImage);
 
         Mockito.when(button1.getType()).thenReturn(Button.Type.Back);
         Mockito.when(button2.getType()).thenReturn(Button.Type.Previous);
@@ -113,6 +117,8 @@ public class ShopViewerTest
     public void drawElements() throws IOException {
 
         shopViewer.draw(gui);
+
+        Mockito.verify(gui, Mockito.times(1)).drawImage(any(Position.class),any(BasicTextImage.class));
 
         Mockito.verify(buttonViewerFactory, Mockito.times(1)).getViewer("Back");
         Mockito.verify(buttonViewer1, Mockito.times(1)).draw(gui,button1);

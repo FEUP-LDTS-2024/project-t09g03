@@ -1,6 +1,7 @@
 package com.chickengame.viewer.menu;
 
 import com.chickengame.gui.GUI;
+import com.chickengame.model.Position;
 import com.chickengame.model.menus.MainMenu;
 import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.buttons.Button;
@@ -16,6 +17,8 @@ import org.mockito.Mockito;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.mockito.ArgumentMatchers.any;
 
 
 public class MenuViewerTest {
@@ -58,7 +61,8 @@ public class MenuViewerTest {
         this.buttonViewer3 = Mockito.mock(ButtonViewer.class);
         this.buttonViewer4 = Mockito.mock(ButtonViewer.class);
 
-        Mockito.when(buttonViewerFactory.getBackground("background")).thenReturn(basicTextImage);
+        Mockito.when(menu.getBackground()).thenReturn("mainBackground");
+        Mockito.when(buttonViewerFactory.getBackground("mainBackground")).thenReturn(basicTextImage);
 
         Mockito.when(button1.getType()).thenReturn(Button.Type.Back);
         Mockito.when(button2.getType()).thenReturn(Button.Type.Previous);
@@ -74,12 +78,16 @@ public class MenuViewerTest {
 
         Mockito.when(menu.getButtons()).thenReturn(buttons);
 
+
+
         this.menuViewer = new MenuViewer(menu, buttonViewerFactory);
     }
 
     @Test
     public void drawElements() throws IOException {
         menuViewer.draw(gui);
+
+        Mockito.verify(gui, Mockito.times(1)).drawImage(any(Position.class),any(BasicTextImage.class));
 
         Mockito.verify(buttonViewerFactory, Mockito.times(1)).getViewer("Back");
         Mockito.verify(buttonViewer1, Mockito.times(1)).draw(gui,button1);
