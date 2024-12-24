@@ -27,7 +27,7 @@ LDTS-2024-t09g03
 - [Code Testing]()
 
 #  Game Concept
-The idea of the game is to survive during the most amout of time in marathon mode and to finish each level in level mode, for that the player can use the `space` key in order to invert the gravity. In order to make the game more challenging there we added spikes that makes one lose on touch and also added object that push the player behind in order to make it fall of the map.
+The idea of the game is to survive during the most amout of time in marathon mode and to finish each level in level mode, for that the player can use the `space` key to invert the gravity. In order to make the game more challenging there we added spikes that makes one lose on touch and also added object that push the player behind in order to make it fall of the map.
 
 # Features
 
