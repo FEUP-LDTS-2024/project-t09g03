@@ -109,7 +109,6 @@ chocolatePlatform 4840 100
 chocolatePlatform 4880 100
 chocolatePlatform 5320 -12
 chocolatePlatform 5360 -12
-chocolatePlatform 5400 -12
 chocolatePlatform 1120 170
 chocolatePlatform 1160 170
 chocolatePlatform 1200 170
