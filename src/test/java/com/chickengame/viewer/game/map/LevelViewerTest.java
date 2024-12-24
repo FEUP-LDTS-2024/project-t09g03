@@ -19,7 +19,8 @@ import java.util.List;
 import static org.mockito.ArgumentMatchers.any;
 
 
-public class LevelViewerTest {
+public class LevelViewerTest
+{
     private LevelViewer levelViewer;
     private GUI gui;
     private ElementViewer finishedLineViewer;
@@ -75,7 +76,8 @@ public class LevelViewerTest {
     }
 
     @Test
-    public void drawElements() throws IOException {
+    public void drawElements() throws IOException
+    {
         levelViewer.draw(gui);
 
         Mockito.verify(gui, Mockito.times(1)).drawImage(any(Position.class),any(BasicTextImage.class));

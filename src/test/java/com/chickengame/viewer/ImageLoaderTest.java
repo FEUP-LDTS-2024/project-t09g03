@@ -11,12 +11,11 @@ import java.net.URL;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ImageLoaderTest {
-
-
-
+public class ImageLoaderTest
+{
     @Test
-    public void getImage() throws IOException {
+    public void getImage() throws IOException
+    {
         ImageLoader imageLoader = new ImageLoader();
         URL resource = getClass().getClassLoader().getResource("images/testImage.png");
         assertNotNull(resource);
@@ -89,13 +88,15 @@ public class ImageLoaderTest {
     }
 
     @Test
-    public void invalidImage() {
+    public void invalidImage()
+    {
        boolean result = false;
        try
        {
         ImageLoader imageLoader = new ImageLoader();
         imageLoader.getImage("invalidImage.png");
-       }catch (RuntimeException e)
+       }
+       catch (RuntimeException e)
        {
            result = true;
        }
@@ -103,13 +104,16 @@ public class ImageLoaderTest {
     }
 
     @Test
-    public void wrongFile() {
+    public void wrongFile()
+    {
         boolean result = false;
         try
         {
             ImageLoader imageLoader = new ImageLoader();
             imageLoader.getImage("images/wrongFile.zip");
-        }catch (RuntimeException e) {
+        }
+        catch (RuntimeException e)
+        {
             result = true;
         }
         assert result;

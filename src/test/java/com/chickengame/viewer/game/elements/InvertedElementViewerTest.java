@@ -4,7 +4,6 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.Position;
 import com.chickengame.model.game.elements.InvertedElement;
 import com.chickengame.viewer.ImageLoader;
-import com.chickengame.viewer.game.elements.InvertedElementViewer;
 import com.googlecode.lanterna.graphics.BasicTextImage;
 import net.jqwik.api.Assume;
 import net.jqwik.api.ForAll;

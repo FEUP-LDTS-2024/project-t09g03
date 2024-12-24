@@ -15,7 +15,8 @@ import org.mockito.Mockito;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 
-public class ShopControllerTest {
+public class ShopControllerTest
+{
     private Game game;
     private GUI gui;
     private ShopController shopController;
@@ -24,7 +25,8 @@ public class ShopControllerTest {
 
     @BeforeEach
     @BeforeProperty
-    public void helper() {
+    public void helper()
+    {
         this.shopMenu = Mockito.mock(ShopMenu.class);
         this.game = Mockito.mock(Game.class);
         this.gui = Mockito.mock(GUI.class);
@@ -36,13 +38,15 @@ public class ShopControllerTest {
     }
 
     @Test
-    void testConstructor() {
+    void testConstructor()
+    {
         assertNotNull(shopController);
         assert shopController.getLocation() == shopMenu;
     }
 
     @Property
-    public void leftTest(@ForAll @IntRange(min = 1, max = 10) int repetitions) {
+    public void leftTest(@ForAll @IntRange(min = 1, max = 10) int repetitions)
+    {
         Mockito.reset(shopMenu);
         for (int i = 1; i < repetitions; i++) {
             this.shopController.step(game, gui, GUI.Action.LEFT);
@@ -51,7 +55,8 @@ public class ShopControllerTest {
     }
 
     @Property
-    public void rightTest(@ForAll @IntRange(min = 1, max = 10) int repetitions) {
+    public void rightTest(@ForAll @IntRange(min = 1, max = 10) int repetitions)
+    {
         Mockito.reset(shopMenu);
         for (int i = 1; i < repetitions; i++) {
             this.shopController.step(game, gui, GUI.Action.RIGHT);
@@ -60,7 +65,8 @@ public class ShopControllerTest {
     }
 
     @Property
-    public void downTest(@ForAll @IntRange(min = 1, max = 10) int repetitions) {
+    public void downTest(@ForAll @IntRange(min = 1, max = 10) int repetitions)
+    {
         Mockito.reset(shopMenu);
         for (int i = 1; i < repetitions; i++) {
             this.shopController.step(game, gui, GUI.Action.DOWN);
@@ -69,7 +75,8 @@ public class ShopControllerTest {
     }
 
     @Test
-    public void selectBack() {
+    public void selectBack()
+    {
         Mockito.when(button.getType()).thenReturn(Button.Type.Back);
         shopController.step(game, gui, GUI.Action.SELECT);
 
@@ -78,7 +85,8 @@ public class ShopControllerTest {
     }
 
     @Test
-    public void selectNext()  {
+    public void selectNext()
+    {
         Mockito.when(button.getType()).thenReturn(Button.Type.Next);
         shopController.step(game, gui, GUI.Action.SELECT);
 
@@ -86,7 +94,8 @@ public class ShopControllerTest {
     }
 
     @Test
-    public void selectPrevious()  {
+    public void selectPrevious()
+    {
         Mockito.when(button.getType()).thenReturn(Button.Type.Previous);
         shopController.step(game, gui, GUI.Action.SELECT);
 

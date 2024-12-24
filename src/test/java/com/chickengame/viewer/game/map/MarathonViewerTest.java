@@ -78,7 +78,8 @@ public class MarathonViewerTest
     }
 
     @Test
-    public void drawElements() throws IOException {
+    public void drawElements() throws IOException
+    {
         marathonViewer.draw(gui);
 
         Mockito.verify(gui, Mockito.times(1)).drawImage(any(Position.class),any(BasicTextImage.class));

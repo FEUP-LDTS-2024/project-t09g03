@@ -21,7 +21,8 @@ import java.util.List;
 import static org.mockito.ArgumentMatchers.any;
 
 
-public class MenuViewerTest {
+public class MenuViewerTest
+{
     private MenuViewer menuViewer;
     private ButtonViewerFactory buttonViewerFactory;
     private GUI gui;
@@ -78,13 +79,12 @@ public class MenuViewerTest {
 
         Mockito.when(menu.getButtons()).thenReturn(buttons);
 
-
-
         this.menuViewer = new MenuViewer(menu, buttonViewerFactory);
     }
 
     @Test
-    public void drawElements() throws IOException {
+    public void drawElements() throws IOException
+    {
         menuViewer.draw(gui);
 
         Mockito.verify(gui, Mockito.times(1)).drawImage(any(Position.class),any(BasicTextImage.class));

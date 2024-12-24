@@ -5,16 +5,12 @@ import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.viewer.ElementViewerFactory;
 import com.chickengame.viewer.game.elements.ElementViewer;
-import com.chickengame.viewer.game.map.MapViewer;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.mockito.ArgumentMatchers.any;
 
 public class MapViewerTest
 {
@@ -81,7 +77,8 @@ public class MapViewerTest
     }
 
     @Test
-    public void drawElements() throws IOException {
+    public void drawElements()
+    {
         mapViewer.drawElements(gui);
 
         Mockito.verify(elementViewerFactory, Mockito.times(1)).getViewer("cupcake");
