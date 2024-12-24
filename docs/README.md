@@ -3,7 +3,7 @@ LDTS-2024-t09g03
 </h1>
 
 <p align="center">
-  <img src="PNG/Mockups/LogoChicken.png">
+  <img src="png/mockups/LogoChicken.png">
 </p>
 
 # Authors
@@ -67,7 +67,7 @@ The idea of the game is to survive during the most amout of time in marathon mod
 ## UML Structure
 
 <p align="center">
-  <img src="PNG/UML/ChickenGame.png">
+  <img src="png/uml/ChickenGame.png">
 </p>
 
 ## Design Choices
@@ -95,13 +95,11 @@ In order to make the Game Loop run even though the user didn't press a button, w
 The problem that we faced was the existence of many menus, independent of each other, to solve that problem we implemented the State Pattern, that way we were able to isolate every State of the game and give it independence to implement each one is own game logic.
 
 <p align="center">
-    <img src="PNG/UML/StateDiagram.png">
+    <img src="png/uml/StateDiagram.png">
 </p>
 <p align="center">
-    <img src="PNG/UML/StateUML.png">
+    <img src="png/uml/StateUML.png">
 </p>
-
-//State Transition Diagram
 
 ### Implementation Tecnicalities
 
@@ -132,7 +130,7 @@ While we were creating our game, we needed a way to draw each element on the scr
 In our game we have an abstract class `ViewerFactory<T>` wich is the abstract creator of `ObjectViewer<T>` and interface that is implemented by our concrete viewer(ButtonViewer, ChickenViewer, InvertedElementViewer ,ElementViewer), and our Factory has two concrete extencions, the ButtonViewerFactory and the ElementViewerFactory.
 
 <p align="center">
-  <img src="PNG/UML/FactoryPattern.png">
+  <img src="png/uml/FactoryPattern.png">
 </p>
 
 ## FlyWeight Pattern
@@ -141,3 +139,26 @@ While our game was being developed, we noticed that we were loading many images 
 
 
 ## Code Testing
+
+### Code Test Coverage
+
+**Testing tools used**
+  - `JUnit`
+  - `Mockito`
+  - `Jqwik`
+  - `Spock`
+
+A significant part of our tests are PBT(Property Based Testing) because we think it is a great way of testing multiple combination of variables. 
+
+ - Method Coverage: 96%
+ - Branch Coverage: 93%
+<p align="center">
+  <img src="png/tests/TestCoverage.png">
+</p>
+
+ - Line Coverage: 95%
+ - Mutation Coverage: 79% 
+
+<p align="center">
+  <img src="png/tests/MutationTests.png">
+</p>

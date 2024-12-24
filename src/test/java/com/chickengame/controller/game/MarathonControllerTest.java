@@ -8,6 +8,8 @@ import com.chickengame.model.game.map.Map;
 import com.chickengame.model.game.elements.Chicken;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.InOrder;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 
 import static org.mockito.Mockito.*;
@@ -20,6 +22,8 @@ public class MarathonControllerTest {
     private Chicken chicken;
     private Game game;
     private GUI gui;
+    private InOrder inOrder;
+
 
     @BeforeEach
     void helper() {
@@ -38,6 +42,7 @@ public class MarathonControllerTest {
 
         game = Mockito.mock(Game.class);
         gui = Mockito.mock(GUI.class);
+        inOrder = inOrder(marathonMap,currentMap);
 
         marathonController = new MarathonController(marathonMap);
     }
@@ -66,14 +71,15 @@ public class MarathonControllerTest {
 
     @Test
     void changeMap() {
+
         marathonController.step(game, gui, GUI.Action.NONE);
 
         for (int i = 0; i <3 ; i++) {
             marathonController.step(game, gui, GUI.Action.NONE);
         }
 
-        //verify(marathonMap, times(1)).setNextMap();
-        //verify(currentMap, times(1)).resetPosition();
+        inOrder.verify(marathonMap, times(1)).setNextMap();
+        inOrder.verify(currentMap, times(1)).resetPosition();
     }
 
     @Test

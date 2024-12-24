@@ -60,7 +60,7 @@ public class MapController extends Controller<Map>
         }
     }
 
-    void chickenOut(boolean chickenOutX, boolean chickenOutUp, boolean chickenOutDown, Game game)
+    private void chickenOut(boolean chickenOutX, boolean chickenOutUp, boolean chickenOutDown, Game game)
     {
 
         if(chickenOutX ||chickenOutUp ||chickenOutDown)
@@ -70,7 +70,7 @@ public class MapController extends Controller<Map>
         }
     }
 
-    public void collidesHarmObject(Game game, boolean collidesHarmObject)
+    private void collidesHarmObject(Game game, boolean collidesHarmObject)
     {
         if(collidesHarmObject)
         {
@@ -79,7 +79,7 @@ public class MapController extends Controller<Map>
         }
     }
 
-    public void collidesUpDown(boolean chickenCollidesDown, boolean chickenCollidesUp)
+    private void collidesUpDown(boolean chickenCollidesDown, boolean chickenCollidesUp)
     {
             if(chickenCollidesDown || chickenCollidesUp)
             {
@@ -91,7 +91,7 @@ public class MapController extends Controller<Map>
             }
     }
 
-    public void collidesRight(int chickenXMax, int chickenYMin, int chickenYMax)
+    private void collidesRight(int chickenXMax, int chickenYMin, int chickenYMax)
     {
             if(getLocation().collidesRight(chickenXMax,chickenYMin,chickenYMax))
             {
