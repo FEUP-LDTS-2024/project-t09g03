@@ -21,7 +21,7 @@ public class LevelMapBuilderTest
         LevelMapBuilder levelMapBuilder = new LevelMapBuilder();
         MapBuilder mapBuilder = Mockito.mock(MapBuilder.class);
         Mockito.when(mapBuilder.createMap(anyString())).thenReturn(new Map());
-        this.expectedLevelMap = new LevelMap(mapBuilder.createMap("map/map10.txt"), new Chicken(200,300,skin), new Element(5440,30,40,375,"finishLine"));
+        this.expectedLevelMap = new LevelMap(mapBuilder.createMap("map/map10.txt"), new Chicken(200,300,skin), new Element(5360,30,40,375,"finishLine"));
         LevelMap levelMap = levelMapBuilder.createLevelMap("map/", mapBuilder, skin, 10);
 
         Assertions.assertNotNull(levelMap.getMap());
