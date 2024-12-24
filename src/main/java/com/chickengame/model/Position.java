@@ -16,37 +16,19 @@ public class Position
         return this.x;
     }
 
-    public int getY()
-    {
-        return this.y;
-    }
-
     public void setX(int x)
     {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public int getY()
+    {
+        return this.y;
+    }
+
+    public void setY(int y)
+    {
         this.y = y;
     }
 
-    public Position getUp()
-    {
-        return new Position(this.x,this.y - 1);
-    }
-
-    public Position getDown()
-    {
-        return new Position(this.x,this.y + 1);
-    }
-
-    public Position getLeft()
-    {
-        return new Position(this.x - 1,this.y);
-    }
-
-    public Position getRight()
-    {
-        return new Position(this.x + 1,this.y);
-    }
 }

@@ -1,0 +1,10 @@
+candyCane 10 20 true
+chocolatePlatform 30 40
+platform 50 60
+cookie 70 80
+cornSpike 90 100 false
+toblerone 110 120 true
+cupcake 130 140 false
+iceCream 150 160 true
+gummy 170 180 false
+lollipop 190 200 true

@@ -1,21 +1,23 @@
 package com.chickengame;
 
-
+import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
-import com.chickengame.state.MarathonState;
+import com.chickengame.model.menus.MainMenu;
+import com.chickengame.state.menus.MainMenuState;
+import com.chickengame.gui.LanternaScreenFactory;
 import com.chickengame.state.State;
-import com.chickengame.viewer.game.MarathonViewer;
+import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 
 import java.io.IOException;
 
-/** principio singleton: apenas uma instancia da classe*/
-public class Game {
-
+public class Game
+{
     private static Game instance;
-    private final LanternaDraw lanternaDraw;
+    private final GUI gui;
     private State state;
+    private int chickenSkin = 0;
 
-    /**cria uma nova instancia se ela ainda não existir, caso contrario retorna a existente*/
     public static Game getInstance()
     {
         if(instance == null)
@@ -25,32 +27,62 @@ public class Game {
         return instance;
     }
 
-    private Game(){
-        this.lanternaDraw = new LanternaDraw();
-        try {
-            this.state = new MarathonState("/menus/Game.txt");
-        } catch (IOException e) {
+    private Game()
+    {
+        try
+        {
+            LanternaScreenFactory lanternaScreenFactory = new LanternaScreenFactory(new DefaultTerminalFactory(), "font/square.ttf",new TerminalSize(750,375));
+            this.gui = new LanternaDraw(lanternaScreenFactory.createScreen());
+        }
+        catch (IOException e)
+        {
             throw new RuntimeException(e);
         }
+        this.state = new MainMenuState(new MainMenu());
     }
 
-    public void run()
+    public void run() throws IOException, InterruptedException
     {
-        MarathonViewer viewer = new MarathonViewer(lanternaDraw, this.state.getMap());
         while (this.state != null)
         {
+            long start = System.currentTimeMillis();
             try
             {
-                viewer.drawMap();
-                lanternaDraw.getScreen().refresh();
-                if(lanternaDraw.processKey() == 1)
+                GUI.Action action = gui.getNextAction();
+                if(action == GUI.Action.QUIT)
                 {
                     break;
                 }
-            } catch (IOException e)
+                this.state.step(this,action,gui);
+            }
+            catch (IOException e)
             {
                 throw new RuntimeException(e);
             }
+
+            long elapsed = System.currentTimeMillis()-start;
+            long sleeptime = -elapsed;
+
+            if(sleeptime>0)
+            {
+                Thread.sleep(sleeptime);
+            }
         }
+        gui.close();
+    }
+
+    public void setState(State state)
+    {
+        this.state = state;
+    }
+
+    public int getChickenSkin()
+    {
+        return chickenSkin;
+    }
+
+    public void setChickenSkin(int chickenSkin)
+    {
+        this.chickenSkin = chickenSkin;
     }
 }

@@ -1,0 +1,2 @@
+candyCane 10 20 true
+cornSpike 90 100 false

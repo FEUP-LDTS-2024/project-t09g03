@@ -1,0 +1,222 @@
+chocolatePlatform 0 -12
+chocolatePlatform 40 -12
+chocolatePlatform 80 -12
+chocolatePlatform 120 -12
+chocolatePlatform 160 -12
+chocolatePlatform 200 -12
+chocolatePlatform 240 -12
+chocolatePlatform 280 -12
+chocolatePlatform 320 -12
+chocolatePlatform 360 -12
+chocolatePlatform 400 -12
+chocolatePlatform 440 -12
+chocolatePlatform 480 -12
+chocolatePlatform 520 -12
+chocolatePlatform 560 -12
+chocolatePlatform 600 -12
+chocolatePlatform 640 -12
+chocolatePlatform 680 -12
+chocolatePlatform 720 -12
+chocolatePlatform 760 -12
+chocolatePlatform 800 -12
+chocolatePlatform 0 346
+chocolatePlatform 40 346
+chocolatePlatform 80 346
+chocolatePlatform 120 346
+chocolatePlatform 160 346
+chocolatePlatform 200 346
+chocolatePlatform 240 346
+chocolatePlatform 280 346
+chocolatePlatform 320 346
+chocolatePlatform 360 346
+chocolatePlatform 400 346
+chocolatePlatform 440 346
+chocolatePlatform 480 346
+chocolatePlatform 520 346
+chocolatePlatform 560 346
+chocolatePlatform 600 346
+chocolatePlatform 640 346
+chocolatePlatform 680 346
+chocolatePlatform 720 346
+chocolatePlatform 760 346
+chocolatePlatform 800 346
+chocolatePlatform 840 346
+chocolatePlatform 880 346
+toblerone 840 331 false 
+chocolatePlatform 830 200
+chocolatePlatform 870 200
+chocolatePlatform 910 158
+chocolatePlatform 950 158
+chocolatePlatform 990 116
+chocolatePlatform 1030 116
+chocolatePlatform 1110 242
+chocolatePlatform 1150 242
+chocolatePlatform 1190 242
+chocolatePlatform 1230 242
+chocolatePlatform 1270 242
+chocolatePlatform 1310 242
+chocolatePlatform 1350 242
+chocolatePlatform 1390 242
+cookie 1150 222 false 
+chocolatePlatform 1140 130
+chocolatePlatform 1180 130
+chocolatePlatform 1220 130
+chocolatePlatform 1260 130
+cookie 1260 172 false 
+cookie 1260 222 false 
+chocolatePlatform 1590 116
+chocolatePlatform 1610 116
+chocolatePlatform 1690 242
+chocolatePlatform 1730 116
+chocolatePlatform 1770 116
+chocolatePlatform 1850 242
+chocolatePlatform 1890 242
+chocolatePlatform 1970 116
+chocolatePlatform 2050 242
+chocolatePlatform 2090 242
+chocolatePlatform 2130 242
+chocolatePlatform 2170 242
+chocolatePlatform 2170 242
+chocolatePlatform 2210 242
+chocolatePlatform 2250 242
+chocolatePlatform 2290 242
+chocolatePlatform 2330 242
+chocolatePlatform 2370 242
+chocolatePlatform 2410 242
+chocolatePlatform 2450 242
+chocolatePlatform 2490 242
+toblerone 2240 227 false 
+chocolatePlatform 2240 120
+chocolatePlatform 2280 120
+chocolatePlatform 2320 120
+chocolatePlatform 2360 242
+candyCane 2335 162 true 
+platform 2730 -12
+platform 2770 -12
+platform 2810 -12
+platform 2850 -12
+platform 2890 -12
+platform 2930 -12
+platform 2970 -12
+platform 3010 -12
+platform 3050 -12
+platform 3090 -12
+platform 3130 -12
+platform 3170 -12
+platform 3210 -12
+platform 3250 -12
+platform 3290 -12
+platform 3330 -12
+platform 3370 -12
+platform 3410 -12
+platform 3450 -12
+platform 3490 -12
+platform 3530 -12
+platform 3570 -12
+platform 3610 -12
+platform 3650 -12
+platform 3690 -12
+platform 3730 -12
+platform 3770 -12
+platform 3810 -12
+platform 3850 -12
+platform 3890 -12
+platform 3930 -12
+platform 3970 -12
+platform 4010 -12
+platform 4050 -12
+platform 4090 -12
+platform 4130 -12
+platform 4170 -12
+platform 4210 -12
+platform 4250 -12
+platform 4290 -12
+platform 4330 -12
+platform 4370 -12
+platform 4410 -12
+platform 4450 -12
+platform 4490 -12
+platform 4530 -12
+platform 4570 -12
+platform 4610 -12
+platform 4650 -12
+platform 4690 -12
+platform 4730 -12
+platform 2920 103
+platform 2960 103
+platform 3000 103
+platform 3040 103
+platform 3080 103
+platform 3120 103
+platform 3160 103
+platform 3200 103
+platform 3240 103
+platform 3280 103
+platform 3320 103
+platform 3360 103
+platform 3400 103
+platform 3440 103
+platform 3480 143
+platform 3520 143
+platform 3560 143
+platform 3600 143
+platform 3640 143
+platform 3680 143
+platform 3720 143
+platform 3760 143
+platform 3800 143
+platform 3840 143
+platform 3880 143
+platform 3920 143
+platform 3960 143
+platform 4000 143
+platform 4040 143
+platform 4080 143
+platform 4100 143
+platform 4140 143
+platform 4180 143
+platform 4220 143
+platform 4260 143
+platform 4300 143
+platform 4340 143
+platform 4380 143
+platform 4420 143
+platform 4460 143
+platform 4500 143
+platform 4540 143
+gummy 3015 88 false
+lollipop 3100 30 true
+lollipop 3180 63 false
+lollipop 3260 30 true
+gummy 3370 88 false
+cornSpike 3480 128 false
+cornSpike 3570 30 true
+lollipop 3900 103 false
+lollipop 3900 30 true
+lollipop 4200 103 false
+lollipop 4200 30 true
+lollipop 4500 103 false
+lollipop 4500 30 true
+gummy 4715 30 true
+platform 4800 210
+platform 4840 210
+platform 4880 252
+platform 4920 252
+platform 4940 292
+platform 4980 292
+platform 5020 346
+platform 5040 346
+platform 5080 346
+platform 5120 346
+platform 5160 346
+platform 5200 346
+platform 5240 346
+platform 5280 346
+platform 5320 346
+platform 5360 346
+cornSpike 5020 331 false
+platform 5220 -12
+platform 5260 -12
+platform 5300 -12
+platform 5340 -12
+platform 5380 -12

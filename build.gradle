@@ -1,9 +1,12 @@
 plugins {
     id 'java'
     id 'application'
+    id 'groovy'
+    id 'info.solidsoft.pitest' version '1.15.0'
+
 }
 
-group = 'com.ChickenGame'
+group = 'com.chickengame'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -15,6 +18,9 @@ dependencies {
     implementation group: 'com.googlecode.lanterna', name: 'lanterna', version: '3.1.1'
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'org.spockframework:spock-core:2.0-groovy-3.0'
+    testImplementation 'org.codehaus.groovy:groovy-all:3.0.21'
+    testImplementation "net.jqwik:jqwik:1.9.2"
 }
 
 test {
@@ -23,4 +29,9 @@ test {
 
 application{
     mainClass.set("Application")
+}
+
+pitest {
+    junit5PluginVersion = '1.2.0'
+    pitestVersion = '1.15.0'
 }

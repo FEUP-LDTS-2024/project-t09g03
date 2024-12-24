@@ -1,11 +1,39 @@
 package com.chickengame.model.game.elements;
 
-import java.awt.image.BufferedImage;
-
-public class Chicken extends Element
+public class Chicken extends InvertedElement
 {
-    public Chicken(int x, int y, BufferedImage image)
+    private final int skin;
+    private boolean walking = false;
+    private boolean charge = false;
+
+    public Chicken(int x, int y, int skin)
     {
-        super(x, y, image);
+        super(x,y,21,28,"chicken",false);
+        this.skin = skin;
+    }
+
+    public boolean isWalking()
+    {
+        return walking;
+    }
+
+    public void setWalking(boolean walking)
+    {
+        this.walking = walking;
+    }
+
+    public boolean isCharge()
+    {
+        return charge;
+    }
+
+    public void setCharge(boolean charge)
+    {
+        this.charge = charge;
+    }
+
+    public int getSkin()
+    {
+        return skin;
     }
 }

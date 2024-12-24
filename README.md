@@ -1,22 +1,61 @@
-Description: 
-In this game, you are able to control your own chicken through a map with different obstacles and platforms. In the main menu, you can choose to start the game right away or select your favourite chicken skin from the shop. During the gameplay, you have the ability to move your character up and down, in order to dodge any unwanted collision and avoid being killed or left behind. Use your strategy and coordinative skills to survive as long and as far as possible.
+<h1 align="center">
+    LDTS-2024-t09g03 
+</h1>
 
-Features: •	Move up and down •	Skins •	Main Menu •	Shop Menu •	Game Over Menu •	Platforms •	Camera •	Infinite map •	Buttons •	Collisions with objects
+<p align="center">
+    <img src="docs/png/mockups/LogoChicken.png">
+</p>
 
-![img_5.png](docs/PNG/Mockups/img_5.png)
-mockup_lobby
+### Game Concept
+This Chicken Game is similar to the Gravity Guy game, it consists in a chicken that when the Space key is pressed it inverts its gravity and with that mechanic can dodge obstacles.
 
-![img_7.png](docs/PNG/Mockups/img_7.png)
-mockup_shop
 
-![img_4.png](docs/PNG/Mockups/img_4.png)
-mockup_marathon
+#### Controls
 
-![img_6.png](docs/PNG/Mockups/img_6.png)
-mockup_gravity_switch
+`>`|`<`|`^`|`˅`: Selects the Button
 
-![img_9.png](docs/PNG/UML/img_9.png)
+`Enter`: Presses the Selected Button
 
-Design Patterns, problems and consequences:
+`Space`: Inverts chicken gravity
 
-Since our game needed a map displayed at the start of the game, we decided to save the necessary information to initialise it through a file txt, in order to read and extract information from it. Because our game implements a structure with menus (such as lobby and store) and, at the same time, runs a game loop where the whole game happens, we need for the operations happening inside the Game class to be updated over time. To do that, we implemented the State Pattern, so that everything that is being executed is determined by State class. During the execution of our game, we need to update physics (gravity) without depending on the viewer, therefore we want to implement the Game Loop Pattern for that purpose. We decided to use the architectural pattern MVC (Model View Controller) in order to get a good separation between these three fields. That allows us to have greater flexibility when developing code and more proficient tests, resulting in a more stable and organized project.
+`Q`: Exits the game
+
+### Screenshots
+
+Its has a Main Menu from which the player can select one of the different menus, `Levels`,`Shop`,`Help`,`Play`.
+
+<p align="center">
+<img src="docs/png/mockups/MainMenu.png">
+</p>
+
+#### In the Shop Menu the player can customise its skin.
+
+<p align="center">
+    <img src="docs/png/mockups/Shop.gif">
+</p>
+
+#### In the Levels Menu the player can select the level it wants to play
+
+<p align="center">
+    <img src="docs/png/mockups/LevelsMenu.png">
+</p>
+
+#### In the Help Menu the player can see the game instructions
+
+<p align="center">
+    <img src="docs/png/mockups/HelpMenu.png">
+</p>
+
+#### When the play button is pressed the player enters the Marathon game mode, a mode that never ends
+
+<p align="center">
+    <img src="docs/png/mockups/GamePlay.gif">
+</p>
+
+# [Documentation](docs/README.md)
+
+
+
+
+
+

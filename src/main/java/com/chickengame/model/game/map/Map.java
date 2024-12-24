@@ -1,67 +1,134 @@
 package com.chickengame.model.game.map;
 
-import com.chickengame.model.game.elements.Background;
-import com.chickengame.model.game.elements.Chicken;
-import com.chickengame.model.game.elements.HarmObject;
-import com.chickengame.model.game.elements.Wall;
+import com.chickengame.model.Position;
+import com.chickengame.model.game.elements.*;
 
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-/**classe Map chama classe MapBuilder para ser instanciado, passando o caminho da localizacao que deve ser mostrada na tela*/
+
 public class Map
 {
-    private Chicken chicken;
-    private Background background;
-    private List<HarmObject> harmObjects;
-    private List<Wall> walls;
+    private static final int sizeX = 5400;
+    private final List<Element> harmObjects;
+    private final List<Element> walls;
+    private final List<Element> elements;
 
-
-    public Map(String path) throws IOException {
-        MapBuilder mapBuilder = new MapBuilder(path);
-        mapBuilder.createElements();
-        this.chicken = mapBuilder.getChicken();
-        this.background = mapBuilder.getBackground();
-        this.harmObjects = mapBuilder.getHarmObjects();
-        this.walls = mapBuilder.getWalls();
-    }
-
-    public Chicken getChicken()
+    public Map()
     {
-        return this.chicken;
+        harmObjects = new ArrayList<>();
+        walls = new ArrayList<>();
+        elements = new ArrayList<>();
     }
 
-    public void setChicken(Chicken chicken)
+    public List<Element> getHarmObjects()
     {
-        this.chicken = chicken;
+        return harmObjects;
     }
 
-    public List<HarmObject> getHarmObjects()
-    {
-        return this.harmObjects;
-    }
-
-    public void setHarmObjects(List<HarmObject> harmObjects)
-    {
-        this.harmObjects = harmObjects;
-    }
-
-    public List<Wall> getWalls()
+    public List<Element> getWalls()
     {
         return this.walls;
     }
 
-    public void setWalls(List<Wall> walls)
+    public int getSizeX()
     {
-        this.walls = walls;
+        return sizeX;
     }
 
-    public Background getBackground()
+    public Boolean collidesHarmObject(int chickenXMin, int chickenXMax, int chickenYMin, int chickenYMax)
     {
-        return this.background;
+        for (Element harmObject : harmObjects)
+        {
+            int harmObjectXMin = harmObject.getPosition().getX();
+            int harmObjectXMax = harmObjectXMin + harmObject.getWidth();
+            int harmObjectYMin = harmObject.getPosition().getY();
+            int harmObjectYMax = harmObjectYMin + harmObject.getHeight();
+
+            boolean overlapX = (chickenXMax >= harmObjectXMin && chickenXMin <= harmObjectXMax);
+            boolean overlapY = (chickenYMax >= harmObjectYMin && chickenYMin <= harmObjectYMax);
+
+            if (overlapX && overlapY)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public void setBackground(Background background)
+
+    public boolean collidesUp(int chickenXMin, int chickenXMax, int chickenYMin)
     {
-        this.background = background;
+        for (Element wall : walls)
+        {
+            int wallXMin = wall.getPosition().getX();
+            int wallXMax = wallXMin + wall.getWidth();
+            int wallYMin = wall.getPosition().getY();
+            int wallYMax = wallYMin + wall.getHeight();
+
+            boolean overlapX = (chickenXMax >= wallXMin && chickenXMin <= wallXMax);
+            boolean touchingUp = (chickenYMin == wallYMax);
+
+            if (overlapX && touchingUp)
+            {
+                return true;
+            }
+        }
+        return false;
     }
+    public boolean collidesDown(int chickenXMin, int chickenXMax, int chickenYMax)
+    {
+        for (Element wall : walls)
+        {
+            int wallXMin = wall.getPosition().getX();
+            int wallXMax = wallXMin + wall.getWidth();
+            int wallYMin = wall.getPosition().getY();
+
+            boolean overlapX = (chickenXMax >= wallXMin && chickenXMin <= wallXMax);
+            boolean touchingUp = (chickenYMax == wallYMin);
+
+            if (overlapX && touchingUp)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean collidesRight(int chickenXMax, int chickenYMin, int chickenYMax)
+    {
+        for (Element wall : walls)
+        {
+            int wallXMin = wall.getPosition().getX();
+            int wallYMin = wall.getPosition().getY();
+            int wallYMax = wallYMin + wall.getHeight();
+
+            boolean touchingRight = (chickenXMax == wallXMin);
+            boolean overlapY = (chickenYMax > wallYMin && chickenYMin < wallYMax);
+
+            if (touchingRight && overlapY)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void moveMap(int offset)
+    {
+        for(Element element: elements)
+        {
+            element.setPosition( new Position(element.getPosition().getX()+offset,element.getPosition().getY()));
+        }
+    }
+
+    public void resetPosition()
+    {
+        moveMap(getSizeX());
+    }
+
+    public List<Element> getElements()
+    {
+        return elements;
+    }
+
 }
