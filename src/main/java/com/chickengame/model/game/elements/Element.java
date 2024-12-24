@@ -30,15 +30,18 @@ public class Element
         this.position = position;
     }
 
-    public int getWidth() {
+    public int getWidth()
+    {
         return width;
     }
 
-    public int getHeight() {
+    public int getHeight()
+    {
         return height;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 }

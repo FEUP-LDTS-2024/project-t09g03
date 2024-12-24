@@ -13,7 +13,7 @@ public class MarathonBuilder
         for (int i = 1; i <= n; i++)
         {
             String path = folderPath + "map"+i+".txt";
-            Map map = mapBuilder.createMap(path,0);
+            Map map = mapBuilder.createMap(path);
             mapList.add(map);
         }
         Chicken chicken = new Chicken(300,300,chickenSkin);

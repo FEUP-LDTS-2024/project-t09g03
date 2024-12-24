@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Map
 {
-    private int sizeX;
+    private static final int sizeX = 5400;
     private final List<Element> harmObjects;
     private final List<Element> walls;
     private final List<Element> elements;
@@ -33,11 +33,6 @@ public class Map
     public int getSizeX()
     {
         return sizeX;
-    }
-
-    public void setSizeX(int sizeX)
-    {
-        this.sizeX = sizeX;
     }
 
     public Boolean collidesHarmObject(int chickenXMin, int chickenXMax, int chickenYMin, int chickenYMax)
@@ -128,7 +123,7 @@ public class Map
 
     public void resetPosition()
     {
-        moveMap(getSizeX()*2);
+        moveMap(getSizeX());
     }
 
     public List<Element> getElements()

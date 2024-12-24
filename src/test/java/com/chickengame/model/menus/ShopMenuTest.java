@@ -5,21 +5,39 @@ import com.chickengame.model.menus.buttons.Button;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-public class ShopMenuTest {
+public class ShopMenuTest
+{
     private ShopMenu shopMenu;
+    private List<Button> buttons;
 
     @BeforeEach
-    public void setUp() {
+    public void setUp()
+    {
         shopMenu = new ShopMenu();
     }
 
     @Test
-    public void testConstructor() {
+    public void testConstructor()
+    {
+        this.buttons = shopMenu.getButtons();
+
         Button selectedButton = shopMenu.getSelected();
-        assertEquals(Button.Type.Back, selectedButton.getType());
         assertTrue(selectedButton.isSelected());
+
+        assertEquals(3, buttons.size());
+
+        assertEquals(Button.Type.Back, buttons.get(0).getType());
+        assertTrue(buttons.get(0).isSelected());
+
+        assertEquals(Button.Type.Next, buttons.get(1).getType());
+        assertFalse(buttons.get(1).isSelected());
+
+        assertEquals(Button.Type.Previous, buttons.get(2).getType());
+        assertFalse(buttons.get(2).isSelected());
 
         Element middleChicken = shopMenu.getMiddleChicken();
         assertEquals("chicken0", middleChicken.getName());
@@ -28,14 +46,67 @@ public class ShopMenuTest {
     }
 
     @Test
-    public void testSelectButton() {
+    public void testGetNextButton()
+    {
+        buttons = shopMenu.getButtons();
+
+        shopMenu.nextButton();
+        assertEquals(Button.Type.Next, shopMenu.getSelected().getType());
+        assertTrue(buttons.get(1).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+
+        shopMenu.nextButton();
+        assertEquals(Button.Type.Previous, shopMenu.getSelected().getType());
+        assertTrue(buttons.get(2).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+
+        shopMenu.nextButton();
+        assertEquals(Button.Type.Back, shopMenu.getSelected().getType());
+        assertTrue(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+    }
+
+    @Test
+    public void testGetPreviousButton()
+    {
+        buttons = shopMenu.getButtons();
+
+        shopMenu.previousButton();
+        assertEquals(Button.Type.Previous, shopMenu.getSelected().getType());
+        assertTrue(buttons.get(2).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+
+        shopMenu.previousButton();
+        assertEquals(Button.Type.Next, shopMenu.getSelected().getType());
+        assertTrue(buttons.get(1).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+
+        shopMenu.previousButton();
+        assertEquals(Button.Type.Back, shopMenu.getSelected().getType());
+        assertTrue(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+    }
+    @Test
+    public void testSelectButton()
+    {
+        buttons = shopMenu.getButtons();
+        Button beforeSelected = shopMenu.getSelected();
         shopMenu.selectButton(1);
+        assertFalse(beforeSelected.isSelected());
+        assertTrue(buttons.get(1).isSelected());
         assertNotEquals(shopMenu.getSelected().getType(), Button.Type.Back);
         assertEquals(Button.Type.Next, shopMenu.getSelected().getType());
     }
 
     @Test
-    public void testNextButton() {
+    public void testNextButton()
+    {
         shopMenu.nextButton();
         shopMenu.nextButton();
         shopMenu.nextButton();
@@ -43,7 +114,8 @@ public class ShopMenuTest {
     }
 
     @Test
-    public void testPreviousButton() {
+    public void testPreviousButton()
+    {
         for(int i=0; i<7; i++)
         {
             shopMenu.previousButton();
@@ -52,7 +124,8 @@ public class ShopMenuTest {
     }
 
     @Test
-    public void testGetNextSkin() {
+    public void testGetNextSkin()
+    {
         int initialChicken = shopMenu.getNextSkin();
         assertEquals(1, initialChicken);
 
@@ -63,7 +136,8 @@ public class ShopMenuTest {
     }
 
     @Test
-    public void testGetPreviousSkin() {
+    public void testGetPreviousSkin()
+    {
         int initialChicken = shopMenu.getPreviousSkin();
         assertEquals(8, initialChicken);
 
@@ -75,7 +149,8 @@ public class ShopMenuTest {
     }
 
     @Test
-    public void testGetMiddleChicken() {
+    public void testGetMiddleChicken()
+    {
         Element middleChicken = shopMenu.getMiddleChicken();
         assertEquals("chicken0", middleChicken.getName());
         assertEquals(340, middleChicken.getPosition().getX());
@@ -91,7 +166,8 @@ public class ShopMenuTest {
     }
 
     @Test
-    public void testGetLeftChicken() {
+    public void testGetLeftChicken()
+    {
         Element leftChicken = shopMenu.getLeftChicken();
         assertEquals("chicken8", leftChicken.getName());
         assertEquals(160, leftChicken.getPosition().getX());

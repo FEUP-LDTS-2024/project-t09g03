@@ -1,6 +1,5 @@
 package com.chickengame;
 
-
 import com.chickengame.gui.GUI;
 import com.chickengame.gui.LanternaDraw;
 import com.chickengame.model.menus.MainMenu;
@@ -12,8 +11,8 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 
 import java.io.IOException;
 
-public class Game {
-
+public class Game
+{
     private static Game instance;
     private final GUI gui;
     private State state;
@@ -28,22 +27,24 @@ public class Game {
         return instance;
     }
 
-    private Game(){
-        try {
+    private Game()
+    {
+        try
+        {
             LanternaScreenFactory lanternaScreenFactory = new LanternaScreenFactory(new DefaultTerminalFactory(), "font/square.ttf",new TerminalSize(750,375));
             this.gui = new LanternaDraw(lanternaScreenFactory.createScreen());
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             throw new RuntimeException(e);
         }
         this.state = new MainMenuState(new MainMenu());
     }
 
-    public void run() throws IOException, InterruptedException {
-        float time = (float) 1 /30;
-        System.out.println(time);
+    public void run() throws IOException, InterruptedException
+    {
         while (this.state != null)
         {
-
             long start = System.currentTimeMillis();
             try
             {
@@ -53,18 +54,19 @@ public class Game {
                     break;
                 }
                 this.state.step(this,action,gui);
-
-            } catch (IOException e)
+            }
+            catch (IOException e)
             {
                 throw new RuntimeException(e);
             }
+
             long elapsed = System.currentTimeMillis()-start;
             long sleeptime = -elapsed;
+
             if(sleeptime>0)
             {
                 Thread.sleep(sleeptime);
             }
-
         }
         gui.close();
     }
@@ -74,11 +76,13 @@ public class Game {
         this.state = state;
     }
 
-    public int getChickenSkin() {
+    public int getChickenSkin()
+    {
         return chickenSkin;
     }
 
-    public void setChickenSkin(int chickenSkin) {
+    public void setChickenSkin(int chickenSkin)
+    {
         this.chickenSkin = chickenSkin;
     }
 }

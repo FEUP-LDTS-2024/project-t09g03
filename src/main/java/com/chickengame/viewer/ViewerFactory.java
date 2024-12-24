@@ -19,7 +19,8 @@ public abstract class ViewerFactory<T>
     }
     public BasicTextImage getBackground(String name)
     {
-        return switch (name) {
+        return switch (name)
+        {
             case "gameOverBackground" -> imgLoader.getImage(gameOverBackgroundPath);
             case "helpBackground" -> imgLoader.getImage(helpBackgroundPath);
             case "mainBackground" -> imgLoader.getImage(mainBackgroundPath);

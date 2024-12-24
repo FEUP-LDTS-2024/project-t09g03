@@ -5,13 +5,15 @@ import com.chickengame.controller.menus.ShopController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.ShopMenu;
 import com.chickengame.viewer.menus.ShopViewer;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 
-public class ShopStateTest {
+public class ShopStateTest
+{
     private ShopState shopState;
     private ShopMenu shopMenu;
     private ShopController shopController;
@@ -32,7 +34,8 @@ public class ShopStateTest {
     }
 
     @Test
-    public void shopState() throws IOException {
+    public void shopState() throws IOException
+    {
         this.shopState = new ShopState(shopMenu)
         {
             @Override
@@ -57,7 +60,7 @@ public class ShopStateTest {
     {
         ShopState shopState = new ShopState(shopMenu);
 
-        assert shopState.getStateController() != null;
-        assert shopState.getStateViewer() != null;
+        Assertions.assertNotNull(shopState.getStateController());
+        Assertions.assertNotNull(shopState.getStateViewer());
     }
 }

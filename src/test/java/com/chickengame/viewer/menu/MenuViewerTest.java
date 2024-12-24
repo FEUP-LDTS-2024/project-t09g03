@@ -20,7 +20,6 @@ import java.util.List;
 
 import static org.mockito.ArgumentMatchers.any;
 
-
 public class MenuViewerTest
 {
     private MenuViewer menuViewer;

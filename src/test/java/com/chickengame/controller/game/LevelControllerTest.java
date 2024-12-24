@@ -8,6 +8,8 @@ import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.LevelMap;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.state.menus.GameEndState;
+import org.codehaus.groovy.ast.stmt.AssertStatement;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -69,5 +71,19 @@ public class LevelControllerTest {
         controller.step(game, gui, GUI.Action.NONE);
 
         Mockito.verify(game, Mockito.times(1)).setState(any(GameEndState.class));
+    }
+
+    @Test
+    public void testPosition()
+    {
+        Element element1 = new Element(10, 10, 10, 10, "name");
+        Mockito.when(levelMap.getFinishLine()).thenReturn(element1);
+
+        this.levelController = new LevelController(levelMap);
+
+        levelController.step(game,gui, GUI.Action.LEFT);
+
+        Assertions.assertEquals(element1.getPosition().getX(), 5);
+        Assertions.assertEquals(element1.getPosition().getY(), 10);
     }
 }

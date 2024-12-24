@@ -21,7 +21,8 @@ import static com.chickengame.gui.GUI.Action.NONE;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
-public class LanternaDrawTest {
+public class LanternaDrawTest
+{
     private Screen screen;
     private TextGraphics textGraphics;
     private LanternaDraw lanterna;
@@ -30,7 +31,8 @@ public class LanternaDrawTest {
     private static final int HEIGHT = 375;
 
     @BeforeEach
-    void helper() throws IOException {
+    void helper() throws IOException
+    {
         this.screen = Mockito.mock(Screen.class);
         this.textGraphics = Mockito.mock(TextGraphics.class);
         Mockito.when(this.screen.newTextGraphics()).thenReturn(textGraphics);
@@ -38,7 +40,8 @@ public class LanternaDrawTest {
     }
 
     @Test
-    void drawImage() {
+    void drawImage()
+    {
         Position position = new Position(0, 0);
         BasicTextImage image = Mockito.mock(BasicTextImage.class);
 
@@ -49,7 +52,8 @@ public class LanternaDrawTest {
     }
 
     @BeforeProperty
-    void helperProperty() throws IOException {
+    void helperProperty() throws IOException
+    {
         this.screen = Mockito.mock(Screen.class);
         lanterna = new LanternaDraw(screen);
         keyTypeActionMap.put(new KeyStroke(KeyType.EOF), GUI.Action.QUIT);
@@ -66,7 +70,8 @@ public class LanternaDrawTest {
     @Property
     void getNextAction(@WithNull @ForAll("keyTypeArbitrary") KeyType key) throws IOException {
         KeyStroke realkey = null;
-        if (key != null) {
+        if (key != null)
+        {
             realkey = new KeyStroke(key);
         }
         Mockito.when(screen.pollInput()).thenReturn(realkey);
@@ -75,12 +80,14 @@ public class LanternaDrawTest {
     }
 
     @Provide
-    Arbitrary<KeyType> keyTypeArbitrary() {
+    Arbitrary<KeyType> keyTypeArbitrary()
+    {
         return Arbitraries.of(KeyType.F1, KeyType.EOF, KeyType.Enter, KeyType.Escape, KeyType.ArrowUp, KeyType.ArrowDown, KeyType.ArrowLeft, KeyType.ArrowRight);
     }
 
     @Property
-    void charGetNextAction(@ForAll @CharRange(from = 0, to = 255) char c) throws IOException {
+    void charGetNextAction(@ForAll @CharRange(from = 0, to = 255) char c) throws IOException
+    {
         KeyStroke realStroke = new KeyStroke(c, false, false);
         Mockito.when(screen.pollInput()).thenReturn(new KeyStroke(c, false, false));
         GUI.Action action = lanterna.getNextAction();
@@ -88,12 +95,15 @@ public class LanternaDrawTest {
     }
 
     @Test
-    void getScreenTest() throws IOException {
+    void getScreenTest() throws IOException
+    {
         LanternaDraw lanternaDraw = new LanternaDraw(screen);
         Assertions.assertEquals(screen,lanternaDraw.getScreen());
     }
+
     @Test
-    void lanternaDraw() throws IOException {
+    void lanternaDraw() throws IOException
+    {
         Mockito.verify(this.screen).startScreen();
         assertNotNull(this.lanterna);
         assertEquals(WIDTH, LanternaDraw.WIDTH);
@@ -102,13 +112,15 @@ public class LanternaDrawTest {
     }
 
     @Test
-    void refresh() throws IOException {
+    void refresh() throws IOException
+    {
         lanterna.refresh();
         Mockito.verify(screen, atLeastOnce()).refresh();
     }
 
     @Test
-    void close() throws IOException {
+    void close() throws IOException
+    {
         lanterna.close();
         Mockito.verify(screen, times(1)).close();
     }

@@ -5,6 +5,7 @@ import com.chickengame.controller.menus.HelpController;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.HelpMenu;
 import com.chickengame.viewer.menus.MenuViewer;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -32,7 +33,8 @@ public class HelpStateTest {
     }
 
     @Test
-    public void helpState() throws IOException {
+    public void helpState() throws IOException
+    {
         this.helpState = new HelpState(helpMenu)
         {
             @Override
@@ -57,7 +59,7 @@ public class HelpStateTest {
     {
         HelpState helpState = new HelpState(helpMenu);
 
-        assert helpState.getStateController() != null;
-        assert helpState.getStateViewer() != null;
+        Assertions.assertNotNull(helpState.getStateController());
+        Assertions.assertNotNull(helpState.getStateViewer());
     }
 }

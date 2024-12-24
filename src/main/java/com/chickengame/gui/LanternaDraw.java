@@ -11,15 +11,16 @@ import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 
 
-public class LanternaDraw implements GUI{
-
+public class LanternaDraw implements GUI
+{
     private Screen screen;
     private final TextGraphics textGraphics;
     public static final int WIDTH = 750;
     public static final int HEIGHT = 375;
 
 
-    public LanternaDraw(Screen screen) throws IOException {
+    public LanternaDraw(Screen screen) throws IOException
+    {
         this.screen = screen;
         this.screen.startScreen();
         this.textGraphics = screen.newTextGraphics();
@@ -32,7 +33,8 @@ public class LanternaDraw implements GUI{
     }
 
     @Override
-    public void drawImage(Position position, BasicTextImage basicTextImage) {
+    public void drawImage(Position position, BasicTextImage basicTextImage)
+    {
         TerminalPosition pos = new TerminalPosition(position.getX(),position.getY());
         textGraphics.drawImage(pos,basicTextImage);
     }

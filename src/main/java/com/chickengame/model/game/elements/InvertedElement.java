@@ -10,11 +10,13 @@ public class InvertedElement extends Element
         this.inverted = inverted;
     }
 
-    public boolean isInverted() {
+    public boolean isInverted()
+    {
         return inverted;
     }
 
-    public void setInverted(boolean inverted) {
+    public void setInverted(boolean inverted)
+    {
         this.inverted = inverted;
     }
 }

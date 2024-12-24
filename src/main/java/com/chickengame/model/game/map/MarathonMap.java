@@ -17,7 +17,10 @@ public class MarathonMap
     public MarathonMap(List<Map> maps, Chicken chicken)
     {
         this.chicken = chicken;
-        if(maps.size()<2)throw new RuntimeException("Not enough maps");
+        if(maps.size()<2)
+        {
+            throw new RuntimeException("Not enough maps");
+        }
         int first = random.nextInt(maps.size());
         current = maps.get(first);
         nextMap = maps.get((first+1)%maps.size());
@@ -36,15 +39,18 @@ public class MarathonMap
         nextMap.moveMap(current.getSizeX());
     }
 
-    public Map getCurrent() {
+    public Map getCurrent()
+    {
         return current;
     }
 
-    public Map getNextMap() {
+    public Map getNextMap()
+    {
         return nextMap;
     }
 
-    public Chicken getChicken() {
+    public Chicken getChicken()
+    {
         return chicken;
     }
 

@@ -8,17 +8,21 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MainMenuTest {
+public class MainMenuTest
+{
     private MainMenu mainMenu;
+    private List<Button> buttons;
 
     @BeforeEach
-    void helper() {
+    void helper()
+    {
         mainMenu = new MainMenu();
     }
 
     @Test
-    void testConstructor() {
-        List<Button> buttons = mainMenu.getButtons();
+    void testConstructor()
+    {
+        this.buttons = mainMenu.getButtons();
 
         assertEquals(5, buttons.size());
 
@@ -39,38 +43,94 @@ public class MainMenuTest {
     }
 
     @Test
-    void testNextButton() {
+    void testNextButton()
+    {
+        buttons = mainMenu.getButtons();
+
         mainMenu.nextButton();
         assertEquals(Button.Type.LevelMenu, mainMenu.getSelected().getType());
+        assertTrue(buttons.get(1).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+        assertFalse(buttons.get(3).isSelected());
+        assertFalse(buttons.get(4).isSelected());
 
         mainMenu.nextButton();
         assertEquals(Button.Type.Shop, mainMenu.getSelected().getType());
+        assertTrue(buttons.get(2).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+        assertFalse(buttons.get(3).isSelected());
+        assertFalse(buttons.get(4).isSelected());
 
         mainMenu.nextButton();
         assertEquals(Button.Type.Exit, mainMenu.getSelected().getType());
+        assertTrue(buttons.get(3).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+        assertFalse(buttons.get(4).isSelected());
 
         mainMenu.nextButton();
         assertEquals(Button.Type.Help, mainMenu.getSelected().getType());
+        assertTrue(buttons.get(4).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+        assertFalse(buttons.get(3).isSelected());
 
         mainMenu.nextButton();
         assertEquals(Button.Type.Play, mainMenu.getSelected().getType());
+        assertTrue(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+        assertFalse(buttons.get(3).isSelected());
+        assertFalse(buttons.get(4).isSelected());
     }
 
     @Test
-    void testPreviousButton() {
+    void testPreviousButton()
+    {
+        buttons = mainMenu.getButtons();
+
         mainMenu.previousButton();
         assertEquals(Button.Type.Help, mainMenu.getSelected().getType());
+        assertTrue(buttons.get(4).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+        assertFalse(buttons.get(3).isSelected());
 
         mainMenu.previousButton();
         assertEquals(Button.Type.Exit, mainMenu.getSelected().getType());
+        assertTrue(buttons.get(3).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+        assertFalse(buttons.get(4).isSelected());
 
         mainMenu.previousButton();
         assertEquals(Button.Type.Shop, mainMenu.getSelected().getType());
+        assertTrue(buttons.get(2).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+        assertFalse(buttons.get(3).isSelected());
+        assertFalse(buttons.get(4).isSelected());
 
         mainMenu.previousButton();
         assertEquals(Button.Type.LevelMenu, mainMenu.getSelected().getType());
+        assertTrue(buttons.get(1).isSelected());
+        assertFalse(buttons.get(0).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+        assertFalse(buttons.get(3).isSelected());
+        assertFalse(buttons.get(4).isSelected());
 
         mainMenu.previousButton();
         assertEquals(Button.Type.Play, mainMenu.getSelected().getType());
+        assertTrue(buttons.get(0).isSelected());
+        assertFalse(buttons.get(1).isSelected());
+        assertFalse(buttons.get(2).isSelected());
+        assertFalse(buttons.get(3).isSelected());
+        assertFalse(buttons.get(4).isSelected());
     }
 }

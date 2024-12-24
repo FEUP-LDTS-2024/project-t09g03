@@ -28,7 +28,6 @@ public class ElementViewerFactoryTest
         this.elementViewerFactory = new ElementViewerFactory(imageLoader);
     }
 
-
     @Test
     void getCandyCane()
     {

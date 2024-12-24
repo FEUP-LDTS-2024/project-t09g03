@@ -26,7 +26,6 @@ public class ButtonViewerFactoryTest
         this.buttonViewerFactory = new ButtonViewerFactory(imageLoader);
     }
 
-
     @Test
     void getBackButton()
     {

@@ -3,17 +3,17 @@ package com.chickengame.state.menus;
 import com.chickengame.Game;
 import com.chickengame.controller.menus.GameEndController;
 import com.chickengame.gui.GUI;
-import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.menus.GameEndMenu;
-import com.chickengame.state.game.MarathonState;
 import com.chickengame.viewer.menus.MenuViewer;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 
-public class GameEndStateTest {
+public class GameEndStateTest
+{
     private GameEndState gameEndState;
     private GameEndMenu gameEndMenu;
     private GameEndController gameEndController;
@@ -59,7 +59,8 @@ public class GameEndStateTest {
     {
         GameEndState gameEndState = new GameEndState(gameEndMenu);
 
-        assert gameEndState.getStateController() != null;
-        assert gameEndState.getStateViewer() != null;
+
+        Assertions.assertNotNull(gameEndState.getStateController());
+        Assertions.assertNotNull(gameEndState.getStateViewer());
     }
 }

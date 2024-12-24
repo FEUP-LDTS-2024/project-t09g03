@@ -7,14 +7,16 @@ import com.chickengame.viewer.ElementViewerFactory;
 import com.chickengame.viewer.ImageLoader;
 import com.chickengame.viewer.game.map.LevelViewer;
 
-public class LevelState extends State<LevelMap> {
+public class LevelState extends State<LevelMap>
+{
     public LevelState(LevelMap location)
     {
         super(location);
     }
 
     @Override
-    public LevelViewer getStateViewer() {
+    public LevelViewer getStateViewer()
+    {
         return new LevelViewer(getLocation(),new ElementViewerFactory(new ImageLoader()));
     }
 

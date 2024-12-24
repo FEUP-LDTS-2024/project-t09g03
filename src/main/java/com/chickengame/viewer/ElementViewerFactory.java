@@ -43,6 +43,7 @@ public class ElementViewerFactory extends ViewerFactory<Element>
     {
         super(imageLoader);
     }
+
     public ElementViewer getViewer(String name)
     {
         if(!cache.containsKey(name))

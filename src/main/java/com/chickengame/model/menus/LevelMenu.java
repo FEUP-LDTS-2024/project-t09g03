@@ -23,7 +23,8 @@ public class LevelMenu extends Menu
         super.setButtons(buttons);
     }
 
-    public Button getCurrentButton() {
+    public Button getCurrentButton()
+    {
         return buttons.get(currentButton);
     }
 

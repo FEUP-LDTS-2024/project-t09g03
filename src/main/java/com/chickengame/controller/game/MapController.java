@@ -8,12 +8,14 @@ import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.state.menus.GameEndState;
 
-public class MapController extends Controller<Map> {
+public class MapController extends Controller<Map>
+{
     private final Chicken chicken;
     private final ChickenController chickenController;
     private final int adapter;
 
-    public MapController(Map location, ChickenController chickenController, int adapter) {
+    public MapController(Map location, ChickenController chickenController, int adapter)
+    {
         super(location);
         this.chickenController = chickenController;
         this.chicken = chickenController.getLocation();
@@ -21,7 +23,8 @@ public class MapController extends Controller<Map> {
     }
 
     @Override
-    public void step(Game game, GUI gui, GUI.Action action) {
+    public void step(Game game, GUI gui, GUI.Action action)
+    {
         boolean chickenOutX = (chicken.getPosition().getX() + chicken.getWidth() <= 0);
         boolean chickenOutUp = (chicken.getPosition().getY() + chicken.getHeight() <= 0);
         boolean chickenOutDown = (chicken.getPosition().getY() >= 375);
@@ -33,8 +36,10 @@ public class MapController extends Controller<Map> {
         int chickenYMin = chicken.getPosition().getY();
         int chickenYMax = chickenYMin + chicken.getHeight();
 
-        colidesHarmObject(game, getLocation().collidesHarmObject(chickenXMin, chickenXMax, chickenYMin, chickenYMax));
-        for (int i = 0; i < adapter; i++) {
+        collidesHarmObject(game, getLocation().collidesHarmObject(chickenXMin, chickenXMax, chickenYMin, chickenYMax));
+
+        for (int i = 0; i < adapter; i++)
+        {
             chickenXMin = chicken.getPosition().getX();
             chickenXMax = chickenXMin + chicken.getWidth();
             chickenYMin = chicken.getPosition().getY();
@@ -48,14 +53,15 @@ public class MapController extends Controller<Map> {
             if (getLocation().collidesHarmObject(chickenXMin, chickenXMax, chickenYMin, chickenYMax)) {
                 break;
             }
-            colidesUpDown(chickenCollidesDown, chickenCollidesUp);
-            colidesRight(chickenXMax, chickenYMin, chickenYMax);
+            collidesUpDown(chickenCollidesDown, chickenCollidesUp);
+            collidesRight(chickenXMax, chickenYMin, chickenYMax);
 
             chickenController.step(game, gui, action);
         }
     }
 
-    void chickenOut(boolean chickenOutX, boolean chickenOutUp, boolean chickenOutDown, Game game ){
+    void chickenOut(boolean chickenOutX, boolean chickenOutUp, boolean chickenOutDown, Game game)
+    {
 
         if(chickenOutX ||chickenOutUp ||chickenOutDown)
         {
@@ -63,15 +69,17 @@ public class MapController extends Controller<Map> {
             game.setState(endState);
         }
     }
-    public void colidesHarmObject(Game game,boolean colidesharmobject)
+
+    public void collidesHarmObject(Game game, boolean collidesHarmObject)
     {
-        if(colidesharmobject)
+        if(collidesHarmObject)
         {
             GameEndState endState = new GameEndState(new GameEndMenu("gameOver"));
             game.setState(endState);
         }
     }
-    public void colidesUpDown(boolean chickenCollidesDown, boolean chickenCollidesUp)
+
+    public void collidesUpDown(boolean chickenCollidesDown, boolean chickenCollidesUp)
     {
             if(chickenCollidesDown || chickenCollidesUp)
             {
@@ -82,13 +90,15 @@ public class MapController extends Controller<Map> {
                 chickenController.moveY();
             }
     }
-    public void colidesRight(int chickenXMax, int chickenYMin, int chickenYMax)
+
+    public void collidesRight(int chickenXMax, int chickenYMin, int chickenYMax)
     {
             if(getLocation().collidesRight(chickenXMax,chickenYMin,chickenYMax))
             {
                 chickenController.stopX();
             }
     }
+
     public void moveCamera(int offset)
     {
         getLocation().moveMap(offset);

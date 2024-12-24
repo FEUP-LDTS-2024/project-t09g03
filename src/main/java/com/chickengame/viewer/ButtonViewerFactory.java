@@ -35,7 +35,8 @@ public class ButtonViewerFactory extends ViewerFactory<Button>
     private Map<String, ButtonViewer> cache = new HashMap<>();
 
 
-    public ButtonViewerFactory(ImageLoader imageLoader) {
+    public ButtonViewerFactory(ImageLoader imageLoader)
+    {
         super(imageLoader);
     }
 

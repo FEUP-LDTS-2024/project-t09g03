@@ -4,7 +4,6 @@ import com.chickengame.Game;
 import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.menus.HelpMenu;
-import com.chickengame.model.menus.Menu;
 import com.chickengame.model.menus.MainMenu;
 import com.chickengame.state.menus.MainMenuState;
 
@@ -21,7 +20,8 @@ public class HelpController extends Controller<HelpMenu>
     @Override
     public void step(Game game, GUI gui, GUI.Action action)
     {
-        if (Objects.requireNonNull(action) == GUI.Action.SELECT) {
+        if (Objects.requireNonNull(action) == GUI.Action.SELECT)
+        {
             game.setState(new MainMenuState(new MainMenu()));
         }
     }

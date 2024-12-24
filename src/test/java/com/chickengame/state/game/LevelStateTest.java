@@ -6,15 +6,16 @@ import com.chickengame.gui.GUI;
 import com.chickengame.model.game.elements.Chicken;
 import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.LevelMap;
-import com.chickengame.state.game.LevelState;
 import com.chickengame.viewer.game.map.LevelViewer;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import java.io.IOException;
 
-public class LevelStateTest {
+public class LevelStateTest
+{
     private LevelState levelState;
     private LevelMap levelMap;
     private LevelController levelController;
@@ -36,7 +37,8 @@ public class LevelStateTest {
     }
 
     @Test
-    public void levelState() throws IOException {
+    public void levelState() throws IOException
+    {
         this.levelState = new LevelState(levelMap)
         {
             @Override
@@ -60,7 +62,7 @@ public class LevelStateTest {
     {
         LevelState levelState = new LevelState(levelMap);
 
-        assert levelState.getStateController() != null;
-        assert levelState.getStateViewer() != null;
+        Assertions.assertNotNull(levelState.getStateController());
+        Assertions.assertNotNull(levelState.getStateViewer());
     }
 }

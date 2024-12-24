@@ -1,6 +1,7 @@
 package com.chickengame.model.menus.buttons;
 
-public class ButtonLevel extends Button {
+public class ButtonLevel extends Button
+{
 
     private final int levelNumber;
     public ButtonLevel(int x, int y,Type type, int levelNumber)

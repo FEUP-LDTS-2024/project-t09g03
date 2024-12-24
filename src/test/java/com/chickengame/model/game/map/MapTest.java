@@ -7,9 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-
 import java.util.List;
-
 
 public class MapTest
 {
@@ -102,17 +100,16 @@ public class MapTest
         }
     }
 
-    @Property
-    void resetPosition(@ForAll int sizeX)
+    @Test
+    void resetPosition()
     {
         Map initialMap = movedMapHelper();
-        initialMap.setSizeX(sizeX);
+
         Map movedMap = movedMapHelper();
-        movedMap.setSizeX(sizeX);
         movedMap.resetPosition();
         for(int i = 0; i < initialMap.getElements().size(); i++)
         {
-            Assertions.assertEquals(initialMap.getElements().get(i).getPosition().getX() + 2*sizeX, movedMap.getElements().get(i).getPosition().getX());
+            Assertions.assertEquals(initialMap.getElements().get(i).getPosition().getX()+5400, movedMap.getElements().get(i).getPosition().getX());
             Assertions.assertEquals(initialMap.getElements().get(i).getPosition().getY(), movedMap.getElements().get(i).getPosition().getY());
         }
     }

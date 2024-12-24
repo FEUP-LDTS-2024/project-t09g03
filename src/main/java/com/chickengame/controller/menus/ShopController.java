@@ -27,7 +27,8 @@ public class ShopController extends Controller<ShopMenu>
             case DOWN -> getLocation().selectButton(0);
             case SELECT ->
             {
-                switch (getLocation().getSelected().getType()) {
+                switch (getLocation().getSelected().getType())
+                {
                     case Back ->
                     {
                         game.setChickenSkin(counter);

@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 
-public class LanternaScreenFactory implements ScreenFactory {
-
+public class LanternaScreenFactory implements ScreenFactory
+{
     private TerminalSize terminalSize;
     private DefaultTerminalFactory terminalFactory;
 
@@ -39,11 +39,13 @@ public class LanternaScreenFactory implements ScreenFactory {
     {
         URL resource = getClass().getClassLoader().getResource(fontPath);
         Font font = null;
-        try {
+        try
+        {
             File fontFile = new File(resource.toURI());
             font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
-        } catch (FontFormatException| NullPointerException | IOException | URISyntaxException e)
+        }
+        catch (FontFormatException| NullPointerException | IOException | URISyntaxException e)
         {
             throw new RuntimeException(e);
         }
@@ -51,12 +53,13 @@ public class LanternaScreenFactory implements ScreenFactory {
     }
 
     @Override
-    public Screen createScreen() throws IOException {
+    public Screen createScreen() throws IOException
+    {
         Terminal terminal = null;
         Screen screen = null;
 
-            terminal = this.terminalFactory.createTerminal();
-            screen = new TerminalScreen(terminal);
+        terminal = this.terminalFactory.createTerminal();
+        screen = new TerminalScreen(terminal);
 
         screen.setCursorPosition(null);
         screen.doResizeIfNecessary();
@@ -64,12 +67,14 @@ public class LanternaScreenFactory implements ScreenFactory {
     }
 
     @Override
-    public int getWidth() {
+    public int getWidth()
+    {
         return terminalSize.getColumns();
     }
 
     @Override
-    public int getHeight() {
+    public int getHeight()
+    {
         return terminalSize.getRows();
     }
 }

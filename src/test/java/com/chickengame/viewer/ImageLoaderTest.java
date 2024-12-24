@@ -28,6 +28,9 @@ public class ImageLoaderTest
         BasicTextImage textImage = imageLoader.getImage("images/testImage.png");
         BasicTextImage textImage2 = imageLoader.getImage("images/testImage2.png");
 
+        assertNotNull(textImage);
+        assertNotNull(textImage2);
+
         assert(equals1(bufferedImage, textImage));
         assert(equals2(bufferedImage, textImage));
         assert(equals3(bufferedImage, textImage));
@@ -76,7 +79,6 @@ public class ImageLoaderTest
     }
     public boolean equals4(BufferedImage bufferedImage, BasicTextImage basicTextImage)
     {
-        boolean result = true;
         Color color = new Color(bufferedImage.getRGB(1, 1));
         int red = color.getRed();
         int green = color.getGreen();

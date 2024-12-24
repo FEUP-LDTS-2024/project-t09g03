@@ -17,5 +17,4 @@ public class HelpMenu extends Menu
         buttons.add(back);
         super.setButtons(buttons);
     }
-
 }

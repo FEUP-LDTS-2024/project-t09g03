@@ -17,7 +17,8 @@ public class Button
         this.selected = false;
     }
 
-    public Position getPosition() {
+    public Position getPosition()
+    {
         return position;
     }
 
@@ -26,11 +27,13 @@ public class Button
         return this.type;
     }
 
-    public void setSelected(boolean selected) {
+    public void setSelected(boolean selected)
+    {
         this.selected = selected;
     }
 
-    public boolean isSelected() {
+    public boolean isSelected()
+    {
         return selected;
     }
 }

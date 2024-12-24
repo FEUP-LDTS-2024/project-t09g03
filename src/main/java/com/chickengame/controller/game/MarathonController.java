@@ -5,7 +5,6 @@ import com.chickengame.controller.Controller;
 import com.chickengame.gui.GUI;
 import com.chickengame.model.game.map.MarathonMap;
 
-
 public class MarathonController extends Controller<MarathonMap>
 {
     private MapController currentMapController;
@@ -27,21 +26,23 @@ public class MarathonController extends Controller<MarathonMap>
 
         if(getLocation().getCurrent().getSizeX()-offsetCounter < locationMin)
         {
-           currentMapController.moveCamera(-5);
+           currentMapController.moveCamera(-adapter);
            nextMapController.step(game, gui, action);
         }
         else if(getLocation().getCurrent().getSizeX()-offsetCounter > locationMax)
         {
             currentMapController.step(game, gui, action);
-            nextMapController.moveCamera(-5);
+            nextMapController.moveCamera(-adapter);
         }
         else
         {
             currentMapController.step(game, gui, action);
             nextMapController.step(game, gui, action);
         }
+
         offsetCounter += adapter;
-        if(offsetCounter > getLocation().getCurrent().getSizeX())
+
+        if(offsetCounter >= getLocation().getCurrent().getSizeX())
         {
             changeMap();
         }
@@ -49,16 +50,10 @@ public class MarathonController extends Controller<MarathonMap>
 
     private void changeMap()
     {
-
         getLocation().getCurrent().resetPosition();
         getLocation().setNextMap();
         offsetCounter = 0;
         currentMapController = new MapController(getLocation().getCurrent(),new ChickenController(getLocation().getChicken()),adapter);
         nextMapController = new MapController(getLocation().getNextMap(),new ChickenController(getLocation().getChicken()),adapter);
     }
-
-
-
-
-
 }

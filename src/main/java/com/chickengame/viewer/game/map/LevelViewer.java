@@ -29,7 +29,8 @@ public class LevelViewer extends Viewer<LevelMap>
     }
 
     @Override
-    protected void drawElements(GUI gui){
+    protected void drawElements(GUI gui)
+    {
         gui.drawImage(backgroundPosition,backgroundBasicTextImage);
         mapViewer.drawElements(gui);
         chickenViewer.draw(gui,getLocation().getChicken());

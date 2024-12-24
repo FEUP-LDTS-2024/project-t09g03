@@ -17,7 +17,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.atLeastOnce;
 
-public class LanternaScreenFactoryTest {
+public class LanternaScreenFactoryTest
+{
     private TerminalSize terminalSize;
     private DefaultTerminalFactory terminalFactory;
     private List<String> fontpath = new ArrayList<>();
@@ -26,7 +27,8 @@ public class LanternaScreenFactoryTest {
 
 
     @BeforeEach
-    public void helper() throws IOException {
+    public void helper() throws IOException
+    {
         this.terminalSize = Mockito.mock(TerminalSize.class);
         this.terminalFactory = Mockito.mock(DefaultTerminalFactory.class);
         this.fontpath.add("font/square.ttf");
@@ -45,9 +47,11 @@ public class LanternaScreenFactoryTest {
     void verifyPath()
     {
         boolean thrown = false;
-        try {
+        try
+        {
             ScreenFactory screenFactoryWrong = new LanternaScreenFactory(terminalFactory, fontpath.get(1), terminalSize);
-        }catch (RuntimeException e)
+        }
+        catch (RuntimeException e)
         {
             thrown =  true;
         }
@@ -55,27 +59,33 @@ public class LanternaScreenFactoryTest {
     }
 
     @Test
-    void lanternaScreenTest() throws IOException {
-
+    void lanternaScreenTest() throws IOException
+    {
         TerminalScreen screen = (TerminalScreen) new LanternaScreenFactory(terminalFactory,fontpath.getFirst(),terminalSize).createScreen();
 
         Mockito.verify(terminalFactory, atLeastOnce()).setInitialTerminalSize(terminalSize);
         Mockito.verify(terminalFactory, atLeastOnce()).setForceAWTOverSwing(true);
         Mockito.verify(terminalFactory,atLeastOnce()).setTerminalEmulatorFontConfiguration(any());
+
         assertEquals(terminalSize.getColumns(), 750);
         assertEquals(terminalSize.getRows(), 375);
+
         Assertions.assertEquals(screen.getTerminal(),terminal);
+
+        assertNull(screen.getCursorPosition());
     }
 
     @Test
-    void getWidth(){
+    void getWidth()
+    {
         LanternaScreenFactory lanternaScreenFactory = new LanternaScreenFactory(terminalFactory,fontpath.getFirst(),terminalSize);
         Assertions.assertEquals(lanternaScreenFactory.getWidth(), terminalSize.getColumns());
         Mockito.verify(terminalSize,atLeastOnce()).getColumns();
     }
 
     @Test
-    void getHeight(){
+    void getHeight()
+    {
         LanternaScreenFactory lanternaScreenFactory = new LanternaScreenFactory(terminalFactory,fontpath.getFirst(),terminalSize);
         Assertions.assertEquals(lanternaScreenFactory.getHeight(), terminalSize.getRows());
         Mockito.verify(terminalSize,atLeastOnce()).getRows();

@@ -7,24 +7,30 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class LevelMenuTest {
+public class LevelMenuTest
+{
     private LevelMenu levelMenu;
 
     @BeforeEach
-    public void helper() {
+    public void helper()
+    {
         levelMenu = new LevelMenu();
     }
 
     @Test
-    public void testConstructor() {
+    public void testConstructor()
+    {
         assertEquals(levelMenu.getBackground(), "shopBackground");
+
         assertEquals(Button.Type.Level, levelMenu.getCurrentButton().getType());
         assertEquals(1, ((ButtonLevel) levelMenu.getCurrentButton()).getLevel());
+
         assertTrue(levelMenu.getCurrentButton().isSelected());
     }
 
     @Test
-    public void testSelectNext() {
+    public void testSelectNext()
+    {
         levelMenu.selectNext();
         Button nextButton = levelMenu.getCurrentButton();
         assertEquals(Button.Type.Level, nextButton.getType());
@@ -48,7 +54,8 @@ public class LevelMenuTest {
     }
 
     @Test
-    public void testSelectPrev() {
+    public void testSelectPrev()
+    {
         levelMenu.selectPrev();
         Button thirdButton = levelMenu.getCurrentButton();
         assertEquals(Button.Type.Level, thirdButton.getType());
@@ -72,7 +79,8 @@ public class LevelMenuTest {
     }
 
     @Test
-    public void testSelectBack() {
+    public void testSelectBack()
+    {
         levelMenu.selectBack();
         Button backButton = levelMenu.getCurrentButton();
         assertEquals(Button.Type.Back, backButton.getType());
