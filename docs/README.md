@@ -89,14 +89,13 @@ In the beginning of our project, the pattern wasn't being followed strictly. How
 To ensure the game runs without waiting for user input and without using threads to handle the input, we used the Game Loop Pattern. The Game Loop Pattern consists of a while loop that runs depending on the game state and keeps track of the time elapsed to ensure each iteration takes the same amount of time.
 ### Implementation Technicalities
 
-In order to make the Game Loop run even though the user didn't press a button, we created an enum with the possible input events that contains the `None`action, int that case the the loop runs and every control class related to the state in which the program is, does what is supposed to do if no key has been pressed, it can be nothing or it can be move the map and chicken.
 
+To ensure the Game Loop runs even if the user doesn’t press a button, we created an enum for possible input events, which includes the NoneAction. In this case, the loop runs, and every control class related to the current state of the program performs its intended action, whether it's doing nothing or moving the map and chicken.
 [Game Loop](https://gameprogrammingpatterns.com/game-loop.html)
 
 
 ## State Pattern
-The problem that we faced was the existence of many menus, independent of each other, to solve that problem we implemented the State Pattern, that way we were able to isolate every State of the game and give it independence to implement each one its own game logic.
-
+The problem we faced was the existence of many menus, each independent of the others. To solve this problem, we implemented the State Pattern, which allowed us to isolate each game state and give it its own independent game logic.
 <p align="center">
     <img src="png/uml/StateDiagram.png">
 </p>
@@ -106,30 +105,27 @@ The problem that we faced was the existence of many menus, independent of each o
 
 ### Implementation Technicalities
 
-In our implementation we have a abstract class [State](/src/main/java/com/chickengame/state/State.java) that contains a location T and based on the tipe of the template this State gets implemented by other classes.
-
+In our implementation, we have an abstract class [State\<T>](/src/main/java/com/chickengame/state/State.java) that contains a location T. Based on the type of the template, this state is implemented by other classes.
 
 
 ## Abstract Factory Pattern
 
-As previously mentioned in our game we have different states with different properties, to manage that problem we implemented the Abstract Factory Pattern.
-The Abstract Factory is the State\<T\> class, that class has the basic logic, but then is extended so that we can create controllers and viewer based on the model given.
+As mentioned earlier, our game has different states with different properties. To manage this, we implemented the Abstract Factory Pattern. The Abstract Factory is the State\<T> class, which contains the basic logic, but is then extended to create controllers and viewers based on the given model.
 
 ## ImageLoader
-In our game we highly depends on images, and to properly and efficiently load those images in to memory so that they can be printed by Lanterna, to solve that problem we created a class to load images into memory. It does that by reading an image in a specific path and load it into BufferedImage, from that on, it creates an `BasicTextImage`(class provided by Lanterna library) with the same size and goes pixel by pixel to copying the color from the BufferedImage to the `BasicTextImage`.
-
+Since our game heavily depends on images, we needed a way to efficiently load these images into memory so they could be displayed by Lanterna. To solve this, we created a class that reads images from a specific path and loads them into BufferedImage. Then, it creates a BasicTextImage (class provided by the Lanterna library) with the same size and copies the pixel colors from the BufferedImage to the BasicTextImage.
 [BasicTextImage](http://mabe02.github.io/lanterna/apidocs/3.0/com/googlecode/lanterna/graphics/BasicTextImage.html) 
 
 
 ### Development Progression
 
-In our game development we first thought drawing pixel by pixel, and with the resolution that we have (750x375) it would be impossible to have any functional game with that strategy, the FPS where around 3, after that we tried to draw BasicTextImage and it worked well getting up to 50 fps in game play.
+In our game development we first thought drawing pixel by pixel, and with the resolution that we have (750x375) it would be impossible to have any functional game with that strategy, the FPS where around 3. Afterward, we tried to draw BasicTextImage, and it worked well getting up to 50 fps in game play.
 ## Factory Pattern
-While we were creating our game, we needed a way to draw each element on the screen, our first approach was to create an element viewer to each element that extends `Viewer<T>` that way we were able to draw elements like platforms and buttons, but soon the number of elements raised and so the necessity to solve our problem differently, it was then when we thought about the `Factory Pattern`. The Factory Pattern allowed us to create all the viewers that we wanted without having a class for each one.
+While creating the game, we needed a way to draw each element on the screen. Our first approach was to create a viewer for each element that extends `Viewer<T>`. This allowed us to draw elements like platforms and buttons. However, as the number of elements grew, the need for a more scalable solution became apparent. That's when we decided to implement the `Factory Pattern`. The Factory Pattern allowed us to create all the viewers we wanted without having to create a separate class for each one.
 
 ### Implementation Technicalities
 
-In our game we have an abstract class `ViewerFactory<T>` wich is the abstract creator of `ObjectViewer<T>` and interface that is implemented by our concrete viewer(ButtonViewer, ChickenViewer, InvertedElementViewer ,ElementViewer), and our Factory has two concrete extencions, the ButtonViewerFactory and the ElementViewerFactory.
+In our game, we have an abstract class `ViewerFactory<T>`, which is the abstract creator of ObjectViewer<T>, and an interface that is implemented by our concrete viewers (ButtonViewer, ChickenViewer, InvertedElementViewer, ElementViewer). Our factory has two concrete extensions: the ButtonViewerFactory and the ElementViewerFactory.
 
 <p align="center">
   <img src="png/uml/FactoryPattern.png">
@@ -137,8 +133,7 @@ In our game we have an abstract class `ViewerFactory<T>` wich is the abstract cr
 
 ## FlyWeight Pattern
 
-While our game was being developed, we noticed that we were loading many images into memory and that most of those images were the same, to solve that problem we thought about the FlyWeight Pattern, by keeping a map of element names and their correspondent Viewer, we were able to load the image into memory only once and then if there was an element that needed to use that image again it would receive the same instance of viewer.
-
+While developing the game, we noticed that we were loading many images into memory, and most of these images were identical. To solve this, we implemented the Flyweight Pattern. By keeping a map of element names and their corresponding viewers, we were able to load each image into memory only once. If another element required the same image, it would simply receive the same viewer instance.
 
 ## Code Testing
 
