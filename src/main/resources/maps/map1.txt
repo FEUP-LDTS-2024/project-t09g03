@@ -165,7 +165,6 @@ platform 5240 170
 platform 5280 170
 platform 5320 170
 platform 5360 170
-platform 5400 170
 platform 3920 320
 platform 3960 320
 platform 4000 320
