@@ -84,7 +84,6 @@ platform 5240 -12
 platform 5280 -12
 platform 5320 -12
 platform 5360 -12
-platform 5400 -12
 platform 860 175
 platform 900 175
 platform 940 175
