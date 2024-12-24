@@ -62,6 +62,6 @@ public class GameEndStateTest {
 
 
         Assertions.assertNotNull(gameEndState.getStateController());
-        Assertions.assertNotNull(gameEndState.getStateController());
+        Assertions.assertNotNull(gameEndState.getStateViewer());
     }
 }

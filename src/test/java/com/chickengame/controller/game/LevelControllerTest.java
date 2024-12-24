@@ -8,6 +8,8 @@ import com.chickengame.model.game.elements.Element;
 import com.chickengame.model.game.map.LevelMap;
 import com.chickengame.model.game.map.Map;
 import com.chickengame.state.menus.GameEndState;
+import org.codehaus.groovy.ast.stmt.AssertStatement;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -81,7 +83,7 @@ public class LevelControllerTest {
 
         levelController.step(game,gui, GUI.Action.LEFT);
 
-        assert element1.getPosition().getX() == 5;
-        assert element1.getPosition().getY() == 10;
+        Assertions.assertEquals(element1.getPosition().getX(), 5);
+        Assertions.assertEquals(element1.getPosition().getY(), 10);
     }
 }
