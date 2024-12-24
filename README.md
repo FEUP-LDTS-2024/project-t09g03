@@ -54,8 +54,3 @@ Its has a Main Menu from which the player can select one of the different menus,
 
 # [Documentation](docs/README.md)
 
-
-
-
-
-

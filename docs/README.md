@@ -27,7 +27,7 @@ LDTS-2024-t09g03
 - [Code Testing]()
 
 #  Game Concept
-The idea of the game is to survive during the most amout of time in marathon mode and to finish each level in level mode, for that the player can use the `space` key to invert the gravity. In order to make the game more challenging there we added spikes that makes one lose on touch and also added object that push the player behind in order to make it fall of the map.
+The goal of the game is to survive during the most amount of time in marathon mode and to finish each level in level mode, for that the player can use the `space` key to invert the gravity. In order to make the game more challenging there we added spikes that makes one lose on touch and also added object that push the player behind in order to make it fall of the map.
 
 # Features
 
@@ -37,6 +37,7 @@ The idea of the game is to survive during the most amout of time in marathon mod
 - Shop Menu
 - Level Menu with 3 Levels
 - Game Over Menu
+- Win Menu
 - Infinite Map
 - Buttons
 - ImageLoader
@@ -44,25 +45,27 @@ The idea of the game is to survive during the most amout of time in marathon mod
 
 
 ## About Features
-- Move Up and Down: The basic mecanic of the game that alows the player to invert gravity in order to dodge obstacles.
+- Move Up and Down: The basic mechanic of the game that allows the player to invert gravity in order to dodge obstacles.
 
 - Original Skins: There are 9 original skins from which the player can choose.
 
-- Main Menu: A simple menu that apears when the game starts that allows the player to choose from `Play`, `Levels`, `Shop`, `Quit`,`?`.
+- Main Menu: A simple menu that appears when the game starts that allows the player to choose from `Play`, `Levels`, `Shop`, `Quit`,`?`.
 
-- Shop Menu: Can be selected from the Main Menu, is where the player can choose his skin, for that it uses the arrow keys `UP`, `DOWN`, `LEFT`, `RIGHT` to select the button and the enter to confirm the action either to change the skin or to go back to the Main Menu.
+- Shop Menu: Can be selected from the Main Menu, is where the player can choose his skin, for that it uses the arrow keys `UP`, `DOWN`, `LEFT`, `RIGHT` to select the button and to enter to confirm the action either to change the skin or to go back to the Main Menu.
 
-- Level Menu: It has the same select mecanic as shop and the player can choose one of the 3 maps available.
+- Level Menu: It has the same select mechanic as shop and the player can choose one of the 3 maps available.
 
-- Game Over Menu: Has two screens one from when the player looses and one from when the player wins, the wins screen can only been achived in Level mode.
+- Game Over Menu: When the player looses it appears a menu so it is possible to go back to the Main Menu. 
 
-- Infinite Map: As the name sugests is infinite, it consists in 3 maps replayed in a random sequence in order to achive the infinite perception, theres no way to win its just to now how far can you go.
+- Win Menu: When the player wins it appears a menu so it is possible to go back to Main Menu, this can only been achieved in LevelMode
+
+- Infinite Map: As the name sugests is infinite, it consists in 3 maps replayed in a random sequence in order to achive the infinite perception. However you can try to survive as long as possible.
 
 - Buttons: The Buttons can be selected using the arrow keys and pressed using the enter key.
 
 - ImageLoader: Our game is highly based in images and art that ourselves made, so that we have a class that reads png and loads them in to BasicTextImages wich furthermore will be drawn using Lanterna.
 
-- Death Mechanics: Theres two ways to die one is falling out of the map, that can be made wither from Up, Down, or Back. The other way of dying is by hiting an harm object(Object that can kills you).
+- Death Mechanics: There's two ways to die one is falling out of the map, that can be made wither from Up, Down, or Back. The other way of dying is by hiting an harm object(Object that can kills you).
 
 ## UML Structure
 
